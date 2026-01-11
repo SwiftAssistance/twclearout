@@ -25,14 +25,15 @@ import {
   X,
   Menu,
   Zap,
-  Home,
+  Home as HomeIcon,
   HardHat,
   Timer,
   FileText,
   Warehouse,
   Leaf,
   Plus,
-  Minus
+  Minus,
+  Mail
 } from 'lucide-react';
 
 // --- Components ---
@@ -45,30 +46,50 @@ const WhatsAppButton = () => (
     initial={{ y: 100, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
     whileHover={{ scale: 1.1, rotate: -3 }}
-    className="fixed bottom-6 right-6 z-[100] bg-[#25D366] text-white p-4 rounded-2xl shadow-[0_20px_50px_rgba(37,211,102,0.4)] flex items-center justify-center border-2 border-white group cursor-pointer"
+    className="fixed bottom-6 right-6 z-[100] bg-[#25D366] text-white p-4 rounded-2xl shadow-lg flex items-center justify-center border-2 border-white group cursor-pointer"
   >
     <MessageCircle fill="white" size={24} />
-    <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 font-black uppercase text-[10px] tracking-widest ml-0 group-hover:ml-3">Contact Desk</span>
+    <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 font-bold uppercase text-[10px] tracking-widest ml-0 group-hover:ml-3">WhatsApp Us</span>
   </motion.a>
 );
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   const navLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'Reviews', href: '#reviews' },
-    { name: 'Comparison', href: '#comparison' },
-    { name: 'FAQ', href: '#faq' }
+    { name: 'Home', href: '#hero', id: 'home' },
+    { name: 'Services', href: '#services', id: 'services' },
+    { name: 'Reviews', href: '#reviews', id: 'reviews' },
+    { name: 'Comparison', href: '#comparison', id: 'comparison' },
+    { name: 'FAQ', href: '#faq', id: 'faq' }
   ];
 
+  // Track scroll position to update active link highlight
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 100;
+      
+      navLinks.forEach(link => {
+        const element = document.querySelector(link.href);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(link.id);
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-0 w-full z-[100] bg-[#062a1f]/95 backdrop-blur-md border-b border-white/5 py-4 md:py-5 px-6">
+    <nav className="fixed top-0 w-full z-[100] bg-[#062a1f]/95 backdrop-blur-md border-b border-white/5 py-4 px-6">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo Section */}
         <motion.div 
           onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
-          whileHover={{ x: 5 }} 
           className="flex items-center gap-3 group cursor-pointer"
         >
           <img 
@@ -79,49 +100,52 @@ const Navbar = () => {
           />
           <div className="flex flex-col leading-none">
             <span className="text-lg font-black uppercase tracking-tighter text-white">TOTAL WASTE CLEAROUT</span>
-            <span className="text-[9px] font-bold text-[#16a34a] uppercase tracking-[0.2em] mt-1.5">Thames Valley Elite</span>
+            <span className="text-[9px] font-bold text-[#16a34a] uppercase tracking-[0.2em] mt-1">Thames Valley Elite</span>
           </div>
         </motion.div>
         
         {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-10">
+        <div className="hidden lg:flex items-center gap-8">
           {navLinks.map(link => (
-            <motion.a 
+            <a 
               key={link.name} 
               href={link.href} 
-              className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 hover:text-white transition-all relative group"
+              className={`text-[10px] font-black uppercase tracking-[0.3em] transition-all relative group flex flex-col items-center ${
+                activeSection === link.id ? 'text-white' : 'text-white/40 hover:text-white'
+              }`}
             >
               {link.name}
-              <motion.span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#16a34a] transition-all group-hover:w-full" />
-            </motion.a>
+              <motion.span 
+                initial={false}
+                animate={{ width: activeSection === link.id ? '100%' : '0%' }}
+                className="h-0.5 bg-[#16a34a] mt-1.5"
+              />
+            </a>
           ))}
         </div>
 
-        {/* Action Button & Mobile Toggle */}
         <div className="flex items-center gap-4">
-          <a href="tel:01753252500" className="hidden sm:flex items-center gap-4 text-white font-black group px-6 py-3 bg-white/5 rounded-sm hover:bg-[#16a34a] transition-all border border-white/10">
-            <Phone size={14} className="text-[#16a34a] group-hover:text-white" />
-            <span className="text-sm tracking-tighter uppercase italic">01753 252 500</span>
+          <a href="tel:01753252500" className="hidden sm:flex items-center gap-3 text-white font-bold px-5 py-2.5 bg-white/5 rounded-full hover:bg-[#16a34a] transition-all border border-white/10">
+            <Phone size={14} className="text-[#16a34a]" />
+            <span className="text-sm tracking-tight">01753 252 500</span>
           </a>
 
-          {/* Hamburger Menu Button */}
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-white p-2 hover:bg-white/5 rounded-sm transition-colors"
+            className="lg:hidden text-white p-2 hover:bg-white/5 rounded-full transition-colors"
           >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden absolute top-full left-0 w-full bg-[#062a1f] border-b border-white/10 overflow-hidden"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="lg:hidden absolute top-full left-0 w-full bg-[#062a1f] border-b border-white/10 overflow-hidden shadow-2xl"
           >
             <div className="flex flex-col p-8 gap-6">
               {navLinks.map((link) => (
@@ -129,17 +153,17 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-2xl font-black uppercase italic tracking-tighter text-white/60 hover:text-[#16a34a] transition-colors"
+                  className={`text-xl font-bold transition-colors flex items-center gap-3 ${
+                    activeSection === link.id ? 'text-[#16a34a]' : 'text-white/80'
+                  }`}
                 >
+                  {link.id === 'home' && <HomeIcon size={18} />}
                   {link.name}
                 </a>
               ))}
-              <hr className="border-white/5" />
-              <a 
-                href="tel:01753252500"
-                className="flex items-center justify-between bg-[#16a34a] text-white p-5 rounded-sm font-black uppercase tracking-widest text-xs"
-              >
-                Call Priority Line <Phone size={18} />
+              <div className="h-px bg-white/5" />
+              <a href="tel:01753252500" className="flex items-center justify-center gap-3 bg-[#16a34a] text-white py-4 rounded-xl font-bold uppercase tracking-widest text-xs">
+                <Phone size={16} /> Call Priority Line
               </a>
             </div>
           </motion.div>
@@ -150,46 +174,31 @@ const Navbar = () => {
 };
 
 const ServiceCard = ({ title, desc, icon: Icon, i }) => {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const cardRef = useRef(null);
-
-  const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-  };
 
   return (
     <motion.div 
       ref={cardRef}
-      onMouseMove={handleMouseMove}
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: i * 0.05 }}
-      whileHover={{ y: -15, scale: 1.02 }}
-      className="bg-white p-12 group transition-all duration-700 border border-black/5 cursor-pointer flex flex-col min-h-[420px] relative shadow-sm overflow-hidden"
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.4, delay: i * 0.05 }}
+      className="bg-white p-8 md:p-12 group transition-all duration-300 border border-black/5 flex flex-col min-h-[400px] relative shadow-sm overflow-hidden rounded-sm"
     >
-      <div 
-        className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"
-        style={{
-          background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(22, 163, 74, 0.15), transparent 40%)`,
-        }}
-      />
-      
-      <div className="w-16 h-16 bg-[#fcfaf7] border border-black/5 rounded-sm flex items-center justify-center mb-10 group-hover:bg-[#16a34a] transition-all duration-500 shadow-sm relative z-10">
-        <Icon className="text-[#062a1f] group-hover:text-white transition-colors" size={32} />
+      <div className="w-14 h-14 bg-[#fcfaf7] border border-black/5 rounded-xl flex items-center justify-center mb-8 group-hover:bg-[#16a34a] transition-all duration-300 relative z-10">
+        <Icon className="text-[#062a1f] group-hover:text-white transition-colors" size={28} />
       </div>
 
-      <h4 className="text-3xl font-black uppercase italic tracking-tighter mb-8 text-[#062a1f] group-hover:text-[#16a34a] transition-colors duration-500 leading-none relative z-10">
+      <h4 className="text-2xl font-black uppercase italic tracking-tight mb-6 text-[#062a1f] group-hover:text-[#16a34a] transition-colors relative z-10">
         {title}
       </h4>
-      <p className="text-black/50 group-hover:text-black/70 text-base leading-relaxed font-medium transition-colors duration-500 mb-10 italic relative z-10">
+      <p className="text-black/60 text-base leading-relaxed font-medium mb-10 italic relative z-10">
         {desc}
       </p>
       
-      <div className="mt-auto flex items-center gap-4 opacity-40 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 relative z-10">
-        <span className="text-[#16a34a] font-black uppercase text-[10px] tracking-[0.4em]">Inquiry Protocol</span>
-        <div className="h-px flex-grow bg-black/10 transition-colors" />
+      <div className="mt-auto flex items-center gap-4 opacity-40 group-hover:opacity-100 transition-all duration-300 relative z-10">
+        <span className="text-[#16a34a] font-bold uppercase text-[10px] tracking-widest">Inquiry Protocol</span>
+        <div className="h-px flex-grow bg-black/10" />
         <ChevronRight className="text-[#16a34a] group-hover:translate-x-2 transition-transform" size={20} />
       </div>
     </motion.div>
@@ -221,48 +230,48 @@ const ReviewSlider = () => {
   const prev = () => setCurrent((prev) => (prev - 1 + reviews.length) % reviews.length);
 
   return (
-    <section id="reviews" className="py-32 bg-white relative overflow-hidden border-y border-black/5 font-sans px-6">
+    <section id="reviews" className="py-24 md:py-32 bg-white relative overflow-hidden border-y border-black/5 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row items-end justify-between mb-24 gap-12">
+        <div className="flex flex-col lg:flex-row items-end justify-between mb-16 md:mb-24 gap-12">
           <div className="max-w-2xl">
             <p className="text-[#16a34a] font-black uppercase tracking-[0.5em] text-[10px] mb-6">Social Proof</p>
-            <h2 className="text-6xl md:text-8xl font-black italic uppercase tracking-tighter leading-[0.8] text-[#062a1f]">Verified <br />Service Logs.</h2>
+            <h2 className="text-5xl md:text-8xl font-black italic uppercase tracking-tighter leading-[0.8] text-[#062a1f]">Verified <br />Service Logs.</h2>
           </div>
           <div className="flex gap-4">
-            <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} onClick={prev} className="w-16 h-16 rounded-full border border-black/10 flex items-center justify-center hover:bg-[#062a1f] hover:text-white transition-all group cursor-pointer">
+            <button onClick={prev} className="w-14 h-14 md:w-16 md:h-16 rounded-full border border-black/10 flex items-center justify-center hover:bg-[#062a1f] hover:text-white transition-all group">
               <ChevronLeft className="group-hover:-translate-x-1 transition-transform" />
-            </motion.button>
-            <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} onClick={next} className="w-16 h-16 rounded-full border border-black/10 flex items-center justify-center hover:bg-[#062a1f] hover:text-white transition-all group cursor-pointer">
+            </button>
+            <button onClick={next} className="w-14 h-14 md:w-16 md:h-16 rounded-full border border-black/10 flex items-center justify-center hover:bg-[#062a1f] hover:text-white transition-all group">
               <ChevronRight className="group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+            </button>
           </div>
         </div>
 
-        <div className="relative min-h-[400px]">
+        <div className="relative min-h-[350px]">
           <AnimatePresence mode="wait">
             <motion.div 
               key={current}
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-[#fcfaf7] border border-black/5 p-8 lg:p-20 relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.4 }}
+              className="bg-[#fcfaf7] border border-black/5 p-8 md:p-20 relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
             >
-              <Quote className="text-[#16a34a] opacity-5 absolute top-10 right-10" size={120} />
+              <Quote className="text-[#16a34a] opacity-5 absolute top-10 right-10" size={80} />
               
               <div className="lg:col-span-8">
-                <div className="flex items-center gap-3 mb-10">
+                <div className="flex items-center gap-3 mb-8 md:mb-10">
                   <div className="flex gap-1 text-[#16a34a]">
-                    {[1,2,3,4,5].map(s => <Star key={s} fill="currentColor" size={14} />)}
+                    {[1,2,3,4,5].map(s => <Star key={s} fill="currentColor" size={12} />)}
                   </div>
-                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-black/30 border-l border-black/10 pl-4">Verified {reviews[current].service}</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-black/30 border-l border-black/10 pl-4 uppercase">Verified {reviews[current].service}</span>
                 </div>
-                <p className="text-3xl md:text-5xl font-bold italic leading-[1.1] text-[#062a1f] mb-12 italic">
+                <p className="text-2xl md:text-5xl font-bold italic leading-tight text-[#062a1f] mb-8 md:mb-12">
                   "{reviews[current].text}"
                 </p>
                 <div>
                   <h5 className="text-xl font-black uppercase italic tracking-tighter text-[#062a1f]">{reviews[current].name}</h5>
-                  <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#16a34a] mt-1">{reviews[current].location}</p>
+                  <p className="text-[11px] font-bold uppercase tracking-widest text-[#16a34a] mt-1">{reviews[current].location}</p>
                 </div>
               </div>
               <div className="lg:col-span-4 hidden lg:flex justify-end opacity-20">
@@ -293,7 +302,7 @@ export default function App() {
   const services = [
     { title: "Wait & Load Units", desc: "The elite skip alternative. Arrive, load, and vanish within 60 minutes. No permits required.", icon: Timer },
     { title: "Builders Refurb Waste", desc: "Heavy-duty removal of soil, rubble, and timber. Trade-grade reliability for local contractors.", icon: HardHat },
-    { title: "Residential Assets", desc: "Complete property clearing for relocations. Loft clearouts to full home stripping.", icon: Home },
+    { title: "Residential Assets", desc: "Complete property clearing for relocations. Loft clearouts to full home stripping.", icon: HomeIcon },
     { title: "Probate Specialist", desc: "A discreet, documentation-first service for executors during sensitive estate transfers.", icon: FileText },
     { title: "Commercial Office", desc: "Furniture recycling, IT disposal, and industrial debris removal for Windsor enterprises.", icon: Warehouse },
     { title: "Green Waste & Soil", desc: "Garden clearance and landscaping waste removal with a signature clean-sweep finish.", icon: Leaf }
@@ -315,45 +324,60 @@ export default function App() {
         
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 relative z-10">
           <div className="lg:col-span-7 flex flex-col justify-center">
-            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="inline-flex items-center gap-3 px-4 py-2 rounded-sm bg-white/5 border border-white/10 text-[#16a34a] text-[10px] font-black uppercase tracking-[0.4em] mb-10 w-fit">
+            <motion.div 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[#16a34a] text-[10px] font-bold uppercase tracking-[0.4em] mb-10 w-fit"
+            >
               <Zap size={12} className="fill-current" />
-              Berkshire's Priority Dispatch Active
+              Priority Dispatch Active
             </motion.div>
             
-            <h1 className="text-white text-5xl md:text-[9vw] font-black leading-[0.85] tracking-tighter mb-10 uppercase italic">
+            <h1 className="text-white text-5xl md:text-[8vw] font-black leading-[0.85] tracking-tighter mb-10 uppercase italic">
               WE CLEAR. <br />
               YOU <span className="text-[#16a34a] relative">RECLAIM.
-                <motion.span initial={{ width: 0 }} whileInView={{ width: '100%' }} className="absolute bottom-2 left-0 h-3 bg-[#16a34a]/20 -z-10" />
+                <motion.span initial={{ width: 0 }} whileInView={{ width: '100%' }} viewport={{ once: true }} className="absolute bottom-2 left-0 h-3 bg-[#16a34a]/20 -z-10" />
               </span>
             </h1>
 
             <p className="text-white/40 text-lg md:text-2xl max-w-xl mb-12 font-medium leading-tight italic">
-              "The professional alternative to skips. No heavy lifting, no driveway permits, and zero debris left behind."
+              "Professional alternative to skips. No heavy lifting, no driveway permits, and zero debris left behind."
             </p>
 
             <div className="flex flex-wrap gap-8 items-center">
-              <motion.a href="#quote" whileHover={{ scale: 1.05 }} className="bg-white text-[#062a1f] px-10 md:px-12 py-5 md:py-6 rounded-sm font-black uppercase tracking-[0.2em] text-[11px] md:text-[12px] shadow-2xl cursor-pointer">
+              <motion.a 
+                href="#quote" 
+                whileTap={{ scale: 0.95 }}
+                className="bg-[#16a34a] text-white px-10 md:px-12 py-5 md:py-6 rounded-full font-black uppercase tracking-widest text-[11px] shadow-2xl cursor-pointer"
+              >
                 Get Fixed Pricing
               </motion.a>
               <div className="flex flex-col border-l border-white/10 pl-8">
-                <div className="flex text-yellow-500 gap-1 mb-2"><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /></div>
-                <p className="text-white/30 text-[10px] font-black uppercase tracking-[0.3em]">5-Star Windsor Service</p>
+                <div className="flex text-yellow-500 gap-1 mb-2">
+                   {[1,2,3,4,5].map(s => <Star key={s} size={14} fill="currentColor" />)}
+                </div>
+                <p className="text-white/30 text-[10px] font-bold uppercase tracking-widest">5-Star Windsor Service</p>
               </div>
             </div>
           </div>
 
           <div id="quote" className="lg:col-span-5 flex flex-col justify-center">
-            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-[#fcfaf7] p-8 md:p-14 rounded-sm shadow-[40px_40px_0px_rgba(22,163,74,0.05)] text-black relative border border-black/5">
-              <div className="absolute -top-4 -left-4 md:-top-6 md:-left-6 w-16 h-16 md:w-20 md:h-20 bg-[#16a34a] rounded-full flex items-center justify-center text-white font-black italic text-center text-[9px] md:text-[11px] leading-none -rotate-12 shadow-2xl border-4 border-[#fcfaf7] z-20">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.98 }} 
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="bg-[#fcfaf7] p-8 md:p-14 rounded-2xl shadow-2xl text-black relative border border-black/5"
+            >
+              <div className="absolute -top-4 -left-4 w-16 h-16 bg-[#16a34a] rounded-full flex items-center justify-center text-white font-black italic text-center text-[9px] leading-none -rotate-12 shadow-xl border-4 border-[#fcfaf7] z-20">
                 98%<br/>ECO-DIVERTED
               </div>
               
               <AnimatePresence mode="wait">
                 {status === "SUCCESS" ? (
                   <motion.div key="success" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-20">
-                    <CheckCircle2 className="text-[#16a34a] mx-auto mb-6 animate-bounce" size={60} />
-                    <h3 className="text-3xl font-black uppercase italic tracking-tighter leading-none mb-4">Transmission <br/>Acknowledged.</h3>
-                    <p className="text-black/40 text-sm font-bold uppercase tracking-widest italic">A coordinator will call you in 15 mins.</p>
+                    <CheckCircle2 className="text-[#16a34a] mx-auto mb-6" size={60} />
+                    <h3 className="text-3xl font-black uppercase italic tracking-tighter mb-4 leading-none">Transmission <br/>Acknowledged.</h3>
+                    <p className="text-black/40 text-sm font-bold uppercase tracking-widest italic">We'll call you within 15 mins.</p>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-8">
@@ -364,7 +388,7 @@ export default function App() {
                       <input name="name" required placeholder="Full Name" className="w-full bg-transparent border-b border-black/10 py-4 text-sm outline-none focus:border-[#16a34a] transition-all font-bold placeholder:text-black/20" />
                       <input name="phone" required placeholder="Phone Number" className="w-full bg-transparent border-b border-black/10 py-4 text-sm outline-none focus:border-[#16a34a] transition-all font-bold placeholder:text-black/20" />
                       <input name="postcode" required placeholder="Postcode (SL / RG Corridor)" className="w-full bg-transparent border-b border-black/10 py-4 text-sm outline-none focus:border-[#16a34a] transition-all font-bold placeholder:text-black/20" />
-                      <button disabled={loading} className="w-full bg-[#062a1f] text-white font-black py-6 uppercase tracking-[0.3em] text-[12px] hover:bg-[#16a34a] transition-all flex items-center justify-center gap-3 mt-8 shadow-xl cursor-pointer">
+                      <button disabled={loading} className="w-full bg-[#062a1f] text-white font-black py-6 rounded-xl uppercase tracking-widest text-[12px] hover:bg-[#16a34a] transition-all flex items-center justify-center gap-3 mt-8 shadow-xl">
                         {loading ? <Loader2 className="animate-spin" size={18} /> : <span>Request Call Back <ArrowRight size={18} /></span>}
                       </button>
                     </div>
@@ -378,24 +402,24 @@ export default function App() {
 
       {/* Trust bar */}
       <section className="bg-white border-b border-black/5 py-10 px-6 overflow-hidden">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-center lg:justify-between items-center gap-8 md:gap-12 opacity-40 grayscale group hover:grayscale-0 transition-all duration-700">
-          <div className="flex items-center gap-3 font-black uppercase tracking-widest text-[9px] italic shrink-0"><Check size={18} className="text-[#16a34a]" strokeWidth={4}/> EA Licensed Specialists</div>
-          <div className="flex items-center gap-3 font-black uppercase tracking-widest text-[9px] italic shrink-0"><Check size={18} className="text-[#16a34a]" strokeWidth={4}/> 95% Diversion Rate</div>
-          <div className="flex items-center gap-3 font-black uppercase tracking-widest text-[9px] italic shrink-0"><Check size={18} className="text-[#16a34a]" strokeWidth={4}/> Same-Day Rapid Response</div>
-          <div className="flex items-center gap-3 font-black uppercase tracking-widest text-[9px] italic shrink-0"><Check size={18} className="text-[#16a34a]" strokeWidth={4}/> £10M Public Liability</div>
+        <div className="max-w-7xl mx-auto flex flex-wrap justify-center lg:justify-between items-center gap-8 opacity-40 grayscale">
+          <div className="flex items-center gap-3 font-bold uppercase tracking-widest text-[9px] italic"><Check size={18} className="text-[#16a34a]" strokeWidth={4}/> EA Licensed</div>
+          <div className="flex items-center gap-3 font-bold uppercase tracking-widest text-[9px] italic"><Check size={18} className="text-[#16a34a]" strokeWidth={4}/> 95% Diversion</div>
+          <div className="flex items-center gap-3 font-bold uppercase tracking-widest text-[9px] italic"><Check size={18} className="text-[#16a34a]" strokeWidth={4}/> Same-Day Response</div>
+          <div className="flex items-center gap-3 font-bold uppercase tracking-widest text-[9px] italic"><Check size={18} className="text-[#16a34a]" strokeWidth={4}/> Fully Insured</div>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section id="services" className="py-32 px-6">
+      <section id="services" className="py-24 md:py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
             {services.map((s, i) => <ServiceCard key={i} i={i} {...s} />)}
           </div>
           <div className="flex justify-center">
-             <motion.button whileHover={{ scale: 1.05, x: 5 }} className="group flex items-center gap-6 text-[11px] font-black uppercase tracking-[0.5em] text-[#062a1f] border-b-2 border-[#16a34a] pb-3 hover:text-[#16a34a] transition-all italic cursor-pointer">
+             <motion.a href="#quote" className="group flex items-center gap-6 text-[11px] font-black uppercase tracking-[0.5em] text-[#062a1f] border-b-2 border-[#16a34a] pb-3 hover:text-[#16a34a] transition-all italic cursor-pointer">
                Explore Full Fleet Capabilities <ArrowRight className="group-hover:translate-x-3 transition-transform" />
-             </motion.button>
+             </motion.a>
           </div>
         </div>
       </section>
@@ -403,13 +427,13 @@ export default function App() {
       <ReviewSlider />
 
       {/* Comparison Section */}
-      <section id="comparison" className="py-32 bg-[#fcfaf7] overflow-hidden px-6">
+      <section id="comparison" className="py-24 md:py-32 bg-[#fcfaf7] overflow-hidden px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="max-w-xl mb-20">
+          <div className="max-w-xl mb-16 md:mb-20">
             <p className="text-[#16a34a] font-black uppercase tracking-[0.5em] text-[10px] mb-4">The Advantage</p>
             <h2 className="text-5xl md:text-7xl font-black italic uppercase tracking-tighter leading-none text-[#062a1f]">Why Skips <br />Are Legacy.</h2>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-black/5 border border-black/5 shadow-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-black/5 border border-black/5 shadow-2xl rounded-2xl overflow-hidden">
             <div className="bg-white p-8 md:p-12">
               <h4 className="text-2xl font-black uppercase italic tracking-tighter mb-10 text-red-600 flex items-center gap-3"><X size={24} /> Legacy Skips</h4>
               <ul className="space-y-6">
@@ -432,7 +456,7 @@ export default function App() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-32 bg-white px-6 border-t border-black/5">
+      <section id="faq" className="py-24 md:py-32 bg-white px-6 border-t border-black/5">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24">
           <div>
             <p className="text-[#16a34a] font-black uppercase tracking-[0.5em] text-[10px] mb-6">Expertise</p>
@@ -455,33 +479,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Coverage Map Section */}
-      <section id="coverage" className="py-32 bg-[#fcfaf7] border-y border-black/5 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 items-center">
-          <div>
-            <p className="text-[#16a34a] font-black uppercase tracking-[0.5em] text-[10px] mb-6">Territory</p>
-            <h2 className="text-6xl md:text-7xl font-black italic uppercase tracking-tighter mb-12 text-[#062a1f] leading-[0.9]">Thames <br />Valley HQ.</h2>
-            <div className="grid grid-cols-2 gap-y-6 gap-x-12 border-t-2 border-black pt-12">
-              {['Windsor SL4', 'Ascot SL5', 'Reading RG1', 'Slough SL1', 'Maidenhead SL6', 'Bracknell RG12', 'Woking GU21', 'Guildford GU1'].map(town => (
-                <div key={town} className="flex items-center gap-4 group cursor-default">
-                  <div className="w-1.5 h-1.5 bg-[#16a34a] rounded-full group-hover:scale-[2.5] transition-transform" />
-                  <span className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] text-black/50 group-hover:text-[#16a34a] transition-colors italic">{town}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="relative h-[400px] md:h-[550px] w-full bg-white border border-black/10 rounded-sm overflow-hidden shadow-2xl group">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d159152.05445214044!2d-0.6723235478496417!3d51.41163486026955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487664687259160d%3A0xe726107b34b172a1!2sWindsor!5e0!3m2!1sen!2suk!4v1705000000000!5m2!1sen!2suk" 
-              width="100%" height="100%" style={{ border: 0, filter: 'grayscale(1) contrast(1.1) invert(0.05)' }} 
-              allowFullScreen="" loading="lazy" title="Coverage Map"
-            />
-            <div className="absolute inset-0 bg-[#062a1f]/10 pointer-events-none group-hover:opacity-0 transition-opacity duration-1000" />
-            <div className="absolute bottom-6 right-6 md:bottom-10 md:right-10 bg-[#16a34a] text-white px-6 md:px-10 py-3 md:py-4 text-[9px] md:text-[11px] font-black uppercase tracking-[0.5em] shadow-2xl italic animate-pulse border border-white/20">90-Min Response Zone</div>
-          </div>
-        </div>
-      </section>
-
       {/* Massive Final CTA */}
       <section className="py-32 md:py-48 bg-[#062a1f] overflow-hidden relative border-y border-white/5 px-6">
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
@@ -490,7 +487,7 @@ export default function App() {
             DONE BY <br /><span className="text-[#16a34a]">LUNCH.</span>
           </h2>
           <div className="flex flex-col md:flex-row justify-center gap-10 md:gap-12 items-center">
-            <motion.a whileHover={{ scale: 1.05, y: -5 }} href="#quote" className="bg-white text-[#062a1f] px-16 md:px-20 py-6 md:py-8 rounded-sm font-black uppercase tracking-[0.4em] text-[11px] md:text-[13px] shadow-2xl w-full md:w-auto hover:bg-[#16a34a] hover:text-white transition-all cursor-pointer">Request Direct Price</motion.a>
+            <motion.a whileTap={{ scale: 0.95 }} href="#quote" className="bg-white text-[#062a1f] px-16 md:px-20 py-6 md:py-8 rounded-full font-black uppercase tracking-widest text-[11px] md:text-[13px] shadow-2xl w-full md:w-auto hover:bg-[#16a34a] hover:text-white transition-all">Request Direct Price</motion.a>
             <div className="h-px w-24 bg-white/10 hidden md:block" />
             <a href="tel:01753252500" className="flex items-center justify-center gap-6 md:gap-8 text-2xl md:text-4xl font-black italic uppercase tracking-tighter text-white hover:text-[#16a34a] transition-all">
               <Phone size={32} className="text-[#16a34a]" /> 01753 252 500
@@ -499,39 +496,85 @@ export default function App() {
         </div>
       </section>
 
-      {/* Mega Footer */}
-      <footer className="bg-[#062a1f] text-white pt-24 md:pt-32 pb-12 border-t border-white/5 px-6">
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-24 md:mb-40">
-            <div className="md:col-span-6">
-              <div className="flex items-center gap-4 mb-10">
-                <img src="/logo.webp" alt="Logo" className="w-12 h-12 object-contain brightness-125" onError={(e) => { e.target.src = 'https://via.placeholder.com/40?text=TWC'; }} />
-                <span className="text-3xl font-black uppercase tracking-tighter text-white leading-none">TOTAL WASTE <br/>CLEAROUT</span>
+      {/* Mega Footer - REDESIGNED */}
+      <footer className="bg-[#051a14] text-white pt-24 pb-12 border-t border-white/5 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+            {/* Column 1: Brand */}
+            <div className="space-y-8">
+              <div className="flex items-center gap-4">
+                <img src="/logo.webp" alt="Logo" className="w-12 h-12 object-contain" onError={(e) => { e.target.src = 'https://via.placeholder.com/40?text=TWC'; }} />
+                <span className="text-2xl font-black uppercase tracking-tighter text-white leading-none">TOTAL WASTE <br/>CLEAROUT</span>
               </div>
-              <p className="text-white/20 max-w-sm text-lg md:text-xl font-medium leading-relaxed mb-12 italic">The Thames Valley standard for professional waste management. High-ticket service for high-stakes environments.</p>
-              <div className="flex gap-6">
-                <a href="#" className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/30 hover:bg-[#16a34a] transition-all bg-white/5 group cursor-pointer"><Instagram size={24} className="group-hover:scale-110 transition-transform" /></a>
-                <a href="#" className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/30 hover:bg-[#16a34a] transition-all bg-white/5 group cursor-pointer"><Facebook size={24} className="group-hover:scale-110 transition-transform" /></a>
+              <p className="text-white/40 text-sm leading-relaxed max-w-xs">
+                The Thames Valley standard for professional waste management. Elite service for residential and commercial environments.
+              </p>
+              <div className="flex gap-4">
+                <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#16a34a] transition-all">
+                  <Instagram size={18} />
+                </a>
+                <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#16a34a] transition-all">
+                  <Facebook size={18} />
+                </a>
               </div>
             </div>
-            <div className="md:col-span-3">
-              <p className="text-[#16a34a] font-black uppercase tracking-widest text-[10px] mb-12">Fleet Assets</p>
-              <ul className="space-y-6 font-black uppercase text-[11px] tracking-[0.3em] text-white/30">
-                {['Wait & Load Units', 'Builders Waste', 'Residential Assets', 'Probate Logistics'].map(item => (<li key={item}><a href="#" className="hover:text-white transition-colors">{item}</a></li>))}
+
+            {/* Column 2: Services */}
+            <div>
+              <h4 className="text-[#16a34a] font-bold uppercase tracking-widest text-xs mb-8">Service Areas</h4>
+              <ul className="space-y-4 text-sm text-white/50">
+                {['Wait & Load Units', 'Builders Waste', 'Residential Clearing', 'Probate Specialist', 'Office Logistics'].map(item => (
+                  <li key={item}><a href="#services" className="hover:text-white transition-colors">{item}</a></li>
+                ))}
               </ul>
             </div>
-            <div className="md:col-span-3">
-              <p className="text-[#16a34a] font-black uppercase tracking-widest text-[10px] mb-12">Direct Dial</p>
-              <a href="tel:01753252500" className="text-3xl md:text-4xl font-black italic uppercase hover:text-[#16a34a] transition-colors block mb-8 tracking-tighter">01753 252 500</a>
-              <div className="space-y-3 text-white/20 text-[11px] font-bold uppercase tracking-[0.2em] italic"><p>Windsor HQ — SL4 Corridor</p><p>Waste Carrier CBDU12345</p></div>
-              <motion.button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} whileHover={{ y: -5 }} className="flex items-center gap-3 text-[11px] font-black uppercase tracking-[0.4em] text-white/20 hover:text-white mt-20 transition-all border-b border-white/10 pb-2 cursor-pointer bg-transparent">
-                <ArrowUp size={14} /> Back to Start
+
+            {/* Column 3: Contact */}
+            <div>
+              <h4 className="text-[#16a34a] font-bold uppercase tracking-widest text-xs mb-8">Get In Touch</h4>
+              <ul className="space-y-4">
+                <li>
+                  <a href="tel:01753252500" className="flex items-center gap-3 text-white/70 hover:text-white transition-colors">
+                    <Phone size={16} className="text-[#16a34a]" />
+                    <span className="font-bold">01753 252 500</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:info@twclearout.co.uk" className="flex items-center gap-3 text-white/70 hover:text-white transition-colors">
+                    <Mail size={16} className="text-[#16a34a]" />
+                    <span>info@twclearout.co.uk</span>
+                  </a>
+                </li>
+                <li className="flex items-start gap-3 text-white/70">
+                  <MapPin size={16} className="text-[#16a34a] mt-1 shrink-0" />
+                  <span className="text-xs leading-relaxed">Windsor HQ, Berkshire<br />SL4 Corridor, United Kingdom</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 4: Corporate */}
+            <div>
+              <h4 className="text-[#16a34a] font-bold uppercase tracking-widest text-xs mb-8">Corporate</h4>
+              <ul className="space-y-4 text-sm text-white/50">
+                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Cookie Policy</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Environment Agency License</a></li>
+              </ul>
+              <motion.button 
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="mt-10 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white/20 hover:text-white transition-all"
+              >
+                <ArrowUp size={14} /> Back to top
               </motion.button>
             </div>
           </div>
-          <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10 text-[10px] font-black uppercase tracking-[0.5em] text-white/10">
-            <p>© 2026 TOTAL WASTE CLEAROUT LTD. ALL RIGHTS RESERVED.</p>
-            <div className="flex gap-10 md:gap-14"><a href="#" className="hover:text-white transition-colors">Compliance</a><a href="#" className="hover:text-white transition-colors">Privacy</a></div>
+
+          <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-bold uppercase tracking-widest text-white/20">
+            <p>© 2026 TOTAL WASTE CLEAROUT LTD. COMPANY REGISTERED IN ENGLAND.</p>
+            <div className="flex gap-8">
+              <span>Carrier License: CBDU12345</span>
+            </div>
           </div>
         </div>
       </footer>
