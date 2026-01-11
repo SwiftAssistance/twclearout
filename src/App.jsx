@@ -23,6 +23,7 @@ import {
   ChevronRight,
   ChevronLeft,
   X,
+  Menu,
   Zap,
   Home,
   HardHat,
@@ -51,42 +52,102 @@ const WhatsAppButton = () => (
   </motion.a>
 );
 
-const Navbar = () => (
-  <nav className="fixed top-0 w-full z-50 bg-[#062a1f] border-b border-white/5 py-5 px-6">
-    <div className="max-w-7xl mx-auto flex justify-between items-center">
-      <motion.div whileHover={{ x: 5 }} className="flex items-center gap-3 group cursor-pointer">
-        <img 
-          src="logo.webp" 
-          alt="TOTAL WASTE CLEAROUT" 
-          className="w-10 h-10 object-contain brightness-125"
-          onError={(e) => { e.target.src = 'https://via.placeholder.com/40?text=TWC'; }}
-        />
-        <div className="flex flex-col leading-none">
-          <span className="text-lg font-black uppercase tracking-tighter text-white">TOTAL WASTE CLEAROUT</span>
-          <span className="text-[9px] font-bold text-[#16a34a] uppercase tracking-[0.2em] mt-1.5 tracking-widest">Thames Valley Elite</span>
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const navLinks = [
+    { name: 'Services', href: '#services' },
+    { name: 'Reviews', href: '#reviews' },
+    { name: 'Comparison', href: '#comparison' },
+    { name: 'FAQ', href: '#faq' }
+  ];
+
+  return (
+    <nav className="fixed top-0 w-full z-[100] bg-[#062a1f]/95 backdrop-blur-md border-b border-white/5 py-4 md:py-5 px-6">
+      <div className="max-w-7xl mx-auto flex justify-between items-center">
+        {/* Logo Section */}
+        <motion.div 
+          onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
+          whileHover={{ x: 5 }} 
+          className="flex items-center gap-3 group cursor-pointer"
+        >
+          <img 
+            src="/logo.webp" 
+            alt="TOTAL WASTE CLEAROUT" 
+            className="w-10 h-10 object-contain brightness-125"
+            onError={(e) => { e.target.src = 'https://via.placeholder.com/40?text=TWC'; }}
+          />
+          <div className="flex flex-col leading-none">
+            <span className="text-lg font-black uppercase tracking-tighter text-white">TOTAL WASTE CLEAROUT</span>
+            <span className="text-[9px] font-bold text-[#16a34a] uppercase tracking-[0.2em] mt-1.5">Thames Valley Elite</span>
+          </div>
+        </motion.div>
+        
+        {/* Desktop Links */}
+        <div className="hidden lg:flex items-center gap-10">
+          {navLinks.map(link => (
+            <motion.a 
+              key={link.name} 
+              href={link.href} 
+              className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 hover:text-white transition-all relative group"
+            >
+              {link.name}
+              <motion.span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#16a34a] transition-all group-hover:w-full" />
+            </motion.a>
+          ))}
         </div>
-      </motion.div>
-      
-      <div className="hidden lg:flex items-center gap-10">
-        {['Services', 'Reviews', 'Comparison', 'FAQ'].map(item => (
-          <motion.a 
-            key={item} 
-            href={`#${item.toLowerCase()}`} 
-            className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 hover:text-white transition-all relative group"
+
+        {/* Action Button & Mobile Toggle */}
+        <div className="flex items-center gap-4">
+          <a href="tel:01753252500" className="hidden sm:flex items-center gap-4 text-white font-black group px-6 py-3 bg-white/5 rounded-sm hover:bg-[#16a34a] transition-all border border-white/10">
+            <Phone size={14} className="text-[#16a34a] group-hover:text-white" />
+            <span className="text-sm tracking-tighter uppercase italic">01753 252 500</span>
+          </a>
+
+          {/* Hamburger Menu Button */}
+          <button 
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden text-white p-2 hover:bg-white/5 rounded-sm transition-colors"
           >
-            {item}
-            <motion.span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-[#16a34a] transition-all group-hover:w-full" />
-          </motion.a>
-        ))}
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
 
-      <a href="tel:01753252500" className="flex items-center gap-4 text-white font-black group px-6 py-3 bg-white/5 rounded-sm hover:bg-[#16a34a] transition-all border border-white/10">
-        <Phone size={14} className="text-[#16a34a] group-hover:text-white" />
-        <span className="text-sm tracking-tighter uppercase italic">01753 252 500</span>
-      </a>
-    </div>
-  </nav>
-);
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden absolute top-full left-0 w-full bg-[#062a1f] border-b border-white/10 overflow-hidden"
+          >
+            <div className="flex flex-col p-8 gap-6">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="text-2xl font-black uppercase italic tracking-tighter text-white/60 hover:text-[#16a34a] transition-colors"
+                >
+                  {link.name}
+                </a>
+              ))}
+              <hr className="border-white/5" />
+              <a 
+                href="tel:01753252500"
+                className="flex items-center justify-between bg-[#16a34a] text-white p-5 rounded-sm font-black uppercase tracking-widest text-xs"
+              >
+                Call Priority Line <Phone size={18} />
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
+};
 
 const ServiceCard = ({ title, desc, icon: Icon, i }) => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -108,7 +169,6 @@ const ServiceCard = ({ title, desc, icon: Icon, i }) => {
       whileHover={{ y: -15, scale: 1.02 }}
       className="bg-white p-12 group transition-all duration-700 border border-black/5 cursor-pointer flex flex-col min-h-[420px] relative shadow-sm overflow-hidden"
     >
-      {/* Magnetic Glow Effect */}
       <div 
         className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"
         style={{
@@ -186,7 +246,7 @@ const ReviewSlider = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-[#fcfaf7] border border-black/5 p-12 lg:p-20 relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
+              className="bg-[#fcfaf7] border border-black/5 p-8 lg:p-20 relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
             >
               <Quote className="text-[#16a34a] opacity-5 absolute top-10 right-10" size={120} />
               
@@ -195,7 +255,7 @@ const ReviewSlider = () => {
                   <div className="flex gap-1 text-[#16a34a]">
                     {[1,2,3,4,5].map(s => <Star key={s} fill="currentColor" size={14} />)}
                   </div>
-                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-black/30 border-l border-black/10 pl-4 uppercase">Verified {reviews[current].service}</span>
+                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-black/30 border-l border-black/10 pl-4">Verified {reviews[current].service}</span>
                 </div>
                 <p className="text-3xl md:text-5xl font-bold italic leading-[1.1] text-[#062a1f] mb-12 italic">
                   "{reviews[current].text}"
@@ -260,19 +320,19 @@ export default function App() {
               Berkshire's Priority Dispatch Active
             </motion.div>
             
-            <h1 className="text-white text-6xl md:text-[9vw] font-black leading-[0.8] tracking-tighter mb-10 uppercase italic">
+            <h1 className="text-white text-5xl md:text-[9vw] font-black leading-[0.85] tracking-tighter mb-10 uppercase italic">
               WE CLEAR. <br />
               YOU <span className="text-[#16a34a] relative">RECLAIM.
                 <motion.span initial={{ width: 0 }} whileInView={{ width: '100%' }} className="absolute bottom-2 left-0 h-3 bg-[#16a34a]/20 -z-10" />
               </span>
             </h1>
 
-            <p className="text-white/40 text-xl md:text-2xl max-w-xl mb-12 font-medium leading-tight italic">
+            <p className="text-white/40 text-lg md:text-2xl max-w-xl mb-12 font-medium leading-tight italic">
               "The professional alternative to skips. No heavy lifting, no driveway permits, and zero debris left behind."
             </p>
 
             <div className="flex flex-wrap gap-8 items-center">
-              <motion.a href="#quote" whileHover={{ scale: 1.05 }} className="bg-white text-[#062a1f] px-12 py-6 rounded-sm font-black uppercase tracking-[0.2em] text-[12px] shadow-2xl cursor-pointer">
+              <motion.a href="#quote" whileHover={{ scale: 1.05 }} className="bg-white text-[#062a1f] px-10 md:px-12 py-5 md:py-6 rounded-sm font-black uppercase tracking-[0.2em] text-[11px] md:text-[12px] shadow-2xl cursor-pointer">
                 Get Fixed Pricing
               </motion.a>
               <div className="flex flex-col border-l border-white/10 pl-8">
@@ -283,8 +343,8 @@ export default function App() {
           </div>
 
           <div id="quote" className="lg:col-span-5 flex flex-col justify-center">
-            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-[#fcfaf7] p-10 md:p-14 rounded-sm shadow-[40px_40px_0px_rgba(22,163,74,0.05)] text-black relative border border-black/5">
-              <div className="absolute -top-6 -left-6 w-20 h-20 bg-[#16a34a] rounded-full flex items-center justify-center text-white font-black italic text-center text-[11px] leading-none -rotate-12 shadow-2xl border-4 border-[#fcfaf7] z-20">
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-[#fcfaf7] p-8 md:p-14 rounded-sm shadow-[40px_40px_0px_rgba(22,163,74,0.05)] text-black relative border border-black/5">
+              <div className="absolute -top-4 -left-4 md:-top-6 md:-left-6 w-16 h-16 md:w-20 md:h-20 bg-[#16a34a] rounded-full flex items-center justify-center text-white font-black italic text-center text-[9px] md:text-[11px] leading-none -rotate-12 shadow-2xl border-4 border-[#fcfaf7] z-20">
                 98%<br/>ECO-DIVERTED
               </div>
               
@@ -298,7 +358,7 @@ export default function App() {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-8">
                     <div className="border-b-2 border-black pb-6">
-                      <h3 className="text-4xl font-black uppercase italic tracking-tighter leading-none">Instant <br />Estimate</h3>
+                      <h3 className="text-3xl md:text-4xl font-black uppercase italic tracking-tighter leading-none">Instant <br />Estimate</h3>
                     </div>
                     <div className="space-y-5">
                       <input name="name" required placeholder="Full Name" className="w-full bg-transparent border-b border-black/10 py-4 text-sm outline-none focus:border-[#16a34a] transition-all font-bold placeholder:text-black/20" />
@@ -317,12 +377,12 @@ export default function App() {
       </section>
 
       {/* Trust bar */}
-      <section className="bg-white border-b border-black/5 py-10 px-6">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-center lg:justify-between items-center gap-12 opacity-40 grayscale group hover:grayscale-0 transition-all duration-700">
-          <div className="flex items-center gap-3 font-black uppercase tracking-widest text-[9px] italic"><Check size={18} className="text-[#16a34a]" strokeWidth={4}/> EA Licensed Specialists</div>
-          <div className="flex items-center gap-3 font-black uppercase tracking-widest text-[9px] italic"><Check size={18} className="text-[#16a34a]" strokeWidth={4}/> 95% Diversion Rate</div>
-          <div className="flex items-center gap-3 font-black uppercase tracking-widest text-[9px] italic"><Check size={18} className="text-[#16a34a]" strokeWidth={4}/> Same-Day Rapid Response</div>
-          <div className="flex items-center gap-3 font-black uppercase tracking-widest text-[9px] italic"><Check size={18} className="text-[#16a34a]" strokeWidth={4}/> £10M Public Liability</div>
+      <section className="bg-white border-b border-black/5 py-10 px-6 overflow-hidden">
+        <div className="max-w-7xl mx-auto flex flex-wrap justify-center lg:justify-between items-center gap-8 md:gap-12 opacity-40 grayscale group hover:grayscale-0 transition-all duration-700">
+          <div className="flex items-center gap-3 font-black uppercase tracking-widest text-[9px] italic shrink-0"><Check size={18} className="text-[#16a34a]" strokeWidth={4}/> EA Licensed Specialists</div>
+          <div className="flex items-center gap-3 font-black uppercase tracking-widest text-[9px] italic shrink-0"><Check size={18} className="text-[#16a34a]" strokeWidth={4}/> 95% Diversion Rate</div>
+          <div className="flex items-center gap-3 font-black uppercase tracking-widest text-[9px] italic shrink-0"><Check size={18} className="text-[#16a34a]" strokeWidth={4}/> Same-Day Rapid Response</div>
+          <div className="flex items-center gap-3 font-black uppercase tracking-widest text-[9px] italic shrink-0"><Check size={18} className="text-[#16a34a]" strokeWidth={4}/> £10M Public Liability</div>
         </div>
       </section>
 
@@ -347,10 +407,10 @@ export default function App() {
         <div className="max-w-7xl mx-auto">
           <div className="max-w-xl mb-20">
             <p className="text-[#16a34a] font-black uppercase tracking-[0.5em] text-[10px] mb-4">The Advantage</p>
-            <h2 className="text-6xl md:text-7xl font-black italic uppercase tracking-tighter leading-none text-[#062a1f]">Why Skips <br />Are Legacy.</h2>
+            <h2 className="text-5xl md:text-7xl font-black italic uppercase tracking-tighter leading-none text-[#062a1f]">Why Skips <br />Are Legacy.</h2>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-black/5 border border-black/5 shadow-2xl">
-            <div className="bg-white p-12">
+            <div className="bg-white p-8 md:p-12">
               <h4 className="text-2xl font-black uppercase italic tracking-tighter mb-10 text-red-600 flex items-center gap-3"><X size={24} /> Legacy Skips</h4>
               <ul className="space-y-6">
                 {['Council permits required', 'Manual labor required (By You)', 'Neighbours fill it up', 'Driveway damage risk'].map(item => (
@@ -358,7 +418,7 @@ export default function App() {
                 ))}
               </ul>
             </div>
-            <div className="bg-[#062a1f] p-12 relative overflow-hidden">
+            <div className="bg-[#062a1f] p-8 md:p-12 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#16a34a] opacity-10 blur-3xl" />
               <h4 className="text-2xl font-black uppercase italic tracking-tighter mb-10 text-[#16a34a] flex items-center gap-3"><Check size={24} /> Total Waste Clearout</h4>
               <ul className="space-y-6">
@@ -376,18 +436,18 @@ export default function App() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24">
           <div>
             <p className="text-[#16a34a] font-black uppercase tracking-[0.5em] text-[10px] mb-6">Expertise</p>
-            <h2 className="text-6xl font-black italic uppercase tracking-tighter leading-none text-[#062a1f] mb-12">Inquiry <br />Briefings.</h2>
+            <h2 className="text-5xl md:text-6xl font-black italic uppercase tracking-tighter leading-none text-[#062a1f] mb-12">Inquiry <br />Briefings.</h2>
             <a href="tel:01753252500" className="inline-flex items-center gap-4 text-xs font-black uppercase tracking-[0.4em] border-b-2 border-black pb-2 hover:text-[#16a34a] hover:border-[#16a34a] transition-all italic">Direct Priority Line</a>
           </div>
           <div className="space-y-4">
             {faqs.map((f, i) => (
               <div key={i} className="border-b border-black/10 overflow-hidden">
-                <button onClick={() => setOpenFAQ(openFAQ === i ? -1 : i)} className="w-full py-10 flex justify-between items-center text-left hover:text-[#16a34a] transition-colors group cursor-pointer">
-                  <span className="text-2xl font-black uppercase italic tracking-tighter leading-none">{f.q}</span>
-                  {openFAQ === i ? <Minus size={20} /> : <Plus size={20} className="group-hover:rotate-90 transition-transform" />}
+                <button onClick={() => setOpenFAQ(openFAQ === i ? -1 : i)} className="w-full py-8 md:py-10 flex justify-between items-center text-left hover:text-[#16a34a] transition-colors group cursor-pointer">
+                  <span className="text-xl md:text-2xl font-black uppercase italic tracking-tighter leading-none pr-4">{f.q}</span>
+                  {openFAQ === i ? <Minus size={20} className="shrink-0" /> : <Plus size={20} className="group-hover:rotate-90 transition-transform shrink-0" />}
                 </button>
                 <AnimatePresence>
-                  {openFAQ === i && <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="pb-10 text-black/50 text-lg font-medium leading-relaxed italic">{f.a}</motion.div>}
+                  {openFAQ === i && <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="pb-10 text-black/50 text-base md:text-lg font-medium leading-relaxed italic">{f.a}</motion.div>}
                 </AnimatePresence>
               </div>
             ))}
@@ -397,58 +457,58 @@ export default function App() {
 
       {/* Coverage Map Section */}
       <section id="coverage" className="py-32 bg-[#fcfaf7] border-y border-black/5 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 items-center">
           <div>
             <p className="text-[#16a34a] font-black uppercase tracking-[0.5em] text-[10px] mb-6">Territory</p>
-            <h2 className="text-7xl font-black italic uppercase tracking-tighter mb-12 text-[#062a1f] leading-[0.9]">Thames <br />Valley HQ.</h2>
+            <h2 className="text-6xl md:text-7xl font-black italic uppercase tracking-tighter mb-12 text-[#062a1f] leading-[0.9]">Thames <br />Valley HQ.</h2>
             <div className="grid grid-cols-2 gap-y-6 gap-x-12 border-t-2 border-black pt-12">
               {['Windsor SL4', 'Ascot SL5', 'Reading RG1', 'Slough SL1', 'Maidenhead SL6', 'Bracknell RG12', 'Woking GU21', 'Guildford GU1'].map(town => (
                 <div key={town} className="flex items-center gap-4 group cursor-default">
                   <div className="w-1.5 h-1.5 bg-[#16a34a] rounded-full group-hover:scale-[2.5] transition-transform" />
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-black/50 group-hover:text-[#16a34a] transition-colors italic">{town}</span>
+                  <span className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] text-black/50 group-hover:text-[#16a34a] transition-colors italic">{town}</span>
                 </div>
               ))}
             </div>
           </div>
-          <div className="relative h-[550px] w-full bg-white border border-black/10 rounded-sm overflow-hidden shadow-2xl group">
+          <div className="relative h-[400px] md:h-[550px] w-full bg-white border border-black/10 rounded-sm overflow-hidden shadow-2xl group">
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d159152.05445214044!2d-0.6723235478496417!3d51.41163486026955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487664687259160d%3A0xe726107b34b172a1!2sWindsor!5e0!3m2!1sen!2suk!4v1705000000000!5m2!1sen!2suk" 
               width="100%" height="100%" style={{ border: 0, filter: 'grayscale(1) contrast(1.1) invert(0.05)' }} 
               allowFullScreen="" loading="lazy" title="Coverage Map"
             />
             <div className="absolute inset-0 bg-[#062a1f]/10 pointer-events-none group-hover:opacity-0 transition-opacity duration-1000" />
-            <div className="absolute bottom-10 right-10 bg-[#16a34a] text-white px-10 py-4 text-[11px] font-black uppercase tracking-[0.5em] shadow-2xl italic animate-pulse border border-white/20">90-Min Response Zone</div>
+            <div className="absolute bottom-6 right-6 md:bottom-10 md:right-10 bg-[#16a34a] text-white px-6 md:px-10 py-3 md:py-4 text-[9px] md:text-[11px] font-black uppercase tracking-[0.5em] shadow-2xl italic animate-pulse border border-white/20">90-Min Response Zone</div>
           </div>
         </div>
       </section>
 
       {/* Massive Final CTA */}
-      <section className="py-48 bg-[#062a1f] overflow-hidden relative border-y border-white/5 px-6">
+      <section className="py-32 md:py-48 bg-[#062a1f] overflow-hidden relative border-y border-white/5 px-6">
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
         <div className="max-w-7xl mx-auto text-center relative z-10">
-          <h2 className="text-8xl md:text-[15vw] text-white font-black italic uppercase leading-[0.75] tracking-tighter mb-28">
+          <h2 className="text-6xl md:text-[15vw] text-white font-black italic uppercase leading-[0.75] tracking-tighter mb-20 md:mb-28">
             DONE BY <br /><span className="text-[#16a34a]">LUNCH.</span>
           </h2>
-          <div className="flex flex-col md:flex-row justify-center gap-12 items-center">
-            <motion.a whileHover={{ scale: 1.05, y: -5 }} href="#quote" className="bg-white text-[#062a1f] px-20 py-8 rounded-sm font-black uppercase tracking-[0.4em] text-[13px] shadow-2xl w-full md:w-auto hover:bg-[#16a34a] hover:text-white transition-all cursor-pointer">Request Direct Price</motion.a>
+          <div className="flex flex-col md:flex-row justify-center gap-10 md:gap-12 items-center">
+            <motion.a whileHover={{ scale: 1.05, y: -5 }} href="#quote" className="bg-white text-[#062a1f] px-16 md:px-20 py-6 md:py-8 rounded-sm font-black uppercase tracking-[0.4em] text-[11px] md:text-[13px] shadow-2xl w-full md:w-auto hover:bg-[#16a34a] hover:text-white transition-all cursor-pointer">Request Direct Price</motion.a>
             <div className="h-px w-24 bg-white/10 hidden md:block" />
-            <a href="tel:01753252500" className="flex items-center justify-center gap-8 text-4xl font-black italic uppercase tracking-tighter text-white hover:text-[#16a34a] transition-all">
-              <Phone size={40} className="text-[#16a34a]" /> 01753 252 500
+            <a href="tel:01753252500" className="flex items-center justify-center gap-6 md:gap-8 text-2xl md:text-4xl font-black italic uppercase tracking-tighter text-white hover:text-[#16a34a] transition-all">
+              <Phone size={32} className="text-[#16a34a]" /> 01753 252 500
             </a>
           </div>
         </div>
       </section>
 
       {/* Mega Footer */}
-      <footer className="bg-[#062a1f] text-white pt-32 pb-12 border-t border-white/5 px-6">
+      <footer className="bg-[#062a1f] text-white pt-24 md:pt-32 pb-12 border-t border-white/5 px-6">
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-40">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-24 md:mb-40">
             <div className="md:col-span-6">
               <div className="flex items-center gap-4 mb-10">
-                <img src="logo.webp" alt="Logo" className="w-12 h-12 object-contain brightness-125" onError={(e) => { e.target.src = 'https://via.placeholder.com/40?text=TWC'; }} />
+                <img src="/logo.webp" alt="Logo" className="w-12 h-12 object-contain brightness-125" onError={(e) => { e.target.src = 'https://via.placeholder.com/40?text=TWC'; }} />
                 <span className="text-3xl font-black uppercase tracking-tighter text-white leading-none">TOTAL WASTE <br/>CLEAROUT</span>
               </div>
-              <p className="text-white/20 max-w-sm text-xl font-medium leading-relaxed mb-12 italic">The Thames Valley standard for professional waste management. High-ticket service for high-stakes environments.</p>
+              <p className="text-white/20 max-w-sm text-lg md:text-xl font-medium leading-relaxed mb-12 italic">The Thames Valley standard for professional waste management. High-ticket service for high-stakes environments.</p>
               <div className="flex gap-6">
                 <a href="#" className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/30 hover:bg-[#16a34a] transition-all bg-white/5 group cursor-pointer"><Instagram size={24} className="group-hover:scale-110 transition-transform" /></a>
                 <a href="#" className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/30 hover:bg-[#16a34a] transition-all bg-white/5 group cursor-pointer"><Facebook size={24} className="group-hover:scale-110 transition-transform" /></a>
@@ -462,7 +522,7 @@ export default function App() {
             </div>
             <div className="md:col-span-3">
               <p className="text-[#16a34a] font-black uppercase tracking-widest text-[10px] mb-12">Direct Dial</p>
-              <a href="tel:01753252500" className="text-4xl font-black italic uppercase hover:text-[#16a34a] transition-colors block mb-8 tracking-tighter">01753 252 500</a>
+              <a href="tel:01753252500" className="text-3xl md:text-4xl font-black italic uppercase hover:text-[#16a34a] transition-colors block mb-8 tracking-tighter">01753 252 500</a>
               <div className="space-y-3 text-white/20 text-[11px] font-bold uppercase tracking-[0.2em] italic"><p>Windsor HQ — SL4 Corridor</p><p>Waste Carrier CBDU12345</p></div>
               <motion.button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} whileHover={{ y: -5 }} className="flex items-center gap-3 text-[11px] font-black uppercase tracking-[0.4em] text-white/20 hover:text-white mt-20 transition-all border-b border-white/10 pb-2 cursor-pointer bg-transparent">
                 <ArrowUp size={14} /> Back to Start
@@ -471,7 +531,7 @@ export default function App() {
           </div>
           <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10 text-[10px] font-black uppercase tracking-[0.5em] text-white/10">
             <p>© 2026 TOTAL WASTE CLEAROUT LTD. ALL RIGHTS RESERVED.</p>
-            <div className="flex gap-14"><a href="#" className="hover:text-white transition-colors">Compliance</a><a href="#" className="hover:text-white transition-colors">Privacy</a></div>
+            <div className="flex gap-10 md:gap-14"><a href="#" className="hover:text-white transition-colors">Compliance</a><a href="#" className="hover:text-white transition-colors">Privacy</a></div>
           </div>
         </div>
       </footer>
