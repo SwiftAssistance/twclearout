@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Phone, 
@@ -195,9 +195,9 @@ const ReviewSlider = () => {
                   <div className="flex gap-1 text-[#16a34a]">
                     {[1,2,3,4,5].map(s => <Star key={s} fill="currentColor" size={14} />)}
                   </div>
-                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-black/30 border-l border-black/10 pl-4 uppercase">Verified {reviews[current].service}</span>
+                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-black/30 border-l border-black/10 pl-4">Verified {reviews[current].service}</span>
                 </div>
-                <p className="text-3xl md:text-5xl font-bold italic leading-[1.1] text-[#062a1f] mb-12 italic">
+                <p className="text-3xl md:text-5xl font-bold italic leading-[1.1] text-[#062a1f] mb-12">
                   "{reviews[current].text}"
                 </p>
                 <div>
@@ -301,9 +301,9 @@ export default function App() {
                       <h3 className="text-4xl font-black uppercase italic tracking-tighter leading-none">Instant <br />Estimate</h3>
                     </div>
                     <div className="space-y-5">
-                      <input name="name" required placeholder="Full Name" className="w-full bg-transparent border-b border-black/10 py-4 text-sm outline-none focus:border-[#16a34a] transition-all font-bold placeholder:text-black/20" />
-                      <input name="phone" required placeholder="Phone Number" className="w-full bg-transparent border-b border-black/10 py-4 text-sm outline-none focus:border-[#16a34a] transition-all font-bold placeholder:text-black/20" />
-                      <input name="postcode" required placeholder="Postcode (SL / RG Corridor)" className="w-full bg-transparent border-b border-black/10 py-4 text-sm outline-none focus:border-[#16a34a] transition-all font-bold placeholder:text-black/20" />
+                      <input type="text" name="name" required placeholder="Full Name" className="w-full bg-transparent border-b border-black/10 py-4 text-sm outline-none focus:border-[#16a34a] transition-all font-bold placeholder:text-black/20" />
+                      <input type="tel" name="phone" required placeholder="Phone Number" className="w-full bg-transparent border-b border-black/10 py-4 text-sm outline-none focus:border-[#16a34a] transition-all font-bold placeholder:text-black/20" />
+                      <input type="text" name="postcode" required placeholder="Postcode (SL / RG Corridor)" className="w-full bg-transparent border-b border-black/10 py-4 text-sm outline-none focus:border-[#16a34a] transition-all font-bold placeholder:text-black/20" />
                       <button disabled={loading} className="w-full bg-[#062a1f] text-white font-black py-6 uppercase tracking-[0.3em] text-[12px] hover:bg-[#16a34a] transition-all flex items-center justify-center gap-3 mt-8 shadow-xl cursor-pointer">
                         {loading ? <Loader2 className="animate-spin" size={18} /> : <span>Request Call Back <ArrowRight size={18} /></span>}
                       </button>
