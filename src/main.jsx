@@ -4,7 +4,6 @@ import App from './App.jsx'
 
 /**
  * Main entry point for the React application.
- * Resolves App.jsx from the local directory.
  */
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
