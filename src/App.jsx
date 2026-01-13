@@ -1,627 +1,523 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { 
   Phone, 
-  ArrowRight, 
-  ShieldCheck, 
-  Clock, 
-  MapPin, 
   Trash2, 
   Truck, 
+  Recycle, 
+  CheckCircle, 
+  Clock, 
+  MapPin, 
+  ShieldCheck, 
   Star, 
-  Quote, 
-  Instagram, 
-  Facebook, 
-  CheckCircle2, 
-  Loader2, 
-  MessageCircle, 
-  ArrowUp, 
-  Award, 
-  Users, 
-  Camera, 
-  Check, 
-  ChevronRight,
-  ChevronLeft,
-  X,
-  Menu,
-  Zap,
-  Home as HomeIcon,
-  HardHat,
-  Timer,
-  FileText,
-  Warehouse,
+  Menu, 
+  X, 
+  ChevronRight, 
+  ArrowRight,
+  House,
+  Briefcase,
   Leaf,
-  Plus,
-  Minus,
-  Mail
+  Construction,
+  Hammer,
+  Scale,
+  Zap,
+  Award,
+  Users
 } from 'lucide-react';
 
-// --- Components ---
+const App = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [quoteStep, setQuoteStep] = useState(1);
 
-const WhatsAppButton = () => (
-  <motion.a
-    href="https://wa.me/441753252500"
-    target="_blank"
-    rel="noopener noreferrer"
-    initial={{ y: 100, opacity: 0 }}
-    animate={{ y: 0, opacity: 1 }}
-    whileHover={{ scale: 1.1, rotate: -3 }}
-    className="fixed bottom-6 right-6 z-[100] bg-[#25D366] text-white p-4 rounded-2xl shadow-lg flex items-center justify-center border-2 border-white group cursor-pointer"
-  >
-    <MessageCircle fill="white" size={24} />
-    <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 font-bold uppercase text-[10px] tracking-widest ml-0 group-hover:ml-3">WhatsApp Us</span>
-  </motion.a>
-);
+  // High-performance scroll listener to kill the lag
+  useEffect(() => {
+    const handleScroll = () => {
+      // Using 50px as a stable threshold
+      const scrolled = window.scrollY > 50;
+      if (scrolled !== isScrolled) {
+        setIsScrolled(scrolled);
+      }
+    };
 
-const Navbar = ({ currentView, setView }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isScrolled]);
+
+  const towns = ["Reading", "Slough", "Guildford", "Woking", "Bracknell", "Windsor", "Ascot", "Egham", "Maidenhead", "Staines"];
+  
+  const stats = [
+    { label: "Waste Recycled", value: "94%", icon: <Recycle size={20} /> },
+    { label: "Response Time", value: "< 2hrs", icon: <Zap size={20} /> },
+    { label: "Compliance", value: "100%", icon: <ShieldCheck size={20} /> },
+    { label: "Liability", value: "£5M", icon: <Scale size={20} /> }
+  ];
 
   const navLinks = [
-    { name: 'Home', id: 'home' },
-    { name: 'Services', id: 'services' },
-    { name: 'Reviews', id: 'reviews' },
-    { name: 'Comparison', id: 'comparison' },
-    { name: 'FAQ', id: 'faq' }
+    { name: 'Services', href: '#services' },
+    { name: 'Locations', href: '#locations' },
+    { name: 'Compliance', href: '#compliance' },
+    { name: 'Reviews', href: '#reviews' }
   ];
 
-  const handleNavClick = (id) => {
-    setIsOpen(false);
-    if (id === 'home' || id === 'faq') {
-      setView('home');
-      setTimeout(() => {
-        const target = id === 'home' ? '#hero' : '#faq';
-        document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
-      setView(id);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
-
   return (
-    <nav className="fixed top-0 w-full z-[100] bg-[#062a1f]/95 backdrop-blur-md border-b border-white/5 py-4 px-6">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <motion.div 
-          onClick={() => handleNavClick('home')}
-          className="flex items-center gap-4 group cursor-pointer"
-        >
-          <img 
-            src="/logo.webp" 
-            alt="TOTAL WASTE CLEAROUT" 
-            className="w-14 h-14 md:w-16 md:h-16 object-contain brightness-125 transition-transform group-hover:scale-105"
-            onError={(e) => { e.target.src = 'https://via.placeholder.com/60?text=TWC'; }}
-          />
-          <div className="flex flex-col leading-none">
-            <span className="text-xl font-black uppercase tracking-tighter text-white">TOTAL WASTE CLEAROUT</span>
-            <span className="text-[10px] font-bold text-[#16a34a] uppercase tracking-[0.2em] mt-1">Professional Waste Removal</span>
-          </div>
-        </motion.div>
-        
-        <div className="hidden lg:flex items-center gap-8">
-          {navLinks.map(link => (
-            <button 
-              key={link.name} 
-              onClick={() => handleNavClick(link.id)}
-              className={`text-[10px] font-black uppercase tracking-[0.3em] transition-all relative group flex flex-col items-center bg-transparent border-none cursor-pointer ${
-                (currentView === link.id || (currentView === 'home' && link.id === 'home')) ? 'text-white' : 'text-white/40 hover:text-white'
-              }`}
-            >
-              {link.name}
-              <motion.span 
-                initial={false}
-                animate={{ width: (currentView === link.id || (currentView === 'home' && link.id === 'home')) ? '100%' : '0%' }}
-                className="h-0.5 bg-[#16a34a] mt-1.5"
-              />
-            </button>
-          ))}
+    <div className="min-h-screen bg-[#050505] font-sans text-white selection:bg-green-500 selection:text-black overflow-x-hidden">
+      
+      {/* --- WHATSAPP HUB (BOTTOM RIGHT) --- */}
+      <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-3 pointer-events-none">
+        <div className="bg-white text-black px-4 py-2 rounded-lg text-[10px] font-black shadow-2xl animate-bounce hidden md:block border-2 border-green-500 pointer-events-auto">
+          GET A PRICE IN 60 SECONDS!
         </div>
+        <a 
+          href="https://wa.me/447000000000" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-[#25D366] hover:bg-[#128C7E] text-white p-5 rounded-2xl shadow-[0_0_40px_rgba(37,211,102,0.5)] transition-all hover:scale-110 active:scale-95 group flex items-center gap-4 border-2 border-white/20 pointer-events-auto"
+        >
+          <div className="flex flex-col items-end leading-none">
+            <span className="text-[9px] font-black opacity-80 uppercase tracking-tighter">Instant Response</span>
+            <span className="text-sm font-black tracking-tight">WHATSAPP US</span>
+          </div>
+          <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+        </a>
+      </div>
 
-        <div className="flex items-center gap-4">
-          <a href="tel:01753252500" className="hidden sm:flex items-center gap-3 text-white font-bold px-5 py-2.5 bg-white/5 rounded-full hover:bg-[#16a34a] transition-all border border-white/10">
-            <Phone size={14} className="text-[#16a34a]" />
-            <span className="text-sm tracking-tight">01753 252 500</span>
-          </a>
+      {/* --- BULLETPROOF NAVIGATION BAR --- */}
+      <nav 
+        className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-300 ease-out will-change-transform transform-gpu ${
+          isScrolled 
+          ? 'bg-black/95 backdrop-blur-xl border-b border-green-500/30 py-2 shadow-2xl' 
+          : 'bg-transparent py-6'
+        }`}
+      >
+        <div className="container mx-auto px-6 h-16 flex justify-between items-center transition-all duration-300">
+          
+          {/* Brand Logo Section */}
+          <div className="flex items-center gap-4 shrink-0">
+            <div className="relative group cursor-pointer">
+              <div className="bg-orange-500 p-2 rounded-sm -rotate-6 relative z-10 border-2 border-black group-hover:rotate-0 transition-transform duration-300">
+                <Trash2 className="text-black w-6 h-6 md:w-7 md:h-7" />
+              </div>
+              <div className="absolute inset-0 bg-green-500 rounded-sm translate-x-1 translate-y-1" />
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="font-[900] text-xl md:text-3xl tracking-tighter text-white uppercase italic">Total Waste</span>
+              <span className="text-green-500 font-black text-[9px] md:text-[10px] tracking-[.4em] uppercase">Clearout</span>
+            </div>
+          </div>
 
+          {/* Desktop Navigation Stuff */}
+          <div className="hidden xl:flex items-center gap-10 font-black text-[11px] uppercase tracking-[0.2em]">
+            {navLinks.map(link => (
+              <a 
+                key={link.name} 
+                href={link.href} 
+                className="hover:text-green-500 transition-colors relative group py-2"
+              >
+                {link.name}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full" />
+              </a>
+            ))}
+            <div className="h-6 w-px bg-white/10" />
+            <a 
+              href="tel:08001234567" 
+              className="bg-green-600 hover:bg-green-500 text-black px-6 py-3 rounded-sm flex items-center gap-3 transition-all shadow-[0_0_20px_rgba(34,197,94,0.3)] hover:-translate-y-0.5 active:translate-y-0 font-black italic"
+            >
+              <Phone size={16} fill="black" /> 0800 123 4567
+            </a>
+          </div>
+
+          {/* Mobile Toggle */}
           <button 
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-white p-2 hover:bg-white/5 rounded-full transition-colors"
+            className="xl:hidden text-white p-2" 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
           </button>
         </div>
-      </div>
 
-      <AnimatePresence mode="wait">
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden absolute top-full left-0 w-full bg-[#062a1f] border-b border-white/10 overflow-hidden shadow-2xl"
-          >
-            <div className="flex flex-col p-8 gap-6">
-              {navLinks.map((link) => (
-                <button
-                  key={link.name}
-                  onClick={() => handleNavClick(link.id)}
-                  className={`text-2xl font-bold transition-colors flex items-center gap-3 bg-transparent border-none text-left ${
-                    (currentView === link.id || (currentView === 'home' && link.id === 'home')) ? 'text-[#16a34a]' : 'text-white/80'
-                  }`}
-                >
-                  {link.id === 'home' && <HomeIcon size={20} />}
-                  {link.name}
-                </button>
-              ))}
-              <div className="h-px bg-white/5" />
-              <a href="tel:01753252500" className="flex items-center justify-center gap-3 bg-[#16a34a] text-white py-4 rounded-xl font-bold uppercase tracking-widest text-xs">
-                <Phone size={18} /> Call Us Now
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
-  );
-};
-
-// --- Page Views ---
-
-const PlaceholderPage = ({ title, setView }) => (
-  <div className="min-h-screen pt-40 px-6 bg-[#fcfaf7]">
-    <div className="max-w-7xl mx-auto">
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }} 
-        animate={{ opacity: 1, y: 0 }}
-        className="mb-20"
-      >
-        <button 
-          onClick={() => setView('home')}
-          className="flex items-center gap-2 text-[#16a34a] font-bold uppercase tracking-widest text-[10px] mb-8 group"
+        {/* Mobile Sidebar/Dropdown */}
+        <div 
+          className={`xl:hidden fixed inset-0 top-[72px] bg-black/95 backdrop-blur-2xl transition-all duration-500 ease-in-out border-t border-white/10 ${
+            isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none translate-x-full'
+          }`}
         >
-          <ChevronLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Back to Home
-        </button>
-        <h1 className="text-6xl md:text-8xl font-black italic uppercase tracking-tighter text-[#062a1f] leading-none mb-10">
-          Our <br /><span className="text-[#16a34a]">{title}</span>
-        </h1>
-        <p className="text-xl text-black/60 max-w-2xl">
-          We are currently updating this section with new information. Check back soon for the latest details on our {title.toLowerCase()}.
-        </p>
-      </motion.div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {[1, 2, 3].map(i => (
-          <div key={i} className="h-64 bg-white border border-black/5 rounded-sm" />
-        ))}
-      </div>
-    </div>
-  </div>
-);
-
-const ServiceCard = ({ title, desc, icon: Icon, i }) => {
-  const cardRef = useRef(null);
-
-  return (
-    <motion.div 
-      ref={cardRef}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.4, delay: i * 0.05 }}
-      className="bg-white p-8 md:p-12 group transition-all duration-300 border border-black/5 flex flex-col min-h-[380px] relative shadow-sm overflow-hidden rounded-sm"
-    >
-      <div className="w-14 h-14 bg-[#fcfaf7] border border-black/5 rounded-xl flex items-center justify-center mb-8 group-hover:bg-[#16a34a] transition-all duration-300 relative z-10">
-        <Icon className="text-[#062a1f] group-hover:text-white transition-colors" size={28} />
-      </div>
-
-      <h4 className="text-2xl font-black uppercase tracking-tight mb-6 text-[#062a1f] group-hover:text-[#16a34a] transition-colors relative z-10">
-        {title}
-      </h4>
-      <p className="text-black/60 text-base leading-relaxed font-medium mb-10 relative z-10">
-        {desc}
-      </p>
-      
-      <div className="mt-auto flex items-center gap-4 opacity-40 group-hover:opacity-100 transition-all duration-300 relative z-10">
-        <span className="text-[#16a34a] font-bold uppercase text-[10px] tracking-widest">Learn More</span>
-        <div className="h-px flex-grow bg-black/10" />
-        <ChevronRight className="text-[#16a34a] group-hover:translate-x-2 transition-transform" size={20} />
-      </div>
-    </motion.div>
-  );
-};
-
-const ReviewSlider = () => {
-  const [current, setCurrent] = useState(0);
-  const reviews = [
-    { 
-      name: "Arthur Stirling", location: "Windsor", service: "Estate Clearance",
-      text: "Outstanding service. They cleared the entire property in under 4 hours. No damage, no fuss, and the driveway was left spotless."
-    },
-    { 
-      name: "Marcus Thorne", location: "Ascot", service: "Wait & Load",
-      text: "Much easier than skip hire. Arrived exactly on time. Friendly staff and high-quality trucks. Highly recommended."
-    },
-    { 
-      name: "Elena Rossi", location: "Reading", service: "Builders Waste",
-      text: "Speed is their specialty. A mountain of renovation debris was gone by lunch. Great for local contractors."
-    },
-    { 
-      name: "Sir James L.", location: "Marlow", service: "House Clearance",
-      text: "Efficient and discreet. The team handled a sensitive relocation clearance with absolute care. Best in the South East."
-    }
-  ];
-
-  const next = () => setCurrent((prev) => (prev + 1) % reviews.length);
-  const prev = () => setCurrent((prev) => (prev - 1 + reviews.length) % reviews.length);
-
-  return (
-    <section id="reviews" className="py-24 md:py-32 bg-white relative overflow-hidden border-y border-black/5 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row items-end justify-between mb-16 md:mb-24 gap-12">
-          <div className="max-w-2xl">
-            <p className="text-[#16a34a] font-black uppercase tracking-[0.5em] text-[10px] mb-6">Customer Feedback</p>
-            <h2 className="text-5xl md:text-8xl font-black italic uppercase tracking-tighter leading-[0.8] text-[#062a1f]">What our <br />clients say.</h2>
-          </div>
-          <div className="flex gap-4">
-            <button onClick={prev} className="w-14 h-14 md:w-16 md:h-16 rounded-full border border-black/10 flex items-center justify-center hover:bg-[#062a1f] hover:text-white transition-all group">
-              <ChevronLeft className="group-hover:-translate-x-1 transition-transform" />
-            </button>
-            <button onClick={next} className="w-14 h-14 md:w-16 md:h-16 rounded-full border border-black/10 flex items-center justify-center hover:bg-[#062a1f] hover:text-white transition-all group">
-              <ChevronRight className="group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-        </div>
-
-        <div className="relative min-h-[320px]">
-          <AnimatePresence mode="wait">
-            <motion.div 
-              key={current}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.4 }}
-              className="bg-[#fcfaf7] border border-black/5 p-8 md:p-20 relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
-            >
-              <Quote className="text-[#16a34a] opacity-5 absolute top-10 right-10" size={80} />
-              
-              <div className="lg:col-span-8">
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="flex gap-1 text-[#16a34a]">
-                    {[1,2,3,4,5].map(s => <Star key={s} fill="currentColor" size={12} />)}
-                  </div>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-black/30 border-l border-black/10 pl-4">{reviews[current].service}</span>
-                </div>
-                <p className="text-2xl md:text-5xl font-bold leading-tight text-[#062a1f] mb-8">
-                  "{reviews[current].text}"
-                </p>
-                <div>
-                  <h5 className="text-xl font-black uppercase tracking-tighter text-[#062a1f]">{reviews[current].name}</h5>
-                  <p className="text-[11px] font-bold uppercase tracking-widest text-[#16a34a] mt-1">{reviews[current].location}</p>
-                </div>
-              </div>
-              <div className="lg:col-span-4 hidden lg:flex justify-end opacity-20">
-                 <Trash2 size={120} />
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default function App() {
-  const [view, setView] = useState('home');
-  const [status, setStatus] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [openFAQ, setOpenFAQ] = useState(0);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
-      setStatus("SUCCESS");
-      setLoading(false);
-    }, 1500);
-  };
-
-  const services = [
-    { title: "Wait & Load", desc: "The better alternative to skips. We arrive, load, and vanish within the hour. No permits needed.", icon: Timer },
-    { title: "Builders Waste", desc: "Reliable removal of rubble, soil, and construction debris. Trade-grade service for local contractors.", icon: HardHat },
-    { title: "House Clearance", desc: "From loft clearouts to full property stripping. We handle all the heavy lifting for you.", icon: HomeIcon },
-    { title: "Probate Service", desc: "A discreet and professional clearing service for executors during sensitive estate transfers.", icon: FileText },
-    { title: "Office Clearance", desc: "Furniture recycling and IT disposal for commercial spaces across the Thames Valley.", icon: Warehouse },
-    { title: "Garden Waste", desc: "Fast removal of green waste, soil, and garden debris with a clean-sweep finish.", icon: Leaf }
-  ];
-
-  const faqs = [
-    { q: "How much does it cost?", a: "We provide fixed pricing based on volume and weight. You can get an instant quote via photo or a quick site visit." },
-    { q: "Is this better than a skip?", a: "Yes. You don't need council permits, there's no driveway damage, and our team does 100% of the loading for you." },
-    { q: "Are you fully licensed?", a: "Absolutely. We are Upper Tier Waste Carriers (CBDU12345) and provide a Waste Transfer Note for every job." }
-  ];
-
-  const renderContent = () => {
-    switch (view) {
-      case 'services': return <PlaceholderPage title="Services" setView={setView} />;
-      case 'reviews': return <PlaceholderPage title="Reviews" setView={setView} />;
-      case 'comparison': return <PlaceholderPage title="Comparison" setView={setView} />;
-      default: return (
-        <>
-          {/* Hero Section */}
-          <section id="hero" className="relative min-h-screen flex items-center bg-[#062a1f] overflow-hidden pt-32 pb-20 px-6">
-            <div className="absolute inset-0 opacity-[0.04] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
-            
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 relative z-10">
-              <div className="lg:col-span-7 flex flex-col justify-center">
-                <motion.div 
-                  initial={{ opacity: 0 }} 
-                  animate={{ opacity: 1 }} 
-                  className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[#16a34a] text-[10px] font-bold uppercase tracking-[0.4em] mb-10 w-fit"
-                >
-                  <Zap size={12} className="fill-current" />
-                  Same Day Response
-                </motion.div>
-                
-                <h1 className="text-white text-5xl md:text-[8vw] font-black leading-[0.85] tracking-tighter mb-10 uppercase italic">
-                  WE CLEAR. <br />
-                  YOU <span className="text-[#16a34a] relative">RECLAIM.
-                    <motion.span initial={{ width: 0 }} whileInView={{ width: '100%' }} viewport={{ once: true }} className="absolute bottom-2 left-0 h-3 bg-[#16a34a]/20 -z-10" />
-                  </span>
-                </h1>
-
-                <p className="text-white/40 text-lg md:text-2xl max-w-xl mb-12 font-medium leading-tight">
-                  Fast, professional waste removal with no heavy lifting and no skip permits required.
-                </p>
-
-                <div className="flex flex-wrap gap-8 items-center">
-                  <motion.a 
-                    href="#quote" 
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-[#16a34a] text-white px-10 md:px-12 py-5 md:py-6 rounded-full font-black uppercase tracking-widest text-[11px] shadow-2xl cursor-pointer"
-                  >
-                    Get a Quote
-                  </motion.a>
-                  <div className="flex flex-col border-l border-white/10 pl-8">
-                    <div className="flex text-yellow-500 gap-1 mb-2">
-                       {[1,2,3,4,5].map(s => <Star key={s} size={14} fill="currentColor" />)}
-                    </div>
-                    <p className="text-white/30 text-[10px] font-bold uppercase tracking-widest">5-Star Local Service</p>
-                  </div>
-                </div>
-              </div>
-
-              <div id="quote" className="lg:col-span-5 flex flex-col justify-center">
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.98 }} 
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  className="bg-[#fcfaf7] p-8 md:p-14 rounded-2xl shadow-2xl text-black relative border border-black/5"
-                >
-                  <div className="absolute -top-4 -left-4 w-16 h-16 bg-[#16a34a] rounded-full flex items-center justify-center text-white font-black italic text-center text-[9px] leading-none -rotate-12 shadow-xl border-4 border-[#fcfaf7] z-20">
-                    98%<br/>RECYCLED
-                  </div>
-                  
-                  <AnimatePresence mode="wait">
-                    {status === "SUCCESS" ? (
-                      <motion.div key="success" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-20">
-                        <CheckCircle2 className="text-[#16a34a] mx-auto mb-6" size={60} />
-                        <h3 className="text-3xl font-black uppercase tracking-tighter mb-4 leading-none">Thank You</h3>
-                        <p className="text-black/40 text-sm font-bold uppercase tracking-widest italic">We'll get back to you shortly.</p>
-                      </motion.div>
-                    ) : (
-                      <form onSubmit={handleSubmit} className="space-y-8">
-                        <div className="border-b-2 border-black pb-6">
-                          <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tighter leading-none">Get a <br />Quote</h3>
-                        </div>
-                        <div className="space-y-5">
-                          <input name="name" required placeholder="Name" className="w-full bg-transparent border-b border-black/10 py-4 text-sm outline-none focus:border-[#16a34a] transition-all font-bold placeholder:text-black/20" />
-                          <input name="phone" required placeholder="Phone Number" className="w-full bg-transparent border-b border-black/10 py-4 text-sm outline-none focus:border-[#16a34a] transition-all font-bold placeholder:text-black/20" />
-                          <input name="postcode" required placeholder="Postcode" className="w-full bg-transparent border-b border-black/10 py-4 text-sm outline-none focus:border-[#16a34a] transition-all font-bold placeholder:text-black/20" />
-                          <button disabled={loading} className="w-full bg-[#062a1f] text-white font-black py-6 rounded-xl uppercase tracking-widest text-[12px] hover:bg-[#16a34a] transition-all flex items-center justify-center gap-3 mt-8 shadow-xl">
-                            {loading ? <Loader2 className="animate-spin" size={18} /> : <span>Send Request <ArrowRight size={18} /></span>}
-                          </button>
-                        </div>
-                      </form>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              </div>
-            </div>
-          </section>
-
-          {/* Trust bar */}
-          <section className="bg-white border-b border-black/5 py-10 px-6 overflow-hidden">
-            <div className="max-w-7xl mx-auto flex flex-wrap justify-center lg:justify-between items-center gap-8 opacity-40 grayscale">
-              <div className="flex items-center gap-3 font-bold uppercase tracking-widest text-[9px]"><Check size={18} className="text-[#16a34a]" strokeWidth={4}/> EA Licensed</div>
-              <div className="flex items-center gap-3 font-bold uppercase tracking-widest text-[9px]"><Check size={18} className="text-[#16a34a]" strokeWidth={4}/> 95% Diversion</div>
-              <div className="flex items-center gap-3 font-bold uppercase tracking-widest text-[9px]"><Check size={18} className="text-[#16a34a]" strokeWidth={4}/> Same-Day Response</div>
-              <div className="flex items-center gap-3 font-bold uppercase tracking-widest text-[9px]"><Check size={18} className="text-[#16a34a]" strokeWidth={4}/> Fully Insured</div>
-            </div>
-          </section>
-
-          {/* Services Grid */}
-          <section id="services" className="py-24 md:py-32 px-6">
-            <div className="max-w-7xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-                {services.map((s, i) => <ServiceCard key={i} i={i} {...s} />)}
-              </div>
-              <div className="flex justify-center">
-                 <button 
-                  onClick={() => { setView('services'); window.scrollTo({top: 0}); }}
-                  className="group flex items-center gap-6 text-[11px] font-black uppercase tracking-[0.5em] text-[#062a1f] border-b-2 border-[#16a34a] pb-3 hover:text-[#16a34a] transition-all italic cursor-pointer bg-transparent"
-                 >
-                   View All Services <ArrowRight className="group-hover:translate-x-3 transition-transform" />
-                 </button>
-              </div>
-            </div>
-          </section>
-
-          <ReviewSlider />
-
-          {/* Comparison Section */}
-          <section id="comparison" className="py-24 md:py-32 bg-[#fcfaf7] overflow-hidden px-6">
-            <div className="max-w-7xl mx-auto">
-              <div className="max-w-xl mb-16 md:mb-20">
-                <p className="text-[#16a34a] font-black uppercase tracking-[0.5em] text-[10px] mb-4">Why choose us</p>
-                <h2 className="text-5xl md:text-7xl font-black italic uppercase tracking-tighter leading-none text-[#062a1f]">Skips vs <br />Clearout.</h2>
-              </div>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-black/5 border border-black/5 shadow-2xl rounded-2xl overflow-hidden">
-                <div className="bg-white p-8 md:p-12">
-                  <h4 className="text-2xl font-black uppercase tracking-tighter mb-10 text-red-600 flex items-center gap-3"><X size={24} /> Traditional Skips</h4>
-                  <ul className="space-y-6">
-                    {['Council permits required', 'You do all the loading', 'Neighbours fill it up', 'Driveway damage risk'].map(item => (
-                      <li key={item} className="flex items-center gap-4 text-black/40 text-sm font-bold uppercase tracking-widest"><div className="w-1.5 h-1.5 bg-red-400 rounded-full" /> {item}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="bg-[#062a1f] p-8 md:p-12 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#16a34a] opacity-10 blur-3xl" />
-                  <h4 className="text-2xl font-black uppercase tracking-tighter mb-10 text-[#16a34a] flex items-center gap-3"><Check size={24} /> Total Waste Clearout</h4>
-                  <ul className="space-y-6">
-                    {['No permits needed', 'We load everything', 'Gone the same day', 'We sweep up after'].map(item => (
-                      <li key={item} className="flex items-center gap-4 text-white text-sm font-bold uppercase tracking-widest"><Check size={16} className="text-[#16a34a]" /> {item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* FAQ Section */}
-          <section id="faq" className="py-24 md:py-32 bg-white px-6 border-t border-black/5">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24">
-              <div>
-                <p className="text-[#16a34a] font-black uppercase tracking-[0.5em] text-[10px] mb-6">Common Questions</p>
-                <h2 className="text-5xl md:text-6xl font-black italic uppercase tracking-tighter leading-none text-[#062a1f] mb-12">How it <br />Works.</h2>
-                <a href="tel:01753252500" className="inline-flex items-center gap-4 text-xs font-black uppercase tracking-[0.4em] border-b-2 border-black pb-2 hover:text-[#16a34a] hover:border-[#16a34a] transition-all">Call Our Team</a>
-              </div>
-              <div className="space-y-4">
-                {faqs.map((f, i) => (
-                  <div key={i} className="border-b border-black/10 overflow-hidden">
-                    <button onClick={() => setOpenFAQ(openFAQ === i ? -1 : i)} className="w-full py-8 md:py-10 flex justify-between items-center text-left hover:text-[#16a34a] transition-colors group cursor-pointer bg-transparent border-none">
-                      <span className="text-xl md:text-2xl font-black uppercase tracking-tighter leading-none pr-4">{f.q}</span>
-                      {openFAQ === i ? <Minus size={20} className="shrink-0" /> : <Plus size={20} className="group-hover:rotate-90 transition-transform shrink-0" />}
-                    </button>
-                    <AnimatePresence>
-                      {openFAQ === i && <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="pb-10 text-black/60 text-base md:text-lg font-medium leading-relaxed">{f.a}</motion.div>}
-                    </AnimatePresence>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        </>
-      );
-    }
-  };
-
-  return (
-    <div className="min-h-screen bg-[#fcfaf7] text-black font-sans selection:bg-[#16a34a] selection:text-white scroll-smooth overflow-x-hidden">
-      <Navbar currentView={view} setView={setView} />
-      
-      {renderContent()}
-
-      {/* Massive Final CTA */}
-      <section className="py-32 md:py-48 bg-[#062a1f] overflow-hidden relative border-y border-white/5 px-6">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
-        <div className="max-w-7xl mx-auto text-center relative z-10">
-          <h2 className="text-6xl md:text-[15vw] text-white font-black italic uppercase leading-[0.75] tracking-tighter mb-20 md:mb-28">
-            DONE BY <br /><span className="text-[#16a34a]">LUNCH.</span>
-          </h2>
-          <div className="flex flex-col md:flex-row justify-center gap-10 md:gap-12 items-center">
-            <motion.a whileTap={{ scale: 0.95 }} href={view === 'home' ? "#quote" : "#hero"} onClick={() => { if(view !== 'home') setView('home'); }} className="bg-white text-[#062a1f] px-16 md:px-20 py-6 md:py-8 rounded-full font-black uppercase tracking-widest text-[11px] md:text-[13px] shadow-2xl w-full md:w-auto hover:bg-[#16a34a] hover:text-white transition-all text-center">Get a Free Quote</motion.a>
-            <div className="h-px w-24 bg-white/10 hidden md:block" />
-            <a href="tel:01753252500" className="flex items-center justify-center gap-6 md:gap-8 text-2xl md:text-4xl font-black italic uppercase tracking-tighter text-white hover:text-[#16a34a] transition-all">
-              <Phone size={32} className="text-[#16a34a]" /> 01753 252 500
+          <div className="p-10 flex flex-col gap-8 font-black text-xl uppercase tracking-widest italic">
+            {navLinks.map(link => (
+              <a 
+                key={link.name} 
+                href={link.href} 
+                onClick={() => setIsMenuOpen(false)}
+                className="hover:text-green-500 border-b border-white/5 pb-4 flex justify-between items-center"
+              >
+                {link.name} <ChevronRight size={20} className="text-green-500" />
+              </a>
+            ))}
+            <a href="tel:08001234567" className="bg-green-600 text-black p-6 text-center rounded-sm flex items-center justify-center gap-4">
+               <Phone /> CALL 0800 123 4567
             </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* --- HERO SECTION --- */}
+      <header className="relative min-h-screen flex items-center pt-24 overflow-hidden">
+        {/* Subtle SVG Grid for Grit */}
+        <div className="absolute inset-0 opacity-[0.07] pointer-events-none">
+          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="grid-pattern" width="60" height="60" patternUnits="userSpaceOnUse">
+                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="green" strokeWidth="1"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+          </svg>
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-8">
+              <div className="inline-flex items-center gap-3 bg-green-950/30 border border-green-500/40 px-5 py-2.5 rounded-sm text-[10px] md:text-[11px] font-black text-green-400 mb-8 tracking-[.25em] uppercase italic">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-ping" />
+                Crews Operating in Reading & Guildford Today
+              </div>
+              <h1 className="text-6xl md:text-[10rem] font-black text-white leading-[0.85] mb-8 tracking-tighter uppercase italic">
+                WASTE <br />
+                <span className="text-transparent stroke-text">VANISHED</span> <br />
+                <span className="text-green-500">TODAY.</span>
+              </h1>
+              <p className="text-xl md:text-3xl text-slate-400 mb-12 max-w-2xl font-bold leading-tight">
+                Elite waste removal for <span className="text-white border-b-4 border-orange-500 italic">Berkshire & Surrey</span>. Fully licensed. Fixed pricing. Professional crews.
+              </p>
+
+              <div className="flex flex-wrap gap-6 items-center">
+                <a 
+                  href="#quote" 
+                  className="bg-orange-500 hover:bg-orange-400 text-black px-12 py-6 rounded-sm font-black text-xl uppercase italic tracking-wider flex items-center gap-4 transition-all hover:-translate-y-1 shadow-[8px_8px_0px_rgba(34,197,94,1)] active:shadow-none active:translate-y-1"
+                >
+                  Clear My Waste <ArrowRight size={24} />
+                </a>
+                <div className="flex items-center gap-6">
+                  <div className="flex -space-x-4">
+                    {[1,2,3,4].map(i => (
+                      <img 
+                        key={i}
+                        src={`https://i.pravatar.cc/100?img=${i+14}`} 
+                        className="w-12 h-12 rounded-full border-2 border-black bg-slate-800"
+                        alt="Customer"
+                      />
+                    ))}
+                  </div>
+                  <div className="flex flex-col leading-none">
+                    <div className="flex gap-0.5 text-orange-500 mb-1">
+                      {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
+                    </div>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-green-500">4.9/5 Google Rating</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="lg:col-span-4 hidden lg:block relative">
+              <div className="absolute -inset-10 bg-green-500/10 rounded-full blur-[100px]" />
+              <div className="relative border-4 border-green-500/20 p-4 rounded-3xl bg-zinc-900/50 backdrop-blur-3xl overflow-hidden group">
+                 <img 
+                    src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80" 
+                    className="w-full rounded-2xl grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+                    alt="Professional team"
+                  />
+                  <div className="absolute top-8 left-8 bg-green-500 text-black px-4 py-1 font-black uppercase italic text-[10px] shadow-lg">On Site Now</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* --- STATS BAR --- */}
+      <section className="bg-green-600 py-8 border-y-4 border-black relative z-20">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
+            {stats.map((s, idx) => (
+              <div key={idx} className="flex items-center gap-5 text-black group">
+                <div className="bg-black text-green-500 p-3 rounded-sm group-hover:rotate-12 transition-transform border-2 border-black">{s.icon}</div>
+                <div className="flex flex-col">
+                  <span className="font-black text-3xl leading-none uppercase italic">{s.value}</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest opacity-80 leading-tight">{s.label}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Mega Footer */}
-      <footer className="bg-[#051a14] text-white pt-24 pb-12 border-t border-white/5 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
-            <div className="space-y-8">
-              <div className="flex items-center gap-6">
-                <img 
-                  src="/logo.webp" 
-                  alt="Logo" 
-                  className="w-20 h-20 object-contain brightness-110" 
-                  onError={(e) => { e.target.src = 'https://via.placeholder.com/80?text=TWC'; }} 
-                />
-                <span className="text-2xl font-black uppercase tracking-tighter text-white leading-none">TOTAL WASTE <br/>CLEAROUT</span>
+      {/* --- SERVICES: TACTICAL ASYMMETRIC GRID --- */}
+      <section id="services" className="py-32 bg-[#080808] relative">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            {/* Massive Brand Block */}
+            <div className="lg:col-span-6 bg-green-600 p-12 md:p-20 flex flex-col justify-end min-h-[500px] border-4 border-black shadow-[15px_15px_0px_rgba(255,165,0,1)] relative overflow-hidden group">
+              <div className="absolute top-0 right-0 p-10 opacity-10 group-hover:translate-x-10 transition-transform duration-1000">
+                <Truck size={300} className="text-black" />
               </div>
-              <p className="text-white/40 text-sm leading-relaxed max-w-xs">
-                Professional waste management for residential and commercial properties across the Thames Valley.
+              <div className="relative z-10">
+                <h2 className="text-black text-6xl md:text-[7rem] font-[900] leading-[0.8] uppercase italic mb-8 tracking-tighter">TOTAL <br /> IMPACT.</h2>
+                <p className="text-black font-bold text-xl max-w-sm mb-10 leading-relaxed italic">
+                  We handle the heavy lifting and the legal audit trail. You just point at the pile.
+                </p>
+                <div className="flex gap-4">
+                  <div className="bg-black text-white px-6 py-3 text-[10px] font-black uppercase tracking-widest">Est. 2018</div>
+                  <div className="bg-black text-white px-6 py-3 text-[10px] font-black uppercase tracking-widest italic">Fully Insured</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Service: House Clearance */}
+            <article className="lg:col-span-3 bg-white group overflow-hidden relative border-4 border-black h-[500px] cursor-pointer">
+              <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/30 transition-all duration-500" />
+              <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80" className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000" alt="Home interior" />
+              <div className="relative z-20 p-10 h-full flex flex-col justify-between">
+                <div className="bg-orange-500 text-black w-14 h-14 flex items-center justify-center font-black border-2 border-black text-xl">01</div>
+                <div>
+                  <h3 className="text-4xl font-[900] text-white uppercase italic group-hover:text-green-500 transition-colors tracking-tighter">House Clearance</h3>
+                  <p className="text-white/80 transition-all text-sm font-bold mt-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0">Complete flat, house, and estate clearances across the region.</p>
+                </div>
+              </div>
+            </article>
+
+            {/* Service: Commercial */}
+            <article className="lg:col-span-3 bg-zinc-900 border-4 border-black p-10 flex flex-col justify-between hover:border-green-500 transition-all group h-[500px]">
+              <div className="flex flex-col">
+                <Briefcase size={60} className="text-green-500 mb-8 group-hover:-rotate-6 transition-transform" />
+                <span className="text-green-500 font-black text-[11px] tracking-widest uppercase mb-2 block">B2B Duty of Care</span>
+                <h3 className="text-4xl font-[900] text-white uppercase italic mb-6 tracking-tighter">Office & Retail</h3>
+              </div>
+              <p className="text-slate-500 font-bold text-lg leading-relaxed group-hover:text-slate-300 italic">Uniformed crews for commercial rip-outs and WEEE recycling compliance.</p>
+            </article>
+
+            {/* Row 2: Builders Spans */}
+            <article className="lg:col-span-5 bg-zinc-900 border-4 border-black p-10 flex flex-col justify-between group hover:bg-orange-500 transition-all duration-700 cursor-pointer h-[400px]">
+              <div className="flex justify-between items-start">
+                <Construction size={54} className="text-green-500 group-hover:text-black mb-4 transition-colors" />
+                <div className="text-[10px] font-black uppercase text-slate-500 group-hover:text-black italic">Fast Alternative to Skips</div>
+              </div>
+              <div>
+                <h3 className="text-5xl font-[900] text-white group-hover:text-black uppercase italic mb-4 tracking-tighter">Builders & Trade</h3>
+                <p className="text-slate-400 group-hover:text-black/80 font-bold text-lg max-w-md italic">
+                  Rubble, timber, and mixed site waste. Avoid the hassle of skip permits and highway licenses.
+                </p>
+              </div>
+            </article>
+
+            <article className="lg:col-span-7 bg-white text-black p-12 flex flex-col md:flex-row gap-12 items-center border-4 border-black group h-auto lg:h-[400px]">
+              <div className="md:w-1/3 flex justify-center">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-green-500/20 blur-2xl group-hover:bg-green-500/40 transition-all" />
+                  <Leaf size={140} className="text-green-600 group-hover:rotate-12 transition-transform relative z-10" />
+                </div>
+              </div>
+              <div className="md:w-2/3">
+                <h3 className="text-5xl font-[900] uppercase italic mb-6 tracking-tighter">Garden Waste</h3>
+                <p className="text-slate-600 font-bold text-xl mb-8 italic leading-snug">
+                  Green waste, old decking, and shed demolition. We leave your outdoor space ready for landscaping.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  {['Sheds Removed', 'Soil', 'Green Waste', 'Fencing'].map(tag => (
+                    <div key={tag} className="bg-black text-white px-5 py-2.5 text-[10px] font-black uppercase tracking-widest italic">{tag}</div>
+                  ))}
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      {/* --- SEO TICKER --- */}
+      <div className="bg-black py-6 overflow-hidden border-y border-white/10 relative z-30">
+        <div className="flex whitespace-nowrap animate-marquee">
+          {[...Array(15)].map((_, i) => (
+            <div key={i} className="flex items-center mx-12 gap-5 group">
+              <div className="w-2.5 h-2.5 bg-green-500 rounded-full shadow-[0_0_15px_rgba(34,197,94,1)] group-hover:scale-150 transition-transform" />
+              <span className="text-sm font-[900] uppercase tracking-[0.4em] text-white/30 italic">
+                {towns[i % towns.length]} <span className="text-green-500 font-[1000]">OPERATIONS</span> • Environment Agency Licensed
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* --- COMPLIANCE / REVIEWS HUB --- */}
+      <section id="compliance" className="py-32 bg-zinc-950">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-20">
+            <div>
+              <h2 className="text-green-500 font-black uppercase tracking-[0.4em] text-xs mb-6 italic underline decoration-white">Compliance & Duty of Care</h2>
+              <p className="text-5xl md:text-7xl font-black text-white italic uppercase leading-[0.9] mb-12 tracking-tighter">Zero Risk <br /> Clearance.</p>
+              
+              <div className="space-y-12">
+                <div className="flex gap-8 group">
+                   <div className="bg-white/5 p-6 rounded-2xl border border-white/10 group-hover:border-green-500 transition-colors">
+                    <ShieldCheck size={40} className="text-green-500" />
+                   </div>
+                   <div>
+                    <h4 className="text-2xl font-black uppercase italic mb-2 tracking-tighter">Digital Audit Trail</h4>
+                    <p className="text-slate-500 font-bold max-w-sm">Every single collection receives a Waste Transfer Note instantly. Protecting you from fly-tipping fines.</p>
+                   </div>
+                </div>
+                <div className="flex gap-8 group">
+                   <div className="bg-white/5 p-6 rounded-2xl border border-white/10 group-hover:border-green-500 transition-colors">
+                    <Award size={40} className="text-green-500" />
+                   </div>
+                   <div>
+                    <h4 className="text-2xl font-black uppercase italic mb-2 tracking-tighter">Verified Carrier</h4>
+                    <p className="text-slate-500 font-bold max-w-sm italic">Licensed by the Environment Agency (CBDU12345). We only use verified recycling centres.</p>
+                   </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="reviews" className="bg-green-600 p-12 md:p-20 rounded-[3rem] text-black border-8 border-black shadow-[20px_20px_0px_white]">
+               <div className="flex items-center gap-4 mb-10">
+                 <Users size={32} />
+                 <span className="font-black uppercase tracking-widest text-xs italic underline">Verified Local Feedback</span>
+               </div>
+               <div className="relative">
+                 <span className="text-9xl font-black absolute -top-10 -left-6 opacity-20 select-none">"</span>
+                 <p className="text-3xl md:text-4xl font-black uppercase italic leading-[1.1] mb-10 relative z-10 tracking-tight">
+                   "Total Waste Clearout saved us. Friendly, uniformed, and swept up afterwards. Far faster and cheaper than a skip permit."
+                 </p>
+                 <div className="flex items-center gap-6">
+                   <div className="w-16 h-16 rounded-full bg-black flex items-center justify-center font-black text-white italic border-2 border-white">MS</div>
+                   <div>
+                     <p className="font-black uppercase text-sm tracking-widest">Mark Saunders</p>
+                     <p className="font-bold opacity-60 text-xs uppercase italic">Homeowner, Reading</p>
+                   </div>
+                 </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- QUOTE HUB --- */}
+      <section id="quote" className="py-32 bg-black relative overflow-hidden">
+        <div className="container mx-auto px-6">
+          <div className="bg-white p-8 md:p-20 border-8 border-black shadow-[30px_30px_0px_rgba(34,197,94,1)] text-black relative">
+            <div className="grid lg:grid-cols-2 gap-20 items-center">
+              <div>
+                <h2 className="text-6xl md:text-[6.5rem] font-[1000] leading-[0.85] uppercase italic mb-10 tracking-tighter">
+                  GET YOUR <br /> <span className="text-green-500 underline decoration-black">FIXED</span> PRICE.
+                </h2>
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-3 h-3 bg-green-600 rounded-full" />
+                    <span className="font-black uppercase text-sm italic tracking-tight underline decoration-orange-500 decoration-2">Guaranteed No Hidden Fees</span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-3 h-3 bg-green-600 rounded-full" />
+                    <span className="font-black uppercase text-sm italic tracking-tight">Same Day Availability</span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-3 h-3 bg-green-600 rounded-full" />
+                    <span className="font-black uppercase text-sm italic tracking-tight">90% Recycling Rate</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-slate-50 p-10 border-4 border-black rounded-lg">
+                 <form className="space-y-8" onSubmit={e => e.preventDefault()}>
+                   <div className="grid md:grid-cols-2 gap-8">
+                      <div className="flex flex-col gap-3">
+                        <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Clearance Category</label>
+                        <select className="w-full bg-white border-4 border-black p-5 font-black uppercase text-xs outline-none focus:border-green-500 transition-all cursor-pointer">
+                          <option>Full House</option>
+                          <option>Trade Waste</option>
+                          <option>Office Clearance</option>
+                          <option>Garden Exterior</option>
+                        </select>
+                      </div>
+                      <div className="flex flex-col gap-3">
+                        <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Postcode</label>
+                        <input type="text" placeholder="RG1 / SL1 / GU1" className="w-full bg-white border-4 border-black p-5 font-black uppercase text-xs outline-none focus:border-green-500 transition-all" />
+                      </div>
+                   </div>
+                   <div className="flex flex-col gap-3">
+                      <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Mobile Number</label>
+                      <input type="tel" placeholder="07XXX XXXXXX" className="w-full bg-white border-4 border-black p-5 font-black uppercase text-xs outline-none focus:border-green-500 transition-all" />
+                   </div>
+                   <button className="w-full bg-black text-white p-8 font-black uppercase tracking-widest italic text-2xl hover:bg-green-600 hover:text-black transition-all shadow-xl active:translate-y-1">
+                     Lock In My Fixed Price
+                   </button>
+                 </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- FOOTER --- */}
+      <footer className="bg-[#050505] pt-32 pb-12 border-t-8 border-green-600">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-4 gap-20 mb-24">
+            <div className="lg:col-span-2">
+              <div className="flex items-center gap-4 mb-10">
+                <Trash2 className="text-orange-500 w-12 h-12" />
+                <div className="flex flex-col leading-none">
+                  <span className="font-black text-4xl tracking-tighter text-white uppercase italic leading-none">Total Waste</span>
+                  <span className="text-green-500 font-black text-sm tracking-[.4em] uppercase">Clearout Ltd</span>
+                </div>
+              </div>
+              <p className="text-slate-500 max-w-sm mb-12 font-bold italic leading-relaxed text-xl underline decoration-green-900">
+                Premium disposal for the modern era. Sustainable, legally compliant, and aggressively fast.
               </p>
-              <div className="flex gap-4">
-                <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#16a34a] transition-all">
-                  <Instagram size={18} />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#16a34a] transition-all">
-                  <Facebook size={18} />
-                </a>
+              <div className="flex flex-wrap gap-4">
+                 <div className="bg-zinc-900 border-2 border-white/5 px-6 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400">Licensed Carrier: CBDU12345</div>
+                 <div className="bg-zinc-900 border-2 border-white/5 px-6 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400 italic">Liability: £5,000,000</div>
               </div>
             </div>
 
-            <div>
-              <h4 className="text-[#16a34a] font-bold uppercase tracking-widest text-xs mb-8">What We Do</h4>
-              <ul className="space-y-4 text-sm text-white/50">
-                {['Wait & Load', 'Builders Waste', 'House Clearout', 'Probate Services', 'Office Removal'].map(item => (
-                  <li key={item}><button onClick={() => { setView('services'); window.scrollTo({top: 0}); }} className="hover:text-white transition-colors bg-transparent border-none p-0 cursor-pointer">{item}</button></li>
-                ))}
-              </ul>
+            <div className="grid grid-cols-2 gap-10">
+              <div className="flex flex-col gap-6">
+                <h5 className="font-black text-green-500 uppercase tracking-widest text-[10px] italic">Navigator</h5>
+                {navLinks.map(l => <a key={l.name} href={l.href} className="text-xs font-black uppercase tracking-widest hover:text-green-500 transition-colors underline decoration-transparent hover:decoration-green-500">{l.name}</a>)}
+              </div>
+              <div className="flex flex-col gap-6 font-black uppercase tracking-widest text-xs">
+                <h5 className="text-green-500 text-[10px] italic">Compliance</h5>
+                <a href="#" className="hover:text-green-500">Privacy</a>
+                <a href="#" className="hover:text-green-500 italic">Duty of Care</a>
+                <a href="#" className="hover:text-green-500">Environment Agency</a>
+              </div>
             </div>
 
-            <div>
-              <h4 className="text-[#16a34a] font-bold uppercase tracking-widest text-xs mb-8">Contact Us</h4>
-              <ul className="space-y-4">
-                <li>
-                  <a href="tel:01753252500" className="flex items-center gap-3 text-white/70 hover:text-white transition-colors">
-                    <Phone size={16} className="text-[#16a34a]" />
-                    <span className="font-bold">01753 252 500</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="mailto:info@twclearout.co.uk" className="flex items-center gap-3 text-white/70 hover:text-white transition-colors">
-                    <Mail size={16} className="text-[#16a34a]" />
-                    <span>info@twclearout.co.uk</span>
-                  </a>
-                </li>
-                <li className="flex items-start gap-3 text-white/70">
-                  <MapPin size={16} className="text-[#16a34a] mt-1 shrink-0" />
-                  <span className="text-xs leading-relaxed">Windsor, Berkshire<br />United Kingdom</span>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-[#16a34a] font-bold uppercase tracking-widest text-xs mb-8">Information</h4>
-              <ul className="space-y-4 text-sm text-white/50">
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Cookie Policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Waste License</a></li>
-              </ul>
-              <motion.button 
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="mt-10 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-white/20 hover:text-white transition-all bg-transparent border-none cursor-pointer"
-              >
-                <ArrowUp size={14} /> Back to top
-              </motion.button>
+            <div className="flex flex-col items-start lg:items-end text-left lg:text-right">
+               <h5 className="font-black text-green-500 mb-8 uppercase tracking-[0.3em] text-[10px] italic">Emergency Clearance Line</h5>
+               <a href="tel:08001234567" className="text-4xl md:text-6xl font-black text-white hover:text-orange-500 transition-colors italic tracking-tighter leading-none">0800 123 4567</a>
+               <p className="mt-8 text-slate-600 font-black uppercase text-[10px] tracking-widest">Berkshire • Surrey • Thames Valley</p>
             </div>
           </div>
 
-          <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-bold uppercase tracking-widest text-white/20">
-            <p>© 2026 TOTAL WASTE CLEAROUT LTD. ALL RIGHTS RESERVED.</p>
-            <div className="flex gap-8">
-              <span>Carrier License: CBDU12345</span>
+          <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-white/5 gap-8">
+            <p className="text-slate-700 text-[9px] font-black uppercase tracking-[0.4em] text-center md:text-left leading-relaxed">© 2026 TOTAL WASTE CLEAROUT LTD. CO NO: 09876543. REGISTERED IN ENGLAND. BUILT FOR HIGH-PERFORMANCE CLEARANCE.</p>
+            <div className="flex gap-2" aria-label="Rating: 5 Stars">
+               {[...Array(5)].map((_, i) => <Star key={i} size={14} className="text-green-500 fill-current shadow-lg" />)}
             </div>
           </div>
         </div>
       </footer>
-      
-      <WhatsAppButton />
+
+      <style dangerouslySetInnerHTML={{ __html: `
+        .stroke-text { -webkit-text-stroke: 1px white; }
+        @media (min-width: 768px) { .stroke-text { -webkit-text-stroke: 2px white; } }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .animate-marquee { animation: marquee 35s linear infinite; }
+        html { scroll-behavior: smooth; }
+        * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+      `}} />
+
     </div>
   );
-}
+};
+
+export default App;
