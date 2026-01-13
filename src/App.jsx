@@ -334,15 +334,15 @@ const App = () => {
               </div>
             </article>
 
-            {/* 4. Builders & Trade (Asymmetric span) */}
-            <article className="lg:col-span-5 bg-slate-900 border-4 border-black p-10 flex flex-col justify-between group hover:bg-orange-500 transition-all duration-700 cursor-pointer h-[400px]">
+            {/* 4. Builders & Trade (Refined mobile alignment) */}
+            <article className="lg:col-span-5 bg-slate-900 border-4 border-black p-8 md:p-10 flex flex-col justify-between group hover:bg-orange-500 transition-all duration-700 cursor-pointer min-h-[350px] lg:h-[400px]">
               <div className="flex justify-between items-start text-white">
                 <Construction size={54} className="text-[#4ade80] group-hover:text-black mb-4 transition-colors" />
                 <div className="text-[10px] font-black uppercase text-slate-500 group-hover:text-black italic tracking-widest">Trade Waste Specialists</div>
               </div>
               <div>
-                <h3 className="text-5xl font-[900] text-white group-hover:text-black uppercase italic mb-4 tracking-tighter">Construction Site</h3>
-                <p className="text-slate-400 group-hover:text-black/80 font-bold text-lg max-w-md italic leading-tight">
+                <h3 className="text-4xl md:text-5xl font-[900] text-white group-hover:text-black uppercase italic mb-4 tracking-tighter leading-none">Construction Site</h3>
+                <p className="text-slate-400 group-hover:text-black/80 font-bold text-base md:text-lg max-w-md italic leading-tight">
                   Avoid skip permits. We load heavy rubble, timber, and plasterboard instantly. Safe, legal, and rapid.
                 </p>
               </div>
@@ -357,7 +357,7 @@ const App = () => {
                 </div>
               </div>
               <div className="md:w-2/3">
-                <h3 className="text-5xl font-[1000] uppercase italic mb-6 tracking-tighter leading-[0.9]">Exterior <br /> Waste.</h3>
+                <h3 className="text-4xl md:text-5xl font-[1000] uppercase italic mb-6 tracking-tighter leading-[0.9]">Exterior <br /> Waste.</h3>
                 <p className="text-slate-600 font-bold text-xl mb-8 italic leading-snug">
                   Garden clearance, shed dismantling, and soil disposal. We leave your outdoor space ready for landscaping.
                 </p>
@@ -524,15 +524,15 @@ const App = () => {
                
                <div className="space-y-2">
                  <h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-xs italic">WhatsApp Photos</h5>
-                 <a href="#" className="text-2xl font-black text-slate-300 hover:text-[#25D366] transition-colors italic leading-none block">
+                 <a href="https://wa.me/447000000000" target="_blank" rel="noopener noreferrer" className="text-2xl font-black text-slate-300 hover:text-[#25D366] transition-colors italic leading-none block">
                    07000 000 000
                  </a>
                </div>
 
                <div className="pt-6 flex gap-4 lg:justify-end">
-                  <a href="#" className="w-10 h-10 bg-[#0a3a2a] rounded-full flex items-center justify-center hover:bg-[#4ade80] transition-colors text-white"><Instagram size={20} /></a>
-                  <a href="#" className="w-10 h-10 bg-[#0a3a2a] rounded-full flex items-center justify-center hover:bg-[#4ade80] transition-colors text-white"><Facebook size={20} /></a>
-                  <a href="#" className="w-10 h-10 bg-[#0a3a2a] rounded-full flex items-center justify-center hover:bg-[#4ade80] transition-colors text-white"><Linkedin size={20} /></a>
+                  <a href="https://www.instagram.com/totalwasteclearout" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#0a3a2a] rounded-full flex items-center justify-center hover:bg-[#4ade80] transition-colors text-white shadow-lg"><Instagram size={20} /></a>
+                  <a href="https://www.facebook.com/totalwasteclearout" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-[#0a3a2a] rounded-full flex items-center justify-center hover:bg-[#4ade80] transition-colors text-white shadow-lg"><Facebook size={20} /></a>
+                  <a href="#" className="w-10 h-10 bg-[#0a3a2a] rounded-full flex items-center justify-center hover:bg-[#4ade80] transition-colors text-white shadow-lg"><Linkedin size={20} /></a>
                </div>
             </div>
           </div>
