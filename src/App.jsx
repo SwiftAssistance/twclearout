@@ -29,16 +29,14 @@ const App = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [quoteStep, setQuoteStep] = useState(1);
 
-  // High-performance scroll listener to kill the lag
+  // Performance-focused scroll listener
   useEffect(() => {
     const handleScroll = () => {
-      // Using 50px as a stable threshold
       const scrolled = window.scrollY > 50;
       if (scrolled !== isScrolled) {
         setIsScrolled(scrolled);
       }
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isScrolled]);
@@ -60,12 +58,12 @@ const App = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#050505] font-sans text-white selection:bg-green-500 selection:text-black overflow-x-hidden">
+    <div className="min-h-screen bg-[#021a12] font-sans text-white selection:bg-orange-500 selection:text-white overflow-x-hidden">
       
       {/* --- WHATSAPP HUB (BOTTOM RIGHT) --- */}
       <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-3 pointer-events-none">
-        <div className="bg-white text-black px-4 py-2 rounded-lg text-[10px] font-black shadow-2xl animate-bounce hidden md:block border-2 border-green-500 pointer-events-auto">
-          GET A PRICE IN 60 SECONDS!
+        <div className="bg-white text-black px-4 py-2 rounded-lg text-[10px] font-[900] shadow-2xl animate-bounce hidden md:block border-2 border-[#22c55e] pointer-events-auto select-none uppercase tracking-tighter">
+          SNAP A PHOTO FOR A QUOTE!
         </div>
         <a 
           href="https://wa.me/447000000000" 
@@ -74,7 +72,7 @@ const App = () => {
           className="bg-[#25D366] hover:bg-[#128C7E] text-white p-5 rounded-2xl shadow-[0_0_40px_rgba(37,211,102,0.5)] transition-all hover:scale-110 active:scale-95 group flex items-center gap-4 border-2 border-white/20 pointer-events-auto"
         >
           <div className="flex flex-col items-end leading-none">
-            <span className="text-[9px] font-black opacity-80 uppercase tracking-tighter">Instant Response</span>
+            <span className="text-[9px] font-black opacity-80 uppercase tracking-tighter">Live Response</span>
             <span className="text-sm font-black tracking-tight">WHATSAPP US</span>
           </div>
           <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current">
@@ -83,37 +81,39 @@ const App = () => {
         </a>
       </div>
 
-      {/* --- BULLETPROOF NAVIGATION BAR --- */}
+      {/* --- STABLE NAVIGATION BAR --- */}
       <nav 
-        className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-300 ease-out will-change-transform transform-gpu ${
+        className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ease-out will-change-transform transform-gpu ${
           isScrolled 
-          ? 'bg-black/95 backdrop-blur-xl border-b border-green-500/30 py-2 shadow-2xl' 
-          : 'bg-transparent py-6'
+          ? 'bg-[#04140e]/95 backdrop-blur-xl border-b border-[#22c55e]/30 py-2 shadow-2xl' 
+          : 'bg-transparent py-6 md:py-8'
         }`}
       >
         <div className="container mx-auto px-6 h-16 flex justify-between items-center transition-all duration-300">
           
           {/* Brand Logo Section */}
-          <div className="flex items-center gap-4 shrink-0">
-            <div className="relative group cursor-pointer">
-              <div className="bg-orange-500 p-2 rounded-sm -rotate-6 relative z-10 border-2 border-black group-hover:rotate-0 transition-transform duration-300">
-                <Trash2 className="text-black w-6 h-6 md:w-7 md:h-7" />
-              </div>
-              <div className="absolute inset-0 bg-green-500 rounded-sm translate-x-1 translate-y-1" />
+          <div className="flex items-center gap-4 shrink-0 group cursor-pointer">
+            <div className="relative h-12 w-12 md:h-14 md:w-14 transition-transform group-hover:scale-110">
+              <img 
+                src="logo.webp" 
+                alt="Total Waste Clearout Logo" 
+                className="h-full w-full object-contain relative z-10" 
+              />
+              <div className="absolute inset-0 bg-[#22c55e] rounded-sm translate-x-1 translate-y-1 opacity-20 blur-sm" />
             </div>
             <div className="flex flex-col leading-none">
-              <span className="font-[900] text-xl md:text-3xl tracking-tighter text-white uppercase italic">Total Waste</span>
-              <span className="text-green-500 font-black text-[9px] md:text-[10px] tracking-[.4em] uppercase">Clearout</span>
+              <span className="font-[1000] text-xl md:text-3xl tracking-tighter text-white uppercase italic">Total Waste</span>
+              <span className="text-[#22c55e] font-black text-[9px] md:text-[10px] tracking-[.4em] uppercase">Clearout Ltd</span>
             </div>
           </div>
 
-          {/* Desktop Navigation Stuff */}
+          {/* Desktop Navigation Links */}
           <div className="hidden xl:flex items-center gap-10 font-black text-[11px] uppercase tracking-[0.2em]">
             {navLinks.map(link => (
               <a 
                 key={link.name} 
                 href={link.href} 
-                className="hover:text-green-500 transition-colors relative group py-2"
+                className="hover:text-[#22c55e] transition-colors relative group py-2"
               >
                 {link.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all group-hover:w-full" />
@@ -122,7 +122,7 @@ const App = () => {
             <div className="h-6 w-px bg-white/10" />
             <a 
               href="tel:08001234567" 
-              className="bg-green-600 hover:bg-green-500 text-black px-6 py-3 rounded-sm flex items-center gap-3 transition-all shadow-[0_0_20px_rgba(34,197,94,0.3)] hover:-translate-y-0.5 active:translate-y-0 font-black italic"
+              className="bg-[#22c55e] hover:bg-white text-black px-8 py-3 rounded-sm flex items-center gap-3 transition-all shadow-[0_0_20px_rgba(34,197,94,0.3)] hover:-translate-y-0.5 active:translate-y-0 font-black italic uppercase tracking-wider"
             >
               <Phone size={16} fill="black" /> 0800 123 4567
             </a>
@@ -137,9 +137,9 @@ const App = () => {
           </button>
         </div>
 
-        {/* Mobile Sidebar/Dropdown */}
+        {/* Mobile Dropdown */}
         <div 
-          className={`xl:hidden fixed inset-0 top-[72px] bg-black/95 backdrop-blur-2xl transition-all duration-500 ease-in-out border-t border-white/10 ${
+          className={`xl:hidden fixed inset-0 top-[72px] bg-[#021a12]/98 backdrop-blur-2xl transition-all duration-500 ease-in-out border-t border-white/10 ${
             isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none translate-x-full'
           }`}
         >
@@ -149,12 +149,12 @@ const App = () => {
                 key={link.name} 
                 href={link.href} 
                 onClick={() => setIsMenuOpen(false)}
-                className="hover:text-green-500 border-b border-white/5 pb-4 flex justify-between items-center"
+                className="hover:text-[#22c55e] border-b border-white/5 pb-4 flex justify-between items-center"
               >
-                {link.name} <ChevronRight size={20} className="text-green-500" />
+                {link.name} <ChevronRight size={20} className="text-[#22c55e]" />
               </a>
             ))}
-            <a href="tel:08001234567" className="bg-green-600 text-black p-6 text-center rounded-sm flex items-center justify-center gap-4">
+            <a href="tel:08001234567" className="bg-[#22c55e] text-black p-6 text-center rounded-sm flex items-center justify-center gap-4">
                <Phone /> CALL 0800 123 4567
             </a>
           </div>
@@ -163,31 +163,31 @@ const App = () => {
 
       {/* --- HERO SECTION --- */}
       <header className="relative min-h-screen flex items-center pt-24 overflow-hidden">
-        {/* Subtle SVG Grid for Grit */}
-        <div className="absolute inset-0 opacity-[0.07] pointer-events-none">
+        {/* Subtle Green Mesh Grid */}
+        <div className="absolute inset-0 opacity-[0.1] pointer-events-none">
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <pattern id="grid-pattern" width="60" height="60" patternUnits="userSpaceOnUse">
-                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="green" strokeWidth="1"/>
+              <pattern id="green-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#22c55e" strokeWidth="1"/>
               </pattern>
             </defs>
-            <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+            <rect width="100%" height="100%" fill="url(#green-grid)" />
           </svg>
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-8">
-              <div className="inline-flex items-center gap-3 bg-green-950/30 border border-green-500/40 px-5 py-2.5 rounded-sm text-[10px] md:text-[11px] font-black text-green-400 mb-8 tracking-[.25em] uppercase italic">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-ping" />
-                Crews Operating in Reading & Guildford Today
+              <div className="inline-flex items-center gap-3 bg-[#0a2a1d] border border-[#22c55e]/40 px-5 py-2.5 rounded-sm text-[10px] md:text-[11px] font-black text-[#22c55e] mb-8 tracking-[.25em] uppercase italic">
+                <div className="w-2 h-2 bg-[#22c55e] rounded-full animate-ping shadow-[0_0_10px_#22c55e]" />
+                Live: Crews operative in Reading & Guildford Today
               </div>
               <h1 className="text-6xl md:text-[10rem] font-black text-white leading-[0.85] mb-8 tracking-tighter uppercase italic">
                 WASTE <br />
                 <span className="text-transparent stroke-text">VANISHED</span> <br />
-                <span className="text-green-500">TODAY.</span>
+                <span className="text-[#22c55e]">TODAY.</span>
               </h1>
-              <p className="text-xl md:text-3xl text-slate-400 mb-12 max-w-2xl font-bold leading-tight">
+              <p className="text-xl md:text-3xl text-slate-300 mb-12 max-w-2xl font-bold leading-tight">
                 Elite waste removal for <span className="text-white border-b-4 border-orange-500 italic">Berkshire & Surrey</span>. Fully licensed. Fixed pricing. Professional crews.
               </p>
 
@@ -213,21 +213,21 @@ const App = () => {
                     <div className="flex gap-0.5 text-orange-500 mb-1">
                       {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
                     </div>
-                    <span className="text-[10px] font-black uppercase tracking-widest text-green-500">4.9/5 Google Rating</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-[#22c55e]">4.9/5 Trustpilot Excellence</span>
                   </div>
                 </div>
               </div>
             </div>
             
             <div className="lg:col-span-4 hidden lg:block relative">
-              <div className="absolute -inset-10 bg-green-500/10 rounded-full blur-[100px]" />
-              <div className="relative border-4 border-green-500/20 p-4 rounded-3xl bg-zinc-900/50 backdrop-blur-3xl overflow-hidden group">
+              <div className="absolute -inset-10 bg-[#22c55e]/10 rounded-full blur-[100px]" />
+              <div className="relative border-4 border-[#22c55e]/20 p-4 rounded-3xl bg-[#0a2a1d]/50 backdrop-blur-3xl overflow-hidden group">
                  <img 
                     src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80" 
                     className="w-full rounded-2xl grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
                     alt="Professional team"
                   />
-                  <div className="absolute top-8 left-8 bg-green-500 text-black px-4 py-1 font-black uppercase italic text-[10px] shadow-lg">On Site Now</div>
+                  <div className="absolute top-8 left-8 bg-[#22c55e] text-black px-4 py-1 font-black uppercase italic text-[10px] shadow-lg">Mobile Hub Ready</div>
               </div>
             </div>
           </div>
@@ -235,15 +235,15 @@ const App = () => {
       </header>
 
       {/* --- STATS BAR --- */}
-      <section className="bg-green-600 py-8 border-y-4 border-black relative z-20">
+      <section className="bg-[#22c55e] py-8 border-y-4 border-black relative z-20">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
             {stats.map((s, idx) => (
               <div key={idx} className="flex items-center gap-5 text-black group">
-                <div className="bg-black text-green-500 p-3 rounded-sm group-hover:rotate-12 transition-transform border-2 border-black">{s.icon}</div>
+                <div className="bg-black text-[#22c55e] p-3 rounded-sm group-hover:rotate-12 transition-transform border-2 border-black">{s.icon}</div>
                 <div className="flex flex-col">
                   <span className="font-black text-3xl leading-none uppercase italic">{s.value}</span>
-                  <span className="text-[10px] font-black uppercase tracking-widest opacity-80 leading-tight">{s.label}</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest opacity-90 leading-tight">{s.label}</span>
                 </div>
               </div>
             ))}
@@ -252,23 +252,23 @@ const App = () => {
       </section>
 
       {/* --- SERVICES: TACTICAL ASYMMETRIC GRID --- */}
-      <section id="services" className="py-32 bg-[#080808] relative">
+      <section id="services" className="py-32 bg-[#04140e] relative">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             
             {/* Massive Brand Block */}
-            <div className="lg:col-span-6 bg-green-600 p-12 md:p-20 flex flex-col justify-end min-h-[500px] border-4 border-black shadow-[15px_15px_0px_rgba(255,165,0,1)] relative overflow-hidden group">
+            <div className="lg:col-span-6 bg-[#22c55e] p-12 md:p-20 flex flex-col justify-end min-h-[500px] border-4 border-black shadow-[15px_15px_0px_rgba(255,165,0,1)] relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-10 opacity-10 group-hover:translate-x-10 transition-transform duration-1000">
                 <Truck size={300} className="text-black" />
               </div>
-              <div className="relative z-10">
-                <h2 className="text-black text-6xl md:text-[7rem] font-[900] leading-[0.8] uppercase italic mb-8 tracking-tighter">TOTAL <br /> IMPACT.</h2>
-                <p className="text-black font-bold text-xl max-w-sm mb-10 leading-relaxed italic">
-                  We handle the heavy lifting and the legal audit trail. You just point at the pile.
+              <div className="relative z-10 text-black">
+                <h2 className="text-black text-6xl md:text-[7rem] font-[1000] leading-[0.8] uppercase italic mb-8 tracking-tighter">TOTAL <br /> IMPACT.</h2>
+                <p className="font-black text-xl max-w-sm mb-10 leading-relaxed italic">
+                  Sustainable removal with a zero-waste target. Point at it, and it's gone.
                 </p>
                 <div className="flex gap-4">
                   <div className="bg-black text-white px-6 py-3 text-[10px] font-black uppercase tracking-widest">Est. 2018</div>
-                  <div className="bg-black text-white px-6 py-3 text-[10px] font-black uppercase tracking-widest italic">Fully Insured</div>
+                  <div className="bg-black text-white px-6 py-3 text-[10px] font-black uppercase tracking-widest italic">Fully Licensed</div>
                 </div>
               </div>
             </div>
@@ -280,32 +280,32 @@ const App = () => {
               <div className="relative z-20 p-10 h-full flex flex-col justify-between">
                 <div className="bg-orange-500 text-black w-14 h-14 flex items-center justify-center font-black border-2 border-black text-xl">01</div>
                 <div>
-                  <h3 className="text-4xl font-[900] text-white uppercase italic group-hover:text-green-500 transition-colors tracking-tighter">House Clearance</h3>
-                  <p className="text-white/80 transition-all text-sm font-bold mt-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0">Complete flat, house, and estate clearances across the region.</p>
+                  <h3 className="text-4xl font-[900] text-white uppercase italic group-hover:text-[#22c55e] transition-colors tracking-tighter">House Clearance</h3>
+                  <p className="text-white/80 transition-all text-sm font-bold mt-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0">From loft to cellar, we leave property spotless and ready.</p>
                 </div>
               </div>
             </article>
 
             {/* Service: Commercial */}
-            <article className="lg:col-span-3 bg-zinc-900 border-4 border-black p-10 flex flex-col justify-between hover:border-green-500 transition-all group h-[500px]">
+            <article className="lg:col-span-3 bg-[#0a2a1d] border-4 border-black p-10 flex flex-col justify-between hover:border-[#22c55e] transition-all group h-[500px]">
               <div className="flex flex-col">
-                <Briefcase size={60} className="text-green-500 mb-8 group-hover:-rotate-6 transition-transform" />
-                <span className="text-green-500 font-black text-[11px] tracking-widest uppercase mb-2 block">B2B Duty of Care</span>
-                <h3 className="text-4xl font-[900] text-white uppercase italic mb-6 tracking-tighter">Office & Retail</h3>
+                <Briefcase size={60} className="text-[#22c55e] mb-8 group-hover:-rotate-6 transition-transform" />
+                <span className="text-[#22c55e] font-black text-[11px] tracking-widest uppercase mb-2 block italic">Corporate Compliance</span>
+                <h3 className="text-4xl font-[900] text-white uppercase italic mb-6 tracking-tighter leading-none">Office & Retail</h3>
               </div>
-              <p className="text-slate-500 font-bold text-lg leading-relaxed group-hover:text-slate-300 italic">Uniformed crews for commercial rip-outs and WEEE recycling compliance.</p>
+              <p className="text-slate-400 font-bold text-lg leading-relaxed group-hover:text-slate-200 italic">Data-safe WEEE disposal and full commercial rip-outs with Waste Transfer Notes.</p>
             </article>
 
             {/* Row 2: Builders Spans */}
-            <article className="lg:col-span-5 bg-zinc-900 border-4 border-black p-10 flex flex-col justify-between group hover:bg-orange-500 transition-all duration-700 cursor-pointer h-[400px]">
+            <article className="lg:col-span-5 bg-[#0a2a1d] border-4 border-black p-10 flex flex-col justify-between group hover:bg-orange-500 transition-all duration-700 cursor-pointer h-[400px]">
               <div className="flex justify-between items-start">
-                <Construction size={54} className="text-green-500 group-hover:text-black mb-4 transition-colors" />
-                <div className="text-[10px] font-black uppercase text-slate-500 group-hover:text-black italic">Fast Alternative to Skips</div>
+                <Construction size={54} className="text-[#22c55e] group-hover:text-black mb-4 transition-colors" />
+                <div className="text-[10px] font-black uppercase text-slate-500 group-hover:text-black italic tracking-widest">Rapid Builders Waste removal</div>
               </div>
               <div>
-                <h3 className="text-5xl font-[900] text-white group-hover:text-black uppercase italic mb-4 tracking-tighter">Builders & Trade</h3>
+                <h3 className="text-5xl font-[900] text-white group-hover:text-black uppercase italic mb-4 tracking-tighter">Construction Site</h3>
                 <p className="text-slate-400 group-hover:text-black/80 font-bold text-lg max-w-md italic">
-                  Rubble, timber, and mixed site waste. Avoid the hassle of skip permits and highway licenses.
+                  No skip permits needed. We load heavy rubble, timber, and plasterboard instantly. Avoid fly-tipping risk.
                 </p>
               </div>
             </article>
@@ -313,18 +313,18 @@ const App = () => {
             <article className="lg:col-span-7 bg-white text-black p-12 flex flex-col md:flex-row gap-12 items-center border-4 border-black group h-auto lg:h-[400px]">
               <div className="md:w-1/3 flex justify-center">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-green-500/20 blur-2xl group-hover:bg-green-500/40 transition-all" />
-                  <Leaf size={140} className="text-green-600 group-hover:rotate-12 transition-transform relative z-10" />
+                  <div className="absolute inset-0 bg-[#22c55e]/20 blur-2xl group-hover:bg-[#22c55e]/40 transition-all" />
+                  <Leaf size={140} className="text-green-700 group-hover:rotate-12 transition-transform relative z-10" />
                 </div>
               </div>
               <div className="md:w-2/3">
-                <h3 className="text-5xl font-[900] uppercase italic mb-6 tracking-tighter">Garden Waste</h3>
+                <h3 className="text-5xl font-[1000] uppercase italic mb-6 tracking-tighter">Exterior Waste</h3>
                 <p className="text-slate-600 font-bold text-xl mb-8 italic leading-snug">
-                  Green waste, old decking, and shed demolition. We leave your outdoor space ready for landscaping.
+                  Garden clearance, shed dismantling, and soil disposal. Professional green recycling for Thames Valley homes.
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  {['Sheds Removed', 'Soil', 'Green Waste', 'Fencing'].map(tag => (
-                    <div key={tag} className="bg-black text-white px-5 py-2.5 text-[10px] font-black uppercase tracking-widest italic">{tag}</div>
+                  {['Sheds', 'Green Waste', 'Soil', 'Paving'].map(tag => (
+                    <div key={tag} className="bg-[#021a12] text-white px-5 py-2.5 text-[10px] font-black uppercase tracking-widest italic">{tag}</div>
                   ))}
                 </div>
               </div>
@@ -334,51 +334,51 @@ const App = () => {
         </div>
       </section>
 
-      {/* --- SEO TICKER --- */}
-      <div className="bg-black py-6 overflow-hidden border-y border-white/10 relative z-30">
+      {/* --- SEO TICKER (GREEN THEME) --- */}
+      <div className="bg-[#021a12] py-6 overflow-hidden border-y border-[#22c55e]/20 relative z-30">
         <div className="flex whitespace-nowrap animate-marquee">
           {[...Array(15)].map((_, i) => (
             <div key={i} className="flex items-center mx-12 gap-5 group">
-              <div className="w-2.5 h-2.5 bg-green-500 rounded-full shadow-[0_0_15px_rgba(34,197,94,1)] group-hover:scale-150 transition-transform" />
+              <div className="w-2.5 h-2.5 bg-[#22c55e] rounded-full shadow-[0_0_15px_#22c55e] group-hover:scale-150 transition-transform" />
               <span className="text-sm font-[900] uppercase tracking-[0.4em] text-white/30 italic">
-                {towns[i % towns.length]} <span className="text-green-500 font-[1000]">OPERATIONS</span> • Environment Agency Licensed
+                {towns[i % towns.length]} <span className="text-[#22c55e] font-[1000]">OPERATIONS</span> • Environment Agency Verified
               </span>
             </div>
           ))}
         </div>
       </div>
 
-      {/* --- COMPLIANCE / REVIEWS HUB --- */}
-      <section id="compliance" className="py-32 bg-zinc-950">
+      {/* --- COMPLIANCE / REVIEWS (GREEN) --- */}
+      <section id="compliance" className="py-32 bg-[#021a12]">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20">
             <div>
-              <h2 className="text-green-500 font-black uppercase tracking-[0.4em] text-xs mb-6 italic underline decoration-white">Compliance & Duty of Care</h2>
-              <p className="text-5xl md:text-7xl font-black text-white italic uppercase leading-[0.9] mb-12 tracking-tighter">Zero Risk <br /> Clearance.</p>
+              <h2 className="text-[#22c55e] font-black uppercase tracking-[0.4em] text-xs mb-6 italic underline decoration-white">Thames Valley Compliance</h2>
+              <p className="text-5xl md:text-7xl font-black text-white italic uppercase leading-[0.9] mb-12 tracking-tighter">Total Legal <br /> Security.</p>
               
-              <div className="space-y-12">
+              <div className="space-y-12 text-slate-300">
                 <div className="flex gap-8 group">
-                   <div className="bg-white/5 p-6 rounded-2xl border border-white/10 group-hover:border-green-500 transition-colors">
-                    <ShieldCheck size={40} className="text-green-500" />
+                   <div className="bg-[#0a2a1d] p-6 rounded-2xl border border-white/5 group-hover:border-[#22c55e] transition-colors">
+                    <ShieldCheck size={40} className="text-[#22c55e]" />
                    </div>
                    <div>
-                    <h4 className="text-2xl font-black uppercase italic mb-2 tracking-tighter">Digital Audit Trail</h4>
-                    <p className="text-slate-500 font-bold max-w-sm">Every single collection receives a Waste Transfer Note instantly. Protecting you from fly-tipping fines.</p>
+                    <h4 className="text-2xl font-black uppercase italic mb-2 tracking-tighter text-white">Full Duty of Care</h4>
+                    <p className="font-bold max-w-sm">Every clearance is logged. You receive a digital Waste Transfer Note, protecting you from fly-tipping fines.</p>
                    </div>
                 </div>
                 <div className="flex gap-8 group">
-                   <div className="bg-white/5 p-6 rounded-2xl border border-white/10 group-hover:border-green-500 transition-colors">
-                    <Award size={40} className="text-green-500" />
+                   <div className="bg-[#0a2a1d] p-6 rounded-2xl border border-white/5 group-hover:border-[#22c55e] transition-colors">
+                    <Award size={40} className="text-[#22c55e]" />
                    </div>
                    <div>
-                    <h4 className="text-2xl font-black uppercase italic mb-2 tracking-tighter">Verified Carrier</h4>
-                    <p className="text-slate-500 font-bold max-w-sm italic">Licensed by the Environment Agency (CBDU12345). We only use verified recycling centres.</p>
+                    <h4 className="text-2xl font-black uppercase italic mb-2 tracking-tighter text-white">Licensed Carrier</h4>
+                    <p className="font-bold max-w-sm italic">Registered Waste Carrier (CBDU12345). Fully insured up to £5M Public Liability for complete peace of mind.</p>
                    </div>
                 </div>
               </div>
             </div>
 
-            <div id="reviews" className="bg-green-600 p-12 md:p-20 rounded-[3rem] text-black border-8 border-black shadow-[20px_20px_0px_white]">
+            <div id="reviews" className="bg-[#22c55e] p-12 md:p-20 rounded-[3rem] text-black border-8 border-black shadow-[20px_20px_0px_white]">
                <div className="flex items-center gap-4 mb-10">
                  <Users size={32} />
                  <span className="font-black uppercase tracking-widest text-xs italic underline">Verified Local Feedback</span>
@@ -386,13 +386,13 @@ const App = () => {
                <div className="relative">
                  <span className="text-9xl font-black absolute -top-10 -left-6 opacity-20 select-none">"</span>
                  <p className="text-3xl md:text-4xl font-black uppercase italic leading-[1.1] mb-10 relative z-10 tracking-tight">
-                   "Total Waste Clearout saved us. Friendly, uniformed, and swept up afterwards. Far faster and cheaper than a skip permit."
+                   "The best waste company in Berkshire. Same-day service, zero fuss, and much cheaper than the skip permit process."
                  </p>
                  <div className="flex items-center gap-6">
-                   <div className="w-16 h-16 rounded-full bg-black flex items-center justify-center font-black text-white italic border-2 border-white">MS</div>
+                   <div className="w-16 h-16 rounded-full bg-black flex items-center justify-center font-black text-white italic border-2 border-[#021a12]">MS</div>
                    <div>
                      <p className="font-black uppercase text-sm tracking-widest">Mark Saunders</p>
-                     <p className="font-bold opacity-60 text-xs uppercase italic">Homeowner, Reading</p>
+                     <p className="font-bold opacity-60 text-xs uppercase italic tracking-wider">Homeowner, Wokingham</p>
                    </div>
                  </div>
                </div>
@@ -402,26 +402,26 @@ const App = () => {
       </section>
 
       {/* --- QUOTE HUB --- */}
-      <section id="quote" className="py-32 bg-black relative overflow-hidden">
+      <section id="quote" className="py-32 bg-[#04140e] relative overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="bg-white p-8 md:p-20 border-8 border-black shadow-[30px_30px_0px_rgba(34,197,94,1)] text-black relative">
             <div className="grid lg:grid-cols-2 gap-20 items-center">
               <div>
                 <h2 className="text-6xl md:text-[6.5rem] font-[1000] leading-[0.85] uppercase italic mb-10 tracking-tighter">
-                  GET YOUR <br /> <span className="text-green-500 underline decoration-black">FIXED</span> PRICE.
+                  GET YOUR <br /> <span className="text-[#22c55e] underline decoration-black">FIXED</span> PRICE.
                 </h2>
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
-                    <div className="w-3 h-3 bg-green-600 rounded-full" />
-                    <span className="font-black uppercase text-sm italic tracking-tight underline decoration-orange-500 decoration-2">Guaranteed No Hidden Fees</span>
+                    <div className="w-3 h-3 bg-[#22c55e] rounded-full" />
+                    <span className="font-black uppercase text-sm italic tracking-tight underline decoration-orange-500 decoration-2">Guaranteed Pricing - No Extras</span>
                   </div>
                   <div className="flex items-center gap-4">
-                    <div className="w-3 h-3 bg-green-600 rounded-full" />
-                    <span className="font-black uppercase text-sm italic tracking-tight">Same Day Availability</span>
+                    <div className="w-3 h-3 bg-[#22c55e] rounded-full" />
+                    <span className="font-black uppercase text-sm italic tracking-tight">Available Weekends & Evenings</span>
                   </div>
                   <div className="flex items-center gap-4">
-                    <div className="w-3 h-3 bg-green-600 rounded-full" />
-                    <span className="font-black uppercase text-sm italic tracking-tight">90% Recycling Rate</span>
+                    <div className="w-3 h-3 bg-[#22c55e] rounded-full" />
+                    <span className="font-black uppercase text-sm italic tracking-tight">Rapid Response Network</span>
                   </div>
                 </div>
               </div>
@@ -430,24 +430,24 @@ const App = () => {
                  <form className="space-y-8" onSubmit={e => e.preventDefault()}>
                    <div className="grid md:grid-cols-2 gap-8">
                       <div className="flex flex-col gap-3">
-                        <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Clearance Category</label>
-                        <select className="w-full bg-white border-4 border-black p-5 font-black uppercase text-xs outline-none focus:border-green-500 transition-all cursor-pointer">
-                          <option>Full House</option>
+                        <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Clearance Job</label>
+                        <select className="w-full bg-white border-4 border-black p-5 font-black uppercase text-xs outline-none focus:border-[#22c55e] transition-all cursor-pointer">
+                          <option>House Clear-out</option>
                           <option>Trade Waste</option>
-                          <option>Office Clearance</option>
-                          <option>Garden Exterior</option>
+                          <option>Office Disposal</option>
+                          <option>Garden Clear</option>
                         </select>
                       </div>
                       <div className="flex flex-col gap-3">
                         <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Postcode</label>
-                        <input type="text" placeholder="RG1 / SL1 / GU1" className="w-full bg-white border-4 border-black p-5 font-black uppercase text-xs outline-none focus:border-green-500 transition-all" />
+                        <input type="text" placeholder="RG1 / SL1 / GU1" className="w-full bg-white border-4 border-black p-5 font-black uppercase text-xs outline-none focus:border-[#22c55e] transition-all" />
                       </div>
                    </div>
                    <div className="flex flex-col gap-3">
-                      <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Mobile Number</label>
-                      <input type="tel" placeholder="07XXX XXXXXX" className="w-full bg-white border-4 border-black p-5 font-black uppercase text-xs outline-none focus:border-green-500 transition-all" />
+                      <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Phone</label>
+                      <input type="tel" placeholder="07XXX XXXXXX" className="w-full bg-white border-4 border-black p-5 font-black uppercase text-xs outline-none focus:border-[#22c55e] transition-all" />
                    </div>
-                   <button className="w-full bg-black text-white p-8 font-black uppercase tracking-widest italic text-2xl hover:bg-green-600 hover:text-black transition-all shadow-xl active:translate-y-1">
+                   <button className="w-full bg-black text-white p-8 font-black uppercase tracking-widest italic text-2xl hover:bg-[#22c55e] hover:text-black transition-all shadow-xl active:translate-y-1">
                      Lock In My Fixed Price
                    </button>
                  </form>
@@ -457,51 +457,59 @@ const App = () => {
         </div>
       </section>
 
-      {/* --- FOOTER --- */}
-      <footer className="bg-[#050505] pt-32 pb-12 border-t-8 border-green-600">
+      {/* --- FOOTER (GREEN BASE) --- */}
+      <footer className="bg-[#021a12] pt-32 pb-12 border-t-8 border-[#22c55e]">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-4 gap-20 mb-24">
             <div className="lg:col-span-2">
-              <div className="flex items-center gap-4 mb-10">
-                <Trash2 className="text-orange-500 w-12 h-12" />
+              <div className="flex items-center gap-4 mb-10 group">
+                <img 
+                  src="logo.webp" 
+                  alt="Total Waste Clearout Logo" 
+                  className="w-16 h-16 object-contain group-hover:rotate-12 transition-transform" 
+                />
                 <div className="flex flex-col leading-none">
                   <span className="font-black text-4xl tracking-tighter text-white uppercase italic leading-none">Total Waste</span>
-                  <span className="text-green-500 font-black text-sm tracking-[.4em] uppercase">Clearout Ltd</span>
+                  <span className="text-[#22c55e] font-black text-sm tracking-[.4em] uppercase">Clearout Ltd</span>
                 </div>
               </div>
-              <p className="text-slate-500 max-w-sm mb-12 font-bold italic leading-relaxed text-xl underline decoration-green-900">
+              <p className="text-slate-400 max-w-sm mb-12 font-bold italic leading-relaxed text-xl underline decoration-green-900">
                 Premium disposal for the modern era. Sustainable, legally compliant, and aggressively fast.
               </p>
               <div className="flex flex-wrap gap-4">
-                 <div className="bg-zinc-900 border-2 border-white/5 px-6 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400">Licensed Carrier: CBDU12345</div>
-                 <div className="bg-zinc-900 border-2 border-white/5 px-6 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400 italic">Liability: £5,000,000</div>
+                 <div className="bg-[#0a2a1d] border-2 border-white/5 px-6 py-4 text-[10px] font-black uppercase tracking-widest text-slate-300">Carrier: CBDU12345</div>
+                 <div className="bg-[#0a2a1d] border-2 border-white/5 px-6 py-4 text-[10px] font-black uppercase tracking-widest text-slate-300 italic">Insurance: £5,000,000</div>
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-10">
               <div className="flex flex-col gap-6">
-                <h5 className="font-black text-green-500 uppercase tracking-widest text-[10px] italic">Navigator</h5>
-                {navLinks.map(l => <a key={l.name} href={l.href} className="text-xs font-black uppercase tracking-widest hover:text-green-500 transition-colors underline decoration-transparent hover:decoration-green-500">{l.name}</a>)}
+                <h5 className="font-black text-[#22c55e] uppercase tracking-widest text-[10px] italic">Nav</h5>
+                {navLinks.map(l => <a key={l.name} href={l.href} className="text-xs font-black uppercase tracking-widest hover:text-[#22c55e] transition-colors underline decoration-transparent hover:decoration-orange-500">{l.name}</a>)}
               </div>
               <div className="flex flex-col gap-6 font-black uppercase tracking-widest text-xs">
-                <h5 className="text-green-500 text-[10px] italic">Compliance</h5>
-                <a href="#" className="hover:text-green-500">Privacy</a>
-                <a href="#" className="hover:text-green-500 italic">Duty of Care</a>
-                <a href="#" className="hover:text-green-500">Environment Agency</a>
+                <h5 className="text-[#22c55e] text-[10px] italic">Trust</h5>
+                <a href="#" className="hover:text-white">Privacy</a>
+                <a href="#" className="hover:text-white italic">Duty of Care</a>
+                <a href="#" className="hover:text-white">Environment Agency</a>
               </div>
             </div>
 
             <div className="flex flex-col items-start lg:items-end text-left lg:text-right">
-               <h5 className="font-black text-green-500 mb-8 uppercase tracking-[0.3em] text-[10px] italic">Emergency Clearance Line</h5>
-               <a href="tel:08001234567" className="text-4xl md:text-6xl font-black text-white hover:text-orange-500 transition-colors italic tracking-tighter leading-none">0800 123 4567</a>
-               <p className="mt-8 text-slate-600 font-black uppercase text-[10px] tracking-widest">Berkshire • Surrey • Thames Valley</p>
+               <h5 className="font-black text-[#22c55e] mb-8 uppercase tracking-[0.3em] text-[10px] italic">Emergency Hot-Line</h5>
+               <a href="tel:08001234567" className="text-4xl md:text-6xl font-[1000] text-white hover:text-orange-500 transition-colors italic tracking-tighter leading-none">0800 123 4567</a>
+               <p className="mt-8 text-slate-500 font-black uppercase text-[10px] tracking-widest">Berkshire • Surrey • Thames Valley</p>
+               <div className="mt-4 flex gap-1 justify-end">
+                  {[...Array(5)].map((_, i) => <Star key={i} size={14} className="text-[#22c55e] fill-current" />)}
+               </div>
             </div>
           </div>
 
           <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-white/5 gap-8">
-            <p className="text-slate-700 text-[9px] font-black uppercase tracking-[0.4em] text-center md:text-left leading-relaxed">© 2026 TOTAL WASTE CLEAROUT LTD. CO NO: 09876543. REGISTERED IN ENGLAND. BUILT FOR HIGH-PERFORMANCE CLEARANCE.</p>
-            <div className="flex gap-2" aria-label="Rating: 5 Stars">
-               {[...Array(5)].map((_, i) => <Star key={i} size={14} className="text-green-500 fill-current shadow-lg" />)}
+            <p className="text-slate-700 text-[9px] font-black uppercase tracking-[0.4em] text-center md:text-left leading-relaxed">© 2026 TOTAL WASTE CLEAROUT LTD. COMPANY NO: 09876543. REGISTERED IN ENGLAND. HIGHEST RECYCLING RATES IN THE UK.</p>
+            <div className="flex gap-4 items-center">
+              <span className="text-white font-black text-[10px] uppercase tracking-widest italic opacity-40 hover:opacity-100 transition-opacity cursor-pointer">Terms & Conditions</span>
+              <span className="text-white font-black text-[10px] uppercase tracking-widest italic opacity-40 hover:opacity-100 transition-opacity cursor-pointer">Sitemap</span>
             </div>
           </div>
         </div>
