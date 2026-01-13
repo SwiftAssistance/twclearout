@@ -267,10 +267,10 @@ const App = () => {
         </div>
       </nav>
 
-      {/* --- HERO SECTION: FOREST GREEN & TACTICAL LINES --- */}
-      <header id="home" className="relative min-h-screen flex items-center pt-32 overflow-hidden bg-[#052e16]">
-        {/* Substantial Industrial dark grid lines */}
-        <div className="absolute inset-0 opacity-[0.2] pointer-events-none">
+      {/* --- HERO SECTION: RICH FOREST GREEN & TACTICAL LINES --- */}
+      <header id="home" className="relative min-h-screen flex items-center pt-32 overflow-hidden bg-[#064e3b]">
+        {/* Slightly more saturated Industrial dark grid lines */}
+        <div className="absolute inset-0 opacity-[0.25] pointer-events-none">
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="industrial-forest-grid" width="80" height="80" patternUnits="userSpaceOnUse">
@@ -283,7 +283,7 @@ const App = () => {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-8">
+            <div className="lg:col-span-8 text-left">
               <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-2.5 rounded-sm text-[10px] md:text-[11px] font-black text-[#4ade80] mb-8 tracking-[.25em] uppercase italic">
                 <div className="w-2 h-2 bg-[#4ade80] rounded-full animate-ping shadow-[0_0_10px_#4ade80]" />
                 Live: Operations active in Berkshire & Surrey
@@ -300,7 +300,7 @@ const App = () => {
               <div className="flex flex-wrap gap-6 items-center">
                 <a 
                   href="#quote" 
-                  className="bg-orange-500 hover:bg-orange-400 text-black px-12 py-6 rounded-sm font-black text-xl uppercase italic tracking-wider flex items-center gap-4 transition-all hover:-translate-y-1 shadow-[8px_8px_0px_#04241a]"
+                  className="bg-orange-500 hover:bg-orange-400 text-black px-12 py-6 rounded-sm font-black text-xl uppercase italic tracking-wider flex items-center gap-4 transition-all hover:-translate-y-1 shadow-[8px_8px_0px_#022c22]"
                 >
                   Clear My Waste <ArrowRight size={24} />
                 </a>
@@ -310,7 +310,7 @@ const App = () => {
                       <img 
                         key={i}
                         src={`https://i.pravatar.cc/100?img=${i+14}`} 
-                        className="w-12 h-12 rounded-full border-2 border-[#052e16] shadow-sm"
+                        className="w-12 h-12 rounded-full border-2 border-[#064e3b] shadow-sm"
                         alt="Customer"
                       />
                     ))}
@@ -333,8 +333,8 @@ const App = () => {
         <div className="container mx-auto px-6 text-white font-black">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
             {stats.map((s, idx) => (
-              <div key={idx} className="flex items-center gap-4 md:gap-5">
-                <div className="bg-white text-[#16a34a] p-2 md:p-3 rounded-sm shrink-0 shadow-sm">{s.icon}</div>
+              <div key={idx} className="flex items-center gap-4 md:gap-5 text-white">
+                <div className="bg-[#064e3b] text-[#4ade80] p-2 md:p-3 rounded-sm shrink-0 shadow-sm">{s.icon}</div>
                 <div className="flex flex-col leading-none">
                   <span className="text-2xl md:text-3xl uppercase italic leading-none">{s.value}</span>
                   <span className="text-[9px] md:text-[10px] uppercase tracking-widest opacity-80">{s.label}</span>
@@ -346,9 +346,9 @@ const App = () => {
       </section>
 
       {/* --- SERVICES (WHITE THEME RESTORED) --- */}
-      <section id="services" className="py-32 bg-white relative border-b border-slate-100">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 text-slate-900">
+      <section id="services" className="py-32 bg-white relative border-b border-slate-100 text-left">
+        <div className="container mx-auto px-6 text-left">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 text-slate-900 text-left">
             
             <div className="lg:col-span-6 bg-[#dcfce7] p-12 md:p-20 flex flex-col justify-end min-h-[400px] md:min-h-[500px] border-4 border-slate-900 shadow-[15px_15px_0px_#16a34a] relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-10 opacity-10 group-hover:translate-x-10 transition-transform duration-1000">
@@ -364,53 +364,53 @@ const App = () => {
               </div>
             </div>
 
-            <article className="lg:col-span-3 bg-white group overflow-hidden relative border-4 border-slate-900 h-[400px] md:h-[500px] cursor-pointer shadow-lg">
+            <article className="lg:col-span-3 bg-white group overflow-hidden relative border-4 border-slate-900 h-[400px] md:h-[500px] cursor-pointer shadow-lg text-left">
               <div className="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/20 transition-all duration-500" />
               <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80" className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000" alt="House" />
               <div className="relative z-20 p-8 h-full flex flex-col justify-between text-white text-left">
                 <div className="bg-orange-500 text-black w-12 md:w-14 h-12 md:h-14 flex items-center justify-center font-black border-2 border-black text-xl italic shadow-md">01</div>
-                <div>
-                  <h3 className="text-3xl md:text-4xl font-[900] uppercase italic group-hover:text-[#4ade80] transition-colors leading-none">House Clearance</h3>
-                  <p className="text-sm font-bold mt-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all italic">Homes, flats, and probate clears.</p>
+                <div className="text-left">
+                  <h3 className="text-3xl md:text-4xl font-[900] uppercase italic group-hover:text-[#4ade80] transition-colors leading-none text-left">House Clearance</h3>
+                  <p className="text-sm font-bold mt-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all italic text-left">Homes, flats, and probate clears.</p>
                 </div>
               </div>
             </article>
 
             <article className="lg:col-span-3 bg-white border-4 border-slate-900 p-8 md:p-10 flex flex-col justify-between hover:border-[#16a34a] transition-all h-[400px] md:h-[500px] shadow-lg group text-left">
               <Briefcase size={60} className="text-[#16a34a] mb-8 group-hover:-rotate-6 transition-transform" />
-              <div>
-                <span className="text-slate-400 font-black text-[11px] tracking-widest uppercase mb-2 block italic">B2B Duty of Care</span>
-                <h3 className="text-3xl md:text-4xl font-[900] text-slate-900 uppercase italic mb-6 tracking-tighter leading-none">Office & Retail</h3>
-                <p className="text-slate-600 font-bold text-lg leading-relaxed italic">Fast commercial rip-outs with secure WEEE disposal notes.</p>
+              <div className="text-left">
+                <span className="text-slate-400 font-black text-[11px] tracking-widest uppercase mb-2 block italic text-left">B2B Duty of Care</span>
+                <h3 className="text-3xl md:text-4xl font-[900] text-slate-900 uppercase italic mb-6 tracking-tighter leading-none text-left">Office & Retail</h3>
+                <p className="text-slate-600 font-bold text-lg leading-relaxed italic text-left">Fast commercial rip-outs with secure WEEE disposal notes.</p>
               </div>
             </article>
 
             <article className="lg:col-span-5 bg-slate-900 border-4 border-slate-900 p-8 md:p-10 flex flex-col justify-between group hover:bg-orange-500 transition-all duration-700 cursor-pointer min-h-[350px] lg:h-[400px] text-left">
-              <div className="flex justify-between items-start text-white">
+              <div className="flex justify-between items-start text-white text-left">
                 <Construction size={54} className="text-[#4ade80] group-hover:text-black mb-4 transition-colors" />
-                <div className="text-[10px] font-black uppercase text-slate-400 group-hover:text-black/60 italic tracking-widest">Trade Waste Specialists</div>
+                <div className="text-[10px] font-black uppercase text-slate-400 group-hover:text-black/60 italic tracking-widest text-left">Trade Waste Specialists</div>
               </div>
-              <div className="text-white">
-                <h3 className="text-4xl md:text-5xl font-[900] group-hover:text-black uppercase italic mb-4 tracking-tighter leading-none">Construction Site</h3>
-                <p className="group-hover:text-black/80 font-bold text-base md:text-lg max-w-md italic leading-tight">
+              <div className="text-white text-left">
+                <h3 className="text-4xl md:text-5xl font-[900] group-hover:text-black uppercase italic mb-4 tracking-tighter leading-none text-left">Construction Site</h3>
+                <p className="group-hover:text-black/80 font-bold text-base md:text-lg max-w-md italic leading-tight text-left">
                   Avoid skip permits. We load heavy rubble, timber, and plasterboard instantly. Safe, legal, and rapid.
                 </p>
               </div>
             </article>
 
-            <article className="lg:col-span-7 bg-[#f1f5f2] text-slate-900 p-12 flex flex-col md:flex-row gap-12 items-center border-4 border-slate-900 group h-auto lg:h-[400px] shadow-xl text-left">
+            <article className="lg:col-span-7 bg-[#ecf3ef] text-slate-900 p-12 flex flex-col md:flex-row gap-12 items-center border-4 border-slate-900 group h-auto lg:h-[400px] shadow-xl text-left">
               <div className="md:w-1/3 flex justify-center">
                 <div className="relative">
                   <div className="absolute inset-0 bg-[#4ade80]/10 blur-2xl group-hover:bg-[#4ade80]/20 transition-all" />
                   <Leaf size={140} className="text-[#16a34a] group-hover:rotate-12 transition-transform relative z-10" />
                 </div>
               </div>
-              <div className="md:w-2/3">
-                <h3 className="text-4xl md:text-5xl font-[1000] uppercase italic mb-6 tracking-tighter leading-[0.9]">Exterior <br /> Waste.</h3>
-                <p className="text-slate-600 font-bold text-xl mb-8 italic leading-snug">
+              <div className="md:w-2/3 text-left">
+                <h3 className="text-4xl md:text-5xl font-[1000] uppercase italic mb-6 tracking-tighter leading-[0.9] text-left">Exterior <br /> Waste.</h3>
+                <p className="text-slate-600 font-bold text-xl mb-8 italic leading-snug text-left text-slate-600">
                   Garden clearance, shed dismantling, and soil disposal. We leave your outdoor space ready for landscaping.
                 </p>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-3 text-left">
                   {['Sheds', 'Green Waste', 'Soil', 'Decking'].map(tag => (
                     <div key={tag} className="bg-slate-900 text-white px-5 py-2.5 text-[10px] font-black uppercase tracking-widest italic">{tag}</div>
                   ))}
@@ -423,8 +423,8 @@ const App = () => {
       </section>
 
       {/* --- LOCATIONS --- */}
-      <section id="locations" className="py-24 bg-[#f8fafc]">
-        <div className="container mx-auto px-6">
+      <section id="locations" className="py-24 bg-[#f8fafc] text-left">
+        <div className="container mx-auto px-6 text-left">
           <div className="flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left border-t border-slate-200 pt-24 text-slate-900">
             <h3 className="text-3xl font-black uppercase italic shrink-0 underline decoration-[#16a34a]">Coverage <span className="text-[#16a34a]">Map</span></h3>
             <div className="flex flex-wrap justify-center md:justify-end gap-x-8 md:gap-x-12 gap-y-6">
@@ -440,29 +440,29 @@ const App = () => {
       </section>
 
       {/* --- COMPLIANCE & TOUCH REVIEWS HUB --- */}
-      <section id="compliance" className="py-32 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-20">
+      <section id="compliance" className="py-32 bg-white text-left">
+        <div className="container mx-auto px-6 text-left">
+          <div className="grid lg:grid-cols-2 gap-20 text-left">
             <div className="text-left">
               <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-6 italic underline">Audit & Duty of Care</h2>
-              <p className="text-5xl md:text-7xl font-black text-slate-900 italic uppercase leading-[0.9] mb-12 tracking-tighter">Total Legal <br /> Safety.</p>
-              <div className="space-y-12 text-slate-600">
-                <div className="flex gap-8 group">
-                   <div className="bg-[#f1f5f2] p-6 rounded-2xl border border-slate-200 group-hover:border-[#16a34a] transition-colors">
+              <p className="text-5xl md:text-7xl font-black text-slate-900 italic uppercase leading-[0.9] mb-12 tracking-tighter text-left">Total Legal <br /> Safety.</p>
+              <div className="space-y-12 text-slate-600 text-left">
+                <div className="flex gap-8 group text-left">
+                   <div className="bg-[#ecf3ef] p-6 rounded-2xl border border-slate-200 group-hover:border-[#16a34a] transition-colors">
                     <ShieldCheck size={40} className="text-[#16a34a]" />
                    </div>
-                   <div>
-                    <h4 className="text-2xl font-black uppercase italic mb-2 tracking-tighter text-slate-900 leading-none">Full Audit Trail</h4>
-                    <p className="font-bold max-w-sm italic text-sm">Every clearance receives a digital Waste Transfer Note, protecting you legally from fly-tipping fines.</p>
+                   <div className="text-left">
+                    <h4 className="text-2xl font-black uppercase italic mb-2 tracking-tighter text-slate-900 leading-none text-left">Full Audit Trail</h4>
+                    <p className="font-bold max-w-sm italic text-sm text-left">Every clearance receives a digital Waste Transfer Note, protecting you legally from fly-tipping fines.</p>
                    </div>
                 </div>
-                <div className="flex gap-8 group">
-                   <div className="bg-[#f1f5f2] p-6 rounded-2xl border border-slate-200 group-hover:border-[#16a34a] transition-colors">
+                <div className="flex gap-8 group text-left">
+                   <div className="bg-[#ecf3ef] p-6 rounded-2xl border border-slate-200 group-hover:border-[#16a34a] transition-colors">
                     <Award size={40} className="text-[#16a34a]" />
                    </div>
-                   <div>
-                    <h4 className="text-2xl font-black uppercase italic mb-2 tracking-tighter text-slate-900 leading-none">Environment Agency</h4>
-                    <p className="font-bold max-w-sm italic text-sm text-slate-600">Certified Upper Tier Waste Carrier (CBDU12345). Insured for residential and commercial rip-outs.</p>
+                   <div className="text-left">
+                    <h4 className="text-2xl font-black uppercase italic mb-2 tracking-tighter text-slate-900 leading-none text-left">Environment Agency</h4>
+                    <p className="font-bold max-w-sm italic text-sm text-slate-600 text-left">Certified Upper Tier Waste Carrier (CBDU12345). Insured for residential and commercial rip-outs.</p>
                    </div>
                 </div>
               </div>
@@ -470,27 +470,27 @@ const App = () => {
 
             <div 
               id="reviews" 
-              className="bg-[#16a34a] p-10 md:p-20 rounded-[2rem] md:rounded-[3rem] text-white border-8 border-slate-900 shadow-[20px_20px_0px_#f1f5f2] relative overflow-hidden group touch-pan-y"
+              className="bg-[#16a34a] p-10 md:p-20 rounded-[2rem] md:rounded-[3rem] text-white border-8 border-slate-900 shadow-[20px_20px_0px_#ecf3ef] relative overflow-hidden group touch-pan-y text-left"
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              <div className="flex justify-between items-start mb-10 text-white">
+              <div className="flex justify-between items-start mb-10 text-white text-left">
                 <Users size={32} />
                 <div className="flex gap-2">
                    <button onClick={prevReview} className="p-2 border-2 border-white hover:bg-white hover:text-[#16a34a] transition-colors rounded-full hidden md:block"><ChevronLeft size={24} /></button>
                    <button onClick={nextReview} className="p-2 border-2 border-white hover:bg-white hover:text-[#16a34a] transition-colors rounded-full hidden md:block"><ChevronRight size={24} /></button>
                 </div>
               </div>
-              <div className="relative min-h-[180px] md:min-h-[220px]">
+              <div className="relative min-h-[180px] md:min-h-[220px] text-left">
                 {reviewsData.map((review, idx) => (
                   <div key={idx} className={`transition-all duration-500 absolute inset-0 ${idx === currentReview ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12 pointer-events-none'}`}>
                     <p className="text-2xl md:text-3xl font-[1000] uppercase italic leading-[1.1] mb-10 tracking-tight text-white text-left">"{review.text}"</p>
-                    <div className="flex items-center gap-6">
+                    <div className="flex items-center gap-6 text-left">
                       <div className="w-16 h-16 rounded-full bg-slate-900 flex items-center justify-center font-black text-white italic border-2 border-white text-xl">{review.initials}</div>
                       <div className="text-left text-white">
-                        <p className="font-black uppercase text-base tracking-widest leading-none mb-1">{review.name}</p>
-                        <p className="font-bold opacity-80 text-xs uppercase italic">{review.location} • Verified Review</p>
+                        <p className="font-black uppercase text-base tracking-widest leading-none mb-1 text-left">{review.name}</p>
+                        <p className="font-bold opacity-80 text-xs uppercase italic text-left">{review.location} • Verified Review</p>
                       </div>
                     </div>
                   </div>
@@ -507,20 +507,20 @@ const App = () => {
       </section>
 
       {/* --- QUOTE HUB --- */}
-      <section id="quote" className="py-32 bg-[#f1f5f2] relative overflow-hidden border-t border-slate-200">
-        <div className="container mx-auto px-6 text-slate-900">
-          <div className="bg-white p-8 md:p-20 border-8 border-slate-900 shadow-[15px_15px_0px_#16a34a] md:shadow-[30px_30px_0px_#16a34a] text-slate-900 relative">
+      <section id="quote" className="py-32 bg-[#ecf3ef] relative overflow-hidden border-t border-slate-200 text-left">
+        <div className="container mx-auto px-6 text-slate-900 text-left">
+          <div className="bg-white p-8 md:p-20 border-8 border-slate-900 shadow-[15px_15px_0px_#16a34a] md:shadow-[30px_30px_0px_#16a34a] text-slate-900 relative text-left">
             <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center text-left">
-              <div className="space-y-8">
-                <h2 className="text-5xl md:text-[6.5rem] font-[1000] leading-[0.85] uppercase italic tracking-tighter">GET YOUR <br /> <span className="text-[#16a34a] underline decoration-slate-900">FIXED</span> PRICE.</h2>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500"><CheckCircle size={16} className="text-[#16a34a]" /> No Hidden Tipping Fees</div>
-                  <div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500"><CheckCircle size={16} className="text-[#16a34a]" /> Professional Loaders Included</div>
+              <div className="space-y-8 text-left">
+                <h2 className="text-5xl md:text-[6.5rem] font-[1000] leading-[0.85] uppercase italic tracking-tighter text-left">GET YOUR <br /> <span className="text-[#16a34a] underline decoration-slate-900">FIXED</span> PRICE.</h2>
+                <div className="space-y-4 text-left">
+                  <div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500 text-left"><CheckCircle size={16} className="text-[#16a34a]" /> No Hidden Tipping Fees</div>
+                  <div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500 text-left"><CheckCircle size={16} className="text-[#16a34a]" /> Professional Loaders Included</div>
                 </div>
               </div>
-              <div className="bg-slate-50 p-6 md:p-10 border-4 border-slate-900 rounded-lg">
-                 <form className="space-y-8" onSubmit={e => e.preventDefault()}>
-                   <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-slate-50 p-6 md:p-10 border-4 border-slate-900 rounded-lg text-left">
+                 <form className="space-y-8 text-left" onSubmit={e => e.preventDefault()}>
+                   <div className="grid md:grid-cols-2 gap-8 text-left">
                       <select className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a] appearance-none cursor-pointer">
                         <option>Full House Clearance</option>
                         <option>Trade Waste</option>
@@ -537,45 +537,45 @@ const App = () => {
       </section>
 
       {/* --- FOOTER --- */}
-      <footer className="bg-[#052e16] pt-24 pb-12 border-t-8 border-[#4ade80] text-white">
-        <div className="container mx-auto px-6">
+      <footer className="bg-[#064e3b] pt-24 pb-12 border-t-8 border-[#4ade80] text-white text-left">
+        <div className="container mx-auto px-6 text-left">
           <div className="grid lg:grid-cols-4 gap-12 md:gap-20 mb-20 text-left">
-            <div className="lg:col-span-2 space-y-8">
-              <div className="flex items-center gap-4 group cursor-pointer">
+            <div className="lg:col-span-2 space-y-8 text-left">
+              <div className="flex items-center gap-4 group cursor-pointer text-left">
                 <img src="logo.webp" alt="Logo" className="w-16 h-16 object-contain group-hover:rotate-12 transition-transform" />
-                <div className="flex flex-col leading-none">
-                  <span className="font-black text-3xl md:text-4xl tracking-tighter uppercase italic text-white leading-none">Total Waste</span>
-                  <span className="text-[#4ade80] font-black text-sm tracking-[.4em] uppercase">Clearout Ltd</span>
+                <div className="flex flex-col leading-none text-left">
+                  <span className="font-black text-3xl md:text-4xl tracking-tighter uppercase italic text-white leading-none text-left">Total Waste</span>
+                  <span className="text-[#4ade80] font-black text-sm tracking-[.4em] uppercase text-left">Clearout Ltd</span>
                 </div>
               </div>
-              <p className="text-white/60 max-w-sm font-bold italic text-lg leading-relaxed underline decoration-white/5">Berkshire & Surrey's premier disposal service. 94% recycling rate and 100% legal compliance on every job.</p>
-              <div className="flex flex-wrap gap-4">
-                 <div className="bg-white/5 border-2 border-white/10 px-6 py-4 text-[10px] font-black uppercase tracking-widest text-white/60 italic flex items-center gap-2 shadow-sm"><ShieldCheck size={14} className="text-[#4ade80]" /> Registered Carrier</div>
+              <p className="text-white/60 max-w-sm font-bold italic text-lg leading-relaxed underline decoration-white/5 text-left">Berkshire & Surrey's premier disposal service. 94% recycling rate and 100% legal compliance on every job.</p>
+              <div className="flex flex-wrap gap-4 text-left">
+                 <div className="bg-white/5 border-2 border-white/10 px-6 py-4 text-[10px] font-black uppercase tracking-widest text-white/60 italic flex items-center gap-2 shadow-sm text-left"><ShieldCheck size={14} className="text-[#4ade80]" /> Registered Carrier</div>
               </div>
             </div>
-            <div className="space-y-8">
-              <h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-xs italic">Services</h5>
-              <ul className="space-y-4 font-black text-xs uppercase tracking-widest italic text-white/40">
+            <div className="space-y-8 text-left">
+              <h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-xs italic text-left">Services</h5>
+              <ul className="space-y-4 font-black text-xs uppercase tracking-widest italic text-white/40 text-left">
                 {['House Clearances', 'Builders Waste', 'Garden Removal', 'Office Rip-outs', 'Sofa Disposal', 'Shed Demolition'].map(service => (
-                  <li key={service} className="hover:text-[#4ade80] hover:translate-x-2 transition-all cursor-pointer">{service}</li>
+                  <li key={service} className="hover:text-[#4ade80] hover:translate-x-2 transition-all cursor-pointer text-left">{service}</li>
                 ))}
               </ul>
             </div>
             <div className="space-y-8 flex flex-col items-start lg:items-end text-left lg:text-right">
                <div className="space-y-2 text-left lg:text-right">
-                 <h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-xs italic">Emergency Line</h5>
-                 <a href="tel:08001234567" className="text-4xl md:text-5xl font-[1000] text-white hover:text-orange-500 transition-colors italic tracking-tighter leading-none block">0800 123 4567</a>
+                 <h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-xs italic text-left lg:text-right">Emergency Line</h5>
+                 <a href="tel:08001234567" className="text-4xl md:text-5xl font-[1000] text-white hover:text-orange-500 transition-colors italic tracking-tighter leading-none block text-left lg:text-right">0800 123 4567</a>
                </div>
-               <div className="pt-6 flex gap-4 lg:justify-end">
+               <div className="pt-6 flex gap-4 lg:justify-end text-left lg:text-right">
                   <a href="https://www.instagram.com/totalwasteclearout" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-[#4ade80] transition-colors hover:text-black shadow-sm"><Instagram size={20} /></a>
                   <a href="https://www.facebook.com/totalwasteclearout" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-[#4ade80] transition-colors hover:text-black shadow-sm"><Facebook size={20} /></a>
                </div>
             </div>
           </div>
-          <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-            <p className="text-white/20 text-[9px] font-black uppercase tracking-[0.4em] text-center md:text-left leading-relaxed">© 2026 TOTAL WASTE CLEAROUT LTD. REGISTERED IN ENGLAND. BUILT FOR HIGH-PERFORMANCE CLEARANCE.</p>
-            <div className="flex gap-6 items-center">
-              {['Privacy', 'Legal', 'Compliance'].map(item => (<a key={item} href="#" className="text-[10px] font-black uppercase text-white/20 hover:text-[#4ade80] transition-colors italic tracking-widest">{item}</a>))}
+          <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-left">
+            <p className="text-white/20 text-[9px] font-black uppercase tracking-[0.4em] text-center md:text-left leading-relaxed text-left">© 2026 TOTAL WASTE CLEAROUT LTD. REGISTERED IN ENGLAND. BUILT FOR HIGH-PERFORMANCE CLEARANCE.</p>
+            <div className="flex gap-6 items-center text-left">
+              {['Privacy', 'Legal', 'Compliance'].map(item => (<a key={item} href="#" className="text-[10px] font-black uppercase text-white/20 hover:text-[#4ade80] transition-colors italic tracking-widest text-left">{item}</a>))}
             </div>
           </div>
         </div>
