@@ -79,9 +79,9 @@ const STATS = [
 // --- STABLE SUB-COMPONENTS (Defined outside App to prevent scroll-reset and re-mounting) ---
 
 const ReviewCard = ({ review, idx }) => (
-  <div className="w-full flex-shrink-0 px-2">
-    {/* FIXED: Removed h-full from outer wrapper and fixed min-height for mobile. p-6 provides safe spacing. */}
-    <div className={`p-6 sm:p-10 md:p-14 border-8 border-slate-900 rounded-[2rem] md:rounded-[3rem] shadow-[10px_10px_0px_#ecf3ef] md:shadow-[20px_20px_0px_#ecf3ef] flex flex-col relative overflow-hidden transition-all ${review.color} h-auto`}>
+  <div className="w-full flex-shrink-0 px-1 sm:px-2">
+    {/* FIXED: Removed h-full from outer wrapper and fixed min-height for mobile. Reduced padding and border on mobile to prevent horizontal overflow. */}
+    <div className={`p-4 sm:p-10 md:p-14 border-4 sm:border-8 border-slate-900 rounded-[2rem] md:rounded-[3rem] shadow-[10px_10px_0px_#ecf3ef] md:shadow-[20px_20px_0px_#ecf3ef] flex flex-col relative overflow-hidden transition-all ${review.color} h-auto`}>
       <Quote className={`absolute -top-4 -left-4 w-16 md:w-32 opacity-10 ${review.accent}`} aria-hidden="true" />
       
       <div className="relative z-10 flex-grow text-left mb-6 md:mb-10">
@@ -234,12 +234,12 @@ const App = () => {
 
   const ReviewsSection = ({ title = "CLIENTS TALK." }) => (
     <section id="reviews" className="py-24 md:py-32 bg-[#f8fafc] overflow-hidden text-left">
-      <div className="container mx-auto px-6 text-left">
+      <div className="container mx-auto px-4 sm:px-6 text-left">
         <div className="grid lg:grid-cols-12 gap-12 md:gap-20 items-start text-left">
-          <div className="lg:col-span-4 text-left text-slate-900 text-left">
-            <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900 text-left">Proven Trust</h2>
-            <p className="text-5xl md:text-8xl font-black text-slate-900 italic uppercase leading-[0.85] mb-12 tracking-tighter text-left">{title}</p>
-            <div className="hidden lg:flex items-center gap-4 mb-12 relative z-[60] text-left">
+          <div className="lg:col-span-4 text-left text-slate-900">
+            <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Proven Trust</h2>
+            <p className="text-5xl md:text-8xl font-black text-slate-900 italic uppercase leading-[0.85] mb-12 tracking-tighter">{title}</p>
+            <div className="hidden lg:flex items-center gap-4 mb-12 relative z-[60]">
                <button type="button" onClick={prevReview} aria-label="Previous review" className="w-14 h-14 border-4 border-slate-900 rounded-full flex items-center justify-center bg-white hover:bg-[#16a34a] hover:text-white transition-all text-slate-900 active:scale-90 shadow-md cursor-pointer pointer-events-auto">
                  <ChevronLeft size={28} />
                </button>
@@ -247,12 +247,12 @@ const App = () => {
                  <ChevronRight size={28} />
                </button>
             </div>
-            <p className="lg:hidden text-[10px] font-black uppercase tracking-widest text-[#16a34a] italic mb-6 text-left">← Swipe reviews →</p>
+            <p className="lg:hidden text-[10px] font-black uppercase tracking-widest text-[#16a34a] italic mb-6">← Swipe reviews →</p>
           </div>
-          
-          <div className="lg:col-span-8 relative">
-            {/* FIXED: strict overflow-hidden masks previous cards correctly */}
-            <div className="relative overflow-hidden touch-pan-y" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
+
+          <div className="lg:col-span-8 relative overflow-hidden">
+            {/* FIXED: strict overflow-hidden masks previous cards correctly and prevents horizontal scroll */}
+            <div className="relative overflow-hidden touch-pan-y w-full" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
               <div className="flex flex-nowrap transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]" style={{ transform: `translateX(-${currentReview * 100}%)` }}>
                 {REVIEWS.map((review, idx) => (
                   <ReviewCard key={`rev-${idx}`} review={review} idx={idx} />
