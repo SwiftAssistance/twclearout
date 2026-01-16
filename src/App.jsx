@@ -221,13 +221,23 @@ const App = () => {
   const nextReview = useCallback(() => setCurrentReview((prev) => (prev + 1) % REVIEWS.length), []);
   const prevReview = useCallback(() => setCurrentReview((prev) => (prev - 1 + REVIEWS.length) % REVIEWS.length), []);
 
-  const handleTouchStart = (e) => setTouchStart(e.targetTouches[0].clientX);
-  const handleTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
   const handleTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
     const distance = touchStart - touchEnd;
-    if (distance > 50) nextReview();
-    if (distance < -50) prevReview();
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) nextReview();
+    if (isRightSwipe) prevReview();
+
     setTouchStart(null);
     setTouchEnd(null);
   };
@@ -251,8 +261,8 @@ const App = () => {
           </div>
 
           <div className="lg:col-span-8 relative overflow-hidden">
-            {/* FIXED: strict overflow-hidden masks previous cards correctly and prevents horizontal scroll */}
-            <div className="relative overflow-hidden touch-pan-y w-full" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
+            {/* FIXED: strict overflow-hidden masks previous cards correctly and prevents horizontal scroll. Touch events enable swipe gestures. */}
+            <div className="relative overflow-hidden w-full touch-action-pan-x" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd} style={{ touchAction: 'pan-x' }}>
               <div className="flex flex-nowrap transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]" style={{ transform: `translateX(-${currentReview * 100}%)` }}>
                 {REVIEWS.map((review, idx) => (
                   <ReviewCard key={`rev-${idx}`} review={review} idx={idx} />
@@ -276,7 +286,7 @@ const App = () => {
       {/* WHATSAPP FLOAT */}
       <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-3 pointer-events-none text-slate-900">
         <div role="status" className="bg-white text-black px-4 py-2 rounded-lg text-[10px] font-[900] shadow-2xl animate-bounce hidden md:block border-2 border-[#16a34a] pointer-events-auto select-none uppercase tracking-tighter">SNAP A PHOTO FOR A QUOTE!</div>
-        <a href="https://wa.me/447000000000" target="_blank" rel="noopener noreferrer" className="bg-[#25D366] hover:bg-[#128C7E] text-white p-5 rounded-2xl shadow-[0_0_40px_rgba(37,211,102,0.5)] transition-all hover:scale-110 active:scale-95 group flex items-center gap-4 border-2 border-white/20 pointer-events-auto"><div className="flex flex-col items-end leading-none text-white text-right"><span className="text-[9px] font-black opacity-80 uppercase tracking-tighter text-white text-right">Live Response</span><span className="text-sm font-black tracking-tight text-white text-right">WHATSAPP US</span></div><svg viewBox="0 0 24 24" className="w-8 h-8 fill-current text-white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg></a>
+        <a href="https://wa.me/447769844298" target="_blank" rel="noopener noreferrer" className="bg-[#25D366] hover:bg-[#128C7E] text-white p-5 rounded-2xl shadow-[0_0_40px_rgba(37,211,102,0.5)] transition-all hover:scale-110 active:scale-95 group flex items-center gap-4 border-2 border-white/20 pointer-events-auto"><div className="flex flex-col items-end leading-none text-white text-right"><span className="text-[9px] font-black opacity-80 uppercase tracking-tighter text-white text-right">Live Response</span><span className="text-sm font-black tracking-tight text-white text-right">WHATSAPP US</span></div><svg viewBox="0 0 24 24" className="w-8 h-8 fill-current text-white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg></a>
       </div>
 
       {/* NAVIGATION */}
@@ -287,7 +297,7 @@ const App = () => {
             <button onClick={() => setCurrentView('home')} className={`transition-all relative group py-2 ${currentView === 'home' ? 'text-[#16a34a]' : 'hover:text-[#16a34a]'}`}>Home<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${currentView === 'home' ? 'w-full' : 'w-0 group-hover:w-full'}`} /></button>
             <a href="services.html" className="transition-all relative group py-2 hover:text-[#16a34a]">Services<span className="absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 w-0 group-hover:w-full" /></a>
             <button onClick={() => setCurrentView('reviews')} className={`transition-all relative group py-2 ${currentView === 'reviews' ? 'text-[#16a34a]' : 'hover:text-[#16a34a]'}`}>Reviews<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${currentView === 'reviews' ? 'w-full' : 'w-0 group-hover:w-full'}`} /></button>
-            <div className="h-6 w-px bg-white/20 mx-2" /><a href="tel:08001234567" className="bg-[#16a34a] hover:bg-slate-900 text-white px-6 py-3 rounded-sm flex items-center gap-3 transition-all shadow-md font-black italic uppercase tracking-wider"><Phone size={16} fill="white" /> 0800 123 4567</a>
+            <div className="h-6 w-px bg-white/20 mx-2" /><a href="tel:07769844298" className="bg-[#16a34a] hover:bg-slate-900 text-white px-6 py-3 rounded-sm flex items-center gap-3 transition-all shadow-md font-black italic uppercase tracking-wider"><Phone size={16} fill="white" /> 07769 844298</a>
           </div>
           <button className={`xl:hidden p-2 transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-white'}`} onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle Menu">{isMenuOpen ? <X size={28} /> : <Menu size={28} />}</button>
         </div>
@@ -298,7 +308,7 @@ const App = () => {
               <a key="m-serv" href="services.html" className="border-b border-slate-100 pb-4 flex justify-between items-center hover:text-[#16a34a]">Services <ChevronRight size={24} className="text-slate-200" /></a>
               <button key="m-rev" onClick={() => setCurrentView('reviews')} className={`border-b border-slate-100 pb-4 flex justify-between items-center ${currentView === 'reviews' ? 'text-[#16a34a]' : ''}`}>Reviews <ChevronRight size={24} className={currentView === 'reviews' ? 'text-[#16a34a]' : 'text-slate-200'} /></button>
             </div>
-            <div className="mt-auto space-y-6 text-center pb-12"><a href="tel:08001234567" className="bg-[#16a34a] text-white w-full p-6 text-center rounded-sm flex items-center justify-center gap-4 font-black italic text-xl uppercase shadow-lg"><Phone fill="white" /> CALL 0800 123 4567</a></div>
+            <div className="mt-auto space-y-6 text-center pb-12"><a href="tel:07769844298" className="bg-[#16a34a] text-white w-full p-6 text-center rounded-sm flex items-center justify-center gap-4 font-black italic text-xl uppercase shadow-lg"><Phone fill="white" /> CALL 07769 844298</a></div>
           </div>
         </div>
       </nav>
@@ -344,7 +354,7 @@ const App = () => {
               <ul className="space-y-4 font-black text-sm uppercase tracking-widest italic text-white/50">{['End of Tenancy Clearance', 'Construction Waste Hub', 'Garden & Green Waste', 'Commercial Site Rip-outs', 'House & Probate Clearance', 'Garage & Shed Demolition'].map(service => (<li key={service}><a href="services.html" className="hover:text-white hover:translate-x-2 transition-all flex items-center gap-2 leading-tight text-balance text-white">{service}</a></li>))}</ul>
             </div>
             <div className="lg:col-span-4 space-y-10 flex flex-col items-start lg:items-end text-left lg:text-right">
-               <div className="space-y-3"><h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-xs italic">Emergency Line</h5><a href="tel:08001234567" className="text-4xl md:text-5xl lg:text-6xl font-[1000] text-white hover:text-orange-500 transition-colors italic tracking-tighter leading-none block">0800 123 4567</a><div className="flex gap-2 lg:justify-end items-center text-balance"><span className="w-2 h-2 bg-[#4ade80] rounded-full animate-pulse" /><span className="text-[10px] font-black uppercase tracking-widest text-white/40 italic">Open 7am — 7pm Daily</span></div></div>
+               <div className="space-y-3"><h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-xs italic">Emergency Line</h5><a href="tel:07769844298" className="text-4xl md:text-5xl lg:text-6xl font-[1000] text-white hover:text-orange-500 transition-colors italic tracking-tighter leading-none block">07769 844298</a><div className="flex gap-2 lg:justify-end items-center text-balance"><span className="w-2 h-2 bg-[#4ade80] rounded-full animate-pulse" /><span className="text-[10px] font-black uppercase tracking-widest text-white/40 italic">Open 7am — 7pm Daily</span></div></div>
                <div className="pt-2 flex gap-4 lg:justify-end"><a href="https://www.instagram.com/totalwasteclearout" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-[#4ade80] transition-colors hover:text-black shadow-sm group"><Instagram size={24} className="group-hover:scale-110 transition-transform" /></a><a href="https://www.facebook.com/totalwasteclearout" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-[#4ade80] transition-colors hover:text-black shadow-sm group"><Facebook size={24} className="group-hover:scale-110 transition-transform" /></a></div>
             </div>
           </div>
