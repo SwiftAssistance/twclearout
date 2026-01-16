@@ -30,9 +30,15 @@ import {
   ExternalLink
 } from 'lucide-react';
 
-// --- CONSTANTS & CONFIG (Moved outside to prevent ReferenceErrors and boost performance) ---
+// --- GLOBAL CONSTANTS (Defined outside to prevent ReferenceErrors) ---
 
 const towns = ["Reading", "Slough", "Guildford", "Woking", "Bracknell", "Windsor", "Ascot", "Egham", "Maidenhead", "Staines"];
+
+const navLinks = [
+  { name: 'Home', id: 'home' },
+  { name: 'Services', href: 'services.html' },
+  { name: 'Reviews', id: 'reviews' }
+];
 
 const reviewsData = [
   {
@@ -49,7 +55,7 @@ const reviewsData = [
     initials: "SJ",
     color: "bg-[#16a34a] text-white",
     accent: "text-white",
-    text: "Cleared out my late father's property with such respect and speed. They recycled almost everything and provided a full audit note."
+    text: "Cleared out my late father's property with such respect and speed. They recycled almost everything and provided a full audit note for the estate."
   },
   {
     name: "Dave Miller",
@@ -76,21 +82,33 @@ const statsList = [
   { label: "Liability", value: "£5M", Icon: Scale }
 ];
 
-// --- STABLE SUB-COMPONENTS (Defined outside to prevent scroll reset and remounting issues) ---
+// --- STABLE SUB-COMPONENTS (Outside main App to stop re-renders/jumping) ---
 
 const ReviewCard = ({ review, idx }) => (
   <div className="w-full flex-shrink-0 px-2 h-full">
-    <div className={`p-6 md:p-14 border-8 border-slate-900 rounded-[2rem] md:rounded-[3rem] shadow-[10px_10px_0px_#ecf3ef] md:shadow-[20px_20px_0px_#ecf3ef] flex flex-col relative overflow-hidden transition-all ${review.color} h-full min-h-[300px] md:min-h-[460px]`}>
+    <div className={`p-6 md:p-14 border-8 border-slate-900 rounded-[2rem] md:rounded-[3rem] shadow-[10px_10px_0px_#ecf3ef] md:shadow-[20px_20px_0px_#ecf3ef] flex flex-col relative overflow-hidden transition-all ${review.color} h-full min-h-[320px] md:min-h-[460px]`}>
       <Quote className={`absolute -top-4 -left-4 w-20 md:w-32 opacity-10 ${review.accent}`} aria-hidden="true" />
-      <div className="relative z-10 flex-grow text-left mb-6 md:mb-10">
-        <div className="flex gap-1 mb-4 md:mb-6"><Star size={18} fill="currentColor" className={review.accent} /></div>
-        <p className="text-lg md:text-3xl lg:text-4xl font-[1000] uppercase italic leading-[1.2] tracking-tight text-balance">"{review.text}"</p>
+      
+      <div className="relative z-10 flex-grow text-left mb-4 md:mb-10">
+        <div className="flex gap-1 mb-4 md:mb-6">
+          <Star size={18} fill="currentColor" className={review.accent} />
+          <Star size={18} fill="currentColor" className={review.accent} />
+          <Star size={18} fill="currentColor" className={review.accent} />
+          <Star size={18} fill="currentColor" className={review.accent} />
+          <Star size={18} fill="currentColor" className={review.accent} />
+        </div>
+        <p className="text-base md:text-3xl lg:text-4xl font-[1000] uppercase italic leading-[1.2] tracking-tight text-balance">
+          "{review.text}"
+        </p>
       </div>
+
       <div className="flex items-center gap-4 pt-4 border-t border-current border-opacity-10 text-left">
-        <div className={`w-10 md:w-16 h-10 md:h-16 rounded-full flex items-center justify-center font-[1000] border-2 md:border-4 border-slate-900 text-sm md:text-xl italic shrink-0 ${idx % 2 === 0 ? 'bg-[#16a34a] text-white' : 'bg-white text-[#16a34a]'}`}>{review.initials}</div>
+        <div className={`w-10 md:w-16 h-10 md:h-16 rounded-full flex items-center justify-center font-[1000] border-2 md:border-4 border-slate-900 text-sm md:text-xl italic shrink-0 ${idx % 2 === 0 ? 'bg-[#16a34a] text-white' : 'bg-white text-[#16a34a]'}`}>
+          {review.initials}
+        </div>
         <div className="overflow-hidden">
           <p className="font-[1000] uppercase text-sm md:text-lg leading-none truncate">{review.name}</p>
-          <p className="font-bold opacity-60 text-[10px] md:text-xs uppercase italic truncate mt-1">{review.location} • Verified Review</p>
+          <p className="font-bold opacity-60 text-[9px] md:text-xs uppercase italic truncate mt-1">{review.location} • Verified Review</p>
         </div>
       </div>
     </div>
@@ -99,18 +117,28 @@ const ReviewCard = ({ review, idx }) => (
 
 const HomeHero = () => (
   <header className="relative min-h-[85vh] md:min-h-screen flex items-center pt-24 overflow-hidden bg-[#064e3b]">
+    <div className="absolute inset-0 z-0">
+      <img 
+        src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&q=80&w=2000" 
+        alt="Waste logistics" 
+        className="w-full h-full object-cover opacity-30 mix-blend-overlay grayscale"
+        loading="eager"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-transparent to-transparent" />
+    </div>
     <div className="absolute inset-0 opacity-[0.2] pointer-events-none" aria-hidden="true">
       <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <pattern id="forest-grid-v2" width="80" height="80" patternUnits="userSpaceOnUse">
+          <pattern id="forest-grid-final" width="80" height="80" patternUnits="userSpaceOnUse">
             <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#22c55e" strokeWidth="0.5"/>
           </pattern>
         </defs>
-        <rect width="100%" height="100%" fill="url(#forest-grid-v2)" />
+        <rect width="100%" height="100%" fill="url(#forest-grid-final)" />
       </svg>
     </div>
-    <div className="container mx-auto px-6 relative z-10">
-      <div className="max-w-5xl text-left">
+    <div className="container mx-auto px-6 relative z-10 text-left">
+      <div className="max-w-5xl">
         <h1 className="text-5xl md:text-[8rem] lg:text-[10rem] font-black text-white leading-[0.85] mb-8 tracking-tighter uppercase italic">
           WASTE <br />
           <span className="text-transparent stroke-text-light">VANISHED</span> <br />
@@ -121,7 +149,7 @@ const HomeHero = () => (
         </p>
         <div className="flex flex-wrap gap-4 md:gap-6">
           <a href="services.html" className="bg-orange-500 hover:bg-orange-400 text-black px-10 md:px-12 py-5 md:py-6 rounded-sm font-black text-lg md:text-xl uppercase italic tracking-wider transition-all hover:-translate-y-1 shadow-[8px_8px_0px_#022c22] active:shadow-none flex items-center">
-            Explore Services <ArrowRight className="ml-2" size={24} aria-hidden="true" />
+            Explore Services <ArrowRight className="ml-2" size={24} />
           </a>
         </div>
       </div>
@@ -162,14 +190,13 @@ const HomeServices = () => (
 
         <article className="lg:col-span-8 bg-[#ecf3ef] border-4 border-slate-900 p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 shadow-lg">
           <div className="md:w-1/2 text-left order-2 md:order-1">
-            <h4 className="text-4xl md:text-5xl font-black text-slate-900 uppercase italic leading-none mb-6 text-left">Exterior <br /> Recovery.</h4>
+            <h4 className="text-4xl md:text-5xl font-black text-slate-900 uppercase italic leading-none mb-6">Exterior <br /> Recovery.</h4>
             <p className="text-slate-600 font-bold italic text-lg mb-8 leading-snug text-left text-balance">Garden clearing, shed demolition, and soil removal. Site-ready for landscaping.</p>
             <div className="flex flex-wrap gap-2">
               {['Sheds', 'Green Waste', 'Soil'].map(t => <span key={t} className="bg-white border-2 border-slate-900 px-4 py-1 text-[10px] font-black uppercase tracking-widest italic">{t}</span>)}
             </div>
           </div>
           <div className="md:w-1/2 overflow-hidden rounded-lg border-2 border-slate-900 h-64 w-full order-1 md:order-2">
-            {/* UPDATED IMAGE LINK: Ensuring exterior image works */}
             <img src="https://images.unsplash.com/photo-1591336395884-633009a05531?auto=format&fit=crop&q=80" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Garden and outdoor waste clearance" loading="lazy" />
           </div>
         </article>
@@ -179,20 +206,20 @@ const HomeServices = () => (
 );
 
 const HomeQuote = () => (
-  <section id="quote" className="py-24 md:py-32 bg-[#ecf3ef] border-t border-slate-200 text-left">
-    <div className="container mx-auto px-6 text-slate-900 text-left">
-      <div className="bg-white p-8 md:p-20 border-8 border-slate-900 shadow-[15px_15px_0px_#16a34a] md:shadow-[30px_30px_0px_#16a34a] relative text-left">
-        <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center text-left">
+  <section id="quote" className="py-24 md:py-32 bg-[#ecf3ef] border-t border-slate-200 text-left text-slate-900">
+    <div className="container mx-auto px-6">
+      <div className="bg-white p-8 md:p-20 border-8 border-slate-900 shadow-[15px_15px_0px_#16a34a] md:shadow-[30px_30px_0px_#16a34a] relative">
+        <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
           <div className="text-left">
-            <h2 className="text-5xl md:text-[6.5rem] font-[1000] leading-[0.85] uppercase italic tracking-tighter text-left text-slate-900">GET YOUR <br /> <span className="text-[#16a34a] underline decoration-slate-900">FIXED</span> PRICE.</h2>
-            <div className="space-y-4 mt-8 text-left">
-              <div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500 text-left"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> No Hidden Disposal Fees</div>
-              <div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500 text-left"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> Uniformed Loaders Included</div>
+            <h2 className="text-5xl md:text-[6.5rem] font-[1000] leading-[0.85] uppercase italic tracking-tighter text-slate-900">GET YOUR <br /> <span className="text-[#16a34a] underline decoration-slate-900">FIXED</span> PRICE.</h2>
+            <div className="space-y-4 mt-8">
+              <div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> No Hidden Disposal Fees</div>
+              <div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> Uniformed Loaders Included</div>
             </div>
           </div>
           <div className="bg-slate-50 p-6 md:p-10 border-4 border-slate-900 rounded-lg text-left">
-             <form className="space-y-8 text-left" onSubmit={e => e.preventDefault()}>
-               <div className="grid md:grid-cols-2 gap-8 text-left">
+             <form className="space-y-8" onSubmit={e => e.preventDefault()}>
+               <div className="grid md:grid-cols-2 gap-8">
                   <div className="text-left">
                     <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Job Description</label>
                     <select className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a] appearance-none">
@@ -220,8 +247,6 @@ const HomeQuote = () => (
   </section>
 );
 
-// --- MAIN APPLICATION ---
-
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -230,7 +255,8 @@ const App = () => {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
 
-  // LOGIC: Scroll & Layout Stability
+  // --- LOGIC ---
+
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.scrollY > 20;
@@ -245,14 +271,8 @@ const App = () => {
     setIsMenuOpen(false);
   }, [currentView]);
 
-  // Infinite Scroll Logic (Smooth Wrap)
-  const nextReview = useCallback(() => {
-    setCurrentReview((prev) => (prev + 1) % reviewsData.length);
-  }, []);
-
-  const prevReview = useCallback(() => {
-    setCurrentReview((prev) => (prev - 1 + reviewsData.length) % reviewsData.length);
-  }, []);
+  const nextReview = useCallback(() => setCurrentReview((prev) => (prev + 1) % reviewsData.length), []);
+  const prevReview = useCallback(() => setCurrentReview((prev) => (prev - 1 + reviewsData.length) % reviewsData.length), []);
 
   const handleTouchStart = (e) => setTouchStart(e.targetTouches[0].clientX);
   const handleTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
@@ -265,7 +285,8 @@ const App = () => {
     setTouchEnd(null);
   };
 
-  // Helper for rendering reviews in the current scope
+  // --- VIEW RENDERING HELPERS ---
+
   const ReviewsSection = ({ title = "CLIENTS TALK." }) => (
     <section id="reviews" className="py-24 md:py-32 bg-[#f8fafc] overflow-hidden text-left">
       <div className="container mx-auto px-6">
@@ -274,13 +295,14 @@ const App = () => {
             <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Proven Trust</h2>
             <p className="text-5xl md:text-8xl font-black text-slate-900 italic uppercase leading-[0.85] mb-12 tracking-tighter text-left">{title}</p>
             <div className="hidden lg:flex items-center gap-4 mb-12 relative z-[60]">
-               <button type="button" onClick={prevReview} aria-label="Previous review" className="w-14 h-14 border-4 border-slate-900 rounded-full flex items-center justify-center bg-white hover:bg-[#16a34a] hover:text-white transition-all text-slate-900 active:scale-90 shadow-md cursor-pointer">
+               <button type="button" onClick={prevReview} aria-label="Previous review" className="w-14 h-14 border-4 border-slate-900 rounded-full flex items-center justify-center bg-white hover:bg-[#16a34a] hover:text-white transition-all text-slate-900 active:scale-90 shadow-md cursor-pointer pointer-events-auto">
                  <ChevronLeft size={28} />
                </button>
-               <button type="button" onClick={nextReview} aria-label="Next review" className="w-14 h-14 border-4 border-slate-900 rounded-full flex items-center justify-center bg-white hover:bg-[#16a34a] hover:text-white transition-all text-slate-900 active:scale-90 shadow-md cursor-pointer">
+               <button type="button" onClick={nextReview} aria-label="Next review" className="w-14 h-14 border-4 border-slate-900 rounded-full flex items-center justify-center bg-white hover:bg-[#16a34a] hover:text-white transition-all text-slate-900 active:scale-90 shadow-md cursor-pointer pointer-events-auto">
                  <ChevronRight size={28} />
                </button>
             </div>
+            <p className="lg:hidden text-[10px] font-black uppercase tracking-widest text-[#16a34a] italic mb-6">← Swipe reviews →</p>
           </div>
           
           <div className="lg:col-span-8 relative">
@@ -305,7 +327,7 @@ const App = () => {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-orange-500 selection:text-white overflow-x-hidden">
       
-      {/* --- WHATSAPP FLOATING BUTTON --- */}
+      {/* --- WHATSAPP HUB --- */}
       <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-3 pointer-events-none">
         <div role="status" className="bg-white text-black px-4 py-2 rounded-lg text-[10px] font-[900] shadow-2xl animate-bounce hidden md:block border-2 border-[#16a34a] pointer-events-auto select-none uppercase tracking-tighter">
           SNAP A PHOTO FOR A QUOTE!
@@ -314,7 +336,7 @@ const App = () => {
           href="https://wa.me/447000000000" 
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="WhatsApp"
+          aria-label="Chat with us"
           className="bg-[#25D366] hover:bg-[#128C7E] text-white p-5 rounded-2xl shadow-[0_0_40px_rgba(37,211,102,0.5)] transition-all hover:scale-110 active:scale-95 group flex items-center gap-4 border-2 border-white/20 pointer-events-auto"
         >
           <div className="flex flex-col items-end leading-none text-white">
@@ -369,13 +391,13 @@ const App = () => {
         <div className={`xl:hidden fixed left-0 w-full bg-white transition-all duration-500 ease-in-out transform-gpu border-t border-slate-100 shadow-2xl overflow-y-auto ${isMenuOpen ? 'translate-y-0 opacity-100 visible h-[calc(100vh-80px)]' : '-translate-y-full opacity-0 invisible h-0'}`} style={{ top: '80px' }}>
           <div className="p-8 flex flex-col h-full overflow-y-auto">
             <div className="flex flex-col gap-6 font-black text-xl uppercase tracking-widest italic text-slate-900 mb-12 text-left">
-              <button onClick={() => setCurrentView('home')} className={`border-b border-slate-100 pb-4 flex justify-between items-center ${currentView === 'home' ? 'text-[#16a34a]' : ''}`}>
+              <button key="m-home" onClick={() => setCurrentView('home')} className={`border-b border-slate-100 pb-4 flex justify-between items-center ${currentView === 'home' ? 'text-[#16a34a]' : ''}`}>
                 Home <ChevronRight size={24} className={currentView === 'home' ? 'text-[#16a34a]' : 'text-slate-200'} />
               </button>
-              <a href="services.html" className="border-b border-slate-100 pb-4 flex justify-between items-center hover:text-[#16a34a]">
+              <a key="m-serv" href="services.html" className="border-b border-slate-100 pb-4 flex justify-between items-center hover:text-[#16a34a]">
                 Services <ChevronRight size={24} className="text-slate-200" />
               </a>
-              <button onClick={() => setCurrentView('reviews')} className={`border-b border-slate-100 pb-4 flex justify-between items-center ${currentView === 'reviews' ? 'text-[#16a34a]' : ''}`}>
+              <button key="m-rev" onClick={() => setCurrentView('reviews')} className={`border-b border-slate-100 pb-4 flex justify-between items-center ${currentView === 'reviews' ? 'text-[#16a34a]' : ''}`}>
                 Reviews <ChevronRight size={24} className={currentView === 'reviews' ? 'text-[#16a34a]' : 'text-slate-200'} />
               </button>
             </div>
@@ -388,7 +410,6 @@ const App = () => {
         </div>
       </nav>
 
-      {/* --- PAGE CONTENT --- */}
       <main className="relative min-h-[70vh] text-left">
         {currentView === 'home' && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
@@ -435,7 +456,7 @@ const App = () => {
               <button onClick={() => setCurrentView('home')} className="flex items-center gap-4 group cursor-pointer text-left text-white">
                 <img src="logo.webp" alt="Logo White" className="w-16 h-16 object-contain group-hover:rotate-12 transition-transform" loading="lazy" />
                 <div className="flex flex-col leading-none text-left">
-                  <span className="font-black text-3xl md:text-4xl tracking-tighter uppercase italic leading-none">Total Waste</span>
+                  <span className="font-black text-3xl md:text-4xl tracking-tighter uppercase italic leading-none text-white">Total Waste</span>
                   <span className="text-[#4ade80] font-black text-sm tracking-[.4em] uppercase text-left">Clearout Ltd</span>
                 </div>
               </button>
