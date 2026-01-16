@@ -308,11 +308,11 @@ const ModernServiceCard = ({ icon, emoji, title, description, features, price, d
 const ServicesView = () => (
   <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
     {/* SERVICES HERO */}
-    <header className="relative min-h-[60vh] md:min-h-[70vh] flex items-center pt-32 pb-16 overflow-hidden bg-gradient-to-br from-[#064e3b] via-[#16a34a] to-[#064e3b]">
+    <header className="relative min-h-[85vh] md:min-h-screen flex items-center pt-32 pb-16 overflow-hidden bg-[#064e3b]">
       <div className="absolute inset-0 z-0">
-        <img src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&q=80&w=2000" alt="Waste removal services" className="w-full h-full object-cover opacity-20 mix-blend-overlay" loading="eager" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(74,222,128,0.2),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(251,146,60,0.15),transparent_50%)]" />
+        <img src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&q=80&w=2000" alt="Waste removal services" className="w-full h-full object-cover opacity-30 mix-blend-overlay grayscale" loading="eager" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-transparent to-transparent" />
       </div>
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-7xl mx-auto text-center">
@@ -736,10 +736,11 @@ const App = () => {
         {currentView === 'reviews' && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 text-slate-900 text-left">
             {/* Reviews Hero */}
-            <header className="relative min-h-[70vh] flex items-center pt-32 pb-20 overflow-hidden bg-gradient-to-br from-slate-900 via-[#16a34a] to-slate-900">
+            <header className="relative min-h-[85vh] md:min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-[#064e3b]">
               <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(74,222,128,0.3),transparent_70%)]" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(251,146,60,0.2),transparent_60%)]" />
+                <img src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&q=80&w=2000" alt="Customer reviews" className="w-full h-full object-cover opacity-30 mix-blend-overlay grayscale" loading="eager" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-transparent to-transparent" />
               </div>
               <div className="container mx-auto px-6 relative z-10 text-center">
                 <div className="max-w-4xl mx-auto">
