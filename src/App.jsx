@@ -79,8 +79,8 @@ const STATS = [
 // --- STABLE SUB-COMPONENTS (Defined outside App to prevent scroll-reset and re-mounting) ---
 
 const ReviewCard = ({ review, idx }) => (
-  <div className="w-full flex-shrink-0 px-1 sm:px-2 pointer-events-auto">
-    {/* FIXED: Removed h-full from outer wrapper and fixed min-height for mobile. Reduced padding and border on mobile to prevent horizontal overflow. */}
+  <div className="w-full flex-shrink-0 px-1 sm:px-2">
+    {/* Review card with proper touch support */}
     <div className={`p-4 sm:p-10 md:p-14 border-4 sm:border-8 border-slate-900 rounded-[2rem] md:rounded-[3rem] shadow-[10px_10px_0px_#ecf3ef] md:shadow-[20px_20px_0px_#ecf3ef] flex flex-col relative overflow-hidden transition-all ${review.color} h-auto`}>
       <Quote className={`absolute -top-4 -left-4 w-16 md:w-32 opacity-10 ${review.accent}`} aria-hidden="true" />
       
@@ -241,14 +241,14 @@ const MapContact = () => (
 
         <div className="border-4 border-slate-900 rounded-lg overflow-hidden shadow-lg h-[500px]">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158552.99815828!2d-0.9781303!3d51.4542645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48769b7d6b1e5a77%3A0x4d6f7f4b8f77f7!2sReading%2C%20UK!5e0!3m2!1sen!2suk!4v1234567890"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d201683.57894736842!2d-0.9781303!3d51.4542645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48768c3f0d0d0d0d%3A0x0!2sBerkshire%2C%20UK!5e0!3m2!1sen!2suk!4v1234567890"
             width="100%"
             height="100%"
             style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Service Area Map - Berkshire"
+            title="Service Area Map - Entire Berkshire Region"
           ></iframe>
         </div>
       </div>
@@ -329,14 +329,15 @@ const App = () => {
           </div>
 
           <div className="lg:col-span-8 relative overflow-hidden">
-            {/* FIXED: strict overflow-hidden masks previous cards correctly and prevents horizontal scroll. Touch events enable swipe gestures. */}
+            {/* Touch-enabled swipe area with proper event handling */}
             <div
-              className="relative overflow-hidden w-full cursor-grab active:cursor-grabbing select-none"
+              className="relative overflow-hidden w-full cursor-grab active:cursor-grabbing select-none touch-pan-y"
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
+              style={{ touchAction: 'pan-y' }}
             >
-              <div className="flex flex-nowrap transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-none" style={{ transform: `translateX(-${currentReview * 100}%)` }}>
+              <div className="flex flex-nowrap transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]" style={{ transform: `translateX(-${currentReview * 100}%)` }}>
                 {REVIEWS.map((review, idx) => (
                   <ReviewCard key={`rev-${idx}`} review={review} idx={idx} />
                 ))}
