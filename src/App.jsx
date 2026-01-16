@@ -79,8 +79,8 @@ const STATS = [
 // --- STABLE SUB-COMPONENTS (Defined outside App to prevent scroll-reset and re-mounting) ---
 
 const ReviewCard = ({ review, idx }) => (
-  <div className="w-full flex-shrink-0 px-2 h-full">
-    {/* FIXED: Removed fixed min-height for mobile. p-6 provides safe spacing. */}
+  <div className="w-full flex-shrink-0 px-2">
+    {/* FIXED: Removed h-full from outer wrapper and fixed min-height for mobile. p-6 provides safe spacing. */}
     <div className={`p-6 sm:p-10 md:p-14 border-8 border-slate-900 rounded-[2rem] md:rounded-[3rem] shadow-[10px_10px_0px_#ecf3ef] md:shadow-[20px_20px_0px_#ecf3ef] flex flex-col relative overflow-hidden transition-all ${review.color} h-auto`}>
       <Quote className={`absolute -top-4 -left-4 w-16 md:w-32 opacity-10 ${review.accent}`} aria-hidden="true" />
       
@@ -157,11 +157,11 @@ const HomeServices = () => (
            </div>
         </a>
 
-        <article className="lg:col-span-8 bg-[#ecf3ef] border-4 border-slate-900 p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 shadow-lg text-left">
-          <div className="md:w-1/2 text-left order-2 md:order-1 text-left">
+        <article className="lg:col-span-8 bg-[#ecf3ef] border-4 border-slate-900 p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 shadow-lg">
+          <div className="md:w-1/2 text-left order-2 md:order-1">
             <h4 className="text-4xl md:text-5xl font-black text-slate-900 uppercase italic leading-none mb-6">Exterior <br /> Recovery.</h4>
-            <p className="text-slate-600 font-bold italic text-lg mb-8 leading-snug text-left text-balance">Garden clearing, shed demolition, and soil removal. Site-ready for landscaping.</p>
-            <div className="flex flex-wrap gap-2 text-left">
+            <p className="text-slate-600 font-bold italic text-lg mb-8 leading-snug text-balance">Garden clearing, shed demolition, and soil removal. Site-ready for landscaping.</p>
+            <div className="flex flex-wrap gap-2">
               {['Sheds', 'Green Waste', 'Soil'].map(t => <span key={t} className="bg-white border-2 border-slate-900 px-4 py-1 text-[10px] font-black uppercase tracking-widest italic">{t}</span>)}
             </div>
           </div>
@@ -176,14 +176,14 @@ const HomeServices = () => (
 
 const HomeQuote = () => (
   <section id="quote" className="py-24 md:py-32 bg-[#ecf3ef] border-t border-slate-200 text-left">
-    <div className="container mx-auto px-6 text-slate-900 text-left">
-      <div className="bg-white p-8 md:p-20 border-8 border-slate-900 shadow-[15px_15px_0px_#16a34a] md:shadow-[30px_30px_0px_#16a34a] relative text-left">
-        <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center text-left">
-          <div className="text-left"><h2 className="text-5xl md:text-[6.5rem] font-[1000] leading-[0.85] uppercase italic tracking-tighter text-left text-slate-900 text-left">GET YOUR <br /> <span className="text-[#16a34a] underline decoration-slate-900">FIXED</span> PRICE.</h2><div className="space-y-4 mt-8 text-left text-left"><div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500 text-left text-left"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> No Hidden Disposal Fees</div><div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500 text-left text-left"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> Uniformed Loaders Included</div></div></div>
-          <div className="bg-slate-50 p-6 md:p-10 border-4 border-slate-900 rounded-lg text-left text-left">
-             <form className="space-y-8 text-left" onSubmit={e => e.preventDefault()}>
-               <div className="grid md:grid-cols-2 gap-8 text-left"><div className="text-left text-left"><label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 text-left">Job Description</label><select className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a] appearance-none cursor-pointer"><option>End of Tenancy Clearance</option><option>Construction Waste Hub</option><option>Garden Clear-out</option><option>Office Removal</option></select></div><div className="text-left text-left"><label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 text-left">Postcode Area</label><input type="text" placeholder="e.g. RG1" className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a]" /></div></div>
-               <div className="text-left text-left"><label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 text-left">Phone Number</label><input type="tel" placeholder="07xxx xxxxxx" className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a]" /></div>
+    <div className="container mx-auto px-6 text-slate-900">
+      <div className="bg-white p-8 md:p-20 border-8 border-slate-900 shadow-[15px_15px_0px_#16a34a] md:shadow-[30px_30px_0px_#16a34a] relative">
+        <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div><h2 className="text-5xl md:text-[6.5rem] font-[1000] leading-[0.85] uppercase italic tracking-tighter text-slate-900">GET YOUR <br /> <span className="text-[#16a34a] underline decoration-slate-900">FIXED</span> PRICE.</h2><div className="space-y-4 mt-8"><div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> No Hidden Disposal Fees</div><div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> Uniformed Loaders Included</div></div></div>
+          <div className="bg-slate-50 p-6 md:p-10 border-4 border-slate-900 rounded-lg">
+             <form className="space-y-8" onSubmit={e => e.preventDefault()}>
+               <div className="grid md:grid-cols-2 gap-8"><div><label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Job Description</label><select className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a] appearance-none cursor-pointer"><option>End of Tenancy Clearance</option><option>Construction Waste Hub</option><option>Garden Clear-out</option><option>Office Removal</option></select></div><div><label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Postcode Area</label><input type="text" placeholder="e.g. RG1" className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a]" /></div></div>
+               <div><label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Phone Number</label><input type="tel" placeholder="07xxx xxxxxx" className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a]" /></div>
                <button type="submit" className="w-full bg-slate-900 text-white p-6 md:p-8 font-black uppercase tracking-widest italic text-xl md:text-2xl hover:bg-[#16a34a] transition-all shadow-xl active:scale-95">Lock In Fixed Price</button>
              </form>
           </div>
@@ -292,27 +292,27 @@ const App = () => {
           <button className={`xl:hidden p-2 transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-white'}`} onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle Menu">{isMenuOpen ? <X size={28} /> : <Menu size={28} />}</button>
         </div>
         <div className={`xl:hidden fixed left-0 w-full bg-white transition-all duration-500 ease-in-out transform-gpu border-t border-slate-100 shadow-2xl overflow-y-auto ${isMenuOpen ? 'translate-y-0 opacity-100 visible h-[calc(100vh-80px)]' : '-translate-y-full opacity-0 invisible h-0'}`} style={{ top: '80px' }}>
-          <div className="p-8 flex flex-col h-full overflow-y-auto text-left text-slate-900 text-left">
-            <div className="flex flex-col gap-6 font-black text-xl uppercase tracking-widest italic text-slate-900 mb-12 text-left text-left">
+          <div className="p-8 flex flex-col h-full overflow-y-auto text-left text-slate-900">
+            <div className="flex flex-col gap-6 font-black text-xl uppercase tracking-widest italic text-slate-900 mb-12">
               <button key="m-home" onClick={() => setCurrentView('home')} className={`border-b border-slate-100 pb-4 flex justify-between items-center ${currentView === 'home' ? 'text-[#16a34a]' : ''}`}>Home <ChevronRight size={24} className={currentView === 'home' ? 'text-[#16a34a]' : 'text-slate-200'} /></button>
               <a key="m-serv" href="services.html" className="border-b border-slate-100 pb-4 flex justify-between items-center hover:text-[#16a34a]">Services <ChevronRight size={24} className="text-slate-200" /></a>
               <button key="m-rev" onClick={() => setCurrentView('reviews')} className={`border-b border-slate-100 pb-4 flex justify-between items-center ${currentView === 'reviews' ? 'text-[#16a34a]' : ''}`}>Reviews <ChevronRight size={24} className={currentView === 'reviews' ? 'text-[#16a34a]' : 'text-slate-200'} /></button>
             </div>
-            <div className="mt-auto space-y-6 text-center pb-12 text-slate-900 text-left"><a href="tel:08001234567" className="bg-[#16a34a] text-white w-full p-6 text-center rounded-sm flex items-center justify-center gap-4 font-black italic text-xl uppercase shadow-lg"><Phone fill="white" /> CALL 0800 123 4567</a></div>
+            <div className="mt-auto space-y-6 text-center pb-12"><a href="tel:08001234567" className="bg-[#16a34a] text-white w-full p-6 text-center rounded-sm flex items-center justify-center gap-4 font-black italic text-xl uppercase shadow-lg"><Phone fill="white" /> CALL 0800 123 4567</a></div>
           </div>
         </div>
       </nav>
 
       {/* PAGE CONTENT */}
-      <main className="relative min-h-[70vh] text-left text-slate-900 text-left">
+      <main className="relative min-h-[70vh] text-left text-slate-900">
         {currentView === 'home' && (
-          <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 text-slate-900 text-left text-left">
+          <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 text-slate-900 text-left">
             <HomeHero />
             {/* STATS STRIP */}
             <section className="bg-[#16a34a] py-6 border-y-4 border-black relative z-20 shadow-xl">
-              <div className="container mx-auto px-6 text-left text-white text-left text-left text-left">
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10 text-left text-left text-left">
-                  {STATS.map((s, idx) => (<div key={`stat-${idx}`} className="flex items-center gap-3 md:gap-5 text-white text-left text-left text-left"><div className="bg-[#064e3b] text-[#4ade80] p-2 md:p-3 rounded-sm shrink-0 shadow-sm text-left text-left text-left"><s.Icon size={20} /></div><div className="flex flex-col text-left text-left text-left text-left text-left text-left text-left text-left text-left"><span className="text-xl md:text-3xl font-black uppercase italic leading-none text-left text-left text-left text-left">{s.value}</span><span className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest opacity-80 text-left text-left text-left text-left">{s.label}</span></div></div>))}
+              <div className="container mx-auto px-6 text-left text-white">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10">
+                  {STATS.map((s, idx) => (<div key={`stat-${idx}`} className="flex items-center gap-3 md:gap-5 text-white"><div className="bg-[#064e3b] text-[#4ade80] p-2 md:p-3 rounded-sm shrink-0 shadow-sm"><s.Icon size={20} /></div><div className="flex flex-col"><span className="text-xl md:text-3xl font-black uppercase italic leading-none">{s.value}</span><span className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest opacity-80">{s.label}</span></div></div>))}
                 </div>
               </div>
             </section>
@@ -323,7 +323,7 @@ const App = () => {
         )}
 
         {currentView === 'reviews' && (
-          <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 text-slate-900 text-left text-left">
+          <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 text-slate-900 text-left">
             <ReviewsSection title="VERIFIED REVIEWS." />
             <HomeQuote />
           </div>
@@ -331,25 +331,25 @@ const App = () => {
       </main>
 
       {/* FOOTER */}
-      <footer className="bg-[#064e3b] pt-24 pb-12 border-t-8 border-[#4ade80] text-white text-left text-white text-left text-left">
-        <div className="container mx-auto px-6 text-left text-white text-left text-left text-left">
-          <div className="grid lg:grid-cols-12 gap-12 md:gap-16 mb-20 text-left text-white text-left text-left text-left">
-            <div className="lg:col-span-5 space-y-8 text-left text-white text-left text-left text-left text-left">
-              <button onClick={() => setCurrentView('home')} className="flex items-center gap-4 group cursor-pointer text-left text-white text-left text-left text-left"><img src="logo.webp" alt="Logo" className="w-16 h-16 object-contain group-hover:rotate-12 transition-transform text-left text-left text-left" loading="lazy" /><div className="flex flex-col leading-none text-left text-left text-left text-left text-white text-left text-left text-left"><span className="font-black text-3xl md:text-4xl tracking-tighter uppercase italic leading-none text-white text-left text-left text-left text-left">Total Waste</span><span className="text-[#4ade80] font-black text-sm tracking-[.4em] uppercase text-left text-left text-left text-left text-left">Clearout Ltd</span></div></button>
-              <p className="text-white/60 max-w-sm font-bold italic text-lg leading-relaxed underline decoration-white/5 text-balance text-left text-left text-left text-left text-left text-left">Berkshire & Surrey's premier disposal service. 94% recycling rate and fully licensed for every clearance.</p>
-              <div className="flex flex-wrap gap-4 text-left text-left text-left text-left text-left text-left text-left text-left"><div className="bg-white/5 border-2 border-white/10 px-6 py-4 text-[10px] font-black uppercase tracking-widest text-white/60 italic flex items-center gap-2 shadow-sm text-left text-left text-left text-left text-left text-left"><ShieldCheck size={14} className="text-[#4ade80]" aria-hidden="true" /> Registered Carrier</div></div>
+      <footer className="bg-[#064e3b] pt-24 pb-12 border-t-8 border-[#4ade80] text-white text-left">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-12 gap-12 md:gap-16 mb-20">
+            <div className="lg:col-span-5 space-y-8">
+              <button onClick={() => setCurrentView('home')} className="flex items-center gap-4 group cursor-pointer"><img src="logo.webp" alt="Logo" className="w-16 h-16 object-contain group-hover:rotate-12 transition-transform" loading="lazy" /><div className="flex flex-col leading-none"><span className="font-black text-3xl md:text-4xl tracking-tighter uppercase italic leading-none text-white">Total Waste</span><span className="text-[#4ade80] font-black text-sm tracking-[.4em] uppercase">Clearout Ltd</span></div></button>
+              <p className="text-white/60 max-w-sm font-bold italic text-lg leading-relaxed underline decoration-white/5 text-balance">Berkshire & Surrey's premier disposal service. 94% recycling rate and fully licensed for every clearance.</p>
+              <div className="flex flex-wrap gap-4"><div className="bg-white/5 border-2 border-white/10 px-6 py-4 text-[10px] font-black uppercase tracking-widest text-white/60 italic flex items-center gap-2 shadow-sm"><ShieldCheck size={14} className="text-[#4ade80]" aria-hidden="true" /> Registered Carrier</div></div>
             </div>
-            <div className="lg:col-span-3 space-y-8 text-left text-white text-left text-left text-left text-left text-left">
-              <h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-xs italic border-l-4 border-[#4ade80] pl-4 leading-none text-left text-left text-left text-left text-left">Job Matrix</h5>
-              <ul className="space-y-4 font-black text-sm uppercase tracking-widest italic text-white/50 text-left text-left text-left text-left text-left text-left">{['End of Tenancy Clearance', 'Construction Waste Hub', 'Garden & Green Waste', 'Commercial Site Rip-outs', 'House & Probate Clearance', 'Garage & Shed Demolition'].map(service => (<li key={service} className="text-left text-left text-left"><a href="services.html" className="hover:text-white hover:translate-x-2 transition-all flex items-center gap-2 text-left leading-tight text-balance text-white text-left text-left text-left text-left">{service}</a></li>))}</ul>
+            <div className="lg:col-span-3 space-y-8">
+              <h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-xs italic border-l-4 border-[#4ade80] pl-4 leading-none">Job Matrix</h5>
+              <ul className="space-y-4 font-black text-sm uppercase tracking-widest italic text-white/50">{['End of Tenancy Clearance', 'Construction Waste Hub', 'Garden & Green Waste', 'Commercial Site Rip-outs', 'House & Probate Clearance', 'Garage & Shed Demolition'].map(service => (<li key={service}><a href="services.html" className="hover:text-white hover:translate-x-2 transition-all flex items-center gap-2 leading-tight text-balance text-white">{service}</a></li>))}</ul>
             </div>
-            <div className="lg:col-span-4 space-y-10 flex flex-col items-start lg:items-end text-left lg:text-right text-white text-left text-left text-left">
-               <div className="space-y-3 text-left lg:text-right text-white text-left text-left text-left text-left text-left"><h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-xs italic text-left lg:text-right text-left text-left text-left text-left text-left">Emergency Line</h5><a href="tel:08001234567" className="text-4xl md:text-5xl lg:text-6xl font-[1000] text-white hover:text-orange-500 transition-colors italic tracking-tighter leading-none block text-left lg:text-right text-white text-left text-left text-left">0800 123 4567</a><div className="flex gap-2 lg:justify-end items-center text-left lg:text-right text-white text-balance text-left text-left text-left text-left text-left text-left"><span className="w-2 h-2 bg-[#4ade80] rounded-full animate-pulse text-left text-left text-left text-left" /><span className="text-[10px] font-black uppercase tracking-widest text-white/40 italic text-left text-left text-left text-left text-left">Open 7am — 7pm Daily</span></div></div>
-               <div className="pt-2 flex gap-4 lg:justify-end text-white text-left text-left text-left text-left"><a href="https://www.instagram.com/totalwasteclearout" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-[#4ade80] transition-colors hover:text-black shadow-sm text-white group text-white text-left text-left text-left text-left text-left text-left"><Instagram size={24} className="group-hover:scale-110 transition-transform text-white text-left text-left text-left text-left" /></a><a href="https://www.facebook.com/totalwasteclearout" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-[#4ade80] transition-colors hover:text-black shadow-sm text-white group text-white text-left text-left text-left text-left text-left text-left text-left"><Facebook size={24} className="group-hover:scale-110 transition-transform text-white text-left text-left text-left text-left text-left" /></a></div>
+            <div className="lg:col-span-4 space-y-10 flex flex-col items-start lg:items-end text-left lg:text-right">
+               <div className="space-y-3"><h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-xs italic">Emergency Line</h5><a href="tel:08001234567" className="text-4xl md:text-5xl lg:text-6xl font-[1000] text-white hover:text-orange-500 transition-colors italic tracking-tighter leading-none block">0800 123 4567</a><div className="flex gap-2 lg:justify-end items-center text-balance"><span className="w-2 h-2 bg-[#4ade80] rounded-full animate-pulse" /><span className="text-[10px] font-black uppercase tracking-widest text-white/40 italic">Open 7am — 7pm Daily</span></div></div>
+               <div className="pt-2 flex gap-4 lg:justify-end"><a href="https://www.instagram.com/totalwasteclearout" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-[#4ade80] transition-colors hover:text-black shadow-sm group"><Instagram size={24} className="group-hover:scale-110 transition-transform" /></a><a href="https://www.facebook.com/totalwasteclearout" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-[#4ade80] transition-colors hover:text-black shadow-sm group"><Facebook size={24} className="group-hover:scale-110 transition-transform" /></a></div>
             </div>
           </div>
-          <div className="border-t border-white/5 py-12 text-left text-white text-left text-left text-left text-left text-left"><h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-[10px] italic mb-8 text-center text-balance text-left text-left text-left text-left text-left text-left text-left">Priority Thames Valley corridor</h5><div className="grid grid-cols-2 md:grid-cols-5 gap-y-4 gap-x-8 text-center text-white text-left text-left text-left text-left text-left text-left text-center text-left">{TOWNS.map(t => (<button key={`town-f-${t}`} onClick={() => setCurrentView('home')} className="text-[10px] font-black uppercase tracking-widest text-white/30 hover:text-[#4ade80] transition-colors italic flex items-center justify-center gap-2 text-center text-white text-left text-left text-left text-left text-left text-left text-center text-left text-left"><MapPin size={10} className="text-left text-left text-left" /> {t}</button>))}</div></div>
-          <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-left text-white text-left text-left text-left text-left text-left text-left text-left text-left"><p className="text-white/20 text-[9px] font-black uppercase tracking-[0.4em] text-center md:text-left leading-relaxed text-balance text-left text-white text-left text-left text-left text-left text-left text-left text-left text-left text-left">© 2026 TOTAL WASTE CLEAROUT LTD. REGISTERED IN ENGLAND & WALES. CO NO: 09876543.</p><div className="flex flex-wrap gap-6 items-center text-left text-white/40 font-black uppercase tracking-widest italic text-[10px] text-white text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left">{['Privacy Policy', 'Cookie Usage', 'Legal'].map(item => (<button key={`foot-leg-${item}`} onClick={() => setCurrentView('home')} className="hover:text-[#4ade80] transition-colors uppercase text-left text-white text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left">{item}</button>))}<div className="hidden md:flex gap-1 text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left" aria-hidden="true">{[...Array(5)].map((_, i) => <Star key={`foot-star-${i}`} size={12} className="text-[#4ade80] fill-current text-white text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left" />)}</div></div></div>
+          <div className="border-t border-white/5 py-12"><h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-[10px] italic mb-8 text-center text-balance">Priority Thames Valley corridor</h5><div className="grid grid-cols-2 md:grid-cols-5 gap-y-4 gap-x-8 text-center">{TOWNS.map(t => (<button key={`town-f-${t}`} onClick={() => setCurrentView('home')} className="text-[10px] font-black uppercase tracking-widest text-white/30 hover:text-[#4ade80] transition-colors italic flex items-center justify-center gap-2"><MapPin size={10} /> {t}</button>))}</div></div>
+          <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8"><p className="text-white/20 text-[9px] font-black uppercase tracking-[0.4em] text-center md:text-left leading-relaxed text-balance">© 2026 TOTAL WASTE CLEAROUT LTD. REGISTERED IN ENGLAND & WALES. CO NO: 09876543.</p><div className="flex flex-wrap gap-6 items-center text-white/40 font-black uppercase tracking-widest italic text-[10px]">{['Privacy Policy', 'Cookie Usage', 'Legal'].map(item => (<button key={`foot-leg-${item}`} onClick={() => setCurrentView('home')} className="hover:text-[#4ade80] transition-colors uppercase">{item}</button>))}<div className="hidden md:flex gap-1" aria-hidden="true">{[...Array(5)].map((_, i) => <Star key={`foot-star-${i}`} size={12} className="text-[#4ade80] fill-current" />)}</div></div></div>
         </div>
       </footer>
 
