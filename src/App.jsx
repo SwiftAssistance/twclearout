@@ -1,32 +1,32 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { 
-  Phone, 
-  Trash2, 
-  Truck, 
-  Recycle, 
-  CheckCircle, 
-  Clock, 
-  MapPin, 
-  ShieldCheck, 
-  Star, 
-  Menu, 
-  X, 
+import {
+  Phone,
+  Trash2,
+  Truck,
+  Recycle,
+  CheckCircle,
+  Clock,
+  MapPin,
+  ShieldCheck,
+  Star,
+  Menu,
+  X,
   ChevronLeft,
-  ChevronRight, 
+  ChevronRight,
   ArrowRight,
-  House, 
-  Briefcase, 
-  Leaf, 
-  Construction, 
-  Hammer, 
-  Scale, 
-  Zap, 
-  Award, 
-  Users, 
-  Instagram, 
-  Facebook, 
-  Linkedin, 
-  Quote, 
+  Home,
+  Briefcase,
+  TreePine,
+  HardHat,
+  Hammer,
+  Scale,
+  Zap,
+  Award,
+  Users,
+  Instagram,
+  Facebook,
+  Linkedin,
+  Quote,
   ExternalLink
 } from 'lucide-react';
 
@@ -114,6 +114,9 @@ const HomeHero = ({ onNavigate }) => (
     </div>
     <div className="container mx-auto px-6 relative z-10 text-left">
       <div className="max-w-5xl">
+        <div className="mb-8 inline-block animate-pulse">
+          <span className="bg-[#4ade80] text-slate-900 px-4 md:px-6 py-2 md:py-3 text-[10px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.3em] italic border-2 md:border-4 border-white shadow-lg rounded-sm">Professional Clearance</span>
+        </div>
         <h1 className="text-5xl md:text-[8rem] lg:text-[10rem] font-black text-white leading-[0.85] mb-8 tracking-tighter uppercase italic">WASTE <br /><span className="text-transparent stroke-text-light">VANISHED</span> <br /><span className="text-[#4ade80]">TODAY.</span></h1>
         <p className="text-lg md:text-3xl text-white/70 mb-12 max-w-2xl font-bold leading-tight italic text-balance">Premium waste removal for <span className="text-white border-b-4 border-orange-500">Berkshire & Surrey</span>. Fully licensed. Fixed pricing. Professional crews.</p>
         <div className="flex flex-wrap gap-4 md:gap-6">
@@ -150,7 +153,7 @@ const HomeServices = ({ onNavigate }) => (
         </button>
 
         <button onClick={() => onNavigate('services')} className="lg:col-span-4 bg-slate-900 p-10 border-4 border-slate-900 flex flex-col justify-between text-white group hover:bg-orange-500 transition-all duration-500 cursor-pointer text-left">
-           <Construction size={40} className="text-orange-500 group-hover:text-black transition-colors" />
+           <HardHat size={40} className="text-orange-500 group-hover:text-black transition-colors" />
            <div className="text-left text-white">
              <h4 className="text-3xl font-black uppercase italic mb-2 leading-none">Trade Waste</h4>
              <p className="text-white/50 group-hover:text-black/70 font-bold italic text-sm leading-tight">Skip-alternative for builders. Rubble and timber cleared instantly.</p>
@@ -182,7 +185,7 @@ const HomeQuote = () => (
           <div><h2 className="text-5xl md:text-[6.5rem] font-[1000] leading-[0.85] uppercase italic tracking-tighter text-slate-900">GET YOUR <br /> <span className="text-[#16a34a] underline decoration-slate-900">FIXED</span> PRICE.</h2><div className="space-y-4 mt-8"><div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> No Hidden Disposal Fees</div><div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> Uniformed Loaders Included</div></div></div>
           <div className="bg-slate-50 p-6 md:p-10 border-4 border-slate-900 rounded-lg">
              <form className="space-y-8" onSubmit={e => e.preventDefault()}>
-               <div className="grid md:grid-cols-2 gap-8"><div><label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Job Description</label><select className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a] appearance-none cursor-pointer"><option>End of Tenancy Clearance</option><option>Construction Waste Hub</option><option>Garden Clear-out</option><option>Office Removal</option></select></div><div><label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Postcode Area</label><input type="text" placeholder="e.g. RG1" className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a]" /></div></div>
+               <div className="grid md:grid-cols-2 gap-8"><div><label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Job Description</label><select className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a] appearance-none cursor-pointer"><option>End of Tenancy Clearance</option><option>HardHat Waste Hub</option><option>Garden Clear-out</option><option>Office Removal</option></select></div><div><label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Postcode Area</label><input type="text" placeholder="e.g. RG1" className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a]" /></div></div>
                <div><label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Phone Number</label><input type="tel" placeholder="07xxx xxxxxx" className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a]" /></div>
                <button type="submit" className="w-full bg-slate-900 text-white p-6 md:p-8 font-black uppercase tracking-widest italic text-xl md:text-2xl hover:bg-[#16a34a] transition-all shadow-xl active:scale-95">Lock In Fixed Price</button>
              </form>
@@ -256,80 +259,213 @@ const MapContact = () => (
   </section>
 );
 
+const ModernServiceCard = ({ icon, emoji, title, description, features, price, dark, green, accentColor, borderColor }) => (
+  <div className={`group relative ${accentColor} p-8 md:p-10 rounded-3xl border-4 ${borderColor} shadow-[8px_8px_0px_rgba(0,0,0,0.1)] hover:shadow-[16px_16px_0px_rgba(0,0,0,0.15)] transition-all duration-300 hover:-translate-y-3 overflow-hidden`}>
+    {/* Background decoration */}
+    <div className="absolute top-0 right-0 text-8xl opacity-5 pointer-events-none">{emoji}</div>
+
+    {/* Icon header */}
+    <div className="flex items-start justify-between mb-6">
+      <div className={`p-4 rounded-2xl ${dark ? 'bg-[#4ade80]' : green ? 'bg-white' : 'bg-white'} border-2 ${borderColor} shadow-lg group-hover:scale-110 transition-transform`}>
+        {icon}
+      </div>
+      <div className={`px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider ${dark || green ? 'bg-white/20 text-white' : 'bg-slate-900 text-white'}`}>
+        Popular
+      </div>
+    </div>
+
+    {/* Content */}
+    <h3 className={`text-2xl md:text-3xl font-black uppercase italic mb-4 leading-tight ${dark || green ? 'text-white' : 'text-slate-900'}`}>
+      {title}
+    </h3>
+    <p className={`font-bold mb-6 leading-relaxed text-sm ${dark ? 'text-white/80' : green ? 'text-white/90' : 'text-slate-600'}`}>
+      {description}
+    </p>
+
+    {/* Features */}
+    <ul className="space-y-3 mb-8">
+      {features.map((feature, idx) => (
+        <li key={idx} className={`flex items-start gap-3 text-sm font-bold ${dark ? 'text-white/70' : green ? 'text-white/80' : 'text-slate-600'}`}>
+          <CheckCircle size={16} className={`${dark || green ? 'text-white' : 'text-[#16a34a]'} shrink-0 mt-0.5`} />
+          <span>{feature}</span>
+        </li>
+      ))}
+    </ul>
+
+    {/* Price footer */}
+    <div className={`pt-6 border-t-2 ${dark || green ? 'border-white/20' : 'border-slate-900/20'} flex items-center justify-between`}>
+      <div>
+        <p className={`text-xs font-black uppercase tracking-widest mb-1 ${dark || green ? 'text-white/40' : 'text-slate-400'}`}>Starting at</p>
+        <p className={`text-2xl md:text-3xl font-black italic ${dark || green ? 'text-white' : 'text-[#16a34a]'}`}>{price}</p>
+      </div>
+      <a href="tel:07769844298" className={`p-3 rounded-full ${dark || green ? 'bg-white text-slate-900' : 'bg-[#16a34a] text-white'} hover:scale-110 transition-transform shadow-lg`}>
+        <Phone size={20} />
+      </a>
+    </div>
+  </div>
+);
+
 const ServicesView = () => (
   <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
     {/* SERVICES HERO */}
-    <header className="relative min-h-[85vh] md:min-h-[90vh] flex items-center pt-32 pb-20 overflow-hidden bg-[#064e3b]">
+    <header className="relative min-h-[90vh] flex items-center pt-32 pb-20 overflow-hidden bg-gradient-to-br from-[#064e3b] via-[#16a34a] to-[#064e3b]">
       <div className="absolute inset-0 z-0">
-        <img src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&q=80&w=2000" alt="Waste removal services" className="w-full h-full object-cover opacity-30 mix-blend-overlay grayscale" loading="eager" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-transparent to-transparent" />
+        <img src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&q=80&w=2000" alt="Waste removal services" className="w-full h-full object-cover opacity-20 mix-blend-overlay" loading="eager" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(74,222,128,0.2),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(251,146,60,0.15),transparent_50%)]" />
       </div>
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-6xl">
-          <div className="mb-8 inline-block">
-            <span className="bg-[#4ade80] text-slate-900 px-6 py-3 text-xs font-black uppercase tracking-[0.3em] italic border-4 border-white shadow-lg">Professional Clearance Services</span>
-          </div>
-          <h1 className="text-5xl md:text-[7rem] lg:text-[10rem] font-black text-white leading-[0.85] mb-8 tracking-tighter uppercase italic">ELITE <br/><span className="text-[#4ade80]">WASTE</span><br/><span className="text-transparent stroke-text-light">REMOVAL.</span></h1>
-          <p className="text-xl md:text-3xl text-white/80 mb-12 max-w-3xl font-bold leading-tight italic">From single items to complete site clearances. <span className="text-[#4ade80] border-b-4 border-[#4ade80]">Fully licensed</span>, £5M insured, and ready to deploy across Berkshire & Surrey.</p>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="mb-8 inline-block animate-bounce">
+                <span className="bg-orange-500 text-black px-6 py-3 text-xs font-black uppercase tracking-[0.3em] italic border-4 border-white shadow-2xl rounded-sm">Full Service Catalogue</span>
+              </div>
+              <h1 className="text-5xl md:text-[6rem] lg:text-[8rem] font-black text-white leading-[0.85] mb-8 tracking-tighter uppercase italic">
+                TOTAL<br/>
+                <span className="text-[#4ade80]">CLEAR</span><br/>
+                <span className="text-transparent stroke-text-light">OUTS.</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-white/90 mb-12 font-bold leading-relaxed">
+                From <span className="text-[#4ade80] underline decoration-wavy">domestic clutter</span> to <span className="text-orange-500 underline decoration-wavy">industrial demolitions</span>.
+                We handle everything with precision and care.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a href="tel:07769844298" className="bg-white text-[#064e3b] px-8 py-5 rounded-lg font-black text-base uppercase transition-all hover:scale-105 shadow-2xl flex items-center gap-3 group">
+                  <Phone size={20} className="group-hover:rotate-12 transition-transform" /> Instant Quote
+                </a>
+              </div>
+            </div>
 
-          <div className="flex flex-wrap gap-6 mb-12">
-            <div className="bg-white/10 backdrop-blur-sm border-2 border-white/30 px-6 py-4 rounded-lg">
-              <p className="text-[#4ade80] font-black text-3xl md:text-4xl italic">94%</p>
-              <p className="text-white/70 text-xs font-bold uppercase tracking-widest">Recycling Rate</p>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="bg-white/95 backdrop-blur-sm p-8 rounded-2xl border-4 border-slate-900 shadow-[12px_12px_0px_rgba(0,0,0,0.3)] hover:shadow-[16px_16px_0px_rgba(0,0,0,0.3)] transition-all hover:-translate-y-2">
+                <Recycle size={48} className="text-[#16a34a] mb-4" />
+                <p className="text-[#16a34a] font-black text-5xl italic mb-2">94%</p>
+                <p className="text-slate-600 text-xs font-bold uppercase tracking-wider">Recycled</p>
+              </div>
+              <div className="bg-white/95 backdrop-blur-sm p-8 rounded-2xl border-4 border-slate-900 shadow-[12px_12px_0px_rgba(0,0,0,0.3)] hover:shadow-[16px_16px_0px_rgba(0,0,0,0.3)] transition-all hover:-translate-y-2 mt-12">
+                <Zap size={48} className="text-orange-500 mb-4" />
+                <p className="text-orange-500 font-black text-5xl italic mb-2">&lt;2h</p>
+                <p className="text-slate-600 text-xs font-bold uppercase tracking-wider">Response</p>
+              </div>
+              <div className="bg-white/95 backdrop-blur-sm p-8 rounded-2xl border-4 border-slate-900 shadow-[12px_12px_0px_rgba(0,0,0,0.3)] hover:shadow-[16px_16px_0px_rgba(0,0,0,0.3)] transition-all hover:-translate-y-2 -mt-6">
+                <ShieldCheck size={48} className="text-[#16a34a] mb-4" />
+                <p className="text-[#16a34a] font-black text-5xl italic mb-2">£5M</p>
+                <p className="text-slate-600 text-xs font-bold uppercase tracking-wider">Insured</p>
+              </div>
+              <div className="bg-white/95 backdrop-blur-sm p-8 rounded-2xl border-4 border-slate-900 shadow-[12px_12px_0px_rgba(0,0,0,0.3)] hover:shadow-[16px_16px_0px_rgba(0,0,0,0.3)] transition-all hover:-translate-y-2 mt-6">
+                <Award size={48} className="text-orange-500 mb-4" />
+                <p className="text-orange-500 font-black text-5xl italic mb-2">100%</p>
+                <p className="text-slate-600 text-xs font-bold uppercase tracking-wider">Licensed</p>
+              </div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm border-2 border-white/30 px-6 py-4 rounded-lg">
-              <p className="text-[#4ade80] font-black text-3xl md:text-4xl italic">&lt;2hrs</p>
-              <p className="text-white/70 text-xs font-bold uppercase tracking-widest">Response Time</p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm border-2 border-white/30 px-6 py-4 rounded-lg">
-              <p className="text-[#4ade80] font-black text-3xl md:text-4xl italic">£5M</p>
-              <p className="text-white/70 text-xs font-bold uppercase tracking-widest">Liability Cover</p>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-4">
-            <a href="tel:07769844298" className="bg-orange-500 hover:bg-orange-400 text-black px-10 py-6 rounded-sm font-black text-lg uppercase italic transition-all hover:-translate-y-1 shadow-[8px_8px_0px_#022c22] hover:shadow-[12px_12px_0px_#022c22] flex items-center gap-3">
-              <Phone size={20} /> Call Now - 07769 844298
-            </a>
-            <a href="https://wa.me/447769844298" target="_blank" rel="noopener noreferrer" className="bg-[#25D366] hover:bg-[#128C7E] text-white px-10 py-6 rounded-sm font-black text-lg uppercase italic transition-all hover:-translate-y-1 shadow-[8px_8px_0px_#022c22] hover:shadow-[12px_12px_0px_#022c22] flex items-center gap-3">
-              <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
-              WhatsApp Quote
-            </a>
           </div>
         </div>
       </div>
     </header>
 
     {/* SERVICES GRID */}
-    <section className="py-24 md:py-32 bg-white">
+    <section className="py-24 md:py-32 bg-gradient-to-b from-white via-[#f8fafc] to-white">
       <div className="container mx-auto px-6">
         {/* Residential Services */}
         <div className="mb-32">
-          <div className="mb-16">
-            <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Residential</h2>
-            <p className="text-5xl md:text-7xl font-black text-slate-900 italic uppercase leading-[0.85] tracking-tighter">HOME CLEARANCE.</p>
+          <div className="mb-16 text-center">
+            <div className="inline-block mb-6">
+              <Home size={48} className="text-[#16a34a] mx-auto mb-4" />
+            </div>
+            <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic">Residential Solutions</h2>
+            <p className="text-5xl md:text-7xl font-black text-slate-900 italic uppercase leading-[0.85] tracking-tighter mb-6">HOME CLEARANCE.</p>
+            <p className="text-slate-600 text-lg font-bold max-w-2xl mx-auto">Professional domestic waste removal with care, respect, and environmental responsibility.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ServiceCard emoji="🏠" title="House Clearance" description="Complete property clearance including furniture, appliances, and general household items. Perfect for downsizing, probate, or moving." features={['Full or partial clearance', 'Same/next-day service available', 'Probate specialists', 'Donation of reusable items']} price="From £150" />
-            <ServiceCard emoji="🌳" title="Garden & Green Waste" description="Professional garden clearance including soil, turf, tree branches, and shed demolition. Site left spotless and ready for landscaping." features={['Shed/outbuilding removal', 'Soil & rubble removal', 'Green waste recycling', 'Fencing removal']} price="From £120" />
-            <ServiceCard emoji="🚗" title="Garage & Loft" description="Clear out cluttered garages, lofts, and storage spaces. We handle everything from old tools to heavy equipment." features={['Complete garage clearance', 'Loft & attic clearing', 'Heavy item removal', 'Safe disposal guaranteed']} price="From £100" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <ModernServiceCard
+              icon={<Home size={40} className="text-[#16a34a]" />}
+              emoji="🏠"
+              title="Home Clearance"
+              description="Complete property clearance including furniture, appliances, and general household items. Perfect for downsizing, probate, or moving."
+              features={['Full or partial clearance', 'Same/next-day service available', 'Probate specialists', 'Donation of reusable items']}
+              price="From £150"
+              accentColor="bg-[#dcfce7]"
+              borderColor="border-[#16a34a]"
+            />
+            <ModernServiceCard
+              icon={<TreePine size={40} className="text-[#16a34a]" />}
+              emoji="🌳"
+              title="Garden & Green Waste"
+              description="Professional garden clearance including soil, turf, tree branches, and shed demolition. Site left spotless and ready for landscaping."
+              features={['Shed/outbuilding removal', 'Soil & rubble removal', 'Green waste recycling', 'Fencing removal']}
+              price="From £120"
+              accentColor="bg-[#dcfce7]"
+              borderColor="border-[#16a34a]"
+            />
+            <ModernServiceCard
+              icon={<Hammer size={40} className="text-[#16a34a]" />}
+              emoji="🚗"
+              title="Garage & Loft"
+              description="Clear out cluttered garages, lofts, and storage spaces. We handle everything from old tools to heavy equipment."
+              features={['Complete garage clearance', 'Loft & attic clearing', 'Heavy item removal', 'Safe disposal guaranteed']}
+              price="From £100"
+              accentColor="bg-[#dcfce7]"
+              borderColor="border-[#16a34a]"
+            />
           </div>
         </div>
 
         {/* Commercial Services */}
         <div className="mb-32">
-          <div className="mb-16">
-            <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Commercial</h2>
-            <p className="text-5xl md:text-7xl font-black text-slate-900 italic uppercase leading-[0.85] tracking-tighter">BUSINESS SOLUTIONS.</p>
+          <div className="mb-16 text-center">
+            <div className="inline-block mb-6">
+              <Briefcase size={48} className="text-orange-500 mx-auto mb-4" />
+            </div>
+            <h2 className="text-orange-500 font-black uppercase tracking-[0.4em] text-xs mb-4 italic">Commercial Solutions</h2>
+            <p className="text-5xl md:text-7xl font-black text-slate-900 italic uppercase leading-[0.85] tracking-tighter mb-6">BUSINESS CLEARANCE.</p>
+            <p className="text-slate-600 text-lg font-bold max-w-2xl mx-auto">Industrial-grade waste management for businesses, builders, and commercial operations.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <ServiceCard emoji="🏢" title="Office Rip-Outs" description="Full office decommissioning including desks, IT equipment, partitions, and cabling. WEEE disposal certificates provided." features={['Complete office clearance', 'IT equipment & WEEE disposal', 'Secure document destruction', 'Out-of-hours available']} price="From £300" dark />
-            <ServiceCard emoji="🏗️" title="Trade & Construction" description="Skip alternative for builders. We handle rubble, timber, metal, and mixed construction waste. No permit needed." features={['Rubble & hardcore removal', 'Timber & metal waste', 'Skip alternative - no permit', 'Same-day collection']} price="From £180" green />
-            <ServiceCard emoji="🏬" title="Retail Units" description="Shop fitting removal, retail rip-outs, and end-of-lease clearances. Full compliance documentation provided." features={['Shop fitting removal', 'Retail unit clearance', 'Lease end services', 'Rapid turnaround']} price="From £250" />
-            <ServiceCard emoji="🏭" title="Industrial Sites" description="Large-scale clearances for warehouses, factories, and industrial units. Professional logistics and heavy machinery available." features={['Warehouse clearance', 'Industrial equipment', 'Heavy machinery removal', 'Project management']} price="From £500" />
+          <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+            <ModernServiceCard
+              icon={<Briefcase size={40} className="text-white" />}
+              emoji="🏢"
+              title="Office Rip-Outs"
+              description="Full office decommissioning including desks, IT equipment, partitions, and cabling. WEEE disposal certificates provided."
+              features={['Complete office clearance', 'IT equipment & WEEE disposal', 'Secure document destruction', 'Out-of-hours available']}
+              price="From £300"
+              dark
+              accentColor="bg-slate-900"
+              borderColor="border-[#4ade80]"
+            />
+            <ModernServiceCard
+              icon={<HardHat size={40} className="text-white" />}
+              emoji="🏗️"
+              title="Trade & HardHat"
+              description="Skip alternative for builders. We handle rubble, timber, metal, and mixed construction waste. No permit needed."
+              features={['Rubble & hardcore removal', 'Timber & metal waste', 'Skip alternative - no permit', 'Same-day collection']}
+              price="From £180"
+              green
+              accentColor="bg-[#16a34a]"
+              borderColor="border-slate-900"
+            />
+            <ModernServiceCard
+              icon={<Users size={40} className="text-orange-500" />}
+              emoji="🏬"
+              title="Retail Units"
+              description="Shop fitting removal, retail rip-outs, and end-of-lease clearances. Full compliance documentation provided."
+              features={['Shop fitting removal', 'Retail unit clearance', 'Lease end services', 'Rapid turnaround']}
+              price="From £250"
+              accentColor="bg-orange-50"
+              borderColor="border-orange-500"
+            />
+            <ModernServiceCard
+              icon={<Hammer size={40} className="text-[#16a34a]" />}
+              emoji="🏭"
+              title="Industrial Sites"
+              description="Large-scale clearances for warehouses, factories, and industrial units. Professional logistics and heavy machinery available."
+              features={['Warehouse clearance', 'Industrial equipment', 'Heavy machinery removal', 'Project management']}
+              price="From £500"
+              accentColor="bg-[#ecf3ef]"
+              borderColor="border-[#16a34a]"
+            />
           </div>
         </div>
 
@@ -404,7 +540,7 @@ const ServicesView = () => (
                 <div>
                   <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Service Type</label>
                   <select className="w-full bg-white border-4 border-slate-900 p-4 font-black uppercase text-xs outline-none focus:border-[#16a34a]">
-                    <option>House Clearance</option>
+                    <option>Home Clearance</option>
                     <option>Garden Clearance</option>
                     <option>Office Rip-Out</option>
                     <option>Trade Waste</option>
@@ -505,15 +641,14 @@ const App = () => {
           <div className="lg:col-span-4 text-left text-slate-900">
             <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Proven Trust</h2>
             <p className="text-5xl md:text-8xl font-black text-slate-900 italic uppercase leading-[0.85] mb-12 tracking-tighter">{title}</p>
-            <div className="hidden lg:flex items-center gap-4 mb-12 relative z-[60]">
-               <button type="button" onClick={prevReview} aria-label="Previous review" className="w-14 h-14 border-4 border-slate-900 rounded-full flex items-center justify-center bg-white hover:bg-[#16a34a] hover:text-white transition-all text-slate-900 active:scale-90 shadow-md cursor-pointer pointer-events-auto">
-                 <ChevronLeft size={28} />
+            <div className="flex items-center gap-4 mb-12 relative z-[60]">
+               <button type="button" onClick={prevReview} aria-label="Previous review" className="w-12 h-12 md:w-14 md:h-14 border-4 border-slate-900 rounded-full flex items-center justify-center bg-white hover:bg-[#16a34a] hover:text-white transition-all text-slate-900 active:scale-90 shadow-md cursor-pointer pointer-events-auto">
+                 <ChevronLeft size={24} className="md:w-7 md:h-7" />
                </button>
-               <button type="button" onClick={nextReview} aria-label="Next review" className="w-14 h-14 border-4 border-slate-900 rounded-full flex items-center justify-center bg-white hover:bg-[#16a34a] hover:text-white transition-all text-slate-900 active:scale-90 shadow-md cursor-pointer pointer-events-auto">
-                 <ChevronRight size={28} />
+               <button type="button" onClick={nextReview} aria-label="Next review" className="w-12 h-12 md:w-14 md:h-14 border-4 border-slate-900 rounded-full flex items-center justify-center bg-white hover:bg-[#16a34a] hover:text-white transition-all text-slate-900 active:scale-90 shadow-md cursor-pointer pointer-events-auto">
+                 <ChevronRight size={24} className="md:w-7 md:h-7" />
                </button>
             </div>
-            <p className="lg:hidden text-[10px] font-black uppercase tracking-widest text-[#16a34a] italic mb-6">← Swipe reviews →</p>
           </div>
 
           <div className="lg:col-span-8 relative overflow-hidden">
@@ -601,7 +736,90 @@ const App = () => {
 
         {currentView === 'reviews' && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 text-slate-900 text-left">
+            {/* Reviews Hero */}
+            <header className="relative min-h-[70vh] flex items-center pt-32 pb-20 overflow-hidden bg-gradient-to-br from-slate-900 via-[#16a34a] to-slate-900">
+              <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(74,222,128,0.3),transparent_70%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(251,146,60,0.2),transparent_60%)]" />
+              </div>
+              <div className="container mx-auto px-6 relative z-10 text-center">
+                <div className="max-w-4xl mx-auto">
+                  <div className="mb-8 inline-block animate-pulse">
+                    <span className="bg-[#4ade80] text-slate-900 px-6 py-3 text-xs font-black uppercase tracking-[0.3em] italic border-4 border-white shadow-2xl rounded-sm">Real Customer Experiences</span>
+                  </div>
+                  <h1 className="text-5xl md:text-[7rem] lg:text-[9rem] font-black text-white leading-[0.85] mb-8 tracking-tighter uppercase italic">
+                    TRUSTED<br/>
+                    <span className="text-[#4ade80]">BY</span><br/>
+                    <span className="text-transparent stroke-text-light">BERKSHIRE.</span>
+                  </h1>
+                  <p className="text-xl md:text-2xl text-white/90 mb-12 font-bold leading-relaxed max-w-3xl mx-auto">
+                    Our customers speak for us. Read verified reviews from real clients across <span className="text-[#4ade80]">Berkshire & Surrey</span>.
+                  </p>
+                  <div className="flex flex-wrap gap-6 justify-center items-center">
+                    <div className="flex items-center gap-2">
+                      {[...Array(5)].map((_, i) => <Star key={i} size={32} fill="#4ade80" className="text-[#4ade80]" />)}
+                    </div>
+                    <div className="text-left">
+                      <p className="text-4xl font-black text-white italic">4.9/5</p>
+                      <p className="text-sm text-white/60 font-bold">Average Rating</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </header>
+
+            {/* Stats Section */}
+            <section className="py-16 bg-white border-b-4 border-slate-900">
+              <div className="container mx-auto px-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                  <div className="text-center">
+                    <p className="text-5xl md:text-6xl font-black text-[#16a34a] italic mb-2">500+</p>
+                    <p className="text-sm font-bold text-slate-600 uppercase tracking-wider">Happy Clients</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-5xl md:text-6xl font-black text-[#16a34a] italic mb-2">4.9</p>
+                    <p className="text-sm font-bold text-slate-600 uppercase tracking-wider">Avg Rating</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-5xl md:text-6xl font-black text-[#16a34a] italic mb-2">98%</p>
+                    <p className="text-sm font-bold text-slate-600 uppercase tracking-wider">Would Recommend</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-5xl md:text-6xl font-black text-[#16a34a] italic mb-2">10+</p>
+                    <p className="text-sm font-bold text-slate-600 uppercase tracking-wider">Years Experience</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             <ReviewsSection title="VERIFIED REVIEWS." />
+
+            {/* Trust Badges */}
+            <section className="py-24 bg-slate-900">
+              <div className="container mx-auto px-6">
+                <div className="max-w-5xl mx-auto text-center">
+                  <h2 className="text-3xl md:text-5xl font-black text-white uppercase italic mb-12">Fully Accredited & Insured</h2>
+                  <div className="grid md:grid-cols-3 gap-8">
+                    <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20">
+                      <ShieldCheck size={48} className="text-[#4ade80] mx-auto mb-4" />
+                      <p className="text-white font-black text-xl mb-2">Licensed Carrier</p>
+                      <p className="text-white/60 text-sm">Environment Agency Registered</p>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20">
+                      <Scale size={48} className="text-[#4ade80] mx-auto mb-4" />
+                      <p className="text-white font-black text-xl mb-2">£5M Insured</p>
+                      <p className="text-white/60 text-sm">Full Public Liability</p>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border-2 border-white/20">
+                      <Award size={48} className="text-[#4ade80] mx-auto mb-4" />
+                      <p className="text-white font-black text-xl mb-2">94% Recycling</p>
+                      <p className="text-white/60 text-sm">Environmental Commitment</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             <HomeQuote />
             <MapContact />
           </div>
@@ -619,7 +837,7 @@ const App = () => {
             </div>
             <div className="lg:col-span-3 space-y-8">
               <h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-xs italic border-l-4 border-[#4ade80] pl-4 leading-none">Job Matrix</h5>
-              <ul className="space-y-4 font-black text-sm uppercase tracking-widest italic text-white/50">{['End of Tenancy Clearance', 'Construction Waste Hub', 'Garden & Green Waste', 'Commercial Site Rip-outs', 'House & Probate Clearance', 'Garage & Shed Demolition'].map(service => (<li key={service}><button onClick={() => setCurrentView('services')} className="hover:text-white hover:translate-x-2 transition-all flex items-center gap-2 leading-tight text-balance text-white">{service}</button></li>))}</ul>
+              <ul className="space-y-4 font-black text-sm uppercase tracking-widest italic text-white/50">{['End of Tenancy Clearance', 'HardHat Waste Hub', 'Garden & Green Waste', 'Commercial Site Rip-outs', 'Home & Probate Clearance', 'Garage & Shed Demolition'].map(service => (<li key={service}><button onClick={() => setCurrentView('services')} className="hover:text-white hover:translate-x-2 transition-all flex items-center gap-2 leading-tight text-balance text-white">{service}</button></li>))}</ul>
             </div>
             <div className="lg:col-span-4 space-y-10 flex flex-col items-start lg:items-end text-left lg:text-right">
                <div className="space-y-3"><h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-xs italic">Emergency Line</h5><a href="tel:07769844298" className="text-4xl md:text-5xl lg:text-6xl font-[1000] text-white hover:text-orange-500 transition-colors italic tracking-tighter leading-none block">07769 844298</a><div className="flex gap-2 lg:justify-end items-center text-balance"><span className="w-2 h-2 bg-[#4ade80] rounded-full animate-pulse" /><span className="text-[10px] font-black uppercase tracking-widest text-white/40 italic">Open 7am — 7pm Daily</span></div></div>
