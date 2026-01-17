@@ -108,7 +108,7 @@ const ReviewCard = ({ review, idx }) => (
 const HomeHero = ({ onNavigate }) => (
   <header className="relative min-h-[85vh] md:min-h-screen flex items-center pt-24 overflow-hidden bg-[#064e3b]">
     <div className="absolute inset-0 z-0">
-      <img src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&q=80&w=2000" alt="Removal logistics" className="w-full h-full object-cover opacity-30 mix-blend-overlay grayscale" loading="eager" />
+      <img src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb6?auto=format&fit=crop&q=80&w=2000" alt="Waste removal and rubbish bags" className="w-full h-full object-cover opacity-30 mix-blend-overlay grayscale" loading="eager" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-transparent to-transparent" />
     </div>
