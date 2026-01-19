@@ -5,7 +5,7 @@ import { Home, CheckCircle, Trash2, Clock, MapPin, Phone, Mail, ArrowRight, Pack
 
 const EndOfTenancy = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   const whatWeRemove = [

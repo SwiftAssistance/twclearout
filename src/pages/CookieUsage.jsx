@@ -5,7 +5,7 @@ import { Cookie, Settings, BarChart, Shield, Trash2 } from 'lucide-react';
 
 const CookieUsage = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   return (

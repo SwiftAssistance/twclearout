@@ -5,7 +5,7 @@ import { HardHat, CheckCircle, Truck, Clock, MapPin, Phone, Mail, Hammer, Wrench
 
 const HardHatWasteHub = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   const whatWeRemove = [

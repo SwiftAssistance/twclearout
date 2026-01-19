@@ -41,6 +41,9 @@ import GardenWaste from './pages/services/GardenWaste';
 import CommercialRipouts from './pages/services/CommercialRipouts';
 import HomeAndProbate from './pages/services/HomeAndProbate';
 import GarageShed from './pages/services/GarageShed';
+import Services from './pages/Services';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 // --- GLOBAL DATA & CONFIGURATION ---
 
@@ -117,7 +120,7 @@ const ReviewCard = ({ review, idx }) => (
   </div>
 );
 
-const HomeHero = ({ onNavigate }) => (
+const HomeHero = () => (
   <header className="relative min-h-[85vh] md:min-h-screen flex items-center pt-24 overflow-hidden bg-[#064e3b]">
     <div className="absolute inset-0 z-0">
       <img src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb6?auto=format&fit=crop&q=80&w=2000" alt="Waste removal and rubbish bags" className="w-full h-full object-cover opacity-30 mix-blend-overlay grayscale" loading="eager" />
@@ -132,16 +135,16 @@ const HomeHero = ({ onNavigate }) => (
         <h1 className="text-5xl md:text-[8rem] lg:text-[10rem] font-black text-white leading-[0.85] mb-8 tracking-tighter uppercase italic">WASTE <br /><span className="text-transparent stroke-text-light">VANISHED</span> <br /><span className="text-[#4ade80]">TODAY.</span></h1>
         <p className="text-lg md:text-3xl text-white/70 mb-12 max-w-2xl font-bold leading-tight italic text-balance">Premium waste removal for <span className="text-white border-b-4 border-orange-500">Berkshire & Surrey</span>. Fully licensed. Fixed pricing. Professional crews.</p>
         <div className="flex flex-wrap gap-4 md:gap-6">
-          <button onClick={() => onNavigate('services')} className="bg-orange-500 hover:bg-orange-400 text-black px-10 md:px-12 py-5 md:py-6 rounded-sm font-black text-lg md:text-xl uppercase italic tracking-wider transition-all hover:-translate-y-1 shadow-[8px_8px_0px_#022c22] active:shadow-none flex items-center cursor-pointer">
+          <Link to="/services" className="bg-orange-500 hover:bg-orange-400 text-black px-10 md:px-12 py-5 md:py-6 rounded-sm font-black text-lg md:text-xl uppercase italic tracking-wider transition-all hover:-translate-y-1 shadow-[8px_8px_0px_#022c22] active:shadow-none flex items-center cursor-pointer">
             Explore Services <ArrowRight className="ml-2" size={24} />
-          </button>
+          </Link>
         </div>
       </div>
     </div>
   </header>
 );
 
-const HomeServices = ({ onNavigate }) => (
+const HomeServices = () => (
   <section id="services" className="py-24 md:py-32 bg-white text-left text-slate-900 overflow-hidden">
     <div className="container mx-auto px-6">
       <div className="mb-16">
@@ -156,21 +159,21 @@ const HomeServices = ({ onNavigate }) => (
           <p className="font-bold text-lg md:text-xl text-slate-700 max-w-sm italic leading-relaxed text-balance text-left">Industrial warehouses and multi-floor office blocks. Professional logistical removal.</p>
         </div>
 
-        <button onClick={() => onNavigate('services')} className="lg:col-span-5 bg-[#064e3b] p-10 md:p-12 border-4 border-slate-900 flex flex-col justify-between shadow-xl text-white group cursor-pointer hover:border-[#4ade80] transition-colors">
+        <Link to="/services" className="lg:col-span-5 bg-[#064e3b] p-10 md:p-12 border-4 border-slate-900 flex flex-col justify-between shadow-xl text-white group cursor-pointer hover:border-[#4ade80] transition-colors">
           <Briefcase size={50} className="text-[#4ade80]" />
           <div>
             <h3 className="text-3xl md:text-4xl font-black uppercase italic mb-4 leading-tight text-white text-left">Commercial <br /> Rip-outs</h3>
             <p className="text-white/70 font-bold italic text-lg leading-snug text-balance text-left">Retail decommissioning with secure WEEE disposal notes and full audit trails.</p>
           </div>
-        </button>
+        </Link>
 
-        <button onClick={() => onNavigate('services')} className="lg:col-span-4 bg-slate-900 p-10 border-4 border-slate-900 flex flex-col justify-between text-white group hover:bg-orange-500 transition-all duration-500 cursor-pointer text-left">
+        <Link to="/services" className="lg:col-span-4 bg-slate-900 p-10 border-4 border-slate-900 flex flex-col justify-between text-white group hover:bg-orange-500 transition-all duration-500 cursor-pointer text-left">
            <HardHat size={40} className="text-orange-500 group-hover:text-black transition-colors" />
            <div className="text-left text-white">
              <h4 className="text-3xl font-black uppercase italic mb-2 leading-none">Trade Waste</h4>
              <p className="text-white/50 group-hover:text-black/70 font-bold italic text-sm leading-tight">Skip-alternative for builders. Rubble and timber cleared instantly.</p>
            </div>
-        </button>
+        </Link>
 
         <article className="lg:col-span-8 bg-[#ecf3ef] border-4 border-slate-900 p-8 md:p-12 flex flex-col items-start shadow-lg">
           <div className="w-full text-left">
@@ -860,12 +863,12 @@ const App = () => {
       {/* NAVIGATION */}
       <nav role="navigation" className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-300 transform-gpu ${isScrolled ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-md py-3' : 'bg-[#064e3b] py-4 md:py-6'}`}>
         <div className="container mx-auto px-6 h-16 flex justify-between items-center relative">
-          <button onClick={() => setCurrentView('home')} aria-label="Go to homepage" className="flex items-center gap-3 md:gap-4 shrink-0 group text-left"><div className="relative h-14 w-14 md:h-20 md:w-20 transition-transform group-hover:scale-105"><img src="logo.webp" alt="Total Waste Clearout Ltd logo" className="h-full w-full object-contain relative z-10" loading="eager" /></div><div className="flex flex-col leading-none text-left"><span className={`font-[1000] text-lg md:text-3xl tracking-tighter uppercase italic transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-white'}`}>Total Waste</span><span className="text-[#4ade80] font-black text-[8px] md:text-[10px] tracking-[.3em] md:tracking-[.4em] uppercase text-left text-balance">Clearout Ltd</span></div></button>
+          <Link to="/" aria-label="Go to homepage" className="flex items-center gap-3 md:gap-4 shrink-0 group text-left"><div className="relative h-14 w-14 md:h-20 md:w-20 transition-transform group-hover:scale-105"><img src="logo.webp" alt="Total Waste Clearout Ltd logo" className="h-full w-full object-contain relative z-10" loading="eager" /></div><div className="flex flex-col leading-none text-left"><span className={`font-[1000] text-lg md:text-3xl tracking-tighter uppercase italic transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-white'}`}>Total Waste</span><span className="text-[#4ade80] font-black text-[8px] md:text-[10px] tracking-[.3em] md:tracking-[.4em] uppercase text-left text-balance">Clearout Ltd</span></div></Link>
           <div className={`hidden xl:flex items-center gap-8 font-black text-[11px] uppercase tracking-[0.2em] transition-colors duration-300 ${isScrolled ? 'text-slate-600' : 'text-white/80'}`}>
-            <button onClick={() => setCurrentView('home')} className={`transition-all relative group py-2 ${currentView === 'home' ? 'text-[#16a34a]' : 'hover:text-[#16a34a]'}`}>Home<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${currentView === 'home' ? 'w-full' : 'w-0 group-hover:w-full'}`} /></button>
-            <button onClick={() => setCurrentView('services')} className={`transition-all relative group py-2 ${currentView === 'services' ? 'text-[#16a34a]' : 'hover:text-[#16a34a]'}`}>Services<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${currentView === 'services' ? 'w-full' : 'w-0 group-hover:w-full'}`} /></button>
-            <button onClick={() => setCurrentView('about')} className={`transition-all relative group py-2 ${currentView === 'about' ? 'text-[#16a34a]' : 'hover:text-[#16a34a]'}`}>About<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${currentView === 'about' ? 'w-full' : 'w-0 group-hover:w-full'}`} /></button>
-            <button onClick={() => setCurrentView('contact')} className={`transition-all relative group py-2 ${currentView === 'contact' ? 'text-[#16a34a]' : 'hover:text-[#16a34a]'}`}>Contact<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${currentView === 'contact' ? 'w-full' : 'w-0 group-hover:w-full'}`} /></button>
+            <Link to="/" className="transition-all relative group py-2 hover:text-[#16a34a]">Home<span className="absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 w-0 group-hover:w-full" /></Link>
+            <Link to="/services" className="transition-all relative group py-2 hover:text-[#16a34a]">Services<span className="absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 w-0 group-hover:w-full" /></Link>
+            <Link to="/about" className="transition-all relative group py-2 hover:text-[#16a34a]">Why Us<span className="absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 w-0 group-hover:w-full" /></Link>
+            <Link to="/contact" className="transition-all relative group py-2 hover:text-[#16a34a]">Contact<span className="absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 w-0 group-hover:w-full" /></Link>
             <div className="h-6 w-px bg-white/20 mx-2" /><a href="tel:07769844298" className="bg-[#16a34a] hover:bg-slate-900 text-white px-6 py-3 rounded-sm flex items-center gap-3 transition-all shadow-md font-black italic uppercase tracking-wider"><Phone size={16} fill="white" /> 07769 844298</a>
           </div>
           <button className={`xl:hidden p-2 transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-white'}`} onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle Menu">{isMenuOpen ? <X size={28} /> : <Menu size={28} />}</button>
@@ -873,10 +876,10 @@ const App = () => {
         <div className={`xl:hidden fixed left-0 w-full bg-white transition-all duration-500 ease-in-out transform-gpu border-t border-slate-100 shadow-2xl overflow-y-auto ${isMenuOpen ? 'translate-y-0 opacity-100 visible h-[calc(100vh-80px)]' : '-translate-y-full opacity-0 invisible h-0'}`} style={{ top: '80px' }}>
           <div className="p-8 flex flex-col h-full overflow-y-auto text-left text-slate-900">
             <div className="flex flex-col gap-6 font-black text-xl uppercase tracking-widest italic text-slate-900 mb-12">
-              <button key="m-home" onClick={() => setCurrentView('home')} className={`border-b border-slate-100 pb-4 flex justify-between items-center ${currentView === 'home' ? 'text-[#16a34a]' : ''}`}>Home <ChevronRight size={24} className={currentView === 'home' ? 'text-[#16a34a]' : 'text-slate-200'} /></button>
-              <button key="m-serv" onClick={() => setCurrentView('services')} className={`border-b border-slate-100 pb-4 flex justify-between items-center ${currentView === 'services' ? 'text-[#16a34a]' : ''}`}>Services <ChevronRight size={24} className={currentView === 'services' ? 'text-[#16a34a]' : 'text-slate-200'} /></button>
-              <button key="m-about" onClick={() => setCurrentView('about')} className={`border-b border-slate-100 pb-4 flex justify-between items-center ${currentView === 'about' ? 'text-[#16a34a]' : ''}`}>About <ChevronRight size={24} className={currentView === 'about' ? 'text-[#16a34a]' : 'text-slate-200'} /></button>
-              <button key="m-contact" onClick={() => setCurrentView('contact')} className={`border-b border-slate-100 pb-4 flex justify-between items-center ${currentView === 'contact' ? 'text-[#16a34a]' : ''}`}>Contact <ChevronRight size={24} className={currentView === 'contact' ? 'text-[#16a34a]' : 'text-slate-200'} /></button>
+              <Link key="m-home" to="/" className="border-b border-slate-100 pb-4 flex justify-between items-center">Home <ChevronRight size={24} className="text-slate-200" /></Link>
+              <Link key="m-serv" to="/services" className="border-b border-slate-100 pb-4 flex justify-between items-center">Services <ChevronRight size={24} className="text-slate-200" /></Link>
+              <Link key="m-about" to="/about" className="border-b border-slate-100 pb-4 flex justify-between items-center">Why Us <ChevronRight size={24} className="text-slate-200" /></Link>
+              <Link key="m-contact" to="/contact" className="border-b border-slate-100 pb-4 flex justify-between items-center">Contact <ChevronRight size={24} className="text-slate-200" /></Link>
             </div>
             <div className="mt-auto space-y-6 text-center pb-12"><a href="tel:07769844298" className="bg-[#16a34a] text-white w-full p-6 text-center rounded-sm flex items-center justify-center gap-4 font-black italic text-xl uppercase shadow-lg"><Phone fill="white" /> CALL 07769 844298</a></div>
           </div>
@@ -887,37 +890,21 @@ const App = () => {
       <main className="relative min-h-[70vh] text-left text-slate-900">
         <Routes>
           <Route path="/" element={
-            <>
-              {currentView === 'home' && (
-                <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 text-slate-900 text-left">
-                  <HomeHero onNavigate={setCurrentView} />
-                  {/* STATS STRIP */}
-                  <section className="bg-[#16a34a] py-6 border-y-4 border-black relative z-20 shadow-xl">
-                    <div className="container mx-auto px-6 text-left text-white">
-                      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10">
-                        {STATS.map((s, idx) => (<div key={`stat-${idx}`} className="flex items-center gap-3 md:gap-5 text-white"><div className="bg-[#064e3b] text-[#4ade80] p-2 md:p-3 rounded-sm shrink-0 shadow-sm"><s.Icon size={20} /></div><div className="flex flex-col"><span className="text-xl md:text-3xl font-black uppercase italic leading-none">{s.value}</span><span className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest opacity-80">{s.label}</span></div></div>))}
-                      </div>
-                    </div>
-                  </section>
-                  <HomeServices onNavigate={setCurrentView} />
-                  <ReviewsSection title="CLIENTS TALK." />
-                  <HomeQuote />
-                  <MapContact />
+            <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 text-slate-900 text-left">
+              <HomeHero />
+              {/* STATS STRIP */}
+              <section className="bg-[#16a34a] py-6 border-y-4 border-black relative z-20 shadow-xl">
+                <div className="container mx-auto px-6 text-left text-white">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10">
+                    {STATS.map((s, idx) => (<div key={`stat-${idx}`} className="flex items-center gap-3 md:gap-5 text-white"><div className="bg-[#064e3b] text-[#4ade80] p-2 md:p-3 rounded-sm shrink-0 shadow-sm"><s.Icon size={20} /></div><div className="flex flex-col"><span className="text-xl md:text-3xl font-black uppercase italic leading-none">{s.value}</span><span className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest opacity-80">{s.label}</span></div></div>))}
+                  </div>
                 </div>
-              )}
-
-              {currentView === 'services' && (
-                <ServicesView />
-              )}
-
-              {currentView === 'about' && (
-                <AboutView />
-              )}
-
-              {currentView === 'contact' && (
-                <ContactView />
-              )}
-            </>
+              </section>
+              <HomeServices />
+              <ReviewsSection title="CLIENTS TALK." />
+              <HomeQuote />
+              <MapContact />
+            </div>
           } />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/cookie-usage" element={<CookieUsage />} />
@@ -928,6 +915,9 @@ const App = () => {
           <Route path="/services/commercial-ripouts" element={<CommercialRipouts />} />
           <Route path="/services/home-probate-clearance" element={<HomeAndProbate />} />
           <Route path="/services/garage-shed" element={<GarageShed />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
 
@@ -936,7 +926,7 @@ const App = () => {
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-12 gap-12 md:gap-16 mb-20">
             <div className="lg:col-span-5 space-y-8">
-              <button onClick={() => setCurrentView('home')} aria-label="Go to homepage" className="flex items-center gap-4 group cursor-pointer"><img src="logo.webp" alt="Total Waste Clearout Ltd logo" className="w-16 h-16 object-contain group-hover:rotate-12 transition-transform" loading="lazy" /><div className="flex flex-col leading-none"><span className="font-black text-3xl md:text-4xl tracking-tighter uppercase italic leading-none text-white">Total Waste</span><span className="text-[#4ade80] font-black text-sm tracking-[.4em] uppercase">Clearout Ltd</span></div></button>
+              <Link to="/" aria-label="Go to homepage" className="flex items-center gap-4 group cursor-pointer"><img src="logo.webp" alt="Total Waste Clearout Ltd logo" className="w-16 h-16 object-contain group-hover:rotate-12 transition-transform" loading="lazy" /><div className="flex flex-col leading-none"><span className="font-black text-3xl md:text-4xl tracking-tighter uppercase italic leading-none text-white">Total Waste</span><span className="text-[#4ade80] font-black text-sm tracking-[.4em] uppercase">Clearout Ltd</span></div></Link>
               <p className="text-white/60 max-w-sm font-bold italic text-lg leading-relaxed underline decoration-white/5 text-balance">Berkshire & Surrey's premier disposal service. 94% recycling rate and fully licensed for every clearance.</p>
               <div className="flex flex-wrap gap-4"><div className="bg-white/5 border-2 border-white/10 px-6 py-4 text-[10px] font-black uppercase tracking-widest text-white/60 italic flex items-center gap-2 shadow-sm"><ShieldCheck size={14} className="text-[#4ade80]" aria-hidden="true" /> Registered Carrier</div></div>
             </div>
@@ -956,7 +946,7 @@ const App = () => {
                <div className="pt-2 flex gap-4 lg:justify-end"><a href="https://www.instagram.com/totalwasteclearout" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-[#4ade80] transition-colors hover:text-black shadow-sm group"><Instagram size={24} className="group-hover:scale-110 transition-transform" /></a><a href="https://www.facebook.com/totalwasteclearout" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-[#4ade80] transition-colors hover:text-black shadow-sm group"><Facebook size={24} className="group-hover:scale-110 transition-transform" /></a></div>
             </div>
           </div>
-          <div className="border-t border-white/5 py-12"><h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-[10px] italic mb-8 text-center text-balance">Priority Thames Valley corridor</h5><div className="grid grid-cols-2 md:grid-cols-5 gap-y-4 gap-x-8 text-center">{TOWNS.map(t => (<button key={`town-f-${t}`} onClick={() => setCurrentView('home')} className="text-[10px] font-black uppercase tracking-widest text-white/30 hover:text-[#4ade80] transition-colors italic flex items-center justify-center gap-2"><MapPin size={10} /> {t}</button>))}</div></div>
+          <div className="border-t border-white/5 py-12"><h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-[10px] italic mb-8 text-center text-balance">Priority Thames Valley corridor</h5><div className="grid grid-cols-2 md:grid-cols-5 gap-y-4 gap-x-8 text-center">{TOWNS.map(t => (<Link key={`town-f-${t}`} to="/" className="text-[10px] font-black uppercase tracking-widest text-white/30 hover:text-[#4ade80] transition-colors italic flex items-center justify-center gap-2"><MapPin size={10} /> {t}</Link>))}</div></div>
           <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8"><p className="text-white/20 text-[9px] font-black uppercase tracking-[0.4em] text-center md:text-left leading-relaxed text-balance">© 2026 TOTAL WASTE CLEAROUT LTD. REGISTERED IN ENGLAND & WALES. CO NO: 09876543.</p><div className="flex flex-wrap gap-6 items-center text-white/40 font-black uppercase tracking-widest italic text-[10px]"><Link to="/privacy-policy" className="hover:text-[#4ade80] transition-colors uppercase">Privacy Policy</Link><Link to="/cookie-usage" className="hover:text-[#4ade80] transition-colors uppercase">Cookie Usage</Link><Link to="/legal" className="hover:text-[#4ade80] transition-colors uppercase">Legal</Link><div className="hidden md:flex gap-1" aria-hidden="true">{[...Array(5)].map((_, i) => <Star key={`foot-star-${i}`} size={12} className="text-[#4ade80] fill-current" />)}</div></div></div>
         </div>
       </footer>

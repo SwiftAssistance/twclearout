@@ -5,7 +5,7 @@ import { TreePine, CheckCircle, Leaf, Clock, MapPin, Phone, Mail, Flower, Trees,
 
 const GardenWaste = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   const whatWeRemove = [
