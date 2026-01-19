@@ -5,7 +5,7 @@ import { Hammer, CheckCircle, Wrench, Clock, MapPin, Phone, Mail, HardHat, Trash
 
 const GarageShed = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   const whatWeRemove = [

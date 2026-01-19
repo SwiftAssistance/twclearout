@@ -5,7 +5,7 @@ import { ShieldCheck, Lock, Eye, UserCheck, Mail, Phone } from 'lucide-react';
 
 const PrivacyPolicy = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   return (

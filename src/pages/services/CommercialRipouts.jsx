@@ -5,7 +5,7 @@ import { Briefcase, CheckCircle, Building, Clock, MapPin, Phone, Mail, Store, Sh
 
 const CommercialRipouts = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   const whatWeRemove = [
