@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 import {
   Phone,
   Trash2,
@@ -29,6 +30,17 @@ import {
   Quote,
   ExternalLink
 } from 'lucide-react';
+
+// Page components
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import CookieUsage from './pages/CookieUsage';
+import Legal from './pages/Legal';
+import EndOfTenancy from './pages/services/EndOfTenancy';
+import HardHatWasteHub from './pages/services/HardHatWasteHub';
+import GardenWaste from './pages/services/GardenWaste';
+import CommercialRipouts from './pages/services/CommercialRipouts';
+import HomeAndProbate from './pages/services/HomeAndProbate';
+import GarageShed from './pages/services/GarageShed';
 
 // --- GLOBAL DATA & CONFIGURATION ---
 
@@ -873,35 +885,50 @@ const App = () => {
 
       {/* PAGE CONTENT */}
       <main className="relative min-h-[70vh] text-left text-slate-900">
-        {currentView === 'home' && (
-          <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 text-slate-900 text-left">
-            <HomeHero onNavigate={setCurrentView} />
-            {/* STATS STRIP */}
-            <section className="bg-[#16a34a] py-6 border-y-4 border-black relative z-20 shadow-xl">
-              <div className="container mx-auto px-6 text-left text-white">
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10">
-                  {STATS.map((s, idx) => (<div key={`stat-${idx}`} className="flex items-center gap-3 md:gap-5 text-white"><div className="bg-[#064e3b] text-[#4ade80] p-2 md:p-3 rounded-sm shrink-0 shadow-sm"><s.Icon size={20} /></div><div className="flex flex-col"><span className="text-xl md:text-3xl font-black uppercase italic leading-none">{s.value}</span><span className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest opacity-80">{s.label}</span></div></div>))}
+        <Routes>
+          <Route path="/" element={
+            <>
+              {currentView === 'home' && (
+                <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 text-slate-900 text-left">
+                  <HomeHero onNavigate={setCurrentView} />
+                  {/* STATS STRIP */}
+                  <section className="bg-[#16a34a] py-6 border-y-4 border-black relative z-20 shadow-xl">
+                    <div className="container mx-auto px-6 text-left text-white">
+                      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10">
+                        {STATS.map((s, idx) => (<div key={`stat-${idx}`} className="flex items-center gap-3 md:gap-5 text-white"><div className="bg-[#064e3b] text-[#4ade80] p-2 md:p-3 rounded-sm shrink-0 shadow-sm"><s.Icon size={20} /></div><div className="flex flex-col"><span className="text-xl md:text-3xl font-black uppercase italic leading-none">{s.value}</span><span className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest opacity-80">{s.label}</span></div></div>))}
+                      </div>
+                    </div>
+                  </section>
+                  <HomeServices onNavigate={setCurrentView} />
+                  <ReviewsSection title="CLIENTS TALK." />
+                  <HomeQuote />
+                  <MapContact />
                 </div>
-              </div>
-            </section>
-            <HomeServices onNavigate={setCurrentView} />
-            <ReviewsSection title="CLIENTS TALK." />
-            <HomeQuote />
-            <MapContact />
-          </div>
-        )}
+              )}
 
-        {currentView === 'services' && (
-          <ServicesView />
-        )}
+              {currentView === 'services' && (
+                <ServicesView />
+              )}
 
-        {currentView === 'about' && (
-          <AboutView />
-        )}
+              {currentView === 'about' && (
+                <AboutView />
+              )}
 
-        {currentView === 'contact' && (
-          <ContactView />
-        )}
+              {currentView === 'contact' && (
+                <ContactView />
+              )}
+            </>
+          } />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/cookie-usage" element={<CookieUsage />} />
+          <Route path="/legal" element={<Legal />} />
+          <Route path="/services/end-of-tenancy" element={<EndOfTenancy />} />
+          <Route path="/services/construction-waste" element={<HardHatWasteHub />} />
+          <Route path="/services/garden-waste" element={<GardenWaste />} />
+          <Route path="/services/commercial-ripouts" element={<CommercialRipouts />} />
+          <Route path="/services/home-probate-clearance" element={<HomeAndProbate />} />
+          <Route path="/services/garage-shed" element={<GarageShed />} />
+        </Routes>
       </main>
 
       {/* FOOTER */}
@@ -915,7 +942,14 @@ const App = () => {
             </div>
             <div className="lg:col-span-3 space-y-8">
               <h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-xs italic border-l-4 border-[#4ade80] pl-4 leading-none">Job Matrix</h5>
-              <ul className="space-y-4 font-black text-sm uppercase tracking-widest italic text-white/50">{['End of Tenancy Clearance', 'HardHat Waste Hub', 'Garden & Green Waste', 'Commercial Site Rip-outs', 'Home & Probate Clearance', 'Garage & Shed Demolition'].map(service => (<li key={service}><button onClick={() => setCurrentView('services')} className="hover:text-white hover:translate-x-2 transition-all flex items-center gap-2 leading-tight text-balance text-white">{service}</button></li>))}</ul>
+              <ul className="space-y-4 font-black text-sm uppercase tracking-widest italic text-white/50">
+                <li><Link to="/services/end-of-tenancy" className="hover:text-white hover:translate-x-2 transition-all flex items-center gap-2 leading-tight text-balance text-white">End of Tenancy Clearance</Link></li>
+                <li><Link to="/services/construction-waste" className="hover:text-white hover:translate-x-2 transition-all flex items-center gap-2 leading-tight text-balance text-white">HardHat Waste Hub</Link></li>
+                <li><Link to="/services/garden-waste" className="hover:text-white hover:translate-x-2 transition-all flex items-center gap-2 leading-tight text-balance text-white">Garden & Green Waste</Link></li>
+                <li><Link to="/services/commercial-ripouts" className="hover:text-white hover:translate-x-2 transition-all flex items-center gap-2 leading-tight text-balance text-white">Commercial Site Rip-outs</Link></li>
+                <li><Link to="/services/home-probate-clearance" className="hover:text-white hover:translate-x-2 transition-all flex items-center gap-2 leading-tight text-balance text-white">Home & Probate Clearance</Link></li>
+                <li><Link to="/services/garage-shed" className="hover:text-white hover:translate-x-2 transition-all flex items-center gap-2 leading-tight text-balance text-white">Garage & Shed Demolition</Link></li>
+              </ul>
             </div>
             <div className="lg:col-span-4 space-y-10 flex flex-col items-start lg:items-end text-left lg:text-right">
                <div className="space-y-3"><h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-xs italic">Emergency Line</h5><a href="tel:07769844298" className="text-4xl md:text-5xl lg:text-6xl font-[1000] text-white hover:text-orange-500 transition-colors italic tracking-tighter leading-none block">07769 844298</a><div className="flex gap-2 lg:justify-end items-center text-balance"><span className="w-2 h-2 bg-[#4ade80] rounded-full animate-pulse" /><span className="text-[10px] font-black uppercase tracking-widest text-white/40 italic">Open 7am — 7pm Daily</span></div></div>
@@ -923,7 +957,7 @@ const App = () => {
             </div>
           </div>
           <div className="border-t border-white/5 py-12"><h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-[10px] italic mb-8 text-center text-balance">Priority Thames Valley corridor</h5><div className="grid grid-cols-2 md:grid-cols-5 gap-y-4 gap-x-8 text-center">{TOWNS.map(t => (<button key={`town-f-${t}`} onClick={() => setCurrentView('home')} className="text-[10px] font-black uppercase tracking-widest text-white/30 hover:text-[#4ade80] transition-colors italic flex items-center justify-center gap-2"><MapPin size={10} /> {t}</button>))}</div></div>
-          <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8"><p className="text-white/20 text-[9px] font-black uppercase tracking-[0.4em] text-center md:text-left leading-relaxed text-balance">© 2026 TOTAL WASTE CLEAROUT LTD. REGISTERED IN ENGLAND & WALES. CO NO: 09876543.</p><div className="flex flex-wrap gap-6 items-center text-white/40 font-black uppercase tracking-widest italic text-[10px]">{['Privacy Policy', 'Cookie Usage', 'Legal'].map(item => (<button key={`foot-leg-${item}`} onClick={() => setCurrentView('home')} className="hover:text-[#4ade80] transition-colors uppercase">{item}</button>))}<div className="hidden md:flex gap-1" aria-hidden="true">{[...Array(5)].map((_, i) => <Star key={`foot-star-${i}`} size={12} className="text-[#4ade80] fill-current" />)}</div></div></div>
+          <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8"><p className="text-white/20 text-[9px] font-black uppercase tracking-[0.4em] text-center md:text-left leading-relaxed text-balance">© 2026 TOTAL WASTE CLEAROUT LTD. REGISTERED IN ENGLAND & WALES. CO NO: 09876543.</p><div className="flex flex-wrap gap-6 items-center text-white/40 font-black uppercase tracking-widest italic text-[10px]"><Link to="/privacy-policy" className="hover:text-[#4ade80] transition-colors uppercase">Privacy Policy</Link><Link to="/cookie-usage" className="hover:text-[#4ade80] transition-colors uppercase">Cookie Usage</Link><Link to="/legal" className="hover:text-[#4ade80] transition-colors uppercase">Legal</Link><div className="hidden md:flex gap-1" aria-hidden="true">{[...Array(5)].map((_, i) => <Star key={`foot-star-${i}`} size={12} className="text-[#4ade80] fill-current" />)}</div></div></div>
         </div>
       </footer>
 
