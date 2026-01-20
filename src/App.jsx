@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import {
   Phone,
   Trash2,
@@ -757,9 +757,10 @@ const ServiceCard = ({ emoji, title, description, features, price, dark, green }
 // --- MAIN APPLICATION ---
 
 const App = () => {
+  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [currentView, setCurrentView] = useState('home'); 
+  const [currentView, setCurrentView] = useState('home');
   const [currentReview, setCurrentReview] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
@@ -884,25 +885,25 @@ const App = () => {
       </div>
 
       {/* NAVIGATION */}
-      <nav role="navigation" className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-300 transform-gpu ${isScrolled ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-md py-3' : 'bg-[#064e3b] py-4 md:py-6'}`}>
-        <div className="container mx-auto px-6 h-16 flex justify-between items-center relative">
-          <Link to="/" onClick={() => setIsMenuOpen(false)} aria-label="Go to homepage" className="flex items-center gap-3 md:gap-4 shrink-0 group text-left"><div className="relative h-14 w-14 md:h-20 md:w-20 transition-transform group-hover:scale-105"><img src="logo.webp" alt="Total Waste Clearout Ltd logo" className="h-full w-full object-contain relative z-10" loading="eager" /></div><div className="flex flex-col leading-none text-left"><span className={`font-[1000] text-lg md:text-3xl tracking-tighter uppercase italic transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-white'}`}>Total Waste</span><span className="text-[#4ade80] font-black text-[8px] md:text-[10px] tracking-[.3em] md:tracking-[.4em] uppercase text-left text-balance">Clearout Ltd</span></div></Link>
+      <nav role="navigation" className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-300 transform-gpu ${isScrolled ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-md py-2' : 'bg-[#064e3b] py-3 md:py-4'}`}>
+        <div className="container mx-auto px-4 md:px-6 flex justify-between items-center relative">
+          <Link to="/" onClick={() => setIsMenuOpen(false)} aria-label="Go to homepage" className="flex items-center gap-2 md:gap-4 shrink-0 group text-left"><div className="relative h-12 w-12 md:h-16 md:w-16 transition-transform group-hover:scale-105"><img src="logo.webp" alt="Total Waste Clearout Ltd logo" className="h-full w-full object-contain relative z-10" loading="eager" /></div><div className="flex flex-col leading-none text-left"><span className={`font-[1000] text-base md:text-2xl lg:text-3xl tracking-tighter uppercase italic transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-white'}`}>Total Waste</span><span className="text-[#4ade80] font-black text-[7px] md:text-[9px] lg:text-[10px] tracking-[.25em] md:tracking-[.35em] lg:tracking-[.4em] uppercase text-left">Clearout Ltd</span></div></Link>
           <div className={`hidden xl:flex items-center gap-8 font-black text-[11px] uppercase tracking-[0.2em] transition-colors duration-300 ${isScrolled ? 'text-slate-600' : 'text-white/80'}`}>
-            <Link to="/" onClick={() => setIsMenuOpen(false)} className="transition-all relative group py-2 hover:text-[#16a34a]">Home<span className="absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 w-0 group-hover:w-full" /></Link>
-            <Link to="/services" onClick={() => setIsMenuOpen(false)} className="transition-all relative group py-2 hover:text-[#16a34a]">Services<span className="absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 w-0 group-hover:w-full" /></Link>
-            <Link to="/about" onClick={() => setIsMenuOpen(false)} className="transition-all relative group py-2 hover:text-[#16a34a]">Why Us<span className="absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 w-0 group-hover:w-full" /></Link>
-            <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="transition-all relative group py-2 hover:text-[#16a34a]">Contact<span className="absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 w-0 group-hover:w-full" /></Link>
+            <Link to="/" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname === '/' ? 'text-[#16a34a]' : ''}`}>Home<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname === '/' ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
+            <Link to="/services" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname.startsWith('/services') ? 'text-[#16a34a]' : ''}`}>Services<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname.startsWith('/services') ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
+            <Link to="/about" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname === '/about' ? 'text-[#16a34a]' : ''}`}>Why Us<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname === '/about' ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
+            <Link to="/contact" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname === '/contact' ? 'text-[#16a34a]' : ''}`}>Contact<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname === '/contact' ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
             <div className="h-6 w-px bg-white/20 mx-2" /><a href="tel:07769844298" className="bg-[#16a34a] hover:bg-slate-900 text-white px-6 py-3 rounded-sm flex items-center gap-3 transition-all shadow-md font-black italic uppercase tracking-wider"><Phone size={16} fill="white" /> 07769 844298</a>
           </div>
           <button className={`xl:hidden p-2 transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-white'}`} onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle Menu" aria-expanded={isMenuOpen} aria-controls="mobile-menu">{isMenuOpen ? <X size={28} /> : <Menu size={28} />}</button>
         </div>
-        <div id="mobile-menu" role="navigation" aria-label="Mobile navigation menu" className={`xl:hidden fixed left-0 w-full bg-white transition-all duration-500 ease-in-out transform-gpu border-t border-slate-100 shadow-2xl overflow-y-auto ${isMenuOpen ? 'translate-y-0 opacity-100 visible h-[calc(100vh-80px)]' : '-translate-y-full opacity-0 invisible h-0'}`} style={{ top: '80px' }}>
-          <div className="p-8 flex flex-col h-full overflow-y-auto text-left text-slate-900">
+        <div id="mobile-menu" role="navigation" aria-label="Mobile navigation menu" className={`xl:hidden fixed left-0 w-full bg-white transition-all duration-500 ease-in-out transform-gpu border-t border-slate-100 shadow-2xl overflow-hidden ${isMenuOpen ? 'translate-y-0 opacity-100 visible' : '-translate-y-full opacity-0 invisible'}`} style={{ top: isScrolled ? '68px' : '76px', maxHeight: isScrolled ? 'calc(100vh - 68px)' : 'calc(100vh - 76px)' }}>
+          <div className="p-6 md:p-8 flex flex-col h-full overflow-y-auto text-left text-slate-900">
             <div className="flex flex-col gap-6 font-black text-xl uppercase tracking-widest italic text-slate-900 mb-12">
-              <Link key="m-home" to="/" onClick={() => setIsMenuOpen(false)} className="border-b border-slate-100 pb-4 flex justify-between items-center">Home <ChevronRight size={24} className="text-slate-200" /></Link>
-              <Link key="m-serv" to="/services" onClick={() => setIsMenuOpen(false)} className="border-b border-slate-100 pb-4 flex justify-between items-center">Services <ChevronRight size={24} className="text-slate-200" /></Link>
-              <Link key="m-about" to="/about" onClick={() => setIsMenuOpen(false)} className="border-b border-slate-100 pb-4 flex justify-between items-center">Why Us <ChevronRight size={24} className="text-slate-200" /></Link>
-              <Link key="m-contact" to="/contact" onClick={() => setIsMenuOpen(false)} className="border-b border-slate-100 pb-4 flex justify-between items-center">Contact <ChevronRight size={24} className="text-slate-200" /></Link>
+              <Link key="m-home" to="/" onClick={() => setIsMenuOpen(false)} className={`border-b border-slate-100 pb-4 flex justify-between items-center transition-colors ${location.pathname === '/' ? 'text-[#16a34a]' : ''}`}>Home <ChevronRight size={24} className={location.pathname === '/' ? 'text-[#16a34a]' : 'text-slate-200'} /></Link>
+              <Link key="m-serv" to="/services" onClick={() => setIsMenuOpen(false)} className={`border-b border-slate-100 pb-4 flex justify-between items-center transition-colors ${location.pathname.startsWith('/services') ? 'text-[#16a34a]' : ''}`}>Services <ChevronRight size={24} className={location.pathname.startsWith('/services') ? 'text-[#16a34a]' : 'text-slate-200'} /></Link>
+              <Link key="m-about" to="/about" onClick={() => setIsMenuOpen(false)} className={`border-b border-slate-100 pb-4 flex justify-between items-center transition-colors ${location.pathname === '/about' ? 'text-[#16a34a]' : ''}`}>Why Us <ChevronRight size={24} className={location.pathname === '/about' ? 'text-[#16a34a]' : 'text-slate-200'} /></Link>
+              <Link key="m-contact" to="/contact" onClick={() => setIsMenuOpen(false)} className={`border-b border-slate-100 pb-4 flex justify-between items-center transition-colors ${location.pathname === '/contact' ? 'text-[#16a34a]' : ''}`}>Contact <ChevronRight size={24} className={location.pathname === '/contact' ? 'text-[#16a34a]' : 'text-slate-200'} /></Link>
             </div>
             <div className="mt-auto space-y-6 text-center pb-12"><a href="tel:07769844298" className="bg-[#16a34a] text-white w-full p-6 text-center rounded-sm flex items-center justify-center gap-4 font-black italic text-xl uppercase shadow-lg"><Phone fill="white" /> CALL 07769 844298</a></div>
           </div>
