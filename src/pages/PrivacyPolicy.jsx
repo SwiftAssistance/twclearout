@@ -20,21 +20,6 @@ const PrivacyPolicy = () => {
         <meta property="og:url" content="https://totalwasteclearout.co.uk/privacy-policy" />
         <meta property="og:type" content="website" />
       </Helmet>
-      {/* Header */}
-      <header className="bg-[#064e3b] border-b-4 border-[#4ade80] py-6 sticky top-0 z-50 shadow-lg">
-        <div className="container mx-auto px-6 flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-4 group">
-            <img src="/logo.webp" alt="Total Waste Clearout Ltd logo" className="w-12 h-12 object-contain group-hover:rotate-12 transition-transform" />
-            <div className="flex flex-col leading-none">
-              <span className="font-black text-2xl md:text-3xl tracking-tighter uppercase italic leading-none text-white">Total Waste</span>
-              <span className="text-[#4ade80] font-black text-xs tracking-[.4em] uppercase">Clearout Ltd</span>
-            </div>
-          </Link>
-          <a href="tel:07769844298" className="text-white font-black text-xl md:text-2xl hover:text-[#4ade80] transition-colors italic">
-            07769 844298
-          </a>
-        </div>
-      </header>
 
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-[#064e3b] to-[#065f46] py-16 md:py-24">
