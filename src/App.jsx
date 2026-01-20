@@ -121,7 +121,7 @@ const ReviewCard = ({ review, idx }) => (
 );
 
 const HomeHero = () => (
-  <header className="relative min-h-[85vh] md:min-h-screen flex items-center pt-24 overflow-hidden bg-[#064e3b]">
+  <header className="relative min-h-[85vh] md:min-h-screen flex items-center pt-20 md:pt-24 overflow-hidden bg-[#064e3b]">
     <div className="absolute inset-0 z-0">
       <img src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb6?auto=format&fit=crop&q=80&w=2000" alt="Waste removal and rubbish bags" className="w-full h-full object-cover opacity-30 mix-blend-overlay grayscale" loading="eager" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
@@ -321,7 +321,7 @@ const ModernServiceCard = ({ icon, emoji, title, description, features, price, d
 const AboutView = () => (
   <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
     {/* ABOUT HERO */}
-    <header className="relative min-h-[70vh] md:min-h-[85vh] lg:min-h-screen flex items-center pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden bg-[#064e3b]">
+    <header className="relative min-h-[70vh] md:min-h-[85vh] lg:min-h-screen flex items-center pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden bg-[#064e3b]">
       <div className="absolute inset-0 z-0">
         <img src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&q=80&w=2000" alt="About us" className="w-full h-full object-cover opacity-30 mix-blend-overlay grayscale" loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
@@ -413,7 +413,7 @@ const AboutView = () => (
 const ContactView = () => (
   <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
     {/* CONTACT HERO */}
-    <header className="relative min-h-[70vh] md:min-h-[85vh] lg:min-h-screen flex items-center pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden bg-[#064e3b]">
+    <header className="relative min-h-[70vh] md:min-h-[85vh] lg:min-h-screen flex items-center pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden bg-[#064e3b]">
       <div className="absolute inset-0 z-0">
         <img src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&q=80&w=2000" alt="Contact us" className="w-full h-full object-cover opacity-30 mix-blend-overlay grayscale" loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
@@ -483,7 +483,7 @@ const ContactView = () => (
 const ServicesView = () => (
   <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
     {/* SERVICES HERO */}
-    <header className="relative min-h-[85vh] md:min-h-screen flex items-center pt-32 pb-16 overflow-hidden bg-[#064e3b]">
+    <header className="relative min-h-[85vh] md:min-h-screen flex items-center pt-20 md:pt-24 pb-16 overflow-hidden bg-[#064e3b]">
       <div className="absolute inset-0 z-0">
         <img src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&q=80&w=2000" alt="Waste removal services" className="w-full h-full object-cover opacity-30 mix-blend-overlay grayscale" loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
@@ -884,9 +884,9 @@ const App = () => {
       </div>
 
       {/* NAVIGATION */}
-      <nav role="navigation" className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-300 transform-gpu ${isScrolled ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-md py-3' : 'bg-[#064e3b] py-4 md:py-6'}`}>
-        <div className="container mx-auto px-6 h-16 flex justify-between items-center relative">
-          <Link to="/" onClick={() => setIsMenuOpen(false)} aria-label="Go to homepage" className="flex items-center gap-3 md:gap-4 shrink-0 group text-left"><div className="relative h-14 w-14 md:h-20 md:w-20 transition-transform group-hover:scale-105"><img src="logo.webp" alt="Total Waste Clearout Ltd logo" className="h-full w-full object-contain relative z-10" loading="eager" /></div><div className="flex flex-col leading-none text-left"><span className={`font-[1000] text-lg md:text-3xl tracking-tighter uppercase italic transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-white'}`}>Total Waste</span><span className="text-[#4ade80] font-black text-[8px] md:text-[10px] tracking-[.3em] md:tracking-[.4em] uppercase text-left text-balance">Clearout Ltd</span></div></Link>
+      <nav role="navigation" className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-300 transform-gpu ${isScrolled ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-md py-2' : 'bg-[#064e3b] py-3 md:py-4'}`}>
+        <div className="container mx-auto px-6 flex justify-between items-center relative">
+          <Link to="/" onClick={() => setIsMenuOpen(false)} aria-label="Go to homepage" className="flex items-center gap-3 md:gap-4 shrink-0 group text-left"><div className="relative h-12 w-12 md:h-16 md:w-16 transition-transform group-hover:scale-105"><img src="logo.webp" alt="Total Waste Clearout Ltd logo" className="h-full w-full object-contain relative z-10" loading="eager" /></div><div className="flex flex-col leading-none text-left"><span className={`font-[1000] text-lg md:text-2xl tracking-tighter uppercase italic transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-white'}`}>Total Waste</span><span className="text-[#4ade80] font-black text-[8px] md:text-[10px] tracking-[.3em] md:tracking-[.4em] uppercase text-left text-balance">Clearout Ltd</span></div></Link>
           <div className={`hidden xl:flex items-center gap-8 font-black text-[11px] uppercase tracking-[0.2em] transition-colors duration-300 ${isScrolled ? 'text-slate-600' : 'text-white/80'}`}>
             <Link to="/" onClick={() => setIsMenuOpen(false)} className="transition-all relative group py-2 hover:text-[#16a34a]">Home<span className="absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 w-0 group-hover:w-full" /></Link>
             <Link to="/services" onClick={() => setIsMenuOpen(false)} className="transition-all relative group py-2 hover:text-[#16a34a]">Services<span className="absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 w-0 group-hover:w-full" /></Link>
@@ -896,7 +896,7 @@ const App = () => {
           </div>
           <button className={`xl:hidden p-2 transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-white'}`} onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle Menu" aria-expanded={isMenuOpen} aria-controls="mobile-menu">{isMenuOpen ? <X size={28} /> : <Menu size={28} />}</button>
         </div>
-        <div id="mobile-menu" role="navigation" aria-label="Mobile navigation menu" className={`xl:hidden fixed left-0 w-full bg-white transition-all duration-500 ease-in-out transform-gpu border-t border-slate-100 shadow-2xl overflow-y-auto ${isMenuOpen ? 'translate-y-0 opacity-100 visible h-[calc(100vh-80px)]' : '-translate-y-full opacity-0 invisible h-0'}`} style={{ top: '80px' }}>
+        <div id="mobile-menu" role="navigation" aria-label="Mobile navigation menu" className={`xl:hidden fixed left-0 w-full bg-white transition-all duration-500 ease-in-out transform-gpu border-t border-slate-100 shadow-2xl overflow-y-auto ${isMenuOpen ? 'translate-y-0 opacity-100 visible max-h-[calc(100vh-72px)]' : '-translate-y-full opacity-0 invisible h-0'}`} style={{ top: '72px' }}>
           <div className="p-8 flex flex-col h-full overflow-y-auto text-left text-slate-900">
             <div className="flex flex-col gap-6 font-black text-xl uppercase tracking-widest italic text-slate-900 mb-12">
               <Link key="m-home" to="/" onClick={() => setIsMenuOpen(false)} className="border-b border-slate-100 pb-4 flex justify-between items-center">Home <ChevronRight size={24} className="text-slate-200" /></Link>
