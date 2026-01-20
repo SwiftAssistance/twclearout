@@ -100,22 +100,6 @@ const Services = () => {
         <meta property="og:type" content="website" />
       </Helmet>
 
-      {/* Header */}
-      <header className="bg-[#064e3b] border-b-4 border-[#4ade80] py-6 sticky top-0 z-50 shadow-lg">
-        <div className="container mx-auto px-6 flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-4 group">
-            <img src="/logo.webp" alt="Total Waste Clearout Ltd logo" className="w-12 h-12 object-contain group-hover:rotate-12 transition-transform" />
-            <div className="flex flex-col leading-none">
-              <span className="font-black text-2xl md:text-3xl tracking-tighter uppercase italic leading-none text-white">Total Waste</span>
-              <span className="text-[#4ade80] font-black text-xs tracking-[.4em] uppercase">Clearout Ltd</span>
-            </div>
-          </Link>
-          <a href="tel:07769844298" className="text-white font-black text-xl md:text-2xl hover:text-[#4ade80] transition-colors italic">
-            07769 844298
-          </a>
-        </div>
-      </header>
-
       {/* Main Content */}
       <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
         {/* SERVICES HERO */}
@@ -131,7 +115,7 @@ const Services = () => {
                 <span className="bg-orange-500 text-black px-6 py-3 text-xs font-black uppercase tracking-[0.3em] italic border-4 border-white shadow-2xl rounded-sm">Full Service Catalogue</span>
               </div>
               <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-none mb-6 tracking-tighter uppercase italic">
-                ELITE <span className="text-[#4ade80]">WASTE</span> <span className="text-transparent stroke-text-light">REMOVAL</span>
+                <span className="text-[#4ade80]">WASTE</span> <span className="text-transparent stroke-text-light">REMOVAL</span>
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-10 font-bold leading-relaxed max-w-3xl mx-auto">
                 From <span className="text-[#4ade80] underline decoration-wavy">domestic clutter</span> to <span className="text-orange-500 underline decoration-wavy">industrial demolitions</span>.
