@@ -1,4 +1,4 @@
-# robots.txt for Total Waste Clearout - Berkshire Elite Waste Removal
+# robots.txt for Total Waste Clearout - Berkshire Waste Removal
 # https://totalwasteclearout.co.uk
 
 # Allow all search engines

@@ -495,7 +495,7 @@ const ServicesView = () => (
             <span className="bg-orange-500 text-black px-6 py-3 text-xs font-black uppercase tracking-[0.3em] italic border-4 border-white shadow-2xl rounded-sm">Full Service Catalogue</span>
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-none mb-6 tracking-tighter uppercase italic">
-            ELITE <span className="text-[#4ade80]">WASTE</span> <span className="text-transparent stroke-text-light">REMOVAL</span>
+            <span className="text-[#4ade80]">WASTE</span> <span className="text-transparent stroke-text-light">REMOVAL</span>
           </h1>
           <p className="text-lg md:text-xl text-white/90 mb-10 font-bold leading-relaxed max-w-3xl mx-auto">
             From <span className="text-[#4ade80] underline decoration-wavy">domestic clutter</span> to <span className="text-orange-500 underline decoration-wavy">industrial demolitions</span>.
