@@ -35,6 +35,7 @@ import {
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import CookieUsage from './pages/CookieUsage';
 import Legal from './pages/Legal';
+import Sitemap from './pages/Sitemap';
 import EndOfTenancy from './pages/services/EndOfTenancy';
 import HardHatWasteHub from './pages/services/HardHatWasteHub';
 import GardenWaste from './pages/services/GardenWaste';
@@ -933,6 +934,7 @@ const App = () => {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/cookie-usage" element={<CookieUsage />} />
           <Route path="/legal" element={<Legal />} />
+          <Route path="/sitemap" element={<Sitemap />} />
           <Route path="/services/end-of-tenancy" element={<EndOfTenancy />} />
           <Route path="/services/construction-waste" element={<HardHatWasteHub />} />
           <Route path="/services/garden-waste" element={<GardenWaste />} />
