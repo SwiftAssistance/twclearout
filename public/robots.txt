@@ -1,7 +1,7 @@
-# robots.txt for Total Waste Clearout - Berkshire Waste Removal
+# robots.txt for Total Waste Clearout - Waste Removal Berkshire & Surrey
 # https://totalwasteclearout.co.uk
 
-# Allow all search engines
+# Allow all search engines full access
 User-agent: *
 Allow: /
 Disallow: /api/
@@ -10,15 +10,20 @@ Disallow: /admin/
 # Sitemap location
 Sitemap: https://totalwasteclearout.co.uk/sitemap.xml
 
-# Crawl delay (optional - helps prevent server overload)
-Crawl-delay: 10
-
-# Specific search engine rules
+# Google - full access, no delay
 User-agent: Googlebot
 Allow: /
 
 User-agent: Googlebot-Image
 Allow: /
 
+# Bing - full access
 User-agent: Bingbot
+Allow: /
+
+# Allow AI crawlers for visibility
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
 Allow: /

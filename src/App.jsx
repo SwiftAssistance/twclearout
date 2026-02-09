@@ -133,8 +133,8 @@ const HomeHero = () => (
         <div className="mb-8 inline-block animate-pulse">
           <span className="bg-[#4ade80] text-slate-900 px-4 md:px-6 py-2 md:py-3 text-[10px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.3em] italic border-2 md:border-4 border-white shadow-lg rounded-sm">Professional Clearance</span>
         </div>
-        <h1 className="text-5xl md:text-[8rem] lg:text-[10rem] font-black text-white leading-[0.85] mb-8 tracking-tighter uppercase italic">WASTE <br /><span className="text-transparent stroke-text-light">VANISHED</span> <br /><span className="text-[#4ade80]">TODAY.</span></h1>
-        <p className="text-lg md:text-3xl text-white/70 mb-12 max-w-2xl font-bold leading-tight italic text-balance">Premium waste removal for <span className="text-white border-b-4 border-orange-500">Berkshire & Surrey</span>. Fully licensed. Fixed pricing. Professional crews.</p>
+        <h1 className="text-5xl md:text-[8rem] lg:text-[10rem] font-black text-white leading-[0.85] mb-8 tracking-tighter uppercase italic">WASTE <br /><span className="text-transparent stroke-text-light">REMOVAL</span> <br /><span className="text-[#4ade80]">BERKSHIRE.</span></h1>
+        <p className="text-lg md:text-3xl text-white/70 mb-12 max-w-2xl font-bold leading-tight italic text-balance">Professional waste removal across <span className="text-white border-b-4 border-orange-500">Berkshire & Surrey</span>. Same-day rubbish clearance. Fully licensed. Fixed pricing.</p>
         <div className="flex flex-wrap gap-4 md:gap-6">
           <Link to="/services" className="bg-orange-500 hover:bg-orange-400 text-black px-10 md:px-12 py-5 md:py-6 rounded-sm font-black text-lg md:text-xl uppercase italic tracking-wider transition-all hover:-translate-y-1 shadow-[8px_8px_0px_#022c22] active:shadow-none flex items-center cursor-pointer">
             Explore Services <ArrowRight className="ml-2" size={24} />
@@ -149,8 +149,8 @@ const HomeServices = () => (
   <section id="services" className="py-24 md:py-32 bg-white text-left text-slate-900 overflow-hidden">
     <div className="container mx-auto px-6">
       <div className="mb-16">
-        <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Capabilities</h2>
-        <p className="text-5xl md:text-7xl lg:text-8xl font-[1000] text-slate-900 italic uppercase leading-[0.9] tracking-tighter">OUR <br /> SERVICES.</p>
+        <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Waste Removal Services</h2>
+        <p className="text-5xl md:text-7xl lg:text-8xl font-[1000] text-slate-900 italic uppercase leading-[0.9] tracking-tighter">RUBBISH <br /> CLEARED.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 text-left">
@@ -214,8 +214,8 @@ const MapContact = () => (
   <section id="location" className="py-24 md:py-32 bg-white">
     <div className="container mx-auto px-6">
       <div className="mb-16 text-center">
-        <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Service Area</h2>
-        <p className="text-5xl md:text-8xl font-black text-slate-900 italic uppercase leading-[0.85] tracking-tighter">COVERING BERKSHIRE.</p>
+        <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Local Waste Removal</h2>
+        <p className="text-5xl md:text-8xl font-black text-slate-900 italic uppercase leading-[0.85] tracking-tighter">WASTE REMOVAL NEAR YOU.</p>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-start">
@@ -927,6 +927,84 @@ const App = () => {
               </section>
               <HomeServices />
               <ReviewsSection title="CLIENTS TALK." />
+
+              {/* SEO: Keyword-rich waste removal content section */}
+              <section className="py-24 md:py-32 bg-white">
+                <div className="container mx-auto px-6">
+                  <div className="max-w-5xl mx-auto">
+                    <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Professional Waste Removal</h2>
+                    <p className="text-5xl md:text-7xl font-[1000] text-slate-900 italic uppercase leading-[0.9] tracking-tighter mb-12">LOCAL WASTE <br /> REMOVAL EXPERTS.</p>
+
+                    <div className="bg-[#ecf3ef] p-8 md:p-12 border-4 border-slate-900 rounded-xl shadow-[8px_8px_0px_#16a34a] mb-12">
+                      <p className="text-slate-700 text-lg font-bold leading-relaxed mb-6">
+                        Total Waste Clearout is Berkshire and Surrey's trusted <strong>waste removal</strong> company, providing fast, reliable rubbish clearance for homes, businesses, and construction sites. Based in Reading, we offer <strong>same-day waste removal</strong> across the entire Thames Valley corridor including Slough, Guildford, Woking, Bracknell, Windsor, Ascot, Maidenhead, and surrounding areas.
+                      </p>
+                      <p className="text-slate-700 text-lg font-bold leading-relaxed mb-6">
+                        Whether you need a single item collected or a full property cleared, our professional uniformed teams handle everything. We're a fully <strong>licensed waste carrier</strong> registered with the Environment Agency, carrying £5 million public liability insurance. Every job includes loading, transport, and legal disposal - with a 94% recycling rate that ensures your waste is handled responsibly.
+                      </p>
+                      <p className="text-slate-700 text-lg font-bold leading-relaxed">
+                        Our <strong>waste removal services</strong> include house clearance, garden waste removal, end of tenancy clearance, commercial office rip-outs, construction and trade waste collection, and garage and shed demolition. We're the smarter, faster alternative to skip hire - no council permits needed, no waiting, and we do all the heavy lifting. Call <strong>07769 844298</strong> for a free, fixed-price quote.
+                      </p>
+                    </div>
+
+                    {/* Local area waste removal descriptions */}
+                    <h3 className="text-3xl md:text-4xl font-black text-slate-900 italic uppercase mb-8">Waste Removal Across Berkshire & Surrey</h3>
+                    <div className="grid md:grid-cols-2 gap-6 mb-12">
+                      <div className="bg-white p-6 border-4 border-slate-900 rounded-xl shadow-[4px_4px_0px_#16a34a]">
+                        <h4 className="font-black text-xl uppercase italic text-[#16a34a] mb-3 flex items-center gap-2"><MapPin size={20} /> Waste Removal Reading</h4>
+                        <p className="text-slate-600 font-bold text-sm leading-relaxed">Same-day waste removal in Reading and surrounding RG postcode areas. Domestic and commercial rubbish clearance from Reading town centre to Woodley, Caversham, and Tilehurst.</p>
+                      </div>
+                      <div className="bg-white p-6 border-4 border-slate-900 rounded-xl shadow-[4px_4px_0px_#16a34a]">
+                        <h4 className="font-black text-xl uppercase italic text-[#16a34a] mb-3 flex items-center gap-2"><MapPin size={20} /> Waste Removal Slough</h4>
+                        <p className="text-slate-600 font-bold text-sm leading-relaxed">Professional waste removal across Slough, Langley, Colnbrook, and all SL postcode areas. Fast rubbish clearance for homes, offices, and landlords in the Slough area.</p>
+                      </div>
+                      <div className="bg-white p-6 border-4 border-slate-900 rounded-xl shadow-[4px_4px_0px_#16a34a]">
+                        <h4 className="font-black text-xl uppercase italic text-[#16a34a] mb-3 flex items-center gap-2"><MapPin size={20} /> Waste Removal Guildford</h4>
+                        <p className="text-slate-600 font-bold text-sm leading-relaxed">Reliable waste removal in Guildford and across Surrey including Godalming, Cranleigh, and GU postcode areas. Household and commercial clearance with same-day availability.</p>
+                      </div>
+                      <div className="bg-white p-6 border-4 border-slate-900 rounded-xl shadow-[4px_4px_0px_#16a34a]">
+                        <h4 className="font-black text-xl uppercase italic text-[#16a34a] mb-3 flex items-center gap-2"><MapPin size={20} /> Waste Removal Woking</h4>
+                        <p className="text-slate-600 font-bold text-sm leading-relaxed">Complete waste removal services across Woking, Byfleet, West Byfleet, and surrounding areas. Trade waste, garden waste, and house clearance for Woking residents and businesses.</p>
+                      </div>
+                      <div className="bg-white p-6 border-4 border-slate-900 rounded-xl shadow-[4px_4px_0px_#16a34a]">
+                        <h4 className="font-black text-xl uppercase italic text-[#16a34a] mb-3 flex items-center gap-2"><MapPin size={20} /> Waste Removal Bracknell</h4>
+                        <p className="text-slate-600 font-bold text-sm leading-relaxed">Fast waste removal in Bracknell, Crowthorne, Sandhurst, and the RG12 area. Domestic clearances, office strip-outs, and construction waste collection throughout Bracknell Forest.</p>
+                      </div>
+                      <div className="bg-white p-6 border-4 border-slate-900 rounded-xl shadow-[4px_4px_0px_#16a34a]">
+                        <h4 className="font-black text-xl uppercase italic text-[#16a34a] mb-3 flex items-center gap-2"><MapPin size={20} /> Waste Removal Windsor & Maidenhead</h4>
+                        <p className="text-slate-600 font-bold text-sm leading-relaxed">Professional waste removal covering Windsor, Maidenhead, Ascot, and Eton. End of tenancy clearance, garden waste, and full property clearance across the Royal Borough.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* SEO: FAQ Section for long-tail keywords */}
+              <section className="py-24 md:py-32 bg-[#ecf3ef]">
+                <div className="container mx-auto px-6">
+                  <div className="max-w-4xl mx-auto">
+                    <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900 text-center">Common Questions</h2>
+                    <p className="text-5xl md:text-7xl font-[1000] text-slate-900 italic uppercase leading-[0.9] tracking-tighter mb-16 text-center">WASTE REMOVAL <br /> FAQ.</p>
+
+                    <div className="space-y-6">
+                      {[
+                        { q: "How much does waste removal cost in Berkshire?", a: "Waste removal starts from £80 for small garden waste loads, £120 for construction waste, and £150 for end of tenancy clearances. Full house clearances start from £600. All prices include loading, transport, and licensed disposal with no hidden fees. Call 07769 844298 for a free fixed-price quote." },
+                        { q: "Do you offer same-day waste removal?", a: "Yes, we offer same-day waste removal across Reading, Slough, Guildford, Woking, Bracknell, Windsor, and all of Berkshire and Surrey. We respond to all enquiries within 2 hours and can often collect the same day. We operate 7 days a week including weekends." },
+                        { q: "Are you a licensed waste carrier?", a: "Yes, Total Waste Clearout is a fully licensed waste carrier registered with the Environment Agency. We carry £5 million public liability insurance and provide legal waste transfer notes for every collection - essential documentation for landlords, businesses, and property managers." },
+                        { q: "Is your service better than hiring a skip?", a: "Our waste removal service is often faster, cheaper, and more convenient than skip hire. We require no council permits, no waiting for delivery, and we do all the heavy lifting. We arrive the same day, load everything, and leave your property clean. No skip sitting on your driveway for days." },
+                        { q: "What areas do you cover for waste removal?", a: "We cover the entire Berkshire and Surrey region including Reading, Slough, Guildford, Woking, Bracknell, Windsor, Ascot, Maidenhead, Egham, Staines, Wokingham, Camberley, Farnborough, and Aldershot. If your area isn't listed, contact us to check." },
+                        { q: "What happens to the waste you collect?", a: "We maintain a 94% recycling rate. All waste is taken to licensed facilities where it's sorted, recycled, or repurposed. Usable furniture is donated to local charities. Green waste is 100% composted. We provide waste transfer notes as proof of legal, responsible disposal." }
+                      ].map((faq, idx) => (
+                        <div key={idx} className="bg-white border-4 border-slate-900 rounded-xl p-6 md:p-8 shadow-[4px_4px_0px_#16a34a]">
+                          <h3 className="font-black text-lg md:text-xl uppercase italic text-slate-900 mb-4">{faq.q}</h3>
+                          <p className="text-slate-600 font-bold leading-relaxed">{faq.a}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </section>
+
               <HomeQuote />
               <MapContact />
             </div>
