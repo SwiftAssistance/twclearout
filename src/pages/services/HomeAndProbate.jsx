@@ -38,10 +38,10 @@ const HomeAndProbate = () => {
         <title>Probate House Clearance Reading Guildford | Bereavement Estate Clearance</title>
         <meta name="description" content="Compassionate probate & estate clearance in Reading, Guildford, Slough. Respectful bereavement house clearance, charity donations, licensed from £600." />
         <meta name="keywords" content="probate clearance, house clearance bereavement, estate clearance Reading, deceased estate Guildford, Berkshire Surrey, respectful service" />
-        <link rel="canonical" href="https://totalwasteclearout.co.uk/services/home-and-probate" />
+        <link rel="canonical" href="https://totalwasteclearout.co.uk/services/home-probate-clearance" />
         <meta property="og:title" content="House & Probate Clearance | Total Waste Clearout Berkshire" />
         <meta property="og:description" content="Compassionate probate and estate clearance services across Reading, Guildford, and Berkshire & Surrey." />
-        <meta property="og:url" content="https://totalwasteclearout.co.uk/services/home-and-probate" />
+        <meta property="og:url" content="https://totalwasteclearout.co.uk/services/home-probate-clearance" />
         <meta property="og:type" content="website" />
       </Helmet>
 
@@ -284,9 +284,31 @@ const HomeAndProbate = () => {
             </div>
           </section>
 
+          {/* Related Waste Removal Services */}
+          <section className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">Other Waste Removal Services</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Link to="/services/end-of-tenancy" className="bg-white border-4 border-slate-900 rounded-xl p-6 shadow-[4px_4px_0px_#16a34a] hover:-translate-y-2 transition-all group">
+                <h3 className="font-black text-lg uppercase text-[#16a34a] mb-2 group-hover:text-slate-900 transition-colors">End of Tenancy Clearance</h3>
+                <p className="text-slate-600 text-sm font-bold">Same-day clearance for tenants and landlords. Help secure deposit returns.</p>
+              </Link>
+              <Link to="/services/garage-shed" className="bg-white border-4 border-slate-900 rounded-xl p-6 shadow-[4px_4px_0px_#16a34a] hover:-translate-y-2 transition-all group">
+                <h3 className="font-black text-lg uppercase text-[#16a34a] mb-2 group-hover:text-slate-900 transition-colors">Garage & Shed Demolition</h3>
+                <p className="text-slate-600 text-sm font-bold">Complete demolition and clearance for garages, sheds, and outbuildings.</p>
+              </Link>
+              <Link to="/services/garden-waste" className="bg-white border-4 border-slate-900 rounded-xl p-6 shadow-[4px_4px_0px_#16a34a] hover:-translate-y-2 transition-all group">
+                <h3 className="font-black text-lg uppercase text-[#16a34a] mb-2 group-hover:text-slate-900 transition-colors">Garden Waste Removal</h3>
+                <p className="text-slate-600 text-sm font-bold">Green waste clearance and garden cleanup. Heavy lifting included.</p>
+              </Link>
+            </div>
+          </section>
+
           {/* Back to Home */}
-          <div className="text-center pt-8">
-            <Link to="/" className="inline-flex items-center gap-2 bg-[#16a34a] hover:bg-[#064e3b] text-white font-black uppercase px-8 py-4 rounded-xl transition-colors border-4 border-slate-900 shadow-[6px_6px_0px_#0f172a]">
+          <div className="text-center pt-8 flex flex-wrap gap-4 justify-center">
+            <Link to="/services" className="inline-flex items-center gap-2 bg-[#16a34a] hover:bg-[#064e3b] text-white font-black uppercase px-8 py-4 rounded-xl transition-colors border-4 border-slate-900 shadow-[6px_6px_0px_#0f172a]">
+              All Waste Removal Services
+            </Link>
+            <Link to="/" className="inline-flex items-center gap-2 bg-white hover:bg-slate-100 text-slate-900 font-black uppercase px-8 py-4 rounded-xl transition-colors border-4 border-slate-900 shadow-[6px_6px_0px_#0f172a]">
               ← Back to Home
             </Link>
           </div>

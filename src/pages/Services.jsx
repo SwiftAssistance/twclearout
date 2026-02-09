@@ -90,8 +90,8 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Helmet>
-        <title>Professional Waste Removal Services | Reading, Slough, Berkshire & Surrey</title>
-        <meta name="description" content="Complete waste removal services in Berkshire & Surrey. Home clearance, garden waste, office rip-outs, trade waste & more. 94% recycling rate. Same-day service available. Call 07769 844298." />
+        <title>Waste Removal Services Berkshire & Surrey | Rubbish Clearance Reading, Slough, Guildford</title>
+        <meta name="description" content="Professional waste removal services across Berkshire & Surrey. House clearance, garden waste removal, construction waste, office rip-outs. Same-day service, 94% recycling. Licensed & insured. Call 07769 844298." />
         <meta name="keywords" content="waste removal services, rubbish clearance Reading, house clearance Slough, garden waste removal Berkshire, office clearance Surrey, trade waste Guildford, commercial waste removal Woking, junk removal Bracknell, skip alternative Windsor, waste disposal Maidenhead" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services" />
         <meta property="og:title" content="Professional Waste Removal Services | Total Waste Clearout" />
