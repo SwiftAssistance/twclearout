@@ -946,7 +946,16 @@ const App = () => {
           <Route path="/services/home-probate-clearance" element={<HomeAndProbate />} />
           <Route path="/services/garage-shed" element={<GarageShed />} />
           <Route path="/areas" element={<Areas />} />
-          <Route path="/areas/:slug" element={<AreaPage />} />
+          <Route path="/waste-removal-reading" element={<AreaPage />} />
+          <Route path="/waste-removal-slough" element={<AreaPage />} />
+          <Route path="/waste-removal-guildford" element={<AreaPage />} />
+          <Route path="/waste-removal-woking" element={<AreaPage />} />
+          <Route path="/waste-removal-bracknell" element={<AreaPage />} />
+          <Route path="/waste-removal-windsor" element={<AreaPage />} />
+          <Route path="/waste-removal-ascot" element={<AreaPage />} />
+          <Route path="/waste-removal-egham" element={<AreaPage />} />
+          <Route path="/waste-removal-maidenhead" element={<AreaPage />} />
+          <Route path="/waste-removal-staines" element={<AreaPage />} />
           <Route path="/services" element={<Services />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
@@ -978,7 +987,7 @@ const App = () => {
                <div className="pt-2 flex gap-4 lg:justify-end"><a href="https://www.instagram.com/totalwasteclearout" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-[#4ade80] transition-colors hover:text-black shadow-sm group"><Instagram size={24} className="group-hover:scale-110 transition-transform" /></a><a href="https://www.facebook.com/totalwasteclearout" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" className="w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-[#4ade80] transition-colors hover:text-black shadow-sm group"><Facebook size={24} className="group-hover:scale-110 transition-transform" /></a></div>
             </div>
           </div>
-          <div className="border-t border-white/5 py-12"><h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-[10px] italic mb-8 text-center text-balance">Priority Thames Valley corridor</h5><div className="grid grid-cols-2 md:grid-cols-5 gap-y-4 gap-x-8 text-center">{TOWNS.map(t => (<Link key={`town-f-${t}`} to={`/areas/${t.toLowerCase()}`} className="text-[10px] font-black uppercase tracking-widest text-white/30 hover:text-[#4ade80] transition-colors italic flex items-center justify-center gap-2"><MapPin size={10} /> {t}</Link>))}</div><div className="text-center mt-6"><Link to="/areas" className="text-[10px] font-black uppercase tracking-widest text-[#4ade80]/60 hover:text-[#4ade80] transition-colors italic">View All Service Areas →</Link></div></div>
+          <div className="border-t border-white/5 py-12"><h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-[10px] italic mb-8 text-center text-balance">Priority Thames Valley corridor</h5><div className="grid grid-cols-2 md:grid-cols-5 gap-y-4 gap-x-8 text-center">{TOWNS.map(t => (<Link key={`town-f-${t}`} to={`/waste-removal-${t.toLowerCase()}`} className="text-[10px] font-black uppercase tracking-widest text-white/30 hover:text-[#4ade80] transition-colors italic flex items-center justify-center gap-2"><MapPin size={10} /> {t}</Link>))}</div><div className="text-center mt-6"><Link to="/areas" className="text-[10px] font-black uppercase tracking-widest text-[#4ade80]/60 hover:text-[#4ade80] transition-colors italic">View All Service Areas →</Link></div></div>
           <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8"><p className="text-white/20 text-[9px] font-black uppercase tracking-[0.4em] text-center md:text-left leading-relaxed text-balance">© 2026 TOTAL WASTE CLEAROUT LTD. REGISTERED IN ENGLAND & WALES. CO NO: 09876543.</p><div className="flex flex-wrap gap-6 items-center text-white/40 font-black uppercase tracking-widest italic text-[10px]"><Link to="/privacy-policy" className="hover:text-[#4ade80] transition-colors uppercase">Privacy Policy</Link><Link to="/cookie-usage" className="hover:text-[#4ade80] transition-colors uppercase">Cookie Usage</Link><Link to="/legal" className="hover:text-[#4ade80] transition-colors uppercase">Legal</Link><div className="hidden md:flex gap-1" aria-hidden="true">{[...Array(5)].map((_, i) => <Star key={`foot-star-${i}`} size={12} className="text-[#4ade80] fill-current" />)}</div></div></div>
         </div>
       </footer>

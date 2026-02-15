@@ -191,12 +191,20 @@ const HardHatWasteHub = () => {
                 Serving construction professionals throughout Berkshire and Surrey:
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                {serviceAreas.map((area, idx) => (
-                  <div key={idx} className="flex items-center gap-2">
-                    <CheckCircle size={20} className="text-[#16a34a] shrink-0" />
-                    <span className="font-bold text-slate-900">{area}</span>
-                  </div>
-                ))}
+                {serviceAreas.map((area, idx) => {
+                  const slug = ["Reading", "Slough", "Guildford", "Woking", "Bracknell", "Windsor", "Ascot", "Egham", "Maidenhead", "Staines"].includes(area) ? `/waste-removal-${area.toLowerCase()}` : null;
+                  return slug ? (
+                    <Link key={idx} to={slug} className="flex items-center gap-2 hover:text-[#16a34a] transition-colors group">
+                      <CheckCircle size={20} className="text-[#16a34a] shrink-0" />
+                      <span className="font-bold text-slate-900 group-hover:text-[#16a34a] underline decoration-[#16a34a]/30">{area}</span>
+                    </Link>
+                  ) : (
+                    <div key={idx} className="flex items-center gap-2">
+                      <CheckCircle size={20} className="text-[#16a34a] shrink-0" />
+                      <span className="font-bold text-slate-900">{area}</span>
+                    </div>
+                  );
+                })}
               </div>
               <p className="text-slate-600 mt-6 text-sm">
                 Working further afield? We cover all surrounding areas - contact us for multi-site or regional coverage.

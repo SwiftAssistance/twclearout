@@ -146,7 +146,7 @@ const Areas = () => {
                 {areas.filter(a => a.county === "Berkshire").map((area) => (
                   <Link
                     key={area.slug}
-                    to={`/areas/${area.slug}`}
+                    to={`/${area.slug}`}
                     className="bg-white border-4 border-slate-900 rounded-xl p-6 md:p-8 hover:shadow-[8px_8px_0px_#16a34a] transition-all hover:-translate-y-2 group"
                   >
                     <div className="flex items-start justify-between mb-4">
@@ -191,7 +191,7 @@ const Areas = () => {
                 {areas.filter(a => a.county === "Surrey").map((area) => (
                   <Link
                     key={area.slug}
-                    to={`/areas/${area.slug}`}
+                    to={`/${area.slug}`}
                     className="bg-white border-4 border-slate-900 rounded-xl p-6 md:p-8 hover:shadow-[8px_8px_0px_#16a34a] transition-all hover:-translate-y-2 group"
                   >
                     <div className="flex items-start justify-between mb-4">

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import {
   MapPin, Phone, CheckCircle, Recycle, ShieldCheck, Zap, Scale,
@@ -13,7 +13,8 @@ const ICON_MAP = {
 };
 
 const AreaPage = () => {
-  const { slug } = useParams();
+  const location = useLocation();
+  const slug = location.pathname.replace(/^\//, '');
   const area = AREA_DATA[slug];
 
   useEffect(() => {
@@ -56,7 +57,7 @@ const AreaPage = () => {
     "@type": "LocalBusiness",
     "name": `Total Waste Clearout - ${area.name}`,
     "description": `Professional waste removal and rubbish clearance services in ${area.name}, ${area.county}. Same-day collection, 94% recycling rate, fully licensed.`,
-    "url": `https://totalwasteclearout.co.uk/areas/${area.slug}`,
+    "url": `https://totalwasteclearout.co.uk/${area.slug}`,
     "telephone": "+447769844298",
     "priceRange": "££",
     "image": "https://totalwasteclearout.co.uk/logo-512.png",
@@ -100,7 +101,30 @@ const AreaPage = () => {
       "reviewCount": "150",
       "bestRating": "5",
       "worstRating": "1"
-    }
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": "Mark Saunders" },
+        "reviewBody": "The best waste company in Berkshire. Same-day service, zero fuss, and much cheaper than the skip permit process. Uniformed team were brilliant.",
+        "datePublished": "2025-11-15"
+      },
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": "Sarah Jenkins" },
+        "reviewBody": "Cleared out my late father's property with such respect and speed. They recycled almost everything and provided a full audit note.",
+        "datePublished": "2025-10-22"
+      },
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": "Dave Miller" },
+        "reviewBody": "Used them for trade waste on a kitchen fit. Way faster than a skip and saved me the headache of council permits. Reliable and professional.",
+        "datePublished": "2025-12-03"
+      }
+    ]
   };
 
   // Schema.org Service structured data
@@ -151,7 +175,7 @@ const AreaPage = () => {
         "@type": "ListItem",
         "position": 3,
         "name": `Waste Removal ${area.name}`,
-        "item": `https://totalwasteclearout.co.uk/areas/${area.slug}`
+        "item": `https://totalwasteclearout.co.uk/${area.slug}`
       }
     ]
   };
@@ -162,13 +186,13 @@ const AreaPage = () => {
         <title>{area.meta.title}</title>
         <meta name="description" content={area.meta.description} />
         <meta name="keywords" content={area.meta.keywords} />
-        <link rel="canonical" href={`https://totalwasteclearout.co.uk/areas/${area.slug}`} />
+        <link rel="canonical" href={`https://totalwasteclearout.co.uk/${area.slug}`} />
         <meta name="geo.region" content={area.region} />
         <meta name="geo.placename" content={`${area.name}, ${area.county}`} />
         <meta name="geo.position" content={`${area.lat};${area.lng}`} />
         <meta property="og:title" content={area.meta.title} />
         <meta property="og:description" content={area.meta.description} />
-        <meta property="og:url" content={`https://totalwasteclearout.co.uk/areas/${area.slug}`} />
+        <meta property="og:url" content={`https://totalwasteclearout.co.uk/${area.slug}`} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://totalwasteclearout.co.uk/logo-512.png" />
         <meta property="twitter:card" content="summary_large_image" />
@@ -502,7 +526,7 @@ const AreaPage = () => {
               {otherAreas.map((otherArea) => (
                 <Link
                   key={otherArea.slug}
-                  to={`/areas/${otherArea.slug}`}
+                  to={`/${otherArea.slug}`}
                   className="bg-white border-4 border-slate-900 rounded-xl p-6 hover:shadow-[6px_6px_0px_#16a34a] transition-all hover:-translate-y-1 group text-center"
                 >
                   <MapPin size={24} className="text-[#16a34a] mx-auto mb-2 group-hover:scale-110 transition-transform" />

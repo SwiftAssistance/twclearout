@@ -26,16 +26,16 @@ const Sitemap = () => {
 
   const areaPages = [
     { name: 'All Service Areas', path: '/areas' },
-    { name: 'Waste Removal Reading', path: '/areas/reading' },
-    { name: 'Waste Removal Slough', path: '/areas/slough' },
-    { name: 'Waste Removal Guildford', path: '/areas/guildford' },
-    { name: 'Waste Removal Woking', path: '/areas/woking' },
-    { name: 'Waste Removal Bracknell', path: '/areas/bracknell' },
-    { name: 'Waste Removal Windsor', path: '/areas/windsor' },
-    { name: 'Waste Removal Ascot', path: '/areas/ascot' },
-    { name: 'Waste Removal Egham', path: '/areas/egham' },
-    { name: 'Waste Removal Maidenhead', path: '/areas/maidenhead' },
-    { name: 'Waste Removal Staines', path: '/areas/staines' },
+    { name: 'Waste Removal Reading', path: '/waste-removal-reading' },
+    { name: 'Waste Removal Slough', path: '/waste-removal-slough' },
+    { name: 'Waste Removal Guildford', path: '/waste-removal-guildford' },
+    { name: 'Waste Removal Woking', path: '/waste-removal-woking' },
+    { name: 'Waste Removal Bracknell', path: '/waste-removal-bracknell' },
+    { name: 'Waste Removal Windsor', path: '/waste-removal-windsor' },
+    { name: 'Waste Removal Ascot', path: '/waste-removal-ascot' },
+    { name: 'Waste Removal Egham', path: '/waste-removal-egham' },
+    { name: 'Waste Removal Maidenhead', path: '/waste-removal-maidenhead' },
+    { name: 'Waste Removal Staines', path: '/waste-removal-staines' },
   ];
 
   const legalPages = [
