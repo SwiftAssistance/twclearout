@@ -5,9 +5,9 @@
  */
 
 const AREA_DATA = {
-  reading: {
+  "waste-removal-reading": {
     name: "Reading",
-    slug: "reading",
+    slug: "waste-removal-reading",
     county: "Berkshire",
     region: "GB-BRK",
     postcode: "RG1",
@@ -37,9 +37,9 @@ const AREA_DATA = {
     ]
   },
 
-  slough: {
+  "waste-removal-slough": {
     name: "Slough",
-    slug: "slough",
+    slug: "waste-removal-slough",
     county: "Berkshire",
     region: "GB-BRK",
     postcode: "SL1",
@@ -69,9 +69,9 @@ const AREA_DATA = {
     ]
   },
 
-  guildford: {
+  "waste-removal-guildford": {
     name: "Guildford",
-    slug: "guildford",
+    slug: "waste-removal-guildford",
     county: "Surrey",
     region: "GB-SRY",
     postcode: "GU1",
@@ -101,9 +101,9 @@ const AREA_DATA = {
     ]
   },
 
-  woking: {
+  "waste-removal-woking": {
     name: "Woking",
-    slug: "woking",
+    slug: "waste-removal-woking",
     county: "Surrey",
     region: "GB-SRY",
     postcode: "GU21",
@@ -133,9 +133,9 @@ const AREA_DATA = {
     ]
   },
 
-  bracknell: {
+  "waste-removal-bracknell": {
     name: "Bracknell",
-    slug: "bracknell",
+    slug: "waste-removal-bracknell",
     county: "Berkshire",
     region: "GB-BRK",
     postcode: "RG12",
@@ -165,9 +165,9 @@ const AREA_DATA = {
     ]
   },
 
-  windsor: {
+  "waste-removal-windsor": {
     name: "Windsor",
-    slug: "windsor",
+    slug: "waste-removal-windsor",
     county: "Berkshire",
     region: "GB-BRK",
     postcode: "SL4",
@@ -197,9 +197,9 @@ const AREA_DATA = {
     ]
   },
 
-  ascot: {
+  "waste-removal-ascot": {
     name: "Ascot",
-    slug: "ascot",
+    slug: "waste-removal-ascot",
     county: "Berkshire",
     region: "GB-BRK",
     postcode: "SL5",
@@ -229,9 +229,9 @@ const AREA_DATA = {
     ]
   },
 
-  egham: {
+  "waste-removal-egham": {
     name: "Egham",
-    slug: "egham",
+    slug: "waste-removal-egham",
     county: "Surrey",
     region: "GB-SRY",
     postcode: "TW20",
@@ -261,9 +261,9 @@ const AREA_DATA = {
     ]
   },
 
-  maidenhead: {
+  "waste-removal-maidenhead": {
     name: "Maidenhead",
-    slug: "maidenhead",
+    slug: "waste-removal-maidenhead",
     county: "Berkshire",
     region: "GB-BRK",
     postcode: "SL6",
@@ -293,9 +293,9 @@ const AREA_DATA = {
     ]
   },
 
-  staines: {
+  "waste-removal-staines": {
     name: "Staines",
-    slug: "staines",
+    slug: "waste-removal-staines",
     county: "Surrey",
     region: "GB-SRY",
     postcode: "TW18",
