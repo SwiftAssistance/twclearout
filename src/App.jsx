@@ -47,6 +47,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Areas from './pages/areas/Areas';
 import AreaPage from './pages/areas/AreaPage';
+import ServiceAreaPage from './pages/areas/ServiceAreaPage';
 
 // --- GLOBAL DATA & CONFIGURATION ---
 
@@ -956,6 +957,67 @@ const App = () => {
           <Route path="/waste-removal-egham" element={<AreaPage />} />
           <Route path="/waste-removal-maidenhead" element={<AreaPage />} />
           <Route path="/waste-removal-staines" element={<AreaPage />} />
+          {/* Service + Area combination pages (60 pages) */}
+          <Route path="/house-clearance-reading" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-slough" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-guildford" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-woking" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-bracknell" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-windsor" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-ascot" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-egham" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-maidenhead" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-staines" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-reading" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-slough" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-guildford" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-woking" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-bracknell" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-windsor" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-ascot" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-egham" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-maidenhead" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-staines" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-reading" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-slough" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-guildford" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-woking" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-bracknell" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-windsor" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-ascot" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-egham" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-maidenhead" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-staines" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-reading" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-slough" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-guildford" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-woking" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-bracknell" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-windsor" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-ascot" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-egham" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-maidenhead" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-staines" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-reading" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-slough" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-guildford" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-woking" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-bracknell" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-windsor" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-ascot" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-egham" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-maidenhead" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-staines" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-reading" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-slough" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-guildford" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-woking" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-bracknell" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-windsor" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-ascot" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-egham" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-maidenhead" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-staines" element={<ServiceAreaPage />} />
           <Route path="/services" element={<Services />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
