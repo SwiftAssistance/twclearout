@@ -24,6 +24,20 @@ const Sitemap = () => {
     { name: 'Garage & Shed Demolition', path: '/services/garage-shed' },
   ];
 
+  const areaPages = [
+    { name: 'All Service Areas', path: '/areas' },
+    { name: 'Waste Removal Reading', path: '/areas/reading' },
+    { name: 'Waste Removal Slough', path: '/areas/slough' },
+    { name: 'Waste Removal Guildford', path: '/areas/guildford' },
+    { name: 'Waste Removal Woking', path: '/areas/woking' },
+    { name: 'Waste Removal Bracknell', path: '/areas/bracknell' },
+    { name: 'Waste Removal Windsor', path: '/areas/windsor' },
+    { name: 'Waste Removal Ascot', path: '/areas/ascot' },
+    { name: 'Waste Removal Egham', path: '/areas/egham' },
+    { name: 'Waste Removal Maidenhead', path: '/areas/maidenhead' },
+    { name: 'Waste Removal Staines', path: '/areas/staines' },
+  ];
+
   const legalPages = [
     { name: 'Privacy Policy', path: '/privacy-policy' },
     { name: 'Cookie Usage', path: '/cookie-usage' },
@@ -105,6 +119,26 @@ const Sitemap = () => {
                   className="bg-white p-6 border-4 border-slate-900 rounded-lg hover:bg-orange-50 transition-all shadow-lg group"
                 >
                   <span className="font-black text-lg uppercase text-slate-900 group-hover:text-orange-600">
+                    {page.name}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          {/* Area Pages */}
+          <section className="mb-16">
+            <h2 className="text-3xl font-black text-slate-900 mb-8 uppercase italic border-b-4 border-[#4ade80] pb-4">
+              Service Areas
+            </h2>
+            <div className="grid md:grid-cols-2 gap-4">
+              {areaPages.map((page, idx) => (
+                <Link
+                  key={idx}
+                  to={page.path}
+                  className="bg-white p-6 border-4 border-slate-900 rounded-lg hover:bg-[#dcfce7] transition-all shadow-lg group"
+                >
+                  <span className="font-black text-lg uppercase text-slate-900 group-hover:text-[#16a34a]">
                     {page.name}
                   </span>
                 </Link>
