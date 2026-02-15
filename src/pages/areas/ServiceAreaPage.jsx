@@ -4,45 +4,65 @@ import { Helmet } from 'react-helmet-async';
 import {
   MapPin, Phone, CheckCircle, Recycle, ShieldCheck, Zap, Scale,
   Star, ArrowRight, Truck, TreePine, Briefcase, HardHat, Hammer,
-  Home, Clock, Mail, ChevronRight
+  Home, Clock, Mail, ChevronRight, Sofa, Package, ShoppingCart, Trash2
 } from 'lucide-react';
-import { AREA_DATA, AREA_SERVICES } from '../../data/areaData';
-import { getServiceAreaSlug, SERVICE_AREA_DATA } from '../../data/serviceAreaData';
+import { getServiceAreaFromSlug, getServiceAreaSlug, SERVICE_AREA_DATA } from '../../data/serviceAreaData';
+import { AREA_DATA } from '../../data/areaData';
 
 const ICON_MAP = {
-  Home, TreePine, Briefcase, HardHat, Hammer
+  Home, TreePine, Briefcase, HardHat, Hammer, Sofa, Package, ShoppingCart, Trash2, Truck
 };
 
-const AreaPage = () => {
+const ServiceAreaPage = () => {
   const location = useLocation();
   const slug = location.pathname.replace(/^\//, '');
-  const area = AREA_DATA[slug];
+  const result = getServiceAreaFromSlug(slug);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [slug]);
 
-  if (!area) {
+  if (!result) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white pt-24">
         <div className="text-center">
-          <h1 className="text-4xl font-black uppercase text-slate-900 mb-4">Area Not Found</h1>
-          <p className="text-slate-600 mb-8">The area you're looking for doesn't exist.</p>
-          <Link to="/areas" className="bg-[#16a34a] text-white px-8 py-4 font-black uppercase rounded-lg">
-            View All Areas
+          <h1 className="text-4xl font-black uppercase text-slate-900 mb-4">Page Not Found</h1>
+          <p className="text-slate-600 mb-8">The page you're looking for doesn't exist.</p>
+          <Link to="/services" className="bg-[#16a34a] text-white px-8 py-4 font-black uppercase rounded-lg">
+            View All Services
           </Link>
         </div>
       </div>
     );
   }
 
-  const otherAreas = Object.values(AREA_DATA).filter(a => a.slug !== slug);
+  const { service, area, serviceKey, areaKey } = result;
+  const meta = service.getMeta(area);
+  const faqs = service.getFaqs(area);
+  const intro = service.getIntro(area);
+  const description = service.getDescription(area);
+  const localContext = service.getLocalContext(area);
+  const HeroIcon = ICON_MAP[service.icon] || Truck;
 
-  // Schema.org FAQPage structured data
+  // Other areas offering this same service
+  const otherAreas = Object.values(AREA_DATA).filter(a => a.slug !== area.slug);
+
+  // Other services in this same area
+  const otherServices = Object.entries(SERVICE_AREA_DATA)
+    .filter(([key]) => key !== serviceKey)
+    .map(([key, svc]) => ({
+      key,
+      name: svc.name,
+      slug: getServiceAreaSlug(key, areaKey),
+      icon: svc.icon,
+      price: svc.price
+    }));
+
+  // Schema.org FAQPage
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": area.faqs.map(faq => ({
+    "mainEntity": faqs.map(faq => ({
       "@type": "Question",
       "name": faq.q,
       "acceptedAnswer": {
@@ -52,13 +72,13 @@ const AreaPage = () => {
     }))
   };
 
-  // Schema.org LocalBusiness structured data for this specific area
+  // Schema.org LocalBusiness
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": `Total Waste Clearout - ${area.name}`,
-    "description": `Professional waste removal and rubbish clearance services in ${area.name}, ${area.county}. Same-day collection, 94% recycling rate, fully licensed.`,
-    "url": `https://totalwasteclearout.co.uk/${area.slug}`,
+    "name": `Total Waste Clearout - ${service.name} ${area.name}`,
+    "description": meta.description,
+    "url": `https://totalwasteclearout.co.uk/${slug}`,
     "telephone": "+447769844298",
     "priceRange": "££",
     "image": "https://totalwasteclearout.co.uk/logo-512.png",
@@ -102,37 +122,14 @@ const AreaPage = () => {
       "reviewCount": "150",
       "bestRating": "5",
       "worstRating": "1"
-    },
-    "review": [
-      {
-        "@type": "Review",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "author": { "@type": "Person", "name": "Mark Saunders" },
-        "reviewBody": "The best waste company in Berkshire. Same-day service, zero fuss, and much cheaper than the skip permit process. Uniformed team were brilliant.",
-        "datePublished": "2025-11-15"
-      },
-      {
-        "@type": "Review",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "author": { "@type": "Person", "name": "Sarah Jenkins" },
-        "reviewBody": "Cleared out my late father's property with such respect and speed. They recycled almost everything and provided a full audit note.",
-        "datePublished": "2025-10-22"
-      },
-      {
-        "@type": "Review",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "author": { "@type": "Person", "name": "Dave Miller" },
-        "reviewBody": "Used them for trade waste on a kitchen fit. Way faster than a skip and saved me the headache of council permits. Reliable and professional.",
-        "datePublished": "2025-12-03"
-      }
-    ]
+    }
   };
 
-  // Schema.org Service structured data
+  // Schema.org Service
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "serviceType": "Waste Removal",
+    "serviceType": service.name,
     "provider": {
       "@type": "LocalBusiness",
       "name": "Total Waste Clearout"
@@ -141,16 +138,16 @@ const AreaPage = () => {
       "@type": "City",
       "name": area.name
     },
-    "description": `Professional waste removal, rubbish clearance, house clearance, garden waste removal and commercial waste clearance in ${area.name}, ${area.county}.`,
+    "description": meta.description,
     "offers": {
       "@type": "Offer",
       "priceCurrency": "GBP",
-      "price": "80",
+      "price": service.pricing[0].price.replace(/[^0-9]/g, ''),
       "priceSpecification": {
         "@type": "PriceSpecification",
         "priceCurrency": "GBP",
-        "price": "80",
-        "unitText": "per load (starting price)"
+        "price": service.pricing[0].price.replace(/[^0-9]/g, ''),
+        "unitText": "starting price"
       }
     }
   };
@@ -169,14 +166,20 @@ const AreaPage = () => {
       {
         "@type": "ListItem",
         "position": 2,
-        "name": "Areas We Serve",
-        "item": "https://totalwasteclearout.co.uk/areas"
+        "name": "Services",
+        "item": "https://totalwasteclearout.co.uk/services"
       },
       {
         "@type": "ListItem",
         "position": 3,
-        "name": `Waste Removal ${area.name}`,
-        "item": `https://totalwasteclearout.co.uk/${area.slug}`
+        "name": service.name,
+        "item": `https://totalwasteclearout.co.uk${service.servicePageSlug}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": `${service.name} ${area.name}`,
+        "item": `https://totalwasteclearout.co.uk/${slug}`
       }
     ]
   };
@@ -184,21 +187,21 @@ const AreaPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Helmet>
-        <title>{area.meta.title}</title>
-        <meta name="description" content={area.meta.description} />
-        <meta name="keywords" content={area.meta.keywords} />
-        <link rel="canonical" href={`https://totalwasteclearout.co.uk/${area.slug}`} />
+        <title>{meta.title}</title>
+        <meta name="description" content={meta.description} />
+        <meta name="keywords" content={meta.keywords} />
+        <link rel="canonical" href={`https://totalwasteclearout.co.uk/${slug}`} />
         <meta name="geo.region" content={area.region} />
         <meta name="geo.placename" content={`${area.name}, ${area.county}`} />
         <meta name="geo.position" content={`${area.lat};${area.lng}`} />
-        <meta property="og:title" content={area.meta.title} />
-        <meta property="og:description" content={area.meta.description} />
-        <meta property="og:url" content={`https://totalwasteclearout.co.uk/${area.slug}`} />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:description" content={meta.description} />
+        <meta property="og:url" content={`https://totalwasteclearout.co.uk/${slug}`} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://totalwasteclearout.co.uk/logo-512.png" />
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content={area.meta.title} />
-        <meta property="twitter:description" content={area.meta.description} />
+        <meta property="twitter:title" content={meta.title} />
+        <meta property="twitter:description" content={meta.description} />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
@@ -210,7 +213,7 @@ const AreaPage = () => {
         <div className="absolute inset-0 z-0">
           <img
             src={area.heroImage}
-            alt={`Waste removal service in ${area.name}`}
+            alt={`${service.name} service in ${area.name}`}
             className="w-full h-full object-cover opacity-20 mix-blend-overlay grayscale"
             loading="eager"
           />
@@ -222,7 +225,9 @@ const AreaPage = () => {
             <ol className="flex flex-wrap items-center gap-2 text-white/60 text-xs font-bold uppercase tracking-wider">
               <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
               <li><ChevronRight size={12} /></li>
-              <li><Link to="/areas" className="hover:text-white transition-colors">Areas</Link></li>
+              <li><Link to="/services" className="hover:text-white transition-colors">Services</Link></li>
+              <li><ChevronRight size={12} /></li>
+              <li><Link to={service.servicePageSlug} className="hover:text-white transition-colors">{service.name}</Link></li>
               <li><ChevronRight size={12} /></li>
               <li className="text-[#4ade80]">{area.name}</li>
             </ol>
@@ -230,37 +235,31 @@ const AreaPage = () => {
 
           <div className="flex items-center gap-4 mb-6">
             <div className="w-16 h-16 md:w-20 md:h-20 bg-[#4ade80] rounded-2xl flex items-center justify-center border-2 border-white/20">
-              <MapPin size={40} className="text-[#064e3b]" />
+              <HeroIcon size={40} className="text-[#064e3b]" />
             </div>
             <div>
-              <h1 className="text-3xl md:text-5xl lg:text-7xl font-black uppercase italic text-white tracking-tight leading-none">
-                Waste Removal {area.name}
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase italic text-white tracking-tight leading-none">
+                {service.name} {area.name}
               </h1>
               <p className="text-[#4ade80] font-black text-sm md:text-base uppercase tracking-wider mt-2">{area.county} | {area.postcodes.join(" • ")}</p>
             </div>
           </div>
 
           <p className="text-white/80 text-lg md:text-xl font-bold italic max-w-3xl mb-8">
-            Professional waste removal and rubbish clearance across {area.name} and surrounding {area.county} areas. Same-day service, fixed pricing, 94% recycling rate.
+            Professional {service.name.toLowerCase()} in {area.name}, {area.county}. Same-day service, fixed pricing, fully licensed and insured.
           </p>
 
           {/* Key Stats */}
           <div className="flex flex-wrap gap-3 md:gap-4 mb-8">
-            <div className="bg-white/10 border-2 border-white/20 px-4 py-2 rounded-lg flex items-center gap-2">
-              <Recycle size={16} className="text-[#4ade80]" />
-              <span className="text-white font-black text-sm">94% Recycled</span>
-            </div>
-            <div className="bg-white/10 border-2 border-white/20 px-4 py-2 rounded-lg flex items-center gap-2">
-              <Zap size={16} className="text-[#4ade80]" />
-              <span className="text-white font-black text-sm">Same-Day Service</span>
-            </div>
+            {service.badges.map((badge, idx) => (
+              <div key={idx} className="bg-white/10 border-2 border-white/20 px-4 py-2 rounded-lg flex items-center gap-2">
+                <CheckCircle size={16} className="text-[#4ade80]" />
+                <span className="text-white font-black text-sm">{badge}</span>
+              </div>
+            ))}
             <div className="bg-white/10 border-2 border-white/20 px-4 py-2 rounded-lg flex items-center gap-2">
               <ShieldCheck size={16} className="text-[#4ade80]" />
               <span className="text-white font-black text-sm">£5M Insured</span>
-            </div>
-            <div className="bg-white/10 border-2 border-white/20 px-4 py-2 rounded-lg flex items-center gap-2">
-              <Scale size={16} className="text-[#4ade80]" />
-              <span className="text-white font-black text-sm">Licensed Carrier</span>
             </div>
           </div>
 
@@ -292,50 +291,75 @@ const AreaPage = () => {
           {/* Introduction - Rich SEO content */}
           <section className="mb-16">
             <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">
-              Professional Waste Removal in {area.name}, {area.county}
+              {service.name} in {area.name}, {area.county}
             </h2>
             <div className="bg-white border-4 border-slate-900 rounded-xl p-8 shadow-[8px_8px_0px_#e2e8f0] mb-8">
               <p className="text-slate-700 leading-relaxed mb-4 text-lg">
-                {area.intro}
+                {intro}
               </p>
               <p className="text-slate-700 leading-relaxed mb-4">
-                {area.areaDescription}
+                {description}
               </p>
               <p className="text-slate-700 leading-relaxed">
-                {area.localContext}
+                {localContext}
               </p>
             </div>
           </section>
 
-          {/* Services Available in This Area */}
+          {/* What We Remove / Do */}
           <section className="mb-16">
             <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">
-              Waste Removal Services in {area.name}
+              What We {serviceKey === 'garage-shed-clearance' ? 'Do' : 'Remove'} — {service.name} {area.name}
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {Object.entries(SERVICE_AREA_DATA).map(([serviceKey, svcData]) => {
-                const IconComponent = ICON_MAP[svcData.icon] || Truck;
-                const serviceAreaSlug = getServiceAreaSlug(serviceKey, slug);
+            <div className="grid md:grid-cols-3 gap-6">
+              {service.whatWeRemove.map((item, idx) => {
+                const Icon = ICON_MAP[item.icon] || Package;
                 return (
-                  <Link
-                    key={serviceKey}
-                    to={`/${serviceAreaSlug}`}
-                    className="bg-white border-4 border-slate-900 rounded-xl p-6 hover:shadow-[8px_8px_0px_#16a34a] transition-all hover:-translate-y-1 group"
-                  >
-                    <div className="w-14 h-14 bg-[#16a34a] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                      <IconComponent size={28} className="text-white" />
+                  <div key={idx} className="bg-[#4ade80]/10 border-4 border-slate-900 rounded-xl p-6 hover:shadow-[8px_8px_0px_#064e3b] transition-all">
+                    <div className="w-16 h-16 bg-[#16a34a] rounded-xl flex items-center justify-center mb-4">
+                      <Icon size={32} className="text-white" />
                     </div>
-                    <h3 className="font-black text-xl uppercase text-slate-900 mb-2 group-hover:text-[#16a34a] transition-colors">
-                      {svcData.name} in {area.name}
-                    </h3>
-                    <p className="text-slate-600 font-bold text-sm mb-4">{svcData.price} — Same-day service available</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-[#16a34a] font-black text-lg">{svcData.price}</span>
-                      <ArrowRight size={20} className="text-slate-400 group-hover:text-[#16a34a] group-hover:translate-x-1 transition-all" />
-                    </div>
-                  </Link>
+                    <h3 className="font-black text-xl uppercase text-slate-900">{item.label}</h3>
+                  </div>
                 );
               })}
+            </div>
+
+            <div className="mt-8 bg-white border-4 border-slate-900 rounded-xl p-8">
+              <h3 className="font-black text-2xl uppercase text-slate-900 mb-6">
+                {serviceKey === 'garage-shed-clearance' ? 'What We Clear & Demolish:' : 'Common Items We Clear:'}
+              </h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                {service.commonItems.map((item, idx) => (
+                  <div key={idx} className="flex gap-3 items-start">
+                    <CheckCircle size={24} className="text-[#16a34a] shrink-0" />
+                    <span className="text-slate-700 font-bold">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Pricing Section */}
+          <section className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">
+              {service.name} Pricing in {area.name}
+            </h2>
+            <div className="bg-gradient-to-r from-[#064e3b] to-[#065f46] border-4 border-slate-900 rounded-xl p-8 md:p-12 text-white">
+              <div className="grid md:grid-cols-3 gap-8">
+                {service.pricing.map((tier, idx) => (
+                  <div key={idx} className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-white/20">
+                    <div className="text-[#4ade80] font-black text-4xl mb-2">{tier.price}</div>
+                    <h3 className="font-black text-xl uppercase mb-3">{tier.tier}</h3>
+                    <p className="text-white/80">{tier.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-8 pt-8 border-t border-white/20">
+                <p className="text-white/90 font-bold text-center">
+                  All prices include loading, transport, and licensed disposal. Free no-obligation quotes — call 07769 844298
+                </p>
+              </div>
             </div>
           </section>
 
@@ -343,7 +367,7 @@ const AreaPage = () => {
           <section className="mb-16">
             <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8 flex items-center gap-4">
               <MapPin size={40} className="text-[#16a34a]" />
-              {area.name} Postcodes We Cover
+              {service.name} — {area.name} Postcodes We Cover
             </h2>
             <div className="bg-[#4ade80]/10 border-4 border-slate-900 rounded-xl p-8">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
@@ -368,102 +392,37 @@ const AreaPage = () => {
 
               <div className="mt-6 pt-6 border-t-2 border-slate-200">
                 <p className="text-slate-600 font-bold">
-                  We cover all of {area.name} and the wider {area.county} region. Same-day collection available for most {area.postcodes[0]} postcodes.
+                  We provide {service.name.toLowerCase()} across all of {area.name} and the wider {area.county} region. Same-day collection available for most {area.postcodes[0]} postcodes.
                 </p>
               </div>
             </div>
           </section>
 
-          {/* Why Choose Us - Area Specific */}
+          {/* Why Choose Us */}
           <section className="mb-16">
             <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">
-              Why Choose Total Waste Clearout in {area.name}?
+              Why Choose Total Waste Clearout for {service.name} in {area.name}?
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white border-4 border-slate-900 rounded-xl p-6 shadow-[6px_6px_0px_#e2e8f0]">
-                <div className="flex items-center gap-3 mb-3">
-                  <Zap size={24} className="text-[#16a34a]" />
-                  <h3 className="font-black text-xl uppercase text-[#16a34a]">Same-Day {area.name} Collection</h3>
+              {service.benefits.map((benefit, idx) => (
+                <div key={idx} className="bg-white border-4 border-slate-900 rounded-xl p-6 shadow-[6px_6px_0px_#e2e8f0]">
+                  <h3 className="font-black text-xl uppercase text-[#16a34a] mb-3 flex items-center gap-2">
+                    <CheckCircle size={24} />
+                    {benefit.title}
+                  </h3>
+                  <p className="text-slate-700 leading-relaxed">{benefit.desc}</p>
                 </div>
-                <p className="text-slate-700 leading-relaxed">
-                  We respond to all {area.name} enquiries within 2 hours. Same-day waste collection available across all {area.postcodes[0]} postcodes, 7 days a week.
-                </p>
-              </div>
-              <div className="bg-white border-4 border-slate-900 rounded-xl p-6 shadow-[6px_6px_0px_#e2e8f0]">
-                <div className="flex items-center gap-3 mb-3">
-                  <Recycle size={24} className="text-[#16a34a]" />
-                  <h3 className="font-black text-xl uppercase text-[#16a34a]">94% Recycling Rate</h3>
-                </div>
-                <p className="text-slate-700 leading-relaxed">
-                  Almost all waste collected in {area.name} is recycled or repurposed at licensed {area.county} facilities. We provide waste transfer notes for every job.
-                </p>
-              </div>
-              <div className="bg-white border-4 border-slate-900 rounded-xl p-6 shadow-[6px_6px_0px_#e2e8f0]">
-                <div className="flex items-center gap-3 mb-3">
-                  <ShieldCheck size={24} className="text-[#16a34a]" />
-                  <h3 className="font-black text-xl uppercase text-[#16a34a]">Fully Licensed & Insured</h3>
-                </div>
-                <p className="text-slate-700 leading-relaxed">
-                  Environment Agency registered waste carrier with £5M public liability insurance. Full compliance for all waste removal in {area.name}.
-                </p>
-              </div>
-              <div className="bg-white border-4 border-slate-900 rounded-xl p-6 shadow-[6px_6px_0px_#e2e8f0]">
-                <div className="flex items-center gap-3 mb-3">
-                  <Scale size={24} className="text-[#16a34a]" />
-                  <h3 className="font-black text-xl uppercase text-[#16a34a]">Fixed Pricing — No Surprises</h3>
-                </div>
-                <p className="text-slate-700 leading-relaxed">
-                  Transparent fixed prices for all {area.name} waste removal. No hidden disposal fees, no fuel surcharges. The quote we give is the price you pay.
-                </p>
-              </div>
-              <div className="bg-white border-4 border-slate-900 rounded-xl p-6 shadow-[6px_6px_0px_#e2e8f0]">
-                <div className="flex items-center gap-3 mb-3">
-                  <Truck size={24} className="text-[#16a34a]" />
-                  <h3 className="font-black text-xl uppercase text-[#16a34a]">Skip Alternative {area.name}</h3>
-                </div>
-                <p className="text-slate-700 leading-relaxed">
-                  Faster and often cheaper than skip hire in {area.name}. No council permits needed. We load everything for you and take it away immediately.
-                </p>
-              </div>
-              <div className="bg-white border-4 border-slate-900 rounded-xl p-6 shadow-[6px_6px_0px_#e2e8f0]">
-                <div className="flex items-center gap-3 mb-3">
-                  <Star size={24} className="text-[#16a34a]" />
-                  <h3 className="font-black text-xl uppercase text-[#16a34a]">5-Star Rated Service</h3>
-                </div>
-                <p className="text-slate-700 leading-relaxed">
-                  Rated 5 stars by customers across {area.name} and {area.county}. Professional, uniformed crews who leave your property spotless.
-                </p>
-              </div>
+              ))}
             </div>
           </section>
 
-          {/* Local Landmarks & Areas */}
+          {/* FAQ Section */}
           <section className="mb-16">
             <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">
-              Waste Collection Near {area.name} Landmarks
-            </h2>
-            <div className="bg-white border-4 border-slate-900 rounded-xl p-8">
-              <p className="text-slate-700 font-bold text-lg mb-6">
-                We provide waste removal services near all major {area.name} locations including:
-              </p>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {area.landmarks.map((landmark, idx) => (
-                  <div key={idx} className="flex items-center gap-3">
-                    <MapPin size={18} className="text-[#16a34a] shrink-0" />
-                    <span className="font-bold text-slate-900">{landmark}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* FAQ Section - With FAQ Schema */}
-          <section className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">
-              Waste Removal {area.name} — Frequently Asked Questions
+              {service.name} {area.name} — Frequently Asked Questions
             </h2>
             <div className="space-y-4">
-              {area.faqs.map((faq, idx) => (
+              {faqs.map((faq, idx) => (
                 <details
                   key={idx}
                   className="bg-white border-4 border-slate-900 rounded-xl overflow-hidden group"
@@ -486,10 +445,10 @@ const AreaPage = () => {
           <section className="mb-16">
             <div className="bg-gradient-to-r from-[#064e3b] to-[#065f46] border-4 border-slate-900 rounded-xl p-8 md:p-12 text-white text-center">
               <h2 className="text-3xl md:text-5xl font-black uppercase italic mb-6">
-                Need Waste Removed in {area.name}?
+                Need {service.name} in {area.name}?
               </h2>
               <p className="text-white/90 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-                Same-day collection across all {area.postcodes.join(", ")} postcodes. Professional, licensed, and eco-friendly waste removal in {area.name}.
+                Same-day service across all {area.postcodes.join(", ")} postcodes. Professional, licensed, and eco-friendly {service.name.toLowerCase()} in {area.name}.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a
@@ -519,25 +478,58 @@ const AreaPage = () => {
             </div>
           </section>
 
-          {/* Other Areas We Serve - Internal Linking */}
+          {/* Other Services in This Area */}
           <section className="mb-16">
             <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">
-              Other Areas We Serve Near {area.name}
+              Other Services in {area.name}
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {otherServices.map((svc) => {
+                const SvcIcon = ICON_MAP[svc.icon] || Truck;
+                return (
+                  <Link
+                    key={svc.key}
+                    to={`/${svc.slug}`}
+                    className="bg-white border-4 border-slate-900 rounded-xl p-6 hover:shadow-[8px_8px_0px_#16a34a] transition-all hover:-translate-y-1 group"
+                  >
+                    <div className="w-14 h-14 bg-[#16a34a] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                      <SvcIcon size={28} className="text-white" />
+                    </div>
+                    <h3 className="font-black text-xl uppercase text-slate-900 mb-2 group-hover:text-[#16a34a] transition-colors">
+                      {svc.name} in {area.name}
+                    </h3>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[#16a34a] font-black text-lg">{svc.price}</span>
+                      <ArrowRight size={20} className="text-slate-400 group-hover:text-[#16a34a] group-hover:translate-x-1 transition-all" />
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* Same Service in Other Areas */}
+          <section className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">
+              {service.name} in Other Areas
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-              {otherAreas.map((otherArea) => (
-                <Link
-                  key={otherArea.slug}
-                  to={`/${otherArea.slug}`}
-                  className="bg-white border-4 border-slate-900 rounded-xl p-6 hover:shadow-[6px_6px_0px_#16a34a] transition-all hover:-translate-y-1 group text-center"
-                >
-                  <MapPin size={24} className="text-[#16a34a] mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                  <h3 className="font-black text-lg uppercase text-slate-900 group-hover:text-[#16a34a] transition-colors">
-                    {otherArea.name}
-                  </h3>
-                  <p className="text-slate-500 text-xs font-bold uppercase mt-1">{otherArea.county} | {otherArea.postcode}</p>
-                </Link>
-              ))}
+              {otherAreas.map((otherArea) => {
+                const otherSlug = getServiceAreaSlug(serviceKey, otherArea.slug);
+                return (
+                  <Link
+                    key={otherArea.slug}
+                    to={`/${otherSlug}`}
+                    className="bg-white border-4 border-slate-900 rounded-xl p-6 hover:shadow-[6px_6px_0px_#16a34a] transition-all hover:-translate-y-1 group text-center"
+                  >
+                    <MapPin size={24} className="text-[#16a34a] mx-auto mb-2 group-hover:scale-110 transition-transform" />
+                    <h3 className="font-black text-lg uppercase text-slate-900 group-hover:text-[#16a34a] transition-colors">
+                      {otherArea.name}
+                    </h3>
+                    <p className="text-slate-500 text-xs font-bold uppercase mt-1">{otherArea.county} | {otherArea.postcode}</p>
+                  </Link>
+                );
+              })}
             </div>
             <div className="text-center mt-8">
               <Link
@@ -550,13 +542,19 @@ const AreaPage = () => {
             </div>
           </section>
 
-          {/* Back to Home */}
-          <div className="text-center pt-8">
+          {/* Back Links */}
+          <div className="flex flex-wrap gap-4 justify-center pt-8">
             <Link
-              to="/"
+              to={`/${area.slug}`}
               className="inline-flex items-center gap-2 bg-slate-900 hover:bg-[#16a34a] text-white font-black uppercase px-8 py-4 rounded-xl transition-colors border-4 border-slate-900 shadow-[6px_6px_0px_#0f172a]"
             >
-              ← Back to Home
+              ← All Services in {area.name}
+            </Link>
+            <Link
+              to={service.servicePageSlug}
+              className="inline-flex items-center gap-2 bg-[#064e3b] hover:bg-[#16a34a] text-white font-black uppercase px-8 py-4 rounded-xl transition-colors border-4 border-slate-900 shadow-[6px_6px_0px_#0f172a]"
+            >
+              ← {service.name} Overview
             </Link>
           </div>
         </div>
@@ -565,4 +563,4 @@ const AreaPage = () => {
   );
 };
 
-export default AreaPage;
+export default ServiceAreaPage;

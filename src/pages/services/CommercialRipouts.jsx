@@ -219,7 +219,8 @@ const CommercialRipouts = () => {
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
                 {serviceAreas.map((area, idx) => {
-                  const slug = ["Reading", "Slough", "Guildford", "Woking", "Bracknell", "Windsor", "Ascot", "Egham", "Maidenhead", "Staines"].includes(area) ? `/waste-removal-${area.toLowerCase()}` : null;
+                  const mainAreas = ["Reading", "Slough", "Guildford", "Woking", "Bracknell", "Windsor", "Ascot", "Egham", "Maidenhead", "Staines"];
+                  const slug = mainAreas.includes(area) ? `/commercial-waste-removal-${area.toLowerCase()}` : null;
                   return slug ? (
                     <Link key={idx} to={slug} className="flex items-center gap-2 hover:text-[#16a34a] transition-colors group">
                       <CheckCircle size={20} className="text-[#16a34a] shrink-0" />
