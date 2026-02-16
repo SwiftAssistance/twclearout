@@ -45,7 +45,7 @@ const About = () => {
         <title>About Us | Professional Waste Removal Berkshire & Surrey - 10+ Years Experience</title>
         <meta name="description" content="Learn about Total Waste Clearout - Berkshire's trusted waste removal company with 10+ years experience. 94% recycling rate, fully licensed & insured. Serving Reading, Slough, Guildford & Surrey." />
         <meta name="keywords" content="about waste removal company, professional rubbish clearance Berkshire, licensed waste carrier Reading, eco-friendly waste disposal Surrey, waste removal experience Slough, trusted clearance company Guildford, Berkshire waste experts, Surrey junk removal specialists" />
-        <link rel="canonical" href="https://totalwasteclearout.co.uk/about" />
+        <link rel="canonical" href="https://totalwasteclearout.co.uk/about/" />
         <meta property="og:title" content="About Total Waste Clearout | Berkshire's Waste Removal Experts" />
         <meta property="og:description" content="10+ years of professional waste removal across Berkshire & Surrey. 94% recycling rate, fully licensed & insured team." />
         <meta property="og:url" content="https://totalwasteclearout.co.uk/about" />

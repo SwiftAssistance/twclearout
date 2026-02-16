@@ -38,10 +38,10 @@ const GarageShed = () => {
         <title>Garage Shed Demolition Reading Slough | Building Removal Berkshire Surrey</title>
         <meta name="description" content="Complete garage & shed demolition in Reading, Slough, Guildford. Contents clearance, dismantling, waste removal. Same-day service, licensed from £250." />
         <meta name="keywords" content="garage demolition, shed removal Reading, garage clearance Slough, building dismantling Guildford, Berkshire Surrey, outbuilding removal" />
-        <link rel="canonical" href="https://totalwasteclearout.co.uk/services/garage-shed" />
+        <link rel="canonical" href="https://totalwasteclearout.co.uk/services/garage-shed/" />
         <meta property="og:title" content="Garage & Shed Demolition | Total Waste Clearout Berkshire" />
         <meta property="og:description" content="Professional garage and shed demolition services across Berkshire & Surrey. Complete service from clearance to cleanup." />
-        <meta property="og:url" content="https://totalwasteclearout.co.uk/services/garage-shed" />
+        <meta property="og:url" content="https://totalwasteclearout.co.uk/services/garage-shed/" />
         <meta property="og:type" content="website" />
       </Helmet>
 

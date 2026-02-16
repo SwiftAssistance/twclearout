@@ -158,13 +158,13 @@ const AreaPage = () => {
         <title>{area.meta.title}</title>
         <meta name="description" content={area.meta.description} />
         <meta name="keywords" content={area.meta.keywords} />
-        <link rel="canonical" href={`https://totalwasteclearout.co.uk/${area.slug}`} />
+        <link rel="canonical" href={`https://totalwasteclearout.co.uk/${area.slug}/`} />
         <meta name="geo.region" content={area.region} />
         <meta name="geo.placename" content={`${area.name}, ${area.county}`} />
         <meta name="geo.position" content={`${area.lat};${area.lng}`} />
         <meta property="og:title" content={area.meta.title} />
         <meta property="og:description" content={area.meta.description} />
-        <meta property="og:url" content={`https://totalwasteclearout.co.uk/${area.slug}`} />
+        <meta property="og:url" content={`https://totalwasteclearout.co.uk/${area.slug}/`} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://totalwasteclearout.co.uk/logo-512.png" />
         <meta property="twitter:card" content="summary_large_image" />

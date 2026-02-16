@@ -38,10 +38,10 @@ const GardenWaste = () => {
         <title>Garden Waste Removal Reading Guildford | Green Waste Clearance Berkshire</title>
         <meta name="description" content="Professional garden waste removal in Reading, Guildford, Slough. Trees, hedges, grass cleared. 100% composted, same-day service, licensed from £80." />
         <meta name="keywords" content="garden waste removal, green waste Reading, tree removal Guildford, hedge clearance Slough, Berkshire Surrey, garden clearance Woking" />
-        <link rel="canonical" href="https://totalwasteclearout.co.uk/services/garden-waste" />
+        <link rel="canonical" href="https://totalwasteclearout.co.uk/services/garden-waste/" />
         <meta property="og:title" content="Garden & Green Waste Removal | Total Waste Clearout" />
         <meta property="og:description" content="Professional garden waste clearance across Berkshire & Surrey. 100% composted, same-day service available." />
-        <meta property="og:url" content="https://totalwasteclearout.co.uk/services/garden-waste" />
+        <meta property="og:url" content="https://totalwasteclearout.co.uk/services/garden-waste/" />
         <meta property="og:type" content="website" />
       </Helmet>
 

@@ -14,7 +14,7 @@ const PrivacyPolicy = () => {
         <title>Privacy Policy | Total Waste Clearout - GDPR Compliant Berkshire</title>
         <meta name="description" content="Read our GDPR-compliant privacy policy. Learn how Total Waste Clearout protects your personal data for waste removal services in Berkshire & Surrey." />
         <meta name="keywords" content="privacy policy, GDPR, data protection, waste removal berkshire, rubbish clearance privacy, Reading, Slough, Guildford, Surrey" />
-        <link rel="canonical" href="https://totalwasteclearout.co.uk/privacy-policy" />
+        <link rel="canonical" href="https://totalwasteclearout.co.uk/privacy-policy/" />
         <meta property="og:title" content="Privacy Policy | Total Waste Clearout" />
         <meta property="og:description" content="GDPR-compliant privacy policy for Total Waste Clearout, Berkshire's trusted waste removal service." />
         <meta property="og:url" content="https://totalwasteclearout.co.uk/privacy-policy" />

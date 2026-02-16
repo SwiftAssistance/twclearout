@@ -14,7 +14,7 @@ const Legal = () => {
         <title>Terms & Conditions | Total Waste Clearout - Service Agreement Berkshire</title>
         <meta name="description" content="Legal terms and conditions for Total Waste Clearout services. Licensed waste carrier operating in Reading, Slough, Guildford, and across Berkshire & Surrey." />
         <meta name="keywords" content="terms and conditions, waste removal terms, legal agreement, Reading waste clearance, Slough rubbish removal, Berkshire Surrey" />
-        <link rel="canonical" href="https://totalwasteclearout.co.uk/legal" />
+        <link rel="canonical" href="https://totalwasteclearout.co.uk/legal/" />
         <meta property="og:title" content="Terms & Conditions | Total Waste Clearout" />
         <meta property="og:description" content="Legal terms governing waste removal and clearance services across Berkshire and Surrey." />
         <meta property="og:url" content="https://totalwasteclearout.co.uk/legal" />

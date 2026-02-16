@@ -59,7 +59,7 @@ const Areas = () => {
         <title>Areas We Serve | Waste Removal Berkshire & Surrey | Total Waste Clearout</title>
         <meta name="description" content="Professional waste removal across Berkshire & Surrey. Serving Reading, Slough, Guildford, Woking, Bracknell, Windsor, Ascot, Egham, Maidenhead & Staines. Same-day service." />
         <meta name="keywords" content="waste removal berkshire, waste removal surrey, rubbish clearance berkshire, waste collection surrey, areas we serve, waste removal near me, local waste removal, skip hire alternative berkshire surrey, licensed waste carrier, same day waste collection" />
-        <link rel="canonical" href="https://totalwasteclearout.co.uk/areas" />
+        <link rel="canonical" href="https://totalwasteclearout.co.uk/areas/" />
         <meta property="og:title" content="Areas We Serve | Waste Removal Berkshire & Surrey" />
         <meta property="og:description" content="Professional waste removal across Berkshire & Surrey. 10 towns served with same-day collection." />
         <meta property="og:url" content="https://totalwasteclearout.co.uk/areas" />

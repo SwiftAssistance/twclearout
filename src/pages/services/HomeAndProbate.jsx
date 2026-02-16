@@ -38,10 +38,10 @@ const HomeAndProbate = () => {
         <title>Probate House Clearance Reading Guildford | Bereavement Estate Clearance</title>
         <meta name="description" content="Compassionate probate & estate clearance in Reading, Guildford, Slough. Respectful bereavement house clearance, charity donations, licensed from £600." />
         <meta name="keywords" content="probate clearance, house clearance bereavement, estate clearance Reading, deceased estate Guildford, Berkshire Surrey, respectful service" />
-        <link rel="canonical" href="https://totalwasteclearout.co.uk/services/home-and-probate" />
+        <link rel="canonical" href="https://totalwasteclearout.co.uk/services/home-probate-clearance/" />
         <meta property="og:title" content="House & Probate Clearance | Total Waste Clearout Berkshire" />
         <meta property="og:description" content="Compassionate probate and estate clearance services across Reading, Guildford, and Berkshire & Surrey." />
-        <meta property="og:url" content="https://totalwasteclearout.co.uk/services/home-and-probate" />
+        <meta property="og:url" content="https://totalwasteclearout.co.uk/services/home-probate-clearance/" />
         <meta property="og:type" content="website" />
       </Helmet>
 
