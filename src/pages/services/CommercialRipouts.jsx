@@ -38,10 +38,10 @@ const CommercialRipouts = () => {
         <title>Commercial Clearance Reading Slough | Office Strip-Out Berkshire Surrey</title>
         <meta name="description" content="Professional commercial site rip-outs in Reading, Slough, Guildford. Office, retail, restaurant clearance. Out-of-hours service, licensed from £400." />
         <meta name="keywords" content="commercial clearance, office strip-out Reading, retail clearance Slough, shop rip-out Guildford, Berkshire Surrey, business waste" />
-        <link rel="canonical" href="https://totalwasteclearout.co.uk/services/commercial-ripouts" />
+        <link rel="canonical" href="https://totalwasteclearout.co.uk/services/commercial-ripouts/" />
         <meta property="og:title" content="Commercial Site Rip-outs | Total Waste Clearout Berkshire" />
         <meta property="og:description" content="Professional commercial clearance and strip-out services across Berkshire & Surrey. Out-of-hours available." />
-        <meta property="og:url" content="https://totalwasteclearout.co.uk/services/commercial-ripouts" />
+        <meta property="og:url" content="https://totalwasteclearout.co.uk/services/commercial-ripouts/" />
         <meta property="og:type" content="website" />
       </Helmet>
 

@@ -38,10 +38,10 @@ const EndOfTenancy = () => {
         <title>End of Tenancy Clearance Reading Slough Guildford | Same-Day Service</title>
         <meta name="description" content="Professional end of tenancy clearance in Reading, Slough, Guildford & Berkshire. Same-day service, help secure your deposit. Licensed waste removal from £150." />
         <meta name="keywords" content="end of tenancy clearance, house clearance Reading, flat clearance Slough, tenancy cleanup Guildford, Berkshire Surrey, deposit return" />
-        <link rel="canonical" href="https://totalwasteclearout.co.uk/services/end-of-tenancy" />
+        <link rel="canonical" href="https://totalwasteclearout.co.uk/services/end-of-tenancy/" />
         <meta property="og:title" content="End of Tenancy Clearance | Total Waste Clearout Berkshire" />
         <meta property="og:description" content="Same-day end of tenancy clearance across Reading, Slough, Guildford. Help secure your deposit with professional clearance." />
-        <meta property="og:url" content="https://totalwasteclearout.co.uk/services/end-of-tenancy" />
+        <meta property="og:url" content="https://totalwasteclearout.co.uk/services/end-of-tenancy/" />
         <meta property="og:type" content="website" />
       </Helmet>
 

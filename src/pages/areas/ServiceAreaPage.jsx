@@ -116,13 +116,7 @@ const ServiceAreaPage = () => {
         "closes": "17:00"
       }
     ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "150",
-      "bestRating": "5",
-      "worstRating": "1"
-    }
+    "priceRange": "££"
   };
 
   // Schema.org Service
@@ -190,13 +184,13 @@ const ServiceAreaPage = () => {
         <title>{meta.title}</title>
         <meta name="description" content={meta.description} />
         <meta name="keywords" content={meta.keywords} />
-        <link rel="canonical" href={`https://totalwasteclearout.co.uk/${slug}`} />
+        <link rel="canonical" href={`https://totalwasteclearout.co.uk/${slug}/`} />
         <meta name="geo.region" content={area.region} />
         <meta name="geo.placename" content={`${area.name}, ${area.county}`} />
         <meta name="geo.position" content={`${area.lat};${area.lng}`} />
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />
-        <meta property="og:url" content={`https://totalwasteclearout.co.uk/${slug}`} />
+        <meta property="og:url" content={`https://totalwasteclearout.co.uk/${slug}/`} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://totalwasteclearout.co.uk/logo-512.png" />
         <meta property="twitter:card" content="summary_large_image" />

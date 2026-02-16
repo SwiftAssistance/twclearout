@@ -101,7 +101,7 @@ const Contact = () => {
         <title>Contact Us | Get a Quote for Waste Removal in Reading, Slough, Berkshire & Surrey</title>
         <meta name="description" content="Contact Total Waste Clearout for professional waste removal services. Call 07769 844298 or message on WhatsApp. 2-hour response time. Serving Reading, Slough, Guildford & all Berkshire & Surrey." />
         <meta name="keywords" content="contact waste removal, get quote rubbish clearance, waste disposal Reading phone, junk removal Slough contact, clearance quote Berkshire, waste removal Surrey phone number, book clearance Guildford, instant quote Woking, WhatsApp waste removal" />
-        <link rel="canonical" href="https://totalwasteclearout.co.uk/contact" />
+        <link rel="canonical" href="https://totalwasteclearout.co.uk/contact/" />
         <meta property="og:title" content="Contact Total Waste Clearout | Get Your Free Quote Today" />
         <meta property="og:description" content="Contact us for professional waste removal. 2-hour response time. Available 7 days a week across Berkshire & Surrey." />
         <meta property="og:url" content="https://totalwasteclearout.co.uk/contact" />

@@ -238,16 +238,17 @@ for (const page of pages) {
     `<meta name="description" content="${page.description}" />`
   );
 
-  // Replace canonical URL
+  // Replace canonical URL (trailing slash to match Netlify's served URL)
+  const trailingPath = page.path.endsWith('/') ? page.path : `${page.path}/`;
   html = html.replace(
     /<link rel="canonical" href="[^"]*" \/>/,
-    `<link rel="canonical" href="${BASE_URL}${page.path}" />`
+    `<link rel="canonical" href="${BASE_URL}${trailingPath}" />`
   );
 
   // Replace Open Graph URL + title + description
   html = html.replace(
     /<meta property="og:url" content="[^"]*" \/>/,
-    `<meta property="og:url" content="${BASE_URL}${page.path}" />`
+    `<meta property="og:url" content="${BASE_URL}${trailingPath}" />`
   );
   html = html.replace(
     /<meta property="og:title" content="[^"]*" \/>/,
@@ -261,7 +262,7 @@ for (const page of pages) {
   // Replace Twitter URL + title + description
   html = html.replace(
     /<meta property="twitter:url" content="[^"]*" \/>/,
-    `<meta property="twitter:url" content="${BASE_URL}${page.path}" />`
+    `<meta property="twitter:url" content="${BASE_URL}${trailingPath}" />`
   );
   html = html.replace(
     /<meta property="twitter:title" content="[^"]*" \/>/,

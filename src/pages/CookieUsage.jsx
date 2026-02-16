@@ -14,7 +14,7 @@ const CookieUsage = () => {
         <title>Cookie Policy | Total Waste Clearout - Website Cookie Information</title>
         <meta name="description" content="Transparent cookie policy for Total Waste Clearout. Learn what cookies we use, why we use them, and how to manage your cookie preferences online." />
         <meta name="keywords" content="cookie policy, website cookies, privacy settings, waste removal berkshire, Reading, Slough, Guildford, Surrey cookies" />
-        <link rel="canonical" href="https://totalwasteclearout.co.uk/cookie-usage" />
+        <link rel="canonical" href="https://totalwasteclearout.co.uk/cookie-usage/" />
         <meta property="og:title" content="Cookie Policy | Total Waste Clearout" />
         <meta property="og:description" content="Learn about cookies used on our waste removal service website and how to manage your preferences." />
         <meta property="og:url" content="https://totalwasteclearout.co.uk/cookie-usage" />

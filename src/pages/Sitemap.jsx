@@ -49,7 +49,7 @@ const Sitemap = () => {
       <Helmet>
         <title>Sitemap | Total Waste Clearout - All Pages</title>
         <meta name="description" content="Complete sitemap for Total Waste Clearout. Browse all our waste removal services, information pages, and resources across Berkshire & Surrey." />
-        <link rel="canonical" href="https://totalwasteclearout.co.uk/sitemap" />
+        <link rel="canonical" href="https://totalwasteclearout.co.uk/sitemap/" />
         <meta name="robots" content="index, follow" />
       </Helmet>
 

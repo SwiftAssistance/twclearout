@@ -38,10 +38,10 @@ const HardHatWasteHub = () => {
         <title>Construction Waste Removal Reading Slough | Trade Waste Collection Berkshire</title>
         <meta name="description" content="Fast construction & trade waste removal for builders in Reading, Slough, Guildford. No skip permits needed. Same-day service, licensed carrier from £120." />
         <meta name="keywords" content="construction waste removal, trade waste Reading, builder waste Slough, skip alternative Guildford, Berkshire Surrey, plasterboard disposal" />
-        <link rel="canonical" href="https://totalwasteclearout.co.uk/services/construction-waste" />
+        <link rel="canonical" href="https://totalwasteclearout.co.uk/services/construction-waste/" />
         <meta property="og:title" content="Construction & Trade Waste Removal | Total Waste Clearout" />
         <meta property="og:description" content="Professional construction waste removal for builders across Berkshire & Surrey. No permits, same-day service." />
-        <meta property="og:url" content="https://totalwasteclearout.co.uk/services/construction-waste" />
+        <meta property="og:url" content="https://totalwasteclearout.co.uk/services/construction-waste/" />
         <meta property="og:type" content="website" />
       </Helmet>
 
