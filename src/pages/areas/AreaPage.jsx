@@ -96,36 +96,7 @@ const AreaPage = () => {
         "closes": "17:00"
       }
     ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "150",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "review": [
-      {
-        "@type": "Review",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "author": { "@type": "Person", "name": "Mark Saunders" },
-        "reviewBody": "The best waste company in Berkshire. Same-day service, zero fuss, and much cheaper than the skip permit process. Uniformed team were brilliant.",
-        "datePublished": "2025-11-15"
-      },
-      {
-        "@type": "Review",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "author": { "@type": "Person", "name": "Sarah Jenkins" },
-        "reviewBody": "Cleared out my late father's property with such respect and speed. They recycled almost everything and provided a full audit note.",
-        "datePublished": "2025-10-22"
-      },
-      {
-        "@type": "Review",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "author": { "@type": "Person", "name": "Dave Miller" },
-        "reviewBody": "Used them for trade waste on a kitchen fit. Way faster than a skip and saved me the headache of council permits. Reliable and professional.",
-        "datePublished": "2025-12-03"
-      }
-    ]
+    "priceRange": "££"
   };
 
   // Schema.org Service structured data
