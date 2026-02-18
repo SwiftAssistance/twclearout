@@ -157,13 +157,13 @@ const HomeServices = () => (
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 text-left">
-        <div className="lg:col-span-7 bg-[#dcfce7] p-10 md:p-20 flex flex-col justify-end min-h-[400px] border-4 border-slate-900 shadow-[12px_12px_0px_#16a34a] relative overflow-hidden group">
+        <Link to="/services/commercial-ripouts" className="lg:col-span-7 bg-[#dcfce7] p-10 md:p-20 flex flex-col justify-end min-h-[400px] border-4 border-slate-900 shadow-[12px_12px_0px_#16a34a] relative overflow-hidden group cursor-pointer hover:border-[#16a34a] transition-colors">
           <Truck size={350} className="absolute top-0 right-0 p-10 opacity-5 text-black group-hover:translate-x-10 transition-transform duration-1000" />
           <h3 className="text-4xl md:text-6xl font-[1000] text-slate-900 uppercase italic mb-6 leading-none tracking-tight">Full Site <br /> Clear-outs</h3>
           <p className="font-bold text-lg md:text-xl text-slate-700 max-w-sm italic leading-relaxed text-balance text-left">Industrial warehouses and multi-floor office blocks. Professional logistical removal.</p>
-        </div>
+        </Link>
 
-        <Link to="/services" className="lg:col-span-5 bg-[#064e3b] p-10 md:p-12 border-4 border-slate-900 flex flex-col justify-between shadow-xl text-white group cursor-pointer hover:border-[#4ade80] transition-colors">
+        <Link to="/services/commercial-ripouts" className="lg:col-span-5 bg-[#064e3b] p-10 md:p-12 border-4 border-slate-900 flex flex-col justify-between shadow-xl text-white group cursor-pointer hover:border-[#4ade80] transition-colors">
           <Briefcase size={50} className="text-[#4ade80]" />
           <div>
             <h3 className="text-3xl md:text-4xl font-black uppercase italic mb-4 leading-tight text-white text-left">Commercial <br /> Rip-outs</h3>
@@ -171,7 +171,7 @@ const HomeServices = () => (
           </div>
         </Link>
 
-        <Link to="/services" className="lg:col-span-4 bg-slate-900 p-10 border-4 border-slate-900 flex flex-col justify-between text-white group hover:bg-orange-500 transition-all duration-500 cursor-pointer text-left">
+        <Link to="/services/construction-waste" className="lg:col-span-4 bg-slate-900 p-10 border-4 border-slate-900 flex flex-col justify-between text-white group hover:bg-orange-500 transition-all duration-500 cursor-pointer text-left">
            <HardHat size={40} className="text-orange-500 group-hover:text-black transition-colors" />
            <div className="text-left text-white">
              <h4 className="text-3xl font-black uppercase italic mb-2 leading-none">Trade Waste</h4>
@@ -179,7 +179,7 @@ const HomeServices = () => (
            </div>
         </Link>
 
-        <article className="lg:col-span-8 bg-[#ecf3ef] border-4 border-slate-900 p-8 md:p-12 flex flex-col items-start shadow-lg">
+        <Link to="/services/garden-waste" className="lg:col-span-8 bg-[#ecf3ef] border-4 border-slate-900 p-8 md:p-12 flex flex-col items-start shadow-lg cursor-pointer hover:border-[#16a34a] transition-colors group">
           <div className="w-full text-left">
             <TreePine size={40} className="text-[#16a34a] mb-4" aria-hidden="true" />
             <h4 className="text-4xl md:text-5xl font-black text-slate-900 uppercase italic leading-none mb-6">Exterior <br /> Recovery.</h4>
@@ -188,7 +188,7 @@ const HomeServices = () => (
               {['Sheds', 'Green Waste', 'Soil'].map(t => <span key={t} className="bg-white border-2 border-slate-900 px-4 py-1 text-[10px] font-black uppercase tracking-widest italic">{t}</span>)}
             </div>
           </div>
-        </article>
+        </Link>
       </div>
     </div>
   </section>
@@ -891,7 +891,7 @@ const App = () => {
       {/* NAVIGATION */}
       <nav role="navigation" className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-300 transform-gpu ${isScrolled ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-md py-2' : 'bg-[#064e3b] py-3 md:py-4'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center relative">
-          <Link to="/" onClick={() => setIsMenuOpen(false)} aria-label="Go to homepage" className="flex items-center gap-3 md:gap-4 shrink-0 group text-left"><div className="relative h-12 w-12 md:h-16 md:w-16 transition-transform group-hover:scale-105"><img src="logo.webp" alt="Total Waste Clearout Ltd logo" className="h-full w-full object-contain relative z-10" loading="eager" /></div><div className="flex flex-col leading-none text-left"><span className={`font-[1000] text-lg md:text-2xl tracking-tighter uppercase italic transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-white'}`}>Total Waste</span><span className="text-[#4ade80] font-black text-[8px] md:text-[10px] tracking-[.3em] md:tracking-[.4em] uppercase text-left text-balance">Clearout Ltd</span></div></Link>
+          <Link to="/" onClick={() => setIsMenuOpen(false)} aria-label="Go to homepage" className="flex items-center gap-3 md:gap-4 shrink-0 group text-left"><div className="relative h-12 w-12 md:h-16 md:w-16 transition-transform group-hover:scale-105"><img src="/logo.webp" alt="Total Waste Clearout Ltd logo" className="h-full w-full object-contain relative z-10" loading="eager" /></div><div className="flex flex-col leading-none text-left"><span className={`font-[1000] text-lg md:text-2xl tracking-tighter uppercase italic transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-white'}`}>Total Waste</span><span className="text-[#4ade80] font-black text-[8px] md:text-[10px] tracking-[.3em] md:tracking-[.4em] uppercase text-left text-balance">Clearout Ltd</span></div></Link>
           <div className={`hidden xl:flex items-center gap-8 font-black text-[11px] uppercase tracking-[0.2em] transition-colors duration-300 ${isScrolled ? 'text-slate-600' : 'text-white/80'}`}>
             <Link to="/" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname === '/' ? 'text-[#16a34a]' : ''}`}>Home<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname === '/' ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
             <Link to="/services" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname.startsWith('/services') ? 'text-[#16a34a]' : ''}`}>Services<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname.startsWith('/services') ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
@@ -1032,7 +1032,7 @@ const App = () => {
             {/* Brand */}
             <div className="lg:col-span-4 space-y-6">
               <Link to="/" aria-label="Go to homepage" className="flex items-center gap-4 group cursor-pointer">
-                <img src="logo.webp" alt="Total Waste Clearout Ltd logo" className="w-14 h-14 object-contain group-hover:rotate-12 transition-transform" loading="lazy" />
+                <img src="/logo.webp" alt="Total Waste Clearout Ltd logo" className="w-14 h-14 object-contain group-hover:rotate-12 transition-transform" loading="lazy" />
                 <div className="flex flex-col leading-none">
                   <span className="font-black text-2xl md:text-3xl tracking-tighter uppercase italic leading-none text-white">Total Waste</span>
                   <span className="text-[#4ade80] font-black text-xs tracking-[.4em] uppercase">Clearout Ltd</span>

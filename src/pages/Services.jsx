@@ -17,7 +17,7 @@ import {
 } from 'lucide-react';
 
 // Helper Components
-const ModernServiceCard = ({ icon, emoji, title, description, features, price, dark, green, accentColor, borderColor }) => (
+const ModernServiceCard = ({ icon, emoji, title, description, features, price, dark, green, accentColor, borderColor, to }) => (
   <div className={`group relative ${accentColor} p-8 md:p-10 rounded-3xl border-4 ${borderColor} shadow-[8px_8px_0px_rgba(0,0,0,0.1)] hover:shadow-[16px_16px_0px_rgba(0,0,0,0.15)] transition-all duration-300 hover:-translate-y-3 overflow-hidden`}>
     {/* Background decoration */}
     <div className="absolute top-0 right-0 text-8xl opacity-5 pointer-events-none">{emoji}</div>
@@ -56,10 +56,13 @@ const ModernServiceCard = ({ icon, emoji, title, description, features, price, d
         <p className={`text-xs font-black uppercase tracking-widest mb-1 ${dark || green ? 'text-white/40' : 'text-slate-400'}`}>Starting at</p>
         <p className={`text-2xl md:text-3xl font-black italic ${dark || green ? 'text-white' : 'text-[#16a34a]'}`}>{price}</p>
       </div>
-      <a href="tel:07769844298" className={`p-3 rounded-full ${dark || green ? 'bg-white text-slate-900' : 'bg-[#16a34a] text-white'} hover:scale-110 transition-transform shadow-lg`}>
+      <a href="tel:07769844298" className={`relative z-10 p-3 rounded-full ${dark || green ? 'bg-white text-slate-900' : 'bg-[#16a34a] text-white'} hover:scale-110 transition-transform shadow-lg`}>
         <Phone size={20} />
       </a>
     </div>
+    {to && (
+      <Link to={to} className="absolute inset-0" aria-label={`Learn more about ${title}`} />
+    )}
   </div>
 );
 
@@ -182,6 +185,7 @@ const Services = () => {
                   price="From £150"
                   accentColor="bg-[#dcfce7]"
                   borderColor="border-[#16a34a]"
+                  to="/services/home-probate-clearance"
                 />
                 <ModernServiceCard
                   icon={<TreePine size={40} className="text-[#16a34a]" />}
@@ -192,6 +196,7 @@ const Services = () => {
                   price="From £120"
                   accentColor="bg-[#dcfce7]"
                   borderColor="border-[#16a34a]"
+                  to="/services/garden-waste"
                 />
                 <ModernServiceCard
                   icon={<Hammer size={40} className="text-[#16a34a]" />}
@@ -202,6 +207,7 @@ const Services = () => {
                   price="From £100"
                   accentColor="bg-[#dcfce7]"
                   borderColor="border-[#16a34a]"
+                  to="/services/garage-shed"
                 />
               </div>
             </div>
@@ -228,6 +234,7 @@ const Services = () => {
                   dark
                   accentColor="bg-slate-900"
                   borderColor="border-[#4ade80]"
+                  to="/services/commercial-ripouts"
                 />
                 <ModernServiceCard
                   icon={<HardHat size={40} className="text-white" />}
@@ -239,6 +246,7 @@ const Services = () => {
                   green
                   accentColor="bg-[#16a34a]"
                   borderColor="border-slate-900"
+                  to="/services/construction-waste"
                 />
                 <ModernServiceCard
                   icon={<Users size={40} className="text-orange-500" />}
@@ -249,6 +257,7 @@ const Services = () => {
                   price="From £250"
                   accentColor="bg-orange-50"
                   borderColor="border-orange-500"
+                  to="/services/commercial-ripouts"
                 />
                 <ModernServiceCard
                   icon={<Hammer size={40} className="text-[#16a34a]" />}
@@ -259,6 +268,7 @@ const Services = () => {
                   price="From £500"
                   accentColor="bg-[#ecf3ef]"
                   borderColor="border-[#16a34a]"
+                  to="/services/commercial-ripouts"
                 />
               </div>
             </div>
