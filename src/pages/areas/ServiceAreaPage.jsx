@@ -15,7 +15,7 @@ const ICON_MAP = {
 
 const ServiceAreaPage = () => {
   const location = useLocation();
-  const slug = location.pathname.replace(/^\//, '');
+  const slug = location.pathname.replace(/^\//, '').replace(/\/$/, '');
   const result = getServiceAreaFromSlug(slug);
 
   useEffect(() => {
