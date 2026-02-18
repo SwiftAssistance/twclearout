@@ -15,7 +15,7 @@ const ICON_MAP = {
 
 const AreaPage = () => {
   const location = useLocation();
-  const slug = location.pathname.replace(/^\//, '');
+  const slug = location.pathname.replace(/^\//, '').replace(/\/$/, '');
   const area = AREA_DATA[slug];
 
   useEffect(() => {
