@@ -37,7 +37,7 @@ const HomeAndProbate = () => {
       <Helmet>
         <title>Probate House Clearance Reading Guildford | Bereavement Estate Clearance</title>
         <meta name="description" content="Compassionate probate & estate clearance in Reading, Guildford, Slough. Respectful bereavement house clearance, charity donations, licensed from £600." />
-        <meta name="keywords" content="probate clearance, house clearance bereavement, estate clearance Reading, deceased estate Guildford, Berkshire Surrey, respectful service" />
+        <meta name="keywords" content="house clearance, house clearance reading, house clearance slough, house clearance guildford, house clearance berkshire, house clearance surrey, house clearance woking, house clearance bracknell, house clearance windsor, probate clearance reading, probate clearance berkshire, probate house clearance, estate clearance reading, estate clearance surrey, bereavement clearance, deceased estate clearance, home clearance reading, home clearance slough, property clearance berkshire, full house clearance, furniture removal reading, furniture disposal berkshire, house clearout near me, cheap house clearance reading, downsizing clearance, hoarder house clearance berkshire, whole house clearance, charity donation clearance, sensitive house clearance, compassionate clearance service" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/home-probate-clearance/" />
         <meta property="og:title" content="House & Probate Clearance | Total Waste Clearout Berkshire" />
         <meta property="og:description" content="Compassionate probate and estate clearance services across Reading, Guildford, and Berkshire & Surrey." />

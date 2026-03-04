@@ -37,7 +37,7 @@ const CommercialRipouts = () => {
       <Helmet>
         <title>Commercial Clearance Reading Slough | Office Strip-Out Berkshire Surrey</title>
         <meta name="description" content="Professional commercial site rip-outs in Reading, Slough, Guildford. Office, retail, restaurant clearance. Out-of-hours service, licensed from £400." />
-        <meta name="keywords" content="commercial clearance, office strip-out Reading, retail clearance Slough, shop rip-out Guildford, Berkshire Surrey, business waste" />
+        <meta name="keywords" content="commercial waste removal, commercial waste removal reading, commercial waste removal slough, commercial waste removal guildford, commercial waste removal berkshire, commercial waste removal surrey, office clearance reading, office clearance slough, office clearance guildford, office clearance berkshire, office strip out reading, office strip out slough, retail clearance berkshire, shop fitting removal, restaurant clearance surrey, commercial rip out, office furniture removal reading, office furniture disposal, IT equipment disposal berkshire, WEEE disposal surrey, warehouse clearance reading, business waste removal, commercial skip alternative, out of hours waste collection, evening waste collection berkshire, data destruction berkshire, office clearance near me, commercial clearance near me" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/commercial-ripouts/" />
         <meta property="og:title" content="Commercial Site Rip-outs | Total Waste Clearout Berkshire" />
         <meta property="og:description" content="Professional commercial clearance and strip-out services across Berkshire & Surrey. Out-of-hours available." />

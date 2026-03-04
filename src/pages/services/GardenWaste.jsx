@@ -37,7 +37,7 @@ const GardenWaste = () => {
       <Helmet>
         <title>Garden Waste Removal Reading Guildford | Green Waste Clearance Berkshire</title>
         <meta name="description" content="Professional garden waste removal in Reading, Guildford, Slough. Trees, hedges, grass cleared. 100% composted, same-day service, licensed from £80." />
-        <meta name="keywords" content="garden waste removal, green waste Reading, tree removal Guildford, hedge clearance Slough, Berkshire Surrey, garden clearance Woking" />
+        <meta name="keywords" content="garden waste removal, garden waste removal reading, garden waste removal slough, garden waste removal guildford, garden waste removal woking, garden waste removal bracknell, garden waste removal windsor, garden waste removal berkshire, garden waste removal surrey, green waste clearance, green waste collection berkshire, tree removal reading, tree branch removal slough, hedge clearance berkshire, hedge trimming waste removal, garden clearance near me, garden rubbish removal, garden skip hire alternative, soil removal reading, turf removal berkshire, grass cutting waste, garden furniture disposal, shed waste removal, fencing removal berkshire, decking removal surrey, landscaping waste clearance, same day garden waste collection, cheap garden waste removal, compost waste collection" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/garden-waste/" />
         <meta property="og:title" content="Garden & Green Waste Removal | Total Waste Clearout" />
         <meta property="og:description" content="Professional garden waste clearance across Berkshire & Surrey. 100% composted, same-day service available." />

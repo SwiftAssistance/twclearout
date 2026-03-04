@@ -42,9 +42,9 @@ const About = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Helmet>
-        <title>About Us | Professional Waste Removal Berkshire & Surrey - 10+ Years Experience</title>
-        <meta name="description" content="Learn about Total Waste Clearout - Berkshire's trusted waste removal company with 10+ years experience. 94% recycling rate, fully licensed & insured. Serving Reading, Slough, Guildford & Surrey." />
-        <meta name="keywords" content="about waste removal company, professional rubbish clearance Berkshire, licensed waste carrier Reading, eco-friendly waste disposal Surrey, waste removal experience Slough, trusted clearance company Guildford, Berkshire waste experts, Surrey junk removal specialists" />
+        <title>About Total Waste Clearout | Berkshire & Surrey Waste Removal Experts</title>
+        <meta name="description" content="Learn about Total Waste Clearout - Berkshire & Surrey's trusted waste removal company. 94% recycling rate, fully licensed, £5M insured. Serving Reading, Slough, Guildford, Woking, Bracknell, Windsor & more." />
+        <meta name="keywords" content="about total waste clearout, waste removal company berkshire, waste removal company surrey, rubbish clearance company reading, rubbish clearance company slough, professional waste removal berkshire, professional waste removal surrey, licensed waste carrier berkshire, licensed waste carrier surrey, eco friendly waste disposal berkshire, eco friendly waste disposal surrey, trusted clearance company reading, trusted clearance company guildford, waste removal experts berkshire, junk removal specialists surrey, 94 percent recycling rate, insured waste removal company, waste management company berkshire" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/about/" />
         <meta property="og:title" content="About Total Waste Clearout | Berkshire's Waste Removal Experts" />
         <meta property="og:description" content="10+ years of professional waste removal across Berkshire & Surrey. 94% recycling rate, fully licensed & insured team." />
