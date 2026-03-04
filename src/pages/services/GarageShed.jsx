@@ -37,7 +37,7 @@ const GarageShed = () => {
       <Helmet>
         <title>Garage Shed Demolition Reading Slough | Building Removal Berkshire Surrey</title>
         <meta name="description" content="Complete garage & shed demolition in Reading, Slough, Guildford. Contents clearance, dismantling, waste removal. Same-day service, licensed from £250." />
-        <meta name="keywords" content="garage demolition, shed removal Reading, garage clearance Slough, building dismantling Guildford, Berkshire Surrey, outbuilding removal" />
+        <meta name="keywords" content="garage clearance, garage clearance reading, garage clearance slough, garage clearance guildford, garage clearance berkshire, garage clearance surrey, shed clearance reading, shed clearance slough, shed clearance berkshire, garage demolition reading, garage demolition slough, garage demolition berkshire, shed demolition reading, shed demolition berkshire, shed removal near me, garage clearout reading, garage clearout berkshire, outbuilding removal, outbuilding demolition berkshire, concrete garage removal, prefab garage demolition, garden building removal, workshop demolition berkshire, summerhouse removal, shed dismantling surrey, garage contents clearance, garden shed clearance near me, cheap garage clearance, same day shed removal" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/garage-shed/" />
         <meta property="og:title" content="Garage & Shed Demolition | Total Waste Clearout Berkshire" />
         <meta property="og:description" content="Professional garage and shed demolition services across Berkshire & Surrey. Complete service from clearance to cleanup." />

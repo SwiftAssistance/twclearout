@@ -93,9 +93,9 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Helmet>
-        <title>Professional Waste Removal Services | Reading, Slough, Berkshire & Surrey</title>
-        <meta name="description" content="Complete waste removal services in Berkshire & Surrey. Home clearance, garden waste, office rip-outs, trade waste & more. 94% recycling rate. Same-day service available. Call 07769 844298." />
-        <meta name="keywords" content="waste removal services, rubbish clearance Reading, house clearance Slough, garden waste removal Berkshire, office clearance Surrey, trade waste Guildford, commercial waste removal Woking, junk removal Bracknell, skip alternative Windsor, waste disposal Maidenhead" />
+        <title>Waste Removal Services Berkshire & Surrey | House, Garden, Commercial Clearance</title>
+        <meta name="description" content="Complete waste removal services in Berkshire & Surrey. House clearance, garden waste, office rip-outs, construction waste, garage demolition. 94% recycling rate. Same-day service. Call 07769 844298." />
+        <meta name="keywords" content="waste removal services, waste removal services berkshire, waste removal services surrey, rubbish clearance services reading, rubbish clearance services slough, house clearance service berkshire, garden waste removal service surrey, commercial waste removal service, office clearance service reading, office clearance service guildford, construction waste removal service, trade waste collection service, skip hire alternative berkshire, junk removal service surrey, bulky waste collection service, furniture removal service, garage demolition service, shed clearance service, end of tenancy clearance service, same day waste removal, licensed waste carrier berkshire surrey, waste disposal maidenhead, waste disposal windsor, waste disposal bracknell, waste disposal woking" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/" />
         <meta property="og:title" content="Professional Waste Removal Services | Total Waste Clearout" />
         <meta property="og:description" content="Complete waste removal services across Berkshire & Surrey. From home clearance to commercial rip-outs. 94% recycling rate. Same-day service." />
