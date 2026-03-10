@@ -60,8 +60,9 @@ const AreaPage = () => {
     "description": `Professional waste removal and rubbish clearance services in ${area.name}, ${area.county}. Same-day collection, 94% recycling rate, fully licensed.`,
     "url": `https://totalwasteclearout.co.uk/${area.slug}`,
     "telephone": "+447769844298",
-    "priceRange": "££",
+    "email": "info@totalwasteclearout.co.uk",
     "image": "https://totalwasteclearout.co.uk/logo-512.png",
+    "hasMap": `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(area.mapQuery)}`,
     "address": {
       "@type": "PostalAddress",
       "addressLocality": area.name,
@@ -74,14 +75,24 @@ const AreaPage = () => {
       "latitude": area.lat,
       "longitude": area.lng
     },
-    "areaServed": {
-      "@type": "City",
-      "name": area.name,
-      "containedInPlace": {
-        "@type": "AdministrativeArea",
-        "name": area.county
-      }
-    },
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": area.name,
+        "containedInPlace": {
+          "@type": "AdministrativeArea",
+          "name": area.county
+        }
+      },
+      ...area.nearbyAreas.map(nearby => ({
+        "@type": "Place",
+        "name": nearby
+      })),
+      ...area.postcodes.map(pc => ({
+        "@type": "Place",
+        "name": pc
+      }))
+    ],
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -96,7 +107,27 @@ const AreaPage = () => {
         "closes": "17:00"
       }
     ],
-    "priceRange": "££"
+    "priceRange": "££",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": area.rating,
+      "reviewCount": area.reviewCount,
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": area.reviews.map(r => ({
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": r.author
+      },
+      "reviewBody": r.text
+    }))
   };
 
   // Schema.org Service structured data
@@ -408,6 +439,37 @@ const AreaPage = () => {
             </div>
           </section>
 
+          {/* Pricing Guide */}
+          <section className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">
+              Waste Removal Prices in {area.name}
+            </h2>
+            <div className="bg-white border-4 border-slate-900 rounded-xl p-8 shadow-[8px_8px_0px_#e2e8f0]">
+              <p className="text-slate-700 font-bold text-lg mb-6">
+                Transparent, fixed pricing for all waste removal in {area.name}. No hidden fees — the price we quote is the price you pay.
+              </p>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                {[
+                  { service: "Garden Waste Removal", from: "From £80", desc: "Hedge trimmings, branches, soil & green waste" },
+                  { service: "Garage & Shed Clearance", from: "From £100", desc: "Contents clearance, demolition & removal" },
+                  { service: "Single Room Clearance", from: "From £150", desc: "One room, full clearance including loading" },
+                  { service: "Construction Waste", from: "From £180", desc: "Rubble, timber, plasterboard & building waste" },
+                  { service: "Commercial Clearance", from: "From £300", desc: "Office, retail, or commercial premises" },
+                  { service: "Full House Clearance", from: "From £400", desc: "2–3 bed house, all rooms included" },
+                ].map((item, idx) => (
+                  <div key={idx} className="bg-[#4ade80]/10 border-2 border-[#16a34a] rounded-xl p-5">
+                    <div className="text-2xl font-black text-[#16a34a] mb-1">{item.from}</div>
+                    <div className="font-black text-slate-900 uppercase text-sm mb-2">{item.service}</div>
+                    <p className="text-slate-600 text-sm">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-slate-500 text-sm font-bold border-t-2 border-slate-100 pt-4">
+                Prices shown are starting rates for the {area.name} area. Final price depends on volume and access. Call 07769 844298 for a free fixed quote.
+              </p>
+            </div>
+          </section>
+
           {/* Local Landmarks & Areas */}
           <section className="mb-16">
             <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">
@@ -449,6 +511,36 @@ const AreaPage = () => {
                     <p className="text-slate-700 leading-relaxed font-bold">{faq.a}</p>
                   </div>
                 </details>
+              ))}
+            </div>
+          </section>
+
+          {/* Customer Reviews */}
+          <section className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-4">
+              Customer Reviews — Waste Removal {area.name}
+            </h2>
+            <div className="flex items-center gap-3 mb-8">
+              <div className="flex gap-1">
+                {[1, 2, 3, 4, 5].map(i => (
+                  <Star key={i} size={24} className="text-yellow-400" style={{ fill: '#facc15' }} />
+                ))}
+              </div>
+              <span className="font-black text-2xl text-slate-900">{area.rating} / 5</span>
+              <span className="text-slate-500 font-bold">({area.reviewCount} verified reviews)</span>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {area.reviews.map((review, idx) => (
+                <div key={idx} className="bg-white border-4 border-slate-900 rounded-xl p-6 shadow-[6px_6px_0px_#e2e8f0]">
+                  <div className="flex gap-1 mb-4">
+                    {[1, 2, 3, 4, 5].map(i => (
+                      <Star key={i} size={16} className="text-yellow-400" style={{ fill: '#facc15' }} />
+                    ))}
+                  </div>
+                  <p className="text-slate-700 leading-relaxed mb-4 italic">"{review.text}"</p>
+                  <div className="font-black text-slate-900 text-sm">{review.author}</div>
+                  <div className="text-[#16a34a] text-xs font-bold uppercase mt-1">{review.location}</div>
+                </div>
               ))}
             </div>
           </section>
