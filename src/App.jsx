@@ -136,7 +136,7 @@ const HomeHero = () => (
         <div className="mb-8 inline-block animate-pulse">
           <span className="bg-[#4ade80] text-slate-900 px-4 md:px-6 py-2 md:py-3 text-[10px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.3em] italic border-2 md:border-4 border-white shadow-lg rounded-sm">Professional Clearance</span>
         </div>
-        <h1 className="text-5xl md:text-[8rem] lg:text-[10rem] font-black text-white leading-[0.85] mb-8 tracking-tighter uppercase italic">WASTE <br /><span className="text-transparent stroke-text-light">VANISHED</span> <br /><span className="text-[#4ade80]">TODAY.</span></h1>
+        <h1 className="text-5xl md:text-[8rem] lg:text-[10rem] font-black text-white leading-[0.85] mb-8 tracking-tighter uppercase italic">WASTE <br /><span className="text-transparent stroke-text-light">REMOVAL</span> <br /><span className="text-[#4ade80]">TODAY.</span></h1>
         <p className="text-lg md:text-3xl text-white/70 mb-12 max-w-2xl font-bold leading-tight italic text-balance">Premium waste removal for <span className="text-white border-b-4 border-orange-500">Berkshire & Surrey</span>. Fully licensed. Fixed pricing. Professional crews.</p>
         <div className="flex flex-wrap gap-4 md:gap-6">
           <Link to="/services" className="bg-orange-500 hover:bg-orange-400 text-black px-10 md:px-12 py-5 md:py-6 rounded-sm font-black text-lg md:text-xl uppercase italic tracking-wider transition-all hover:-translate-y-1 shadow-[8px_8px_0px_#022c22] active:shadow-none flex items-center cursor-pointer">

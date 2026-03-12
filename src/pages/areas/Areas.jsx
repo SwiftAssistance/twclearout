@@ -231,20 +231,40 @@ const Areas = () => {
             <section className="mb-16">
               <div className="bg-white border-4 border-slate-900 rounded-xl p-8 md:p-12 shadow-[8px_8px_0px_#e2e8f0]">
                 <h2 className="text-2xl md:text-3xl font-black uppercase text-slate-900 mb-6">
-                  Local Waste Removal Across the Thames Valley
+                  Local Waste Removal Across Berkshire & Surrey
                 </h2>
                 <div className="space-y-4 text-slate-700 leading-relaxed">
                   <p>
-                    Total Waste Clearout provides professional waste removal, rubbish clearance, and property clearance services across the entire Berkshire and Surrey region. Our service area covers the Thames Valley corridor from Reading in the west to Staines in the east, and from Maidenhead in the north to Guildford in the south.
+                    Total Waste Clearout provides professional waste removal, rubbish clearance, and property clearance services across the entire Berkshire and Surrey region. Our waste removal service area covers the Thames Valley corridor from Reading in the west to Staines in the east, and from Maidenhead in the north to Guildford in the south — giving you one reliable, licensed team for the whole area.
                   </p>
                   <p>
-                    As a fully licensed waste carrier registered with the Environment Agency, we offer a complete range of waste removal services in every town we serve: house clearance, end of tenancy clearance, garden waste removal, commercial waste clearance, construction waste removal, and garage and shed demolition. Every job comes with transparent fixed pricing, professional uniformed crews, and our industry-leading 94% recycling rate.
+                    As a fully licensed waste carrier registered with the Environment Agency, we offer a complete range of waste removal services in every town we serve: house clearance, end of tenancy clearance, garden waste removal, commercial waste clearance, construction waste removal, and garage and shed clearance. Every job comes with transparent fixed pricing, professional uniformed crews, and our industry-leading 94% recycling rate.
+                  </p>
+
+                  <h3 className="text-xl font-black uppercase text-slate-900 pt-2">Waste Removal Berkshire</h3>
+                  <p>
+                    In Berkshire, our waste removal teams operate daily across <strong>Reading</strong>, <strong>Slough</strong>, <strong>Bracknell</strong>, <strong>Windsor</strong>, <strong>Ascot</strong>, and <strong>Maidenhead</strong>. Whether you're a homeowner in Caversham needing a full house clearance, a landlord in Slough handling an end of tenancy, or a construction firm in Bracknell with a skip-load of waste, we collect it all. Our Berkshire waste removal service is particularly popular as a skip hire alternative — no permits, no street obstruction, and we load everything ourselves.
                   </p>
                   <p>
-                    Whether you need a same-day rubbish collection in Reading, a full house clearance in Guildford, commercial waste removal in Slough, or garden waste cleared in Windsor, we deliver the same high standard of service across all areas. Our teams are based locally across Berkshire and Surrey, meaning we can respond quickly and arrive promptly — often within 2 hours of your call.
+                    Reading is our largest Berkshire service area, covering RG1 through RG6 and neighbouring postcodes. We clear loft and garage waste in Caversham, handle commercial rubbish removal in the town centre, and provide garden waste clearance in Earley and Woodley. In Slough, our teams regularly clear waste from the Trading Estate, residential streets in Cippenham, and rental properties across the SL1–SL3 postcodes.
+                  </p>
+
+                  <h3 className="text-xl font-black uppercase text-slate-900 pt-2">Waste Removal Surrey</h3>
+                  <p>
+                    In Surrey, our rubbish clearance teams cover <strong>Guildford</strong>, <strong>Woking</strong>, <strong>Egham</strong>, and <strong>Staines</strong>. Surrey waste removal comes with the same fixed pricing, same-day availability, and the same Environment Agency-licensed service you get across Berkshire. Guildford is our largest Surrey area — we clear waste from residential properties in Merrow and Park Barn, commercial premises in the town centre, and construction sites throughout the GU1–GU4 postcodes. In Woking, Egham, and Staines we regularly handle probate clearances, student property cleanouts near Royal Holloway, and rental property rubbish clearance for landlords.
+                  </p>
+
+                  <h3 className="text-xl font-black uppercase text-slate-900 pt-2">Why Choose Us Over a Skip?</h3>
+                  <p>
+                    Traditional skip hire in Berkshire and Surrey requires a permit if placed on the road (up to £75 in some councils), takes up parking space for days, and leaves the loading to you. Our man-and-van waste removal service costs a similar price but we do all the lifting, we're gone in hours, and there's nothing blocking your driveway. We can also access properties where a skip lorry simply won't fit — through tight gates, down narrow alleys, or up internal stairs.
+                  </p>
+
+                  <h3 className="text-xl font-black uppercase text-slate-900 pt-2">Licensed, Insured & Responsible</h3>
+                  <p>
+                    Every load we remove is processed at licensed transfer stations and sorted for maximum recycling. Our current recycling rate across Berkshire and Surrey jobs is 94% — well above the industry average. All waste is accompanied by the correct waste transfer documentation. We never fly-tip, and we're happy to provide a copy of our Environment Agency waste carrier licence on request.
                   </p>
                   <p>
-                    We're proud to be the go-to waste removal company for homeowners, landlords, property managers, builders, landscapers, and businesses across the Thames Valley. With £5M public liability insurance and full waste carrier licensing, you can trust us to handle your waste legally, responsibly, and efficiently.
+                    Whether you need a same-day rubbish collection in Reading, a full house clearance in Guildford, commercial waste removal in Slough, or garden waste cleared in Windsor, we deliver the same high standard of service across all areas. Our local teams across Berkshire and Surrey typically arrive within 2 hours of your call.
                   </p>
                 </div>
               </div>
