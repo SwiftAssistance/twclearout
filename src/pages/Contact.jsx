@@ -113,7 +113,7 @@ const Contact = () => {
         {/* CONTACT HERO */}
         <header className="relative min-h-[70vh] md:min-h-[85vh] lg:min-h-screen flex items-center pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden bg-[#064e3b]">
           <div className="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?auto=format&fit=crop&q=80&w=2000" alt="Contact us" className="w-full h-full object-cover opacity-30 mix-blend-overlay grayscale" loading="eager" />
+            <img src="/hero.jpg" alt="Contact us" className="w-full h-full object-cover opacity-30 mix-blend-overlay grayscale" loading="eager" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-transparent to-transparent" />
           </div>
