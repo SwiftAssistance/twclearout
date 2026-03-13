@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import QuoteModal from '../components/QuoteModal';
 import {
   Award,
   ShieldCheck,
@@ -55,7 +56,7 @@ const About = () => {
       {/* Main Content */}
       <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
         {/* ABOUT HERO */}
-        <header className="relative min-h-[70vh] md:min-h-[85vh] lg:min-h-screen flex items-center pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden bg-[#064e3b]">
+        <header className="relative min-h-[55vh] flex items-center pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden bg-[#064e3b]">
           <div className="absolute inset-0 z-0">
             <img src="/hero.jpg" alt="About us" className="w-full h-full object-cover opacity-15 grayscale" loading="eager" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
@@ -74,6 +75,15 @@ const About = () => {
               <p className="text-base md:text-xl lg:text-2xl text-white/90 mb-8 md:mb-12 font-bold leading-relaxed max-w-3xl mx-auto px-4">
                 Over <span className="text-[#4ade80]">10 years</span> of professional waste removal excellence across <span className="text-orange-500">Berkshire & Surrey</span>.
               </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
+                <a href="tel:07769844298" className="bg-white text-[#064e3b] px-8 py-4 rounded-lg font-black text-base uppercase transition-all hover:scale-105 shadow-2xl flex items-center justify-center gap-3">
+                  Call 07769 844298
+                </a>
+                <QuoteModal
+                  buttonLabel="Get a Quote"
+                  buttonClassName="bg-[#4ade80] hover:bg-white text-slate-900 px-8 py-4 rounded-lg font-black text-base uppercase transition-all hover:scale-105 shadow-2xl flex items-center justify-center gap-3"
+                />
+              </div>
             </div>
           </div>
         </header>
