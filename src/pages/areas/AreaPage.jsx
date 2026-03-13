@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import StatsTicker from '../../components/StatsTicker';
+import QuoteModal from '../../components/QuoteModal';
 import {
   MapPin, Phone, CheckCircle, Recycle, ShieldCheck, Zap, Scale,
   Star, ArrowRight, Truck, TreePine, Briefcase, HardHat, Hammer,
