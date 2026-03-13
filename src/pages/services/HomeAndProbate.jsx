@@ -77,27 +77,6 @@ const HomeAndProbate = () => {
       <div className="container mx-auto px-6 py-16 md:py-24">
         <div className="max-w-6xl mx-auto">
 
-          {/* Service Description */}
-          <section className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Compassionate House & Estate Clearance</h2>
-            <div className="prose prose-lg max-w-none">
-              <div className="bg-white border-4 border-slate-900 rounded-xl p-8 shadow-[8px_8px_0px_#e2e8f0] mb-8">
-                <p className="text-slate-700 leading-relaxed mb-4">
-                  Total Waste Clearout Ltd provides sensitive, professional house and probate clearance services throughout Reading, Slough, Guildford, Woking, and across Berkshire and Surrey. We understand that clearing a deceased loved one's home is one of the most difficult tasks families face during bereavement. Our experienced teams approach every probate clearance with respect, care, and the utmost sensitivity, treating your family member's belongings with dignity throughout the process.
-                </p>
-                <p className="text-slate-700 leading-relaxed mb-4">
-                  Whether you're dealing with probate requirements after a bereavement, clearing a parent's property in Reading or Guildford, preparing an inherited house for sale, or managing an estate clearance as an executor, we provide a comprehensive service that removes the physical and emotional burden from your shoulders. We've worked with hundreds of families across Berkshire and Surrey, and we understand both the practical challenges (tight probate deadlines, property sale requirements) and the emotional difficulty of sorting through a lifetime of possessions.
-                </p>
-                <p className="text-slate-700 leading-relaxed mb-4">
-                  Our house clearance service is complete and thorough. We clear entire properties from top to bottom: all rooms, garages and outbuildings, gardens and sheds. During clearance, our teams pay careful attention to locating important documents (wills, deeds, insurance policies), valuable items (jewelry, collectibles, photographs), and items of sentimental value that family members may wish to keep. We work methodically through each room, checking drawers, cupboards, and storage spaces - nothing is simply thrown away without consideration.
-                </p>
-                <p className="text-slate-700 leading-relaxed">
-                  We're committed to handling estate clearances responsibly and respectfully. Usable furniture, household items, books, and clothing are donated to local charities across Reading, Slough, and Guildford wherever possible - many families find comfort knowing their loved one's possessions will benefit others. Unusable items are recycled extensively (we achieve 94% recycling rates). As a fully licensed waste carrier with the Environment Agency, we provide proper documentation for executors and solicitors. With £5 million public liability insurance and years of experience in sensitive clearances, we're the trusted choice for probate and bereavement house clearances throughout Berkshire and Surrey.
-                </p>
-              </div>
-            </div>
-          </section>
-
           {/* What We Remove */}
           <section className="mb-16">
             <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">What We Remove</h2>
@@ -140,6 +119,27 @@ const HomeAndProbate = () => {
               <div className="mt-6 pt-6 border-t-2 border-slate-200">
                 <p className="text-slate-600 text-sm">
                   <strong>Important:</strong> We carefully check for valuables, documents, and sentimental items throughout the clearance process.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Service Description */}
+          <section className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Compassionate House & Estate Clearance</h2>
+            <div className="prose prose-lg max-w-none">
+              <div className="bg-white border-4 border-slate-900 rounded-xl p-8 shadow-[8px_8px_0px_#e2e8f0] mb-8">
+                <p className="text-slate-700 leading-relaxed mb-4">
+                  Total Waste Clearout Ltd provides sensitive, professional house and probate clearance services throughout Reading, Slough, Guildford, Woking, and across Berkshire and Surrey. We understand that clearing a deceased loved one's home is one of the most difficult tasks families face during bereavement. Our experienced teams approach every probate clearance with respect, care, and the utmost sensitivity, treating your family member's belongings with dignity throughout the process.
+                </p>
+                <p className="text-slate-700 leading-relaxed mb-4">
+                  Whether you're dealing with probate requirements after a bereavement, clearing a parent's property in Reading or Guildford, preparing an inherited house for sale, or managing an estate clearance as an executor, we provide a comprehensive service that removes the physical and emotional burden from your shoulders. We've worked with hundreds of families across Berkshire and Surrey, and we understand both the practical challenges (tight probate deadlines, property sale requirements) and the emotional difficulty of sorting through a lifetime of possessions.
+                </p>
+                <p className="text-slate-700 leading-relaxed mb-4">
+                  Our house clearance service is complete and thorough. We clear entire properties from top to bottom: all rooms, garages and outbuildings, gardens and sheds. During clearance, our teams pay careful attention to locating important documents (wills, deeds, insurance policies), valuable items (jewelry, collectibles, photographs), and items of sentimental value that family members may wish to keep. We work methodically through each room, checking drawers, cupboards, and storage spaces - nothing is simply thrown away without consideration.
+                </p>
+                <p className="text-slate-700 leading-relaxed">
+                  We're committed to handling estate clearances responsibly and respectfully. Usable furniture, household items, books, and clothing are donated to local charities across Reading, Slough, and Guildford wherever possible - many families find comfort knowing their loved one's possessions will benefit others. Unusable items are recycled extensively (we achieve 94% recycling rates). As a fully licensed waste carrier with the Environment Agency, we provide proper documentation for executors and solicitors. With £5 million public liability insurance and years of experience in sensitive clearances, we're the trusted choice for probate and bereavement house clearances throughout Berkshire and Surrey.
                 </p>
               </div>
             </div>
