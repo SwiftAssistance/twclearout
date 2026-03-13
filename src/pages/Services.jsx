@@ -108,7 +108,7 @@ const Services = () => {
         {/* SERVICES HERO */}
         <header className="relative min-h-[85vh] md:min-h-screen flex items-center pt-32 pb-16 overflow-hidden bg-[#064e3b]">
           <div className="absolute inset-0 z-0">
-            <img src="/hero.jpg" alt="Waste removal services" className="w-full h-full object-cover opacity-30 mix-blend-overlay grayscale" loading="eager" />
+            <img src="/hero.jpg" alt="Waste removal services" className="w-full h-full object-cover opacity-15 grayscale" loading="eager" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-transparent to-transparent" />
           </div>
