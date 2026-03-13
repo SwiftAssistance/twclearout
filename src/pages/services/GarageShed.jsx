@@ -77,27 +77,6 @@ const GarageShed = () => {
       <div className="container mx-auto px-6 py-16 md:py-24">
         <div className="max-w-6xl mx-auto">
 
-          {/* Service Description */}
-          <section className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Professional Garage & Shed Demolition</h2>
-            <div className="prose prose-lg max-w-none">
-              <div className="bg-white border-4 border-slate-900 rounded-xl p-8 shadow-[8px_8px_0px_#e2e8f0] mb-8">
-                <p className="text-slate-700 leading-relaxed mb-4">
-                  Total Waste Clearout Ltd provides comprehensive garage and shed demolition services throughout Reading, Slough, Guildford, Woking, and across Berkshire and Surrey. Whether you're clearing space for a garden renovation, removing a dilapidated shed, demolishing an old garage for a property development, or simply reclaiming outdoor space, we handle the entire process from start to finish - no DIY required, no heavy lifting, no mess left behind.
-                </p>
-                <p className="text-slate-700 leading-relaxed mb-4">
-                  Our complete service covers everything: clearing the contents of your garage or shed, carefully dismantling the structure, removing all materials and waste, and leaving your garden or property clean and clear. We work efficiently and safely, with consideration for neighboring properties, existing gardens, and surrounding structures. Whether it's a small garden shed in Windsor, a concrete garage in Bracknell, a timber outbuilding in Woking, or multiple structures that need removing, we have the experience, equipment, and manpower to handle projects of any size.
-                </p>
-                <p className="text-slate-700 leading-relaxed mb-4">
-                  Most garage and shed demolitions are completed in a single day. We arrive with the right tools and equipment, systematically dismantle the structure (salvaging reusable materials where possible), load everything onto our vehicles, and clear the site completely. We can handle timber sheds, metal garages, concrete garages, brick outbuildings, and combination structures. If you need the concrete base or foundation removed, we can arrange that too. The service is particularly popular with homeowners planning garden redesigns, developers preparing plots, and landlords maintaining rental properties across Berkshire and Surrey.
-                </p>
-                <p className="text-slate-700 leading-relaxed">
-                  As a fully licensed waste carrier registered with the Environment Agency, we ensure all demolition waste is disposed of legally and responsibly. Timber is recycled, metal is salvaged for scrap, and concrete and bricks are processed at authorized facilities. We provide waste transfer notes for your records and work to our standard 94% recycling rate. With £5 million public liability insurance covering all demolition work, you have complete peace of mind. Whether you're in Reading town, the Surrey countryside, or anywhere across our service area, we deliver fast, professional, and competitively priced garage and shed demolition services.
-                </p>
-              </div>
-            </div>
-          </section>
-
           {/* What We Remove */}
           <section className="mb-16">
             <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">What We Do</h2>
@@ -266,6 +245,27 @@ const GarageShed = () => {
                 </p>
                 <p className="leading-relaxed">
                   <strong>Access:</strong> We need reasonable vehicle access to your property for our trucks. Please advise if there are any access restrictions.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Service Description */}
+          <section className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Professional Garage & Shed Demolition</h2>
+            <div className="prose prose-lg max-w-none">
+              <div className="bg-white border-4 border-slate-900 rounded-xl p-8 shadow-[8px_8px_0px_#e2e8f0] mb-8">
+                <p className="text-slate-700 leading-relaxed mb-4">
+                  Total Waste Clearout Ltd provides comprehensive garage and shed demolition services throughout Reading, Slough, Guildford, Woking, and across Berkshire and Surrey. Whether you're clearing space for a garden renovation, removing a dilapidated shed, demolishing an old garage for a property development, or simply reclaiming outdoor space, we handle the entire process from start to finish - no DIY required, no heavy lifting, no mess left behind.
+                </p>
+                <p className="text-slate-700 leading-relaxed mb-4">
+                  Our complete service covers everything: clearing the contents of your garage or shed, carefully dismantling the structure, removing all materials and waste, and leaving your garden or property clean and clear. We work efficiently and safely, with consideration for neighboring properties, existing gardens, and surrounding structures. Whether it's a small garden shed in Windsor, a concrete garage in Bracknell, a timber outbuilding in Woking, or multiple structures that need removing, we have the experience, equipment, and manpower to handle projects of any size.
+                </p>
+                <p className="text-slate-700 leading-relaxed mb-4">
+                  Most garage and shed demolitions are completed in a single day. We arrive with the right tools and equipment, systematically dismantle the structure (salvaging reusable materials where possible), load everything onto our vehicles, and clear the site completely. We can handle timber sheds, metal garages, concrete garages, brick outbuildings, and combination structures. If you need the concrete base or foundation removed, we can arrange that too. The service is particularly popular with homeowners planning garden redesigns, developers preparing plots, and landlords maintaining rental properties across Berkshire and Surrey.
+                </p>
+                <p className="text-slate-700 leading-relaxed">
+                  As a fully licensed waste carrier registered with the Environment Agency, we ensure all demolition waste is disposed of legally and responsibly. Timber is recycled, metal is salvaged for scrap, and concrete and bricks are processed at authorized facilities. We provide waste transfer notes for your records and work to our standard 94% recycling rate. With £5 million public liability insurance covering all demolition work, you have complete peace of mind. Whether you're in Reading town, the Surrey countryside, or anywhere across our service area, we deliver fast, professional, and competitively priced garage and shed demolition services.
                 </p>
               </div>
             </div>
