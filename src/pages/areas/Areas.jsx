@@ -72,7 +72,7 @@ const Areas = () => {
       <header className="relative bg-gradient-to-r from-[#064e3b] to-[#065f46] pt-24 md:pt-28 pb-16 md:pb-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb6?auto=format&fit=crop&q=80&w=2000"
+            src="/hero.jpg"
             alt="Waste removal service areas across Berkshire and Surrey"
             className="w-full h-full object-cover opacity-20 mix-blend-overlay grayscale"
             loading="eager"
