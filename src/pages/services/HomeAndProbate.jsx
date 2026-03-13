@@ -13,7 +13,7 @@ const HomeAndProbate = () => {
     { icon: Package, label: "Personal Belongings" },
     { icon: Home, label: "Furniture & Beds" },
     { icon: Package, label: "Kitchen & Appliances" },
-    { icon: Home, label: "Garage & Loft Items" },
+    { icon: Home, label: "Garage & Shed Items" },
     { icon: Heart, label: "Sensitive Items" }
   ];
 
@@ -36,7 +36,7 @@ const HomeAndProbate = () => {
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Helmet>
         <title>Probate House Clearance Reading Guildford | Bereavement Estate Clearance</title>
-        <meta name="description" content="Compassionate probate & estate clearance in Reading, Guildford, Slough. Respectful bereavement house clearance, charity donations, licensed from £600." />
+        <meta name="description" content="Compassionate probate & estate clearance in Reading, Guildford, Slough. Respectful bereavement house clearance, charity donations, licensed & insured." />
         <meta name="keywords" content="house clearance, house clearance reading, house clearance slough, house clearance guildford, house clearance berkshire, house clearance surrey, house clearance woking, house clearance bracknell, house clearance windsor, probate clearance reading, probate clearance berkshire, probate house clearance, estate clearance reading, estate clearance surrey, bereavement clearance, deceased estate clearance, home clearance reading, home clearance slough, property clearance berkshire, full house clearance, furniture removal reading, furniture disposal berkshire, house clearout near me, cheap house clearance reading, downsizing clearance, hoarder house clearance berkshire, whole house clearance, charity donation clearance, sensitive house clearance, compassionate clearance service" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/home-probate-clearance/" />
         <meta property="og:title" content="House & Probate Clearance | Total Waste Clearout Berkshire" />
@@ -89,7 +89,7 @@ const HomeAndProbate = () => {
                   Whether you're dealing with probate requirements after a bereavement, clearing a parent's property in Reading or Guildford, preparing an inherited house for sale, or managing an estate clearance as an executor, we provide a comprehensive service that removes the physical and emotional burden from your shoulders. We've worked with hundreds of families across Berkshire and Surrey, and we understand both the practical challenges (tight probate deadlines, property sale requirements) and the emotional difficulty of sorting through a lifetime of possessions.
                 </p>
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  Our house clearance service is complete and thorough. We clear entire properties from top to bottom: all rooms, lofts and attics, garages and outbuildings, gardens and sheds. During clearance, our teams pay careful attention to locating important documents (wills, deeds, insurance policies), valuable items (jewelry, collectibles, photographs), and items of sentimental value that family members may wish to keep. We work methodically through each room, checking drawers, cupboards, and storage spaces - nothing is simply thrown away without consideration.
+                  Our house clearance service is complete and thorough. We clear entire properties from top to bottom: all rooms, garages and outbuildings, gardens and sheds. During clearance, our teams pay careful attention to locating important documents (wills, deeds, insurance policies), valuable items (jewelry, collectibles, photographs), and items of sentimental value that family members may wish to keep. We work methodically through each room, checking drawers, cupboards, and storage spaces - nothing is simply thrown away without consideration.
                 </p>
                 <p className="text-slate-700 leading-relaxed">
                   We're committed to handling estate clearances responsibly and respectfully. Usable furniture, household items, books, and clothing are donated to local charities across Reading, Slough, and Guildford wherever possible - many families find comfort knowing their loved one's possessions will benefit others. Unusable items are recycled extensively (we achieve 94% recycling rates). As a fully licensed waste carrier with the Environment Agency, we provide proper documentation for executors and solicitors. With £5 million public liability insurance and years of experience in sensitive clearances, we're the trusted choice for probate and bereavement house clearances throughout Berkshire and Surrey.
@@ -126,7 +126,6 @@ const HomeAndProbate = () => {
                   "Kitchen items and crockery",
                   "Electrical items and TVs",
                   "Carpets and curtains",
-                  "Loft and attic contents",
                   "Garage and shed items",
                   "Garden furniture and equipment",
                   "Paperwork and documents (carefully sorted)",
@@ -186,32 +185,13 @@ const HomeAndProbate = () => {
           <section className="mb-16">
             <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">House Clearance Pricing</h2>
             <div className="bg-gradient-to-r from-[#064e3b] to-[#065f46] border-4 border-slate-900 rounded-xl p-8 md:p-12 text-white">
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-white/20">
-                  <div className="text-[#4ade80] font-black text-4xl mb-2">£600+</div>
-                  <h3 className="font-black text-xl uppercase mb-3">1-2 Bedroom</h3>
-                  <p className="text-white/80">Flats, small houses, or partial clearances. Includes all loading and disposal.</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-white/20">
-                  <div className="text-[#4ade80] font-black text-4xl mb-2">£1,200+</div>
-                  <h3 className="font-black text-xl uppercase mb-3">3-4 Bedroom</h3>
-                  <p className="text-white/80">Most common family homes including garages and standard outbuildings.</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-white/20">
-                  <div className="text-[#4ade80] font-black text-4xl mb-2">£2,500+</div>
-                  <h3 className="font-black text-xl uppercase mb-3">Large House</h3>
-                  <p className="text-white/80">5+ bedrooms, extensive contents, or properties with multiple outbuildings.</p>
-                </div>
-              </div>
-              <div className="mt-8 pt-8 border-t border-white/20">
-                <p className="text-white/90 font-bold text-center mb-4">
-                  All prices include complete house clearance, loading, transport, disposal, and cleaning. Free home visit for accurate quotes.
+              <p className="text-white/90 font-bold text-center text-lg mb-6">
+                Every job is different — we provide free, no-obligation quotes tailored to your property. No hidden costs, no surprises.
+              </p>
+              <div className="bg-[#4ade80]/20 border-2 border-[#4ade80] rounded-lg p-4 text-center">
+                <p className="text-white font-black text-lg">
+                  Usable Items Donated To Local Charities - Supporting Berkshire & Surrey Communities
                 </p>
-                <div className="bg-[#4ade80]/20 border-2 border-[#4ade80] rounded-lg p-4 text-center">
-                  <p className="text-white font-black text-lg">
-                    Usable Items Donated To Local Charities - Supporting Berkshire & Surrey Communities
-                  </p>
-                </div>
               </div>
             </div>
           </section>
