@@ -25,7 +25,7 @@ const SERVICE_AREA_DATA = {
       { icon: "ShoppingCart", label: "Kitchen & Appliances" },
       { icon: "Trash2", label: "General Household Waste" },
       { icon: "Hammer", label: "Carpets & Flooring" },
-      { icon: "Package", label: "Loft & Attic Contents" }
+      { icon: "Package", label: "Garage & Shed Contents" }
     ],
     commonItems: [
       "Sofas, armchairs, and beds",
@@ -35,14 +35,13 @@ const SERVICE_AREA_DATA = {
       "Kitchen appliances and utensils",
       "Carpets, curtains, and soft furnishings",
       "Books, ornaments, and personal items",
-      "Loft and attic contents",
       "Garden furniture and tools",
       "Mattresses and bed frames"
     ],
     benefits: [
       { title: "Compassionate Service", desc: "We handle probate and bereavement clearances with sensitivity and respect for your situation" },
       { title: "Same-Day Available", desc: "Urgent house clearances completed same-day, 7 days a week across the local area" },
-      { title: "Full Property Clearance", desc: "Every room cleared including loft, garage, garden, and outbuildings — nothing left behind" },
+      { title: "Full Property Clearance", desc: "Every room cleared including garage, garden, and outbuildings — nothing left behind" },
       { title: "Licensed & Insured", desc: "Fully licensed waste carriers with £5M public liability insurance for your peace of mind" },
       { title: "94% Recycling Rate", desc: "Usable items donated to charity, everything else recycled responsibly at licensed facilities" },
       { title: "No Hidden Costs", desc: "Fixed-price quotes include loading, transport, and disposal — the quote we give is the price you pay" }
@@ -50,12 +49,12 @@ const SERVICE_AREA_DATA = {
     pricing: [
       { price: "£150+", tier: "Single Room", desc: "One room cleared including all furniture, belongings, and waste" },
       { price: "£400+", tier: "2-3 Bed House", desc: "Full house clearance for standard family homes. Includes all rooms" },
-      { price: "£600+", tier: "4+ Bed House", desc: "Large property clearance including loft, garage, and garden if needed" }
+      { price: "£600+", tier: "4+ Bed House", desc: "Large property clearance including garage, shed, and garden if needed" }
     ],
     getIntro: (area) =>
       `Looking for professional house clearance in ${area.name}? Total Waste Clearout provides fast, compassionate house clearance services across ${area.name} and the wider ${area.county} area. Whether you need a full property cleared for probate, downsizing, moving, or landlord purposes, our experienced crews handle everything — from single-room clearances to complete whole-house clear-outs across all ${area.postcodes[0]} postcodes.`,
     getDescription: (area) =>
-      `Our ${area.name} house clearance service covers every part of the property — bedrooms, living areas, kitchens, bathrooms, lofts, garages, and gardens. We work with families dealing with probate and bereavement, helping to clear properties sensitively while providing full inventory documentation for solicitors when required. For landlords across ${area.name}, we offer rapid turnaround clearances to prepare rental properties for new tenants. Every item is sorted on-site: usable furniture and belongings are donated to local ${area.county} charities, and 94% of remaining waste is recycled at licensed facilities. As a fully licensed waste carrier with £5M public liability insurance, we provide waste transfer notes for every job — essential for probate documentation and landlord compliance.`,
+      `Our ${area.name} house clearance service covers every part of the property — bedrooms, living areas, kitchens, bathrooms, garages, sheds, and gardens. We work with families dealing with probate and bereavement, helping to clear properties sensitively while providing full inventory documentation for solicitors when required. For landlords across ${area.name}, we offer rapid turnaround clearances to prepare rental properties for new tenants. Every item is sorted on-site: usable furniture and belongings are donated to local ${area.county} charities, and 94% of remaining waste is recycled at licensed facilities. As a fully licensed waste carrier with £5M public liability insurance, we provide waste transfer notes for every job — essential for probate documentation and landlord compliance.`,
     getLocalContext: (area) =>
       `${area.name}'s diverse property market — from period homes to modern developments — means house clearance needs vary significantly. ${area.localContext} Our experienced crews are familiar with all property types across ${area.postcodes.join(", ")} postcodes, from terraced houses in the town centre to larger detached properties in surrounding areas like ${area.nearbyAreas.slice(0, 3).join(", ")}. We understand the local area and can often provide same-day service for urgent clearances.`,
     getFaqs: (area) => [
@@ -63,7 +62,7 @@ const SERVICE_AREA_DATA = {
       { q: `How much does house clearance in ${area.name} cost?`, a: `Single room clearances in ${area.name} start from £150, with full 2-3 bed house clearances from £400. We provide fixed-price quotes with no hidden fees — the price we quote is the price you pay. Every quote includes loading, transport, and disposal.` },
       { q: `Do you handle probate house clearances in ${area.name}?`, a: `Yes — probate clearances are one of our specialities in ${area.name}. We work sensitively with families and can provide full inventory documentation for solicitors. We set aside any items of value or sentimental importance before clearing.` },
       { q: `What happens to items from house clearances in ${area.name}?`, a: `Usable furniture and household items are donated to charities across ${area.county}. 94% of everything we collect is recycled or repurposed at licensed facilities. We provide waste transfer notes for every clearance job in ${area.name}.` },
-      { q: `Do you clear the entire house including loft and garage?`, a: `Absolutely. Our ${area.name} house clearance service covers every part of the property — all rooms, loft/attic, garage, shed, garden, and any outbuildings. We leave the property completely empty and broom-clean.` },
+      { q: `Do you clear the entire house including garage and shed?`, a: `Absolutely. Our ${area.name} house clearance service covers every part of the property — all rooms, garage, shed, garden, and any outbuildings. We leave the property completely empty and broom-clean.` },
       { q: `Are you licensed for house clearance in ${area.name}?`, a: `Yes — we're fully registered waste carriers with the Environment Agency, carrying £5M public liability insurance. We provide legal waste transfer notes for every house clearance in ${area.name} and the wider ${area.county} area.` }
     ],
     getMeta: (area) => ({

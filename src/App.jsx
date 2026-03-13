@@ -564,9 +564,9 @@ const ServicesView = () => (
             <ModernServiceCard
               icon={<Hammer size={40} className="text-[#16a34a]" />}
               emoji="🚗"
-              title="Garage & Loft"
-              description="Clear out cluttered garages, lofts, and storage spaces. We handle everything from old tools to heavy equipment."
-              features={['Complete garage clearance', 'Loft & attic clearing', 'Heavy item removal', 'Safe disposal guaranteed']}
+              title="Garage & Shed"
+              description="Clear out cluttered garages, sheds, and storage spaces. We handle everything from old tools to heavy equipment."
+              features={['Complete garage clearance', 'Shed & outbuilding clearing', 'Heavy item removal', 'Safe disposal guaranteed']}
               price="From £100"
               accentColor="bg-[#dcfce7]"
               borderColor="border-[#16a34a]"
