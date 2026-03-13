@@ -77,27 +77,6 @@ const CommercialRipouts = () => {
       <div className="container mx-auto px-6 py-16 md:py-24">
         <div className="max-w-6xl mx-auto">
 
-          {/* Service Description */}
-          <section className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Complete Commercial Strip-Out Services</h2>
-            <div className="prose prose-lg max-w-none">
-              <div className="bg-white border-4 border-slate-900 rounded-xl p-8 shadow-[8px_8px_0px_#e2e8f0] mb-8">
-                <p className="text-slate-700 leading-relaxed mb-4">
-                  Total Waste Clearout Ltd provides comprehensive commercial site rip-out and clearance services for businesses across Reading, Slough, Guildford, Woking, and throughout Berkshire and Surrey. Whether you're relocating offices in Reading town centre, closing a retail unit in Guildford High Street, refitting a restaurant in Windsor, or clearing an industrial unit in Bracknell, we deliver fast, professional, and discreet commercial clearance services.
-                </p>
-                <p className="text-slate-700 leading-relaxed mb-4">
-                  Commercial property clearances require specialist knowledge, proper equipment, and strict adherence to health and safety regulations. Our experienced teams understand the unique challenges of commercial work: tight deadlines, lease-end requirements, data security concerns, minimizing disruption to neighboring businesses, and meeting landlord handover standards. We've worked with hundreds of commercial clients across Berkshire and Surrey - from small independent shops to large corporate offices - and we know exactly what's required to strip premises back to specification.
-                </p>
-                <p className="text-slate-700 leading-relaxed mb-4">
-                  Our commercial rip-out service is comprehensive: office furniture and partitions, IT equipment and server rooms, retail fixtures and shop fittings, signage and displays, carpets and flooring, suspended ceilings and lighting, kitchen equipment, air conditioning units, and all general commercial waste. We handle everything from complete strip-outs (leaving premises as bare shells) to selective clearances (removing specific items or areas). Evening, weekend, and overnight work is available to minimize disruption to your business operations or allow clearance to happen when premises are closed to the public.
-                </p>
-                <p className="text-slate-700 leading-relaxed">
-                  As a fully licensed commercial waste carrier registered with the Environment Agency, we provide complete legal compliance for all commercial clearances. This includes WEEE (Waste Electrical and Electronic Equipment) regulations for IT and electrical items, confidential waste destruction certificates for sensitive documents, and comprehensive waste transfer notes for your audit trail. With £5 million public liability insurance, full employer's liability cover, and professional indemnity insurance, we meet all commercial insurance requirements. Our 94% recycling rate means office furniture, retail fixtures, and electrical equipment are recycled or donated wherever possible, supporting your corporate social responsibility goals.
-                </p>
-              </div>
-            </div>
-          </section>
-
           {/* What We Remove */}
           <section className="mb-16">
             <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">What We Remove</h2>
@@ -253,6 +232,27 @@ const CommercialRipouts = () => {
                   <p className="text-slate-700 leading-relaxed">{benefit.desc}</p>
                 </div>
               ))}
+            </div>
+          </section>
+
+          {/* Service Description */}
+          <section className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Complete Commercial Strip-Out Services</h2>
+            <div className="prose prose-lg max-w-none">
+              <div className="bg-white border-4 border-slate-900 rounded-xl p-8 shadow-[8px_8px_0px_#e2e8f0] mb-8">
+                <p className="text-slate-700 leading-relaxed mb-4">
+                  Total Waste Clearout Ltd provides comprehensive commercial site rip-out and clearance services for businesses across Reading, Slough, Guildford, Woking, and throughout Berkshire and Surrey. Whether you're relocating offices in Reading town centre, closing a retail unit in Guildford High Street, refitting a restaurant in Windsor, or clearing an industrial unit in Bracknell, we deliver fast, professional, and discreet commercial clearance services.
+                </p>
+                <p className="text-slate-700 leading-relaxed mb-4">
+                  Commercial property clearances require specialist knowledge, proper equipment, and strict adherence to health and safety regulations. Our experienced teams understand the unique challenges of commercial work: tight deadlines, lease-end requirements, data security concerns, minimizing disruption to neighboring businesses, and meeting landlord handover standards. We've worked with hundreds of commercial clients across Berkshire and Surrey - from small independent shops to large corporate offices - and we know exactly what's required to strip premises back to specification.
+                </p>
+                <p className="text-slate-700 leading-relaxed mb-4">
+                  Our commercial rip-out service is comprehensive: office furniture and partitions, IT equipment and server rooms, retail fixtures and shop fittings, signage and displays, carpets and flooring, suspended ceilings and lighting, kitchen equipment, air conditioning units, and all general commercial waste. We handle everything from complete strip-outs (leaving premises as bare shells) to selective clearances (removing specific items or areas). Evening, weekend, and overnight work is available to minimize disruption to your business operations or allow clearance to happen when premises are closed to the public.
+                </p>
+                <p className="text-slate-700 leading-relaxed">
+                  As a fully licensed commercial waste carrier registered with the Environment Agency, we provide complete legal compliance for all commercial clearances. This includes WEEE (Waste Electrical and Electronic Equipment) regulations for IT and electrical items, confidential waste destruction certificates for sensitive documents, and comprehensive waste transfer notes for your audit trail. With £5 million public liability insurance, full employer's liability cover, and professional indemnity insurance, we meet all commercial insurance requirements. Our 94% recycling rate means office furniture, retail fixtures, and electrical equipment are recycled or donated wherever possible, supporting your corporate social responsibility goals.
+                </p>
+              </div>
             </div>
           </section>
 

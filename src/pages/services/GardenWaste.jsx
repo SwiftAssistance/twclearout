@@ -77,27 +77,6 @@ const GardenWaste = () => {
       <div className="container mx-auto px-6 py-16 md:py-24">
         <div className="max-w-6xl mx-auto">
 
-          {/* Service Description */}
-          <section className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Complete Garden Waste Clearance Services</h2>
-            <div className="prose prose-lg max-w-none">
-              <div className="bg-white border-4 border-slate-900 rounded-xl p-8 shadow-[8px_8px_0px_#e2e8f0] mb-8">
-                <p className="text-slate-700 leading-relaxed mb-4">
-                  Total Waste Clearout Ltd provides comprehensive garden and green waste removal services throughout Reading, Slough, Guildford, Woking, and all of Berkshire and Surrey. Whether you're a homeowner clearing seasonal garden waste, a landlord maintaining rental properties, or a professional gardener working across multiple sites, we offer fast, reliable, and environmentally responsible garden clearance.
-                </p>
-                <p className="text-slate-700 leading-relaxed mb-4">
-                  Garden waste can quickly pile up after hedge trimming, tree felling, lawn maintenance, or major landscaping projects. Instead of making multiple trips to your local council recycling centre in Reading or Guildford - wasting fuel, time, and vehicle space - let our professional team handle everything. We arrive with the right equipment, load all your green waste efficiently, and transport it directly to licensed composting facilities where it's processed responsibly.
-                </p>
-                <p className="text-slate-700 leading-relaxed mb-4">
-                  We handle all types of garden waste: fallen trees and large branches, hedge trimmings and prunings, grass cuttings and leaves, soil and turf, plant pots and garden furniture, shed contents, and general garden clearance. Our experienced crews come equipped with proper loading equipment, so you don't need to lift a finger - we do all the heavy work. Whether it's a small amount of cuttings from a day's gardening or a complete garden overhaul involving multiple loads, we scale our service to match your needs.
-                </p>
-                <p className="text-slate-700 leading-relaxed">
-                  As a fully licensed waste carrier registered with the Environment Agency, we guarantee legal, compliant disposal for all garden waste. We provide waste transfer notes as documentation, and all green waste is transported to authorized composting facilities across Berkshire and Surrey. With same-day service often available and competitive pricing that's frequently cheaper than DIY disposal, we're the smart choice for garden waste removal. Our service is particularly popular with landscapers and professional gardeners who need reliable, repeat collections without the hassle of permits or waiting.
-                </p>
-              </div>
-            </div>
-          </section>
-
           {/* What We Remove */}
           <section className="mb-16">
             <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">What We Remove</h2>
@@ -226,6 +205,27 @@ const GardenWaste = () => {
                   <p className="text-slate-700 leading-relaxed">{benefit.desc}</p>
                 </div>
               ))}
+            </div>
+          </section>
+
+          {/* Service Description */}
+          <section className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Complete Garden Waste Clearance Services</h2>
+            <div className="prose prose-lg max-w-none">
+              <div className="bg-white border-4 border-slate-900 rounded-xl p-8 shadow-[8px_8px_0px_#e2e8f0] mb-8">
+                <p className="text-slate-700 leading-relaxed mb-4">
+                  Total Waste Clearout Ltd provides comprehensive garden and green waste removal services throughout Reading, Slough, Guildford, Woking, and all of Berkshire and Surrey. Whether you're a homeowner clearing seasonal garden waste, a landlord maintaining rental properties, or a professional gardener working across multiple sites, we offer fast, reliable, and environmentally responsible garden clearance.
+                </p>
+                <p className="text-slate-700 leading-relaxed mb-4">
+                  Garden waste can quickly pile up after hedge trimming, tree felling, lawn maintenance, or major landscaping projects. Instead of making multiple trips to your local council recycling centre in Reading or Guildford - wasting fuel, time, and vehicle space - let our professional team handle everything. We arrive with the right equipment, load all your green waste efficiently, and transport it directly to licensed composting facilities where it's processed responsibly.
+                </p>
+                <p className="text-slate-700 leading-relaxed mb-4">
+                  We handle all types of garden waste: fallen trees and large branches, hedge trimmings and prunings, grass cuttings and leaves, soil and turf, plant pots and garden furniture, shed contents, and general garden clearance. Our experienced crews come equipped with proper loading equipment, so you don't need to lift a finger - we do all the heavy work. Whether it's a small amount of cuttings from a day's gardening or a complete garden overhaul involving multiple loads, we scale our service to match your needs.
+                </p>
+                <p className="text-slate-700 leading-relaxed">
+                  As a fully licensed waste carrier registered with the Environment Agency, we guarantee legal, compliant disposal for all garden waste. We provide waste transfer notes as documentation, and all green waste is transported to authorized composting facilities across Berkshire and Surrey. With same-day service often available and competitive pricing that's frequently cheaper than DIY disposal, we're the smart choice for garden waste removal. Our service is particularly popular with landscapers and professional gardeners who need reliable, repeat collections without the hassle of permits or waiting.
+                </p>
+              </div>
             </div>
           </section>
 

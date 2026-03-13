@@ -77,27 +77,6 @@ const HardHatWasteHub = () => {
       <div className="container mx-auto px-6 py-16 md:py-24">
         <div className="max-w-6xl mx-auto">
 
-          {/* Service Description */}
-          <section className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Professional Construction Waste Removal</h2>
-            <div className="prose prose-lg max-w-none">
-              <div className="bg-white border-4 border-slate-900 rounded-xl p-8 shadow-[8px_8px_0px_#e2e8f0] mb-8">
-                <p className="text-slate-700 leading-relaxed mb-4">
-                  Total Waste Clearout Ltd is the go-to construction waste removal service for builders, plumbers, electricians, and contractors working across Reading, Slough, Guildford, Woking, and throughout Berkshire and Surrey. We understand the demands of construction projects - tight deadlines, limited site space, and the need for efficient waste management that doesn't slow down your work.
-                </p>
-                <p className="text-slate-700 leading-relaxed mb-4">
-                  Forget the hassle of skip hire with its council permits, waiting times, parking restrictions, and manual loading. Our professional waste removal service is faster, more flexible, and often more cost-effective. We arrive at your site when it suits you - whether that's early morning before your crew starts or evening after they finish - load everything ourselves, and clear the area completely. No permits required, no waiting weeks for council approval, and no skip blocking your workspace or parking.
-                </p>
-                <p className="text-slate-700 leading-relaxed mb-4">
-                  We handle all types of construction and trade waste: plasterboard from drywalling jobs, timber offcuts from carpentry work, packaging materials from new installations, bathroom and kitchen rip-out debris, bricks and concrete, metal piping and electrical waste. Our experienced teams know how to load efficiently and safely, segregating materials for maximum recycling. Whether you're fitting one kitchen in Windsor or managing a multi-unit refurbishment project in Bracknell, we scale our service to match your needs.
-                </p>
-                <p className="text-slate-700 leading-relaxed">
-                  As a fully licensed waste carrier registered with the Environment Agency, we provide complete legal compliance for your construction projects. All waste is transported to authorized facilities with proper documentation - we issue waste transfer notes for every collection, giving you and your clients peace of mind. With £5 million public liability insurance and a 94% recycling rate, we're the professional choice for trade waste removal across Berkshire and Surrey. Many local contractors use us exclusively because we're reliable, efficient, and understand the pressures of site work.
-                </p>
-              </div>
-            </div>
-          </section>
-
           {/* What We Remove */}
           <section className="mb-16">
             <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">What We Remove</h2>
@@ -226,6 +205,27 @@ const HardHatWasteHub = () => {
                   <p className="text-slate-700 leading-relaxed">{benefit.desc}</p>
                 </div>
               ))}
+            </div>
+          </section>
+
+          {/* Service Description */}
+          <section className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Professional Construction Waste Removal</h2>
+            <div className="prose prose-lg max-w-none">
+              <div className="bg-white border-4 border-slate-900 rounded-xl p-8 shadow-[8px_8px_0px_#e2e8f0] mb-8">
+                <p className="text-slate-700 leading-relaxed mb-4">
+                  Total Waste Clearout Ltd is the go-to construction waste removal service for builders, plumbers, electricians, and contractors working across Reading, Slough, Guildford, Woking, and throughout Berkshire and Surrey. We understand the demands of construction projects - tight deadlines, limited site space, and the need for efficient waste management that doesn't slow down your work.
+                </p>
+                <p className="text-slate-700 leading-relaxed mb-4">
+                  Forget the hassle of skip hire with its council permits, waiting times, parking restrictions, and manual loading. Our professional waste removal service is faster, more flexible, and often more cost-effective. We arrive at your site when it suits you - whether that's early morning before your crew starts or evening after they finish - load everything ourselves, and clear the area completely. No permits required, no waiting weeks for council approval, and no skip blocking your workspace or parking.
+                </p>
+                <p className="text-slate-700 leading-relaxed mb-4">
+                  We handle all types of construction and trade waste: plasterboard from drywalling jobs, timber offcuts from carpentry work, packaging materials from new installations, bathroom and kitchen rip-out debris, bricks and concrete, metal piping and electrical waste. Our experienced teams know how to load efficiently and safely, segregating materials for maximum recycling. Whether you're fitting one kitchen in Windsor or managing a multi-unit refurbishment project in Bracknell, we scale our service to match your needs.
+                </p>
+                <p className="text-slate-700 leading-relaxed">
+                  As a fully licensed waste carrier registered with the Environment Agency, we provide complete legal compliance for your construction projects. All waste is transported to authorized facilities with proper documentation - we issue waste transfer notes for every collection, giving you and your clients peace of mind. With £5 million public liability insurance and a 94% recycling rate, we're the professional choice for trade waste removal across Berkshire and Surrey. Many local contractors use us exclusively because we're reliable, efficient, and understand the pressures of site work.
+                </p>
+              </div>
             </div>
           </section>
 
