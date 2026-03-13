@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import StatsTicker from '../../components/StatsTicker';
 import {
   MapPin, Phone, CheckCircle, Recycle, ShieldCheck, Zap, Scale,
   ArrowRight, ChevronRight
@@ -102,27 +103,9 @@ const Areas = () => {
             Professional waste removal and rubbish clearance across Berkshire and Surrey. Same-day collection available in all service areas. Fully licensed, £5M insured, 94% recycling rate.
           </p>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="bg-white/10 border-2 border-white/20 rounded-lg p-4 text-center">
-              <p className="text-[#4ade80] font-black text-3xl">10+</p>
-              <p className="text-white/80 font-bold text-xs uppercase tracking-wider">Towns Covered</p>
-            </div>
-            <div className="bg-white/10 border-2 border-white/20 rounded-lg p-4 text-center">
-              <p className="text-[#4ade80] font-black text-3xl">94%</p>
-              <p className="text-white/80 font-bold text-xs uppercase tracking-wider">Recycled</p>
-            </div>
-            <div className="bg-white/10 border-2 border-white/20 rounded-lg p-4 text-center">
-              <p className="text-[#4ade80] font-black text-3xl">&lt;2h</p>
-              <p className="text-white/80 font-bold text-xs uppercase tracking-wider">Response</p>
-            </div>
-            <div className="bg-white/10 border-2 border-white/20 rounded-lg p-4 text-center">
-              <p className="text-[#4ade80] font-black text-3xl">£5M</p>
-              <p className="text-white/80 font-bold text-xs uppercase tracking-wider">Insured</p>
-            </div>
-          </div>
         </div>
       </header>
+      <StatsTicker />
 
       {/* Areas Grid */}
       <section className="py-16 md:py-24">

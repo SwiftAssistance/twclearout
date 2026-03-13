@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import StatsTicker from '../../components/StatsTicker';
 import {
   MapPin, Phone, CheckCircle, Recycle, ShieldCheck, Zap, Scale,
   Star, ArrowRight, Truck, TreePine, Briefcase, HardHat, Hammer,
@@ -246,26 +247,6 @@ const AreaPage = () => {
             Professional waste removal and rubbish clearance across {area.name} and surrounding {area.county} areas. Same-day service, fixed pricing, 94% recycling rate.
           </p>
 
-          {/* Key Stats */}
-          <div className="flex flex-wrap gap-3 md:gap-4 mb-8">
-            <div className="bg-white/10 border-2 border-white/20 px-4 py-2 rounded-lg flex items-center gap-2">
-              <Recycle size={16} className="text-[#4ade80]" />
-              <span className="text-white font-black text-sm">94% Recycled</span>
-            </div>
-            <div className="bg-white/10 border-2 border-white/20 px-4 py-2 rounded-lg flex items-center gap-2">
-              <Zap size={16} className="text-[#4ade80]" />
-              <span className="text-white font-black text-sm">Same-Day Service</span>
-            </div>
-            <div className="bg-white/10 border-2 border-white/20 px-4 py-2 rounded-lg flex items-center gap-2">
-              <ShieldCheck size={16} className="text-[#4ade80]" />
-              <span className="text-white font-black text-sm">£5M Insured</span>
-            </div>
-            <div className="bg-white/10 border-2 border-white/20 px-4 py-2 rounded-lg flex items-center gap-2">
-              <Scale size={16} className="text-[#4ade80]" />
-              <span className="text-white font-black text-sm">Licensed Carrier</span>
-            </div>
-          </div>
-
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4">
             <a
@@ -286,6 +267,7 @@ const AreaPage = () => {
           </div>
         </div>
       </header>
+      <StatsTicker />
 
       {/* Main Content */}
       <div className="container mx-auto px-6 py-16 md:py-24">

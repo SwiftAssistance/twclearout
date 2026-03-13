@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import StatsTicker from '../components/StatsTicker';
 import {
   Phone,
   Recycle,
@@ -135,31 +136,10 @@ const Services = () => {
                 </a>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-                <div className="bg-white/95 backdrop-blur-sm p-6 rounded-2xl border-4 border-slate-900 shadow-lg">
-                  <Recycle size={36} className="text-[#16a34a] mb-2 mx-auto" />
-                  <p className="text-[#16a34a] font-black text-3xl italic mb-1">94%</p>
-                  <p className="text-slate-600 text-xs font-bold uppercase tracking-wider">Recycled</p>
-                </div>
-                <div className="bg-white/95 backdrop-blur-sm p-6 rounded-2xl border-4 border-slate-900 shadow-lg">
-                  <Zap size={36} className="text-orange-500 mb-2 mx-auto" />
-                  <p className="text-orange-500 font-black text-3xl italic mb-1">&lt;2h</p>
-                  <p className="text-slate-600 text-xs font-bold uppercase tracking-wider">Response</p>
-                </div>
-                <div className="bg-white/95 backdrop-blur-sm p-6 rounded-2xl border-4 border-slate-900 shadow-lg">
-                  <ShieldCheck size={36} className="text-[#16a34a] mb-2 mx-auto" />
-                  <p className="text-[#16a34a] font-black text-3xl italic mb-1">£5M</p>
-                  <p className="text-slate-600 text-xs font-bold uppercase tracking-wider">Insured</p>
-                </div>
-                <div className="bg-white/95 backdrop-blur-sm p-6 rounded-2xl border-4 border-slate-900 shadow-lg">
-                  <Award size={36} className="text-orange-500 mb-2 mx-auto" />
-                  <p className="text-orange-500 font-black text-3xl italic mb-1">100%</p>
-                  <p className="text-slate-600 text-xs font-bold uppercase tracking-wider">Licensed</p>
-                </div>
-              </div>
             </div>
           </div>
         </header>
+        <StatsTicker />
 
         {/* SERVICES GRID */}
         <section className="py-24 md:py-32 bg-gradient-to-b from-white via-[#f8fafc] to-white">
