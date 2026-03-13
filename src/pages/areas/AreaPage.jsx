@@ -432,7 +432,7 @@ const AreaPage = () => {
                   { service: "Garage & Shed Clearance", from: "From £100", desc: "Contents clearance, demolition & removal" },
                   { service: "Single Room Clearance", from: "From £150", desc: "One room, full clearance including loading" },
                   { service: "Construction Waste", from: "From £180", desc: "Rubble, timber, plasterboard & building waste" },
-                  { service: "Commercial Clearance", from: "From £300", desc: "Office, retail, or commercial premises" },
+                  { service: "Commercial Clearance", from: "From £1,000", desc: "Office, retail, or commercial premises" },
                   { service: "Full House Clearance", from: "From £400", desc: "2–3 bed house, all rooms included" },
                 ].map((item, idx) => (
                   <div key={idx} className="bg-[#4ade80]/10 border-2 border-[#16a34a] rounded-xl p-5">

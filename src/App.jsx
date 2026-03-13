@@ -592,7 +592,7 @@ const ServicesView = () => (
               title="Office Rip-Outs"
               description="Full office decommissioning including desks, IT equipment, partitions, and cabling. WEEE disposal certificates provided."
               features={['Complete office clearance', 'IT equipment & WEEE disposal', 'Secure document destruction', 'Out-of-hours available']}
-              price="From £300"
+              price="From £1,000"
               dark
               accentColor="bg-slate-900"
               borderColor="border-[#4ade80]"

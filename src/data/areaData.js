@@ -424,7 +424,7 @@ const AREA_SERVICES = [
     slug: "/services/commercial-ripouts",
     icon: "Briefcase",
     description: "Office clearance, shop fitting removal and commercial rip-outs",
-    price: "From £300"
+    price: "From £1,000"
   },
   {
     name: "Construction Waste",
