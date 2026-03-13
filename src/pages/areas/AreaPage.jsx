@@ -213,7 +213,7 @@ const AreaPage = () => {
           <img
             src={area.heroImage}
             alt={`Waste removal service in ${area.name}`}
-            className="w-full h-full object-cover opacity-20 mix-blend-overlay grayscale"
+            className="w-full h-full object-cover opacity-15 grayscale"
             loading="eager"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />

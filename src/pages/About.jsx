@@ -57,7 +57,7 @@ const About = () => {
         {/* ABOUT HERO */}
         <header className="relative min-h-[70vh] md:min-h-[85vh] lg:min-h-screen flex items-center pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden bg-[#064e3b]">
           <div className="absolute inset-0 z-0">
-            <img src="/hero.jpg" alt="About us" className="w-full h-full object-cover opacity-30 mix-blend-overlay grayscale" loading="eager" />
+            <img src="/hero.jpg" alt="About us" className="w-full h-full object-cover opacity-15 grayscale" loading="eager" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-transparent to-transparent" />
           </div>
