@@ -321,6 +321,13 @@
 
   </head>
   <body>
+    <!-- Hidden form for Netlify Forms detection -->
+    <form name="quote-request" data-netlify="true" hidden>
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <input type="text" name="postcode" />
+      <select name="jobType"></select>
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
