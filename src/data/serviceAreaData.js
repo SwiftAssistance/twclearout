@@ -196,7 +196,7 @@ const SERVICE_AREA_DATA = {
     name: "Commercial Waste Removal",
     servicePageSlug: "/services/commercial-ripouts",
     icon: "Briefcase",
-    price: "From £300",
+    price: "From £1,000",
     badges: ["Out-of-Hours Available", "Full Compliance", "WEEE Disposal"],
     whatWeRemove: [
       { icon: "Briefcase", label: "Office Furniture" },
@@ -227,9 +227,9 @@ const SERVICE_AREA_DATA = {
       { title: "Licensed & Insured", desc: "£5M public liability, Environment Agency registered. Full audit trail provided" }
     ],
     pricing: [
-      { price: "£300+", tier: "Small Office", desc: "Single office or small commercial unit clearance" },
-      { price: "£800+", tier: "Full Office", desc: "Complete office suite or medium commercial premises" },
-      { price: "£1,500+", tier: "Large Commercial", desc: "Full commercial strip-out, warehouse, or multi-unit clearance" }
+      { price: "£1,000+", tier: "Small Office", desc: "Single office or small commercial unit clearance" },
+      { price: "£2,500+", tier: "Full Office", desc: "Complete office suite or medium commercial premises" },
+      { price: "POA", tier: "Large Commercial", desc: "Full commercial strip-out, warehouse, or multi-unit clearance" }
     ],
     getIntro: (area) =>
       `Need commercial waste removed in ${area.name}? Total Waste Clearout provides professional commercial waste removal and office clearance services across ${area.name} and all ${area.postcodes[0]} postcodes. From small office clear-outs to full commercial strip-outs, we deliver fast, compliant waste removal with out-of-hours service available to minimise business disruption.`,
@@ -239,7 +239,7 @@ const SERVICE_AREA_DATA = {
       `${area.name}'s commercial sector generates consistent demand for professional waste removal. ${area.localContext} Whether it's an office clearance in the town centre, a retail unit strip-out, or a warehouse clear-out in surrounding areas like ${area.nearbyAreas.slice(0, 3).join(", ")}, we provide the rapid, compliant commercial waste removal that ${area.name} businesses require.`,
     getFaqs: (area) => [
       { q: `Do you offer out-of-hours commercial clearance in ${area.name}?`, a: `Yes — we offer evening and weekend commercial waste removal across ${area.name} to minimise disruption to your business. We can work outside your operating hours across all ${area.postcodes.join(", ")} postcodes.` },
-      { q: `How much does commercial waste removal cost in ${area.name}?`, a: `Small office clearances in ${area.name} start from £300, full office suites from £800, and large commercial strip-outs from £1,500. We provide detailed fixed-price quotes after assessing the job.` },
+      { q: `How much does commercial waste removal cost in ${area.name}?`, a: `Commercial clearances in ${area.name} start from £1,000 for smaller offices, with larger premises priced on assessment. We provide detailed fixed-price quotes after viewing the job.` },
       { q: `Can you handle IT equipment disposal in ${area.name}?`, a: `Yes — we provide WEEE-compliant IT equipment disposal across ${area.name}. Computers, servers, monitors, and electronics are all handled properly. Certified data destruction is available on request.` },
       { q: `Do you provide waste documentation for businesses in ${area.name}?`, a: `Absolutely. Every commercial clearance in ${area.name} comes with full duty of care waste documentation, waste transfer notes, and compliance records for your business audit trail.` },
       { q: `Can you strip out a shop or restaurant in ${area.name}?`, a: `Yes — we handle complete commercial strip-outs including retail fixtures, restaurant kitchens, salon equipment, and all commercial fittings across ${area.name} and ${area.county}.` },
@@ -247,7 +247,7 @@ const SERVICE_AREA_DATA = {
     ],
     getMeta: (area) => ({
       title: `Commercial Waste Removal ${area.name} | Office Clearance ${area.postcode} | Same-Day`,
-      description: `Professional commercial waste removal in ${area.name}, ${area.county}. Office clearance, retail strip-outs, WEEE disposal. Out-of-hours service, fully licensed. From £300. Call 07769 844298.`,
+      description: `Professional commercial waste removal in ${area.name}, ${area.county}. Office clearance, retail strip-outs, WEEE disposal. Out-of-hours service, fully licensed. From £1,000. Call 07769 844298.`,
       keywords: `commercial waste removal ${area.name.toLowerCase()}, office clearance ${area.name.toLowerCase()}, commercial clearance ${area.name.toLowerCase()}, office furniture removal ${area.name.toLowerCase()}, shop strip out ${area.name.toLowerCase()}, business waste ${area.name.toLowerCase()}, ${area.postcode} commercial waste, ${area.county.toLowerCase()} office clearance, IT disposal ${area.name.toLowerCase()}, trade waste ${area.name.toLowerCase()}, office strip out ${area.name.toLowerCase()}, retail clearance ${area.name.toLowerCase()}, restaurant clearance ${area.name.toLowerCase()}, warehouse clearance ${area.name.toLowerCase()}, WEEE disposal ${area.name.toLowerCase()}, IT equipment disposal ${area.name.toLowerCase()}, data destruction ${area.name.toLowerCase()}, out of hours waste collection ${area.name.toLowerCase()}, commercial skip alternative ${area.name.toLowerCase()}, office furniture disposal ${area.name.toLowerCase()}, business clearance ${area.name.toLowerCase()}, commercial rip out ${area.name.toLowerCase()}`
     })
   },
