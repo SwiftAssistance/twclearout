@@ -36,7 +36,7 @@ const HomeAndProbate = () => {
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Helmet>
         <title>Probate House Clearance Reading Guildford | Bereavement Estate Clearance</title>
-        <meta name="description" content="Compassionate probate & estate clearance in Reading, Guildford, Slough. Respectful bereavement house clearance, charity donations, licensed from £600." />
+        <meta name="description" content="Compassionate probate & estate clearance in Reading, Guildford, Slough. Respectful bereavement house clearance, charity donations, licensed & insured." />
         <meta name="keywords" content="house clearance, house clearance reading, house clearance slough, house clearance guildford, house clearance berkshire, house clearance surrey, house clearance woking, house clearance bracknell, house clearance windsor, probate clearance reading, probate clearance berkshire, probate house clearance, estate clearance reading, estate clearance surrey, bereavement clearance, deceased estate clearance, home clearance reading, home clearance slough, property clearance berkshire, full house clearance, furniture removal reading, furniture disposal berkshire, house clearout near me, cheap house clearance reading, downsizing clearance, hoarder house clearance berkshire, whole house clearance, charity donation clearance, sensitive house clearance, compassionate clearance service" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/home-probate-clearance/" />
         <meta property="og:title" content="House & Probate Clearance | Total Waste Clearout Berkshire" />
@@ -185,32 +185,13 @@ const HomeAndProbate = () => {
           <section className="mb-16">
             <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">House Clearance Pricing</h2>
             <div className="bg-gradient-to-r from-[#064e3b] to-[#065f46] border-4 border-slate-900 rounded-xl p-8 md:p-12 text-white">
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-white/20">
-                  <div className="text-[#4ade80] font-black text-4xl mb-2">£600+</div>
-                  <h3 className="font-black text-xl uppercase mb-3">1-2 Bedroom</h3>
-                  <p className="text-white/80">Flats, small houses, or partial clearances. Includes all loading and disposal.</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-white/20">
-                  <div className="text-[#4ade80] font-black text-4xl mb-2">£1,200+</div>
-                  <h3 className="font-black text-xl uppercase mb-3">3-4 Bedroom</h3>
-                  <p className="text-white/80">Most common family homes including garages and standard outbuildings.</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-white/20">
-                  <div className="text-[#4ade80] font-black text-4xl mb-2">£2,500+</div>
-                  <h3 className="font-black text-xl uppercase mb-3">Large House</h3>
-                  <p className="text-white/80">5+ bedrooms, extensive contents, or properties with multiple outbuildings.</p>
-                </div>
-              </div>
-              <div className="mt-8 pt-8 border-t border-white/20">
-                <p className="text-white/90 font-bold text-center mb-4">
-                  All prices include complete house clearance, loading, transport, disposal, and cleaning. Free home visit for accurate quotes.
+              <p className="text-white/90 font-bold text-center text-lg mb-6">
+                Every job is different — we provide free, no-obligation quotes tailored to your property. No hidden costs, no surprises.
+              </p>
+              <div className="bg-[#4ade80]/20 border-2 border-[#4ade80] rounded-lg p-4 text-center">
+                <p className="text-white font-black text-lg">
+                  Usable Items Donated To Local Charities - Supporting Berkshire & Surrey Communities
                 </p>
-                <div className="bg-[#4ade80]/20 border-2 border-[#4ade80] rounded-lg p-4 text-center">
-                  <p className="text-white font-black text-lg">
-                    Usable Items Donated To Local Charities - Supporting Berkshire & Surrey Communities
-                  </p>
-                </div>
               </div>
             </div>
           </section>
