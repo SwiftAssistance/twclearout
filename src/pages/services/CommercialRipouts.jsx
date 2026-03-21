@@ -36,7 +36,7 @@ const CommercialRipouts = () => {
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Helmet>
         <title>Commercial Clearance Reading Slough | Office Strip-Out Berkshire Surrey</title>
-        <meta name="description" content="Professional commercial site rip-outs in Reading, Slough, Guildford. Office, retail, restaurant clearance. Out-of-hours service, licensed from £400." />
+        <meta name="description" content="Professional commercial site rip-outs in Reading, Slough, Guildford. Office, retail, restaurant clearance. Out-of-hours service, licensed from £1,000." />
         <meta name="keywords" content="commercial waste removal, commercial waste removal reading, commercial waste removal slough, commercial waste removal guildford, commercial waste removal berkshire, commercial waste removal surrey, office clearance reading, office clearance slough, office clearance guildford, office clearance berkshire, office strip out reading, office strip out slough, retail clearance berkshire, shop fitting removal, restaurant clearance surrey, commercial rip out, office furniture removal reading, office furniture disposal, IT equipment disposal berkshire, WEEE disposal surrey, warehouse clearance reading, business waste removal, commercial skip alternative, out of hours waste collection, evening waste collection berkshire, data destruction berkshire, office clearance near me, commercial clearance near me" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/commercial-ripouts/" />
         <meta property="og:title" content="Commercial Site Rip-outs | Total Waste Clearout Berkshire" />
@@ -158,12 +158,12 @@ const CommercialRipouts = () => {
             <div className="bg-gradient-to-r from-[#064e3b] to-[#065f46] border-4 border-slate-900 rounded-xl p-8 md:p-12 text-white">
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-white/20">
-                  <div className="text-[#4ade80] font-black text-4xl mb-2">£400+</div>
+                  <div className="text-[#4ade80] font-black text-4xl mb-2">£1,000+</div>
                   <h3 className="font-black text-xl uppercase mb-3">Small Office</h3>
                   <p className="text-white/80">Perfect for small offices, single rooms, or partial clearances up to 1,000 sq ft.</p>
                 </div>
                 <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-white/20">
-                  <div className="text-[#4ade80] font-black text-4xl mb-2">£1,200+</div>
+                  <div className="text-[#4ade80] font-black text-4xl mb-2">£2,500+</div>
                   <h3 className="font-black text-xl uppercase mb-3">Medium Unit</h3>
                   <p className="text-white/80">Ideal for retail shops, restaurants, or multi-room offices up to 3,000 sq ft.</p>
                 </div>
