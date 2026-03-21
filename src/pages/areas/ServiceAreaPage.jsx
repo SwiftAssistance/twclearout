@@ -329,7 +329,7 @@ const ServiceAreaPage = () => {
               {service.name} in {area.name}, {area.county}
             </h2>
             <div className="bg-white border-4 border-slate-900 rounded-xl p-8 shadow-[8px_8px_0px_#e2e8f0] mb-8">
-              <p className="text-slate-700 leading-relaxed mb-4 text-lg">
+              <p className="speakable text-slate-700 leading-relaxed mb-4 text-lg">
                 {intro}
               </p>
               <p className="text-slate-700 leading-relaxed mb-4">
