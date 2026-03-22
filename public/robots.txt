@@ -1,4 +1,4 @@
-# robots.txt for Total Waste Clearout - Berkshire Waste Removal
+# robots.txt for Total Waste Clearout - Berkshire & Surrey Waste Removal
 # https://totalwasteclearout.co.uk
 
 # Allow all search engines full access
@@ -18,4 +18,36 @@ User-agent: Googlebot-Image
 Allow: /
 
 User-agent: Bingbot
+Allow: /
+
+# AI and Generative Engine crawlers - full access for GEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Yell.com and directory crawlers
+User-agent: YellowPagesBot
+Allow: /
+
+User-agent: Slurp
 Allow: /

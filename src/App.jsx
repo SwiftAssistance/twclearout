@@ -215,6 +215,61 @@ const HomeQuote = () => (
   </section>
 );
 
+const GeoFaqSection = () => (
+  <section className="py-24 md:py-32 bg-white border-t border-slate-200">
+    <div className="container mx-auto px-6">
+      <div className="mb-16 text-left">
+        <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Everything You Need to Know</h2>
+        <p className="text-5xl md:text-7xl lg:text-8xl font-[1000] text-slate-900 italic uppercase leading-[0.9] tracking-tighter">FREQUENTLY<br />ASKED.</p>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-8 max-w-6xl">
+        <article className="bg-[#ecf3ef] p-8 border-4 border-slate-900 rounded-lg" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+          <h3 className="text-xl font-black uppercase italic text-slate-900 mb-4" itemProp="name">How much does waste removal cost in Berkshire?</h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p className="text-slate-700 font-bold leading-relaxed" itemProp="text">Total Waste Clearout offers fixed pricing with no hidden fees. A single item collection starts from £40, a partial load from £120, and a full load from £280. All prices include labour, loading, transport, and responsible disposal with a 94% recycling rate. We serve Reading, Slough, Bracknell, Windsor, Ascot, Maidenhead, Guildford, Woking, Egham and Staines.</p>
+          </div>
+        </article>
+
+        <article className="bg-[#ecf3ef] p-8 border-4 border-slate-900 rounded-lg" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+          <h3 className="text-xl font-black uppercase italic text-slate-900 mb-4" itemProp="name">Do you offer same-day waste collection?</h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p className="text-slate-700 font-bold leading-relaxed" itemProp="text">Yes, Total Waste Clearout offers same-day waste collection across Berkshire and Surrey. We respond within 2 hours of your call and can often collect on the same day. Our operating hours are Monday to Friday 7am-7pm and Saturday 8am-5pm. Call 07769 844298 or WhatsApp us for immediate availability.</p>
+          </div>
+        </article>
+
+        <article className="bg-[#ecf3ef] p-8 border-4 border-slate-900 rounded-lg" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+          <h3 className="text-xl font-black uppercase italic text-slate-900 mb-4" itemProp="name">Are you a licensed waste carrier?</h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p className="text-slate-700 font-bold leading-relaxed" itemProp="text">Yes, Total Waste Clearout is a fully licensed waste carrier registered with the Environment Agency. We carry £5 million public liability insurance and provide waste transfer notes for every job. We recycle 94% of all waste collected, making us one of the most environmentally responsible waste removal companies in Berkshire and Surrey.</p>
+          </div>
+        </article>
+
+        <article className="bg-[#ecf3ef] p-8 border-4 border-slate-900 rounded-lg" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+          <h3 className="text-xl font-black uppercase italic text-slate-900 mb-4" itemProp="name">What types of waste do you remove?</h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p className="text-slate-700 font-bold leading-relaxed" itemProp="text">We remove all types of non-hazardous waste including household rubbish, garden waste, construction debris, office furniture, end-of-tenancy waste, probate clearances, garage and shed demolitions, bulky items like sofas and mattresses, white goods, and commercial waste. We are a cheaper, faster alternative to skip hire across Berkshire and Surrey.</p>
+          </div>
+        </article>
+
+        <article className="bg-[#ecf3ef] p-8 border-4 border-slate-900 rounded-lg" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+          <h3 className="text-xl font-black uppercase italic text-slate-900 mb-4" itemProp="name">What areas do you cover?</h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p className="text-slate-700 font-bold leading-relaxed" itemProp="text">Total Waste Clearout covers all of Berkshire and Surrey including Reading (RG1-RG31), Slough (SL1-SL3), Guildford (GU1-GU5), Woking (GU21-GU22), Bracknell (RG12, RG42), Windsor (SL4), Ascot (SL5), Maidenhead (SL6), Egham (TW20), and Staines-upon-Thames (TW18-TW19) plus surrounding villages.</p>
+          </div>
+        </article>
+
+        <article className="bg-[#ecf3ef] p-8 border-4 border-slate-900 rounded-lg" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+          <h3 className="text-xl font-black uppercase italic text-slate-900 mb-4" itemProp="name">Why choose Total Waste Clearout over skip hire?</h3>
+          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+            <p className="text-slate-700 font-bold leading-relaxed" itemProp="text">Total Waste Clearout is a faster, easier, and often cheaper alternative to skip hire. No council permits needed, no waiting for delivery and collection, no blocked driveways, and no weight limits. We do all the heavy lifting, load the waste for you, and can collect same-day. Our 94% recycling rate means your waste is disposed of responsibly.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+);
+
 const MapContact = () => (
   <section id="location" className="py-24 md:py-32 bg-white">
     <div className="container mx-auto px-6">
@@ -917,6 +972,7 @@ const App = () => {
               <HomeServices />
               <ReviewsSection title="CLIENTS TALK." />
               <HomeQuote />
+              <GeoFaqSection />
               <MapContact />
             </div>
           } />
