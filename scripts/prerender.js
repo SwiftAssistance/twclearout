@@ -157,9 +157,16 @@ const pages = [
   },
   {
     path: '/waste-removal-egham',
-    title: 'Waste Removal Egham | Rubbish Clearance TW20 | Same-Day Collection',
-    description: 'Professional waste removal in Egham, Surrey. Same-day rubbish clearance, house clearance, garden waste & commercial waste. Licensed carrier, 94% recycled. Call 07769 844298.',
-    keywords: 'waste removal egham, rubbish clearance egham, rubbish removal egham, junk removal egham, waste collection egham, skip hire alternative egham, house clearance egham, garden waste removal egham, commercial waste egham, bulky waste collection egham, furniture removal egham, same day waste collection egham, TW20 waste removal, surrey waste removal egham, englefield green waste removal'
+    title: 'Waste Removal & House Clearout Egham | TW20 | Same-Day Service',
+    description: 'House clearouts, waste removal & rubbish clearance in Egham, Surrey. Same-day service, garden waste, commercial waste. Licensed carrier, 94% recycled. Call 07769 844298.',
+    keywords: 'waste removal egham, house clearout egham, house clearance egham, rubbish clearance egham, rubbish removal egham, junk removal egham, waste collection egham, skip hire alternative egham, home clearout egham, property clearout egham, garden waste removal egham, commercial waste egham, bulky waste collection egham, furniture removal egham, same day house clearout egham, same day waste collection egham, TW20 waste removal, TW20 house clearout, surrey waste removal egham, englefield green waste removal, englefield green house clearout, virginia water house clearout',
+    faqs: [
+      { q: 'Do you do house clearouts in Egham?', a: 'Yes — house clearouts are one of our most popular services in Egham, TW20. Whether you call it a house clearout or house clearance, we clear the entire property including all furniture, belongings, and rubbish. Same-day house clearouts available.' },
+      { q: 'How fast can you do a house clearout in Egham?', a: 'Same-day house clearouts across all TW20 postcodes. We typically reach Egham within 2 hours of your call. Most 2-3 bed house clearouts are completed the same day.' },
+      { q: 'How much does a house clearout in Egham cost?', a: 'House clearouts in Egham start from £150 for a single room, with full house clearouts from £400. We provide fixed-price quotes with no hidden fees.' },
+      { q: 'What areas around Egham do you cover?', a: 'We serve all of Egham plus Englefield Green, Virginia Water, Thorpe, Staines, Hythe and Pooley Green for house clearouts and waste removal.' },
+      { q: 'Are you cheaper than a skip hire in Egham?', a: 'In most cases, yes. No permit required, we load everything for you, and take it all away immediately. Fixed pricing with no hidden charges for all Egham TW20 clearouts.' }
+    ]
   },
   {
     path: '/waste-removal-maidenhead',
@@ -183,7 +190,19 @@ const pages = [
   { path: '/house-clearance-bracknell', title: 'House Clearance Bracknell | Probate & Home Clearance RG12 | Same-Day', description: 'Professional house clearance in Bracknell, Berkshire. Probate, downsizing & landlord clearances. Same-day service, 94% recycled, licensed carrier. From £150. Call 07769 844298.', keywords: 'house clearance bracknell, home clearance bracknell, probate clearance bracknell, estate clearance bracknell, property clearance bracknell, furniture removal bracknell, house clearout bracknell, RG12 house clearance, bereavement clearance bracknell' },
   { path: '/house-clearance-windsor', title: 'House Clearance Windsor | Probate & Home Clearance SL4 | Same-Day', description: 'Professional house clearance in Windsor, Berkshire. Probate, downsizing & landlord clearances. Same-day service, 94% recycled, licensed carrier. From £150. Call 07769 844298.', keywords: 'house clearance windsor, home clearance windsor, probate clearance windsor, estate clearance windsor, property clearance windsor, furniture removal windsor, house clearout windsor, SL4 house clearance, bereavement clearance windsor' },
   { path: '/house-clearance-ascot', title: 'House Clearance Ascot | Probate & Home Clearance SL5 | Same-Day', description: 'Professional house clearance in Ascot, Berkshire. Probate, downsizing & landlord clearances. Same-day service, 94% recycled, licensed carrier. From £150. Call 07769 844298.', keywords: 'house clearance ascot, home clearance ascot, probate clearance ascot, estate clearance ascot, property clearance ascot, furniture removal ascot, house clearout ascot, SL5 house clearance' },
-  { path: '/house-clearance-egham', title: 'House Clearance Egham | Probate & Home Clearance TW20 | Same-Day', description: 'Professional house clearance in Egham, Surrey. Probate, downsizing & landlord clearances. Same-day service, 94% recycled, licensed carrier. From £150. Call 07769 844298.', keywords: 'house clearance egham, home clearance egham, probate clearance egham, estate clearance egham, property clearance egham, furniture removal egham, house clearout egham, TW20 house clearance' },
+  {
+    path: '/house-clearance-egham',
+    title: 'House Clearout & Clearance Egham | TW20 | Same-Day Service',
+    description: 'House clearout & clearance in Egham, Surrey. Probate, downsizing & landlord clearouts. Same-day service, 94% recycled, licensed carrier. From £150. Call 07769 844298.',
+    keywords: 'house clearout egham, house clearance egham, home clearout egham, home clearance egham, probate clearance egham, estate clearance egham, property clearout egham, furniture removal egham, full house clearout egham, same day house clearout egham, TW20 house clearout, TW20 house clearance, surrey house clearout egham, englefield green house clearout, house clearout near me egham',
+    faqs: [
+      { q: 'Do you do house clearouts in Egham?', a: 'Yes — we specialise in house clearouts across all TW20 postcodes. Whether you call it a house clearout or house clearance, our teams clear the entire property including all furniture, belongings, and rubbish. Same-day service available.' },
+      { q: 'How much does a house clearout in Egham cost?', a: 'House clearouts in Egham start from £150 for a single room. A full 2-3 bed house clearout costs from £400. We provide fixed-price quotes with no hidden fees — call 07769 844298 for a free quote.' },
+      { q: 'How quickly can you do a house clearout in Egham?', a: 'Same-day house clearouts are available across Egham and all TW20 postcodes. We typically arrive within 2 hours and most standard house clearouts are completed within the same day.' },
+      { q: 'Do you handle probate house clearouts in Egham?', a: 'Yes — probate clearouts are one of our specialities in Egham. We work sensitively with families, provide full inventory documentation for solicitors, and set aside items of value before clearing.' },
+      { q: 'What does a house clearout in Egham include?', a: 'Our Egham house clearout service covers every part of the property — all rooms, garage, shed, garden, and any outbuildings. We remove all furniture, appliances, and belongings, leaving the property completely empty and broom-clean.' }
+    ]
+  },
   { path: '/house-clearance-maidenhead', title: 'House Clearance Maidenhead | Probate & Home Clearance SL6 | Same-Day', description: 'Professional house clearance in Maidenhead, Berkshire. Probate, downsizing & landlord clearances. Same-day service, 94% recycled, licensed carrier. From £150. Call 07769 844298.', keywords: 'house clearance maidenhead, home clearance maidenhead, probate clearance maidenhead, estate clearance maidenhead, property clearance maidenhead, furniture removal maidenhead, house clearout maidenhead, SL6 house clearance' },
   { path: '/house-clearance-staines', title: 'House Clearance Staines | Probate & Home Clearance TW18 | Same-Day', description: 'Professional house clearance in Staines, Surrey. Probate, downsizing & landlord clearances. Same-day service, 94% recycled, licensed carrier. From £150. Call 07769 844298.', keywords: 'house clearance staines, home clearance staines, probate clearance staines, estate clearance staines, property clearance staines, furniture removal staines, house clearout staines, TW18 house clearance' },
   // End of Tenancy Clearance
@@ -299,6 +318,33 @@ for (const page of pages) {
       /<meta name="keywords" content="[^"]*" \/>/,
       `<meta name="keywords" content="${page.keywords}" />`
     );
+  }
+
+  // Inject FAQ schema + static content for pages that have FAQs defined.
+  // This ensures Google and AI crawlers (e.g. Gemini) can index Q&A content
+  // without needing to render JavaScript.
+  if (page.faqs && page.faqs.length > 0) {
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": page.faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    };
+    const faqSchemaTag = `<script type="application/ld+json">${JSON.stringify(faqSchema)}</script>`;
+
+    // Also inject a noscript section with FAQ text so non-JS crawlers see the content
+    const faqHtml = page.faqs.map(f =>
+      `<div><h3>${f.q}</h3><p>${f.a}</p></div>`
+    ).join('');
+    const noscriptContent = `<noscript><section aria-label="Frequently Asked Questions"><h2>Frequently Asked Questions — ${page.title}</h2>${faqHtml}</section></noscript>`;
+
+    // Inject before </head>
+    html = html.replace('</head>', `${faqSchemaTag}\n</head>`);
+    // Inject after <body (the opening body tag)
+    html = html.replace(/(<body[^>]*>)/, `$1\n${noscriptContent}`);
   }
 
   // Write to dist/<path>/index.html

@@ -242,7 +242,7 @@ const ServiceAreaPage = () => {
           </div>
 
           <p className="text-white/80 text-lg md:text-xl font-bold italic max-w-3xl mb-8">
-            Professional {service.name.toLowerCase()} in {area.name}, {area.county}. Same-day service, fixed pricing, fully licensed and insured.
+            {service.getTagline ? service.getTagline(area) : `Professional ${service.name.toLowerCase()} in ${area.name}, ${area.county}. Same-day service, fixed pricing, fully licensed and insured.`}
           </p>
 
           {/* CTA Buttons */}
