@@ -241,7 +241,7 @@ const GeoFaqSection = () => (
         <article className="bg-[#ecf3ef] p-8 border-4 border-slate-900 rounded-lg" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
           <h3 className="text-xl font-black uppercase italic text-slate-900 mb-4" itemProp="name">Are you a licensed waste carrier?</h3>
           <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-            <p className="text-slate-700 font-bold leading-relaxed" itemProp="text">Yes, Total Waste Clearout is a fully licensed waste carrier registered with the Environment Agency. We carry £5 million public liability insurance and provide waste transfer notes for every job. We recycle 94% of all waste collected, making us one of the most environmentally responsible waste removal companies in Berkshire and Surrey.</p>
+            <p className="text-slate-700 font-bold leading-relaxed" itemProp="text">Yes, Total Waste Clearout is a fully licensed waste carrier registered with the Environment Agency (licence number CBDU630127). We carry £5 million public liability insurance and provide waste transfer notes for every job. We recycle 94% of all waste collected, making us one of the most environmentally responsible waste removal companies in Berkshire and Surrey.</p>
           </div>
         </article>
 
@@ -435,7 +435,7 @@ const AboutView = () => (
             <div className="bg-[#dcfce7] p-6 md:p-8 border-4 border-slate-900 rounded-xl md:rounded-2xl shadow-[6px_6px_0px_#16a34a] md:shadow-[8px_8px_0px_#16a34a] hover:shadow-[8px_8px_0px_#16a34a] md:hover:shadow-[12px_12px_0px_#16a34a] transition-all hover:-translate-y-1 md:hover:-translate-y-2 group cursor-pointer">
               <ShieldCheck size={40} className="text-[#16a34a] mb-3 md:mb-4 group-hover:scale-110 transition-transform md:w-12 md:h-12" />
               <h3 className="text-xl md:text-2xl font-black uppercase italic mb-3 md:mb-4 text-slate-900 group-hover:text-[#16a34a] transition-colors">Fully Licensed</h3>
-              <p className="text-sm md:text-base text-slate-700 font-bold leading-relaxed">Environment Agency registered waste carrier with £5M public liability insurance. All work is compliant with UK waste regulations.</p>
+              <p className="text-sm md:text-base text-slate-700 font-bold leading-relaxed">Environment Agency registered waste carrier (CBDU630127) with £5M public liability insurance. All work is compliant with UK waste regulations.</p>
             </div>
             <div className="bg-[#dcfce7] p-6 md:p-8 border-4 border-slate-900 rounded-xl md:rounded-2xl shadow-[6px_6px_0px_#16a34a] md:shadow-[8px_8px_0px_#16a34a] hover:shadow-[8px_8px_0px_#16a34a] md:hover:shadow-[12px_12px_0px_#16a34a] transition-all hover:-translate-y-1 md:hover:-translate-y-2 group cursor-pointer">
               <Recycle size={40} className="text-[#16a34a] mb-3 md:mb-4 group-hover:scale-110 transition-transform md:w-12 md:h-12" />
@@ -725,7 +725,7 @@ const ServicesView = () => (
                   <CheckCircle size={24} className="text-[#4ade80] shrink-0 mt-1" />
                   <div>
                     <span className="font-black uppercase text-[#4ade80]">Licensed & Insured</span><br/>
-                    <span className="text-white/70">£5M public liability insurance and full waste carrier license</span>
+                    <span className="text-white/70">£5M public liability insurance — waste carrier licence CBDU630127</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
