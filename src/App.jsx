@@ -28,7 +28,8 @@ import {
   Facebook,
   Linkedin,
   Quote,
-  ExternalLink
+  ExternalLink,
+  ChevronDown
 } from 'lucide-react';
 
 // Page components
@@ -215,60 +216,51 @@ const HomeQuote = () => (
   </section>
 );
 
-const GeoFaqSection = () => (
-  <section className="py-24 md:py-32 bg-white border-t border-slate-200">
-    <div className="container mx-auto px-6">
-      <div className="mb-16 text-left">
-        <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Everything You Need to Know</h2>
-        <p className="text-5xl md:text-7xl lg:text-8xl font-[1000] text-slate-900 italic uppercase leading-[0.9] tracking-tighter">FREQUENTLY<br />ASKED.</p>
+const faqItems = [
+  { q: "How much does waste removal cost in Berkshire?", a: "Total Waste Clearout offers fixed pricing with no hidden fees. A single item collection starts from £40, a partial load from £120, and a full load from £280. All prices include labour, loading, transport, and responsible disposal with a 94% recycling rate. We serve Reading, Slough, Bracknell, Windsor, Ascot, Maidenhead, Guildford, Woking, Egham and Staines." },
+  { q: "Do you offer same-day waste collection?", a: "Yes, Total Waste Clearout offers same-day waste collection across Berkshire and Surrey. We respond within 2 hours of your call and can often collect on the same day. Our operating hours are Monday to Friday 7am-7pm and Saturday 8am-5pm. Call 07769 844298 or WhatsApp us for immediate availability." },
+  { q: "Are you a licensed waste carrier?", a: "Yes, Total Waste Clearout is a fully licensed waste carrier registered with the Environment Agency (licence number CBDU630127). We carry £5 million public liability insurance and provide waste transfer notes for every job. We recycle 94% of all waste collected, making us one of the most environmentally responsible waste removal companies in Berkshire and Surrey." },
+  { q: "What types of waste do you remove?", a: "We remove all types of non-hazardous waste including household rubbish, garden waste, construction debris, office furniture, end-of-tenancy waste, probate clearances, garage and shed demolitions, bulky items like sofas and mattresses, white goods, and commercial waste. We are a cheaper, faster alternative to skip hire across Berkshire and Surrey." },
+  { q: "What areas do you cover?", a: "Total Waste Clearout covers all of Berkshire and Surrey including Reading (RG1-RG31), Slough (SL1-SL3), Guildford (GU1-GU5), Woking (GU21-GU22), Bracknell (RG12, RG42), Windsor (SL4), Ascot (SL5), Maidenhead (SL6), Egham (TW20), and Staines-upon-Thames (TW18-TW19) plus surrounding villages." },
+  { q: "Why choose Total Waste Clearout over skip hire?", a: "Total Waste Clearout is a faster, easier, and often cheaper alternative to skip hire. No council permits needed, no waiting for delivery and collection, no blocked driveways, and no weight limits. We do all the heavy lifting, load the waste for you, and can collect same-day. Our 94% recycling rate means your waste is disposed of responsibly." }
+];
+
+const GeoFaqSection = () => {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  return (
+    <section className="py-24 md:py-32 bg-white border-t border-slate-200">
+      <div className="container mx-auto px-6">
+        <div className="mb-16 text-left">
+          <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Everything You Need to Know</h2>
+          <p className="text-5xl md:text-7xl lg:text-8xl font-[1000] text-slate-900 italic uppercase leading-[0.9] tracking-tighter">FREQUENTLY<br />ASKED.</p>
+        </div>
+
+        <div className="max-w-4xl space-y-4">
+          {faqItems.map((faq, i) => (
+            <article key={i} className="border-4 border-slate-900 rounded-lg overflow-hidden" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+              <button
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                className="w-full flex items-center justify-between gap-4 p-6 md:p-8 bg-[#ecf3ef] hover:bg-[#dcfce7] transition-colors text-left cursor-pointer"
+                aria-expanded={openIndex === i}
+              >
+                <h3 className="text-lg md:text-xl font-black uppercase italic text-slate-900" itemProp="name">{faq.q}</h3>
+                <ChevronDown size={24} className={`text-slate-900 shrink-0 transition-transform duration-300 ${openIndex === i ? 'rotate-180' : ''}`} />
+              </button>
+              <div
+                className={`grid transition-all duration-300 ease-in-out ${openIndex === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
+              >
+                <div className="overflow-hidden" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                  <p className="px-6 md:px-8 pb-6 md:pb-8 pt-2 text-slate-700 font-bold leading-relaxed bg-[#ecf3ef]" itemProp="text">{faq.a}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
-
-      <div className="grid md:grid-cols-2 gap-8 max-w-6xl">
-        <article className="bg-[#ecf3ef] p-8 border-4 border-slate-900 rounded-lg" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-          <h3 className="text-xl font-black uppercase italic text-slate-900 mb-4" itemProp="name">How much does waste removal cost in Berkshire?</h3>
-          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-            <p className="text-slate-700 font-bold leading-relaxed" itemProp="text">Total Waste Clearout offers fixed pricing with no hidden fees. A single item collection starts from £40, a partial load from £120, and a full load from £280. All prices include labour, loading, transport, and responsible disposal with a 94% recycling rate. We serve Reading, Slough, Bracknell, Windsor, Ascot, Maidenhead, Guildford, Woking, Egham and Staines.</p>
-          </div>
-        </article>
-
-        <article className="bg-[#ecf3ef] p-8 border-4 border-slate-900 rounded-lg" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-          <h3 className="text-xl font-black uppercase italic text-slate-900 mb-4" itemProp="name">Do you offer same-day waste collection?</h3>
-          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-            <p className="text-slate-700 font-bold leading-relaxed" itemProp="text">Yes, Total Waste Clearout offers same-day waste collection across Berkshire and Surrey. We respond within 2 hours of your call and can often collect on the same day. Our operating hours are Monday to Friday 7am-7pm and Saturday 8am-5pm. Call 07769 844298 or WhatsApp us for immediate availability.</p>
-          </div>
-        </article>
-
-        <article className="bg-[#ecf3ef] p-8 border-4 border-slate-900 rounded-lg" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-          <h3 className="text-xl font-black uppercase italic text-slate-900 mb-4" itemProp="name">Are you a licensed waste carrier?</h3>
-          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-            <p className="text-slate-700 font-bold leading-relaxed" itemProp="text">Yes, Total Waste Clearout is a fully licensed waste carrier registered with the Environment Agency (licence number CBDU630127). We carry £5 million public liability insurance and provide waste transfer notes for every job. We recycle 94% of all waste collected, making us one of the most environmentally responsible waste removal companies in Berkshire and Surrey.</p>
-          </div>
-        </article>
-
-        <article className="bg-[#ecf3ef] p-8 border-4 border-slate-900 rounded-lg" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-          <h3 className="text-xl font-black uppercase italic text-slate-900 mb-4" itemProp="name">What types of waste do you remove?</h3>
-          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-            <p className="text-slate-700 font-bold leading-relaxed" itemProp="text">We remove all types of non-hazardous waste including household rubbish, garden waste, construction debris, office furniture, end-of-tenancy waste, probate clearances, garage and shed demolitions, bulky items like sofas and mattresses, white goods, and commercial waste. We are a cheaper, faster alternative to skip hire across Berkshire and Surrey.</p>
-          </div>
-        </article>
-
-        <article className="bg-[#ecf3ef] p-8 border-4 border-slate-900 rounded-lg" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-          <h3 className="text-xl font-black uppercase italic text-slate-900 mb-4" itemProp="name">What areas do you cover?</h3>
-          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-            <p className="text-slate-700 font-bold leading-relaxed" itemProp="text">Total Waste Clearout covers all of Berkshire and Surrey including Reading (RG1-RG31), Slough (SL1-SL3), Guildford (GU1-GU5), Woking (GU21-GU22), Bracknell (RG12, RG42), Windsor (SL4), Ascot (SL5), Maidenhead (SL6), Egham (TW20), and Staines-upon-Thames (TW18-TW19) plus surrounding villages.</p>
-          </div>
-        </article>
-
-        <article className="bg-[#ecf3ef] p-8 border-4 border-slate-900 rounded-lg" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-          <h3 className="text-xl font-black uppercase italic text-slate-900 mb-4" itemProp="name">Why choose Total Waste Clearout over skip hire?</h3>
-          <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-            <p className="text-slate-700 font-bold leading-relaxed" itemProp="text">Total Waste Clearout is a faster, easier, and often cheaper alternative to skip hire. No council permits needed, no waiting for delivery and collection, no blocked driveways, and no weight limits. We do all the heavy lifting, load the waste for you, and can collect same-day. Our 94% recycling rate means your waste is disposed of responsibly.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const MapContact = () => (
   <section id="location" className="py-24 md:py-32 bg-white">
@@ -966,6 +958,32 @@ const App = () => {
                 <div className="container mx-auto px-6 text-left text-white">
                   <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10">
                     {STATS.map((s, idx) => (<div key={`stat-${idx}`} className="flex items-center gap-3 md:gap-5 text-white"><div className="bg-[#064e3b] text-[#4ade80] p-2 md:p-3 rounded-sm shrink-0 shadow-sm"><s.Icon size={20} /></div><div className="flex flex-col"><span className="text-xl md:text-3xl font-black uppercase italic leading-none">{s.value}</span><span className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest opacity-80">{s.label}</span></div></div>))}
+                  </div>
+                </div>
+              </section>
+              {/* TRUST BADGES */}
+              <section className="bg-slate-900 py-6 md:py-8 border-b-4 border-black">
+                <div className="container mx-auto px-6">
+                  <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12">
+                    <div className="flex items-center gap-3">
+                      <ShieldCheck size={28} className="text-[#4ade80] shrink-0" />
+                      <div>
+                        <span className="text-white font-black text-sm md:text-base uppercase">EA Registered</span>
+                        <span className="block text-[#4ade80] font-black text-xs md:text-sm tracking-wider">CBDU630127</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Scale size={28} className="text-[#4ade80] shrink-0" />
+                      <span className="text-white font-black text-sm md:text-base uppercase">£5M Insured</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Recycle size={28} className="text-[#4ade80] shrink-0" />
+                      <span className="text-white font-black text-sm md:text-base uppercase">94% Recycling</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle size={28} className="text-[#4ade80] shrink-0" />
+                      <span className="text-white font-black text-sm md:text-base uppercase">Waste Transfer Notes</span>
+                    </div>
                   </div>
                 </div>
               </section>
