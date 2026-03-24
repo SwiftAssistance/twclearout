@@ -293,7 +293,7 @@ const Services = () => {
                       <CheckCircle size={24} className="text-[#4ade80] shrink-0 mt-1" />
                       <div>
                         <span className="font-black uppercase text-[#4ade80]">Licensed & Insured</span><br/>
-                        <span className="text-white/70">£5M public liability insurance and full waste carrier license</span>
+                        <span className="text-white/70">£5M public liability insurance — waste carrier licence CBDU630127</span>
                       </div>
                     </li>
                     <li className="flex items-start gap-4">

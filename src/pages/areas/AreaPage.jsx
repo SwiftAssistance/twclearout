@@ -384,7 +384,7 @@ const AreaPage = () => {
                   <h3 className="font-black text-xl uppercase text-[#16a34a]">Fully Licensed & Insured</h3>
                 </div>
                 <p className="text-slate-700 leading-relaxed">
-                  Environment Agency registered waste carrier with £5M public liability insurance. Full compliance for all waste removal in {area.name}.
+                  Environment Agency registered waste carrier (CBDU630127) with £5M public liability insurance. Full compliance for all waste removal in {area.name}.
                 </p>
               </div>
               <div className="bg-white border-4 border-slate-900 rounded-xl p-6 shadow-[6px_6px_0px_#e2e8f0]">

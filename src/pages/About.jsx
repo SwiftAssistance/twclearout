@@ -111,7 +111,7 @@ const About = () => {
                 <div className="bg-[#dcfce7] p-6 md:p-8 border-4 border-slate-900 rounded-xl md:rounded-2xl shadow-[6px_6px_0px_#16a34a] md:shadow-[8px_8px_0px_#16a34a] hover:shadow-[8px_8px_0px_#16a34a] md:hover:shadow-[12px_12px_0px_#16a34a] transition-all hover:-translate-y-1 md:hover:-translate-y-2 group cursor-pointer">
                   <ShieldCheck size={40} className="text-[#16a34a] mb-3 md:mb-4 group-hover:scale-110 transition-transform md:w-12 md:h-12" />
                   <h3 className="text-xl md:text-2xl font-black uppercase italic mb-3 md:mb-4 text-slate-900 group-hover:text-[#16a34a] transition-colors">Fully Licensed</h3>
-                  <p className="text-sm md:text-base text-slate-700 font-bold leading-relaxed">Environment Agency registered waste carrier with £5M public liability insurance. All work is compliant with UK waste regulations.</p>
+                  <p className="text-sm md:text-base text-slate-700 font-bold leading-relaxed">Environment Agency registered waste carrier (CBDU630127) with £5M public liability insurance. All work is compliant with UK waste regulations.</p>
                 </div>
                 <div className="bg-[#dcfce7] p-6 md:p-8 border-4 border-slate-900 rounded-xl md:rounded-2xl shadow-[6px_6px_0px_#16a34a] md:shadow-[8px_8px_0px_#16a34a] hover:shadow-[8px_8px_0px_#16a34a] md:hover:shadow-[12px_12px_0px_#16a34a] transition-all hover:-translate-y-1 md:hover:-translate-y-2 group cursor-pointer">
                   <Recycle size={40} className="text-[#16a34a] mb-3 md:mb-4 group-hover:scale-110 transition-transform md:w-12 md:h-12" />
