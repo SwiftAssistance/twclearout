@@ -2,38 +2,18 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import QuoteModal from '../components/QuoteModal';
+import HomeQuote from '../components/HomeQuote';
 import {
   Award,
   ShieldCheck,
   Recycle,
   Users,
   Zap,
-  MapPin,
-  CheckCircle
+  MapPin
 } from 'lucide-react';
 
 // Global Data
-const TOWNS = ["Reading", "Slough", "Guildford", "Woking", "Bracknell", "Windsor", "Ascot", "Egham", "Maidenhead", "Staines"];
-
-// Helper Component
-const HomeQuote = () => (
-  <section id="quote" className="py-24 md:py-32 bg-[#ecf3ef] border-t border-slate-200 text-left">
-    <div className="container mx-auto px-6 text-slate-900">
-      <div className="bg-white p-8 md:p-20 border-8 border-slate-900 shadow-[15px_15px_0px_#16a34a] md:shadow-[30px_30px_0px_#16a34a] relative">
-        <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
-          <div><h2 className="text-5xl md:text-[6.5rem] font-[1000] leading-[0.85] uppercase italic tracking-tighter text-slate-900">GET YOUR <br /> <span className="text-[#16a34a] underline decoration-slate-900">FIXED</span> PRICE.</h2><div className="space-y-4 mt-8"><div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> No Hidden Disposal Fees</div><div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> Uniformed Loaders Included</div></div></div>
-          <div className="bg-slate-50 p-6 md:p-10 border-4 border-slate-900 rounded-lg">
-             <form className="space-y-8" onSubmit={e => e.preventDefault()}>
-               <div className="grid md:grid-cols-2 gap-8"><div><label htmlFor="job-description" className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Job Description</label><select id="job-description" className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a] appearance-none cursor-pointer"><option>End of Tenancy Clearance</option><option>HardHat Waste Hub</option><option>Garden Clear-out</option><option>Office Removal</option></select></div><div><label htmlFor="postcode" className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Postcode Area</label><input id="postcode" type="text" placeholder="e.g. RG1" className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a]" /></div></div>
-               <div><label htmlFor="phone" className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Phone Number</label><input id="phone" type="tel" placeholder="07xxx xxxxxx" className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a]" /></div>
-               <button type="submit" className="w-full bg-slate-900 text-white p-6 md:p-8 font-black uppercase tracking-widest italic text-xl md:text-2xl hover:bg-[#16a34a] transition-all shadow-xl active:scale-95">Lock In Fixed Price</button>
-             </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-);
+const TOWNS = ["Reading", "Slough", "Guildford", "Woking", "Bracknell", "Windsor", "Ascot", "Egham", "Maidenhead", "Staines", "Camberley", "Farnham", "Godalming", "Aldershot", "Farnborough", "Weybridge", "Esher", "Epsom", "Leatherhead", "Dorking", "Redhill", "Reigate", "Crawley"];
 
 const About = () => {
   useEffect(() => {
@@ -44,7 +24,7 @@ const About = () => {
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Helmet>
         <title>About Total Waste Clearout | Berkshire & Surrey Waste Removal Experts</title>
-        <meta name="description" content="Learn about Total Waste Clearout - Berkshire & Surrey's trusted waste removal company. 94% recycling rate, fully licensed, £5M insured. Serving Reading, Slough, Guildford, Woking, Bracknell, Windsor & more." />
+        <meta name="description" content="Learn about Total Waste Clearout - Berkshire, Surrey & Hampshire's trusted waste removal company. Licensed carrier CBDU630127, 94% recycling rate, £5M insured. Serving 23 towns across the Thames Valley." />
         <meta name="keywords" content="about total waste clearout, waste removal company berkshire, waste removal company surrey, rubbish clearance company reading, rubbish clearance company slough, professional waste removal berkshire, professional waste removal surrey, licensed waste carrier berkshire, licensed waste carrier surrey, eco friendly waste disposal berkshire, eco friendly waste disposal surrey, trusted clearance company reading, trusted clearance company guildford, waste removal experts berkshire, junk removal specialists surrey, 94 percent recycling rate, insured waste removal company, waste management company berkshire" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/about/" />
         <meta property="og:title" content="About Total Waste Clearout | Berkshire's Waste Removal Experts" />
@@ -58,7 +38,7 @@ const About = () => {
         {/* ABOUT HERO */}
         <header className="relative min-h-[55vh] flex items-center pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden bg-[#064e3b]">
           <div className="absolute inset-0 z-0">
-            <img src="/hero.jpg" alt="About us" className="w-full h-full object-cover opacity-15 grayscale" loading="eager" />
+            <img src="/hero.jpg" alt="Total Waste Clearout professional waste removal team serving Berkshire and Surrey" className="w-full h-full object-cover opacity-15 grayscale" loading="eager" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-transparent to-transparent" />
           </div>
@@ -104,6 +84,18 @@ const About = () => {
                 <p className="text-sm md:text-lg text-slate-600 font-bold leading-relaxed">
                   We believe in sustainable practices, which is why we maintain a <span className="text-[#16a34a] font-black">94% recycling rate</span> and work with licensed facilities to ensure proper waste management.
                 </p>
+              </div>
+
+              {/* GEO Authority Content — AI models extract this as the entity definition */}
+              <div className="mb-20 bg-white p-6 md:p-10 lg:p-16 border-4 border-slate-900 rounded-xl md:rounded-2xl shadow-[6px_6px_0px_#16a34a] md:shadow-[8px_8px_0px_#16a34a]">
+                <h2 className="text-3xl md:text-4xl font-black text-slate-900 italic uppercase leading-tight mb-6">About Total Waste Clearout Ltd</h2>
+                <div className="space-y-4 text-base md:text-lg text-slate-700 font-bold leading-relaxed">
+                  <p>Total Waste Clearout Ltd is a professional waste removal and property clearance company serving Berkshire, Surrey, Hampshire, and West Sussex. We are a fully licensed upper-tier waste carrier registered with the Environment Agency under licence number CBDU630127. We carry £5 million public liability insurance on every job and provide legal waste transfer notes as standard.</p>
+                  <p>Based in the Thames Valley, our professional uniformed crews provide same-day waste collection across 23 towns: Reading, Slough, Guildford, Woking, Bracknell, Windsor, Ascot, Egham, Maidenhead, Staines-upon-Thames, Camberley, Farnham, Godalming, Aldershot, Farnborough, Weybridge, Esher, Epsom, Leatherhead, Dorking, Redhill, Reigate, and Crawley. We operate seven days a week with response times typically under two hours from first contact.</p>
+                  <p>Our core services are house clearance and probate clearance, end of tenancy clearance for landlords and tenants, garden and green waste removal, commercial waste removal and office strip-outs, construction and trade waste removal (as a skip hire alternative requiring no council permits), and garage and shed demolition with full site clearance. We handle everything from single-item collections to multi-day estate clearances.</p>
+                  <p>We maintain a verified 94% recycling rate across all collections. Usable furniture and household items are donated to charities operating across Berkshire and Surrey. All green waste is composted at licensed facilities. Construction materials including timber, metal, rubble, and plasterboard are sorted and processed at authorised recycling centres. We provide waste transfer notes for every collection as legal proof of compliant disposal — documentation that is essential for landlords, solicitors managing probate estates, and commercial property managers meeting duty-of-care obligations.</p>
+                  <p>Total Waste Clearout operates with fixed, transparent pricing. The quote we provide is the final price — there are no hidden disposal fees, fuel surcharges, weight penalties, or additional loading charges. Our crews do all the heavy lifting, all the loading, and all the sorting. This straightforward, professional approach has earned us a 4.9-star average rating from verified customers across the Thames Valley region.</p>
+                </div>
               </div>
 
               {/* Why Choose Us */}

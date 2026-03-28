@@ -20,7 +20,9 @@ const HardHatWasteHub = () => {
   const serviceAreas = [
     "Reading", "Slough", "Guildford", "Woking", "Bracknell",
     "Windsor", "Ascot", "Egham", "Maidenhead", "Staines",
-    "Wokingham", "Camberley", "Farnborough", "Aldershot"
+    "Camberley", "Farnham", "Godalming", "Aldershot", "Farnborough",
+    "Weybridge", "Esher", "Epsom", "Leatherhead", "Dorking",
+    "Redhill", "Reigate", "Crawley"
   ];
 
   const benefits = [

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import StatsTicker from '../components/StatsTicker';
 import QuoteModal from '../components/QuoteModal';
+import HomeQuote from '../components/HomeQuote';
 import {
   Phone,
   Recycle,
@@ -68,25 +69,6 @@ const ModernServiceCard = ({ icon, emoji, title, description, features, price, d
   </div>
 );
 
-const HomeQuote = () => (
-  <section id="quote" className="py-24 md:py-32 bg-[#ecf3ef] border-t border-slate-200 text-left">
-    <div className="container mx-auto px-6 text-slate-900">
-      <div className="bg-white p-8 md:p-20 border-8 border-slate-900 shadow-[15px_15px_0px_#16a34a] md:shadow-[30px_30px_0px_#16a34a] relative">
-        <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
-          <div><h2 className="text-5xl md:text-[6.5rem] font-[1000] leading-[0.85] uppercase italic tracking-tighter text-slate-900">GET YOUR <br /> <span className="text-[#16a34a] underline decoration-slate-900">FIXED</span> PRICE.</h2><div className="space-y-4 mt-8"><div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> No Hidden Disposal Fees</div><div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> Uniformed Loaders Included</div></div></div>
-          <div className="bg-slate-50 p-6 md:p-10 border-4 border-slate-900 rounded-lg">
-             <form className="space-y-8" onSubmit={e => e.preventDefault()}>
-               <div className="grid md:grid-cols-2 gap-8"><div><label htmlFor="job-description" className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Job Description</label><select id="job-description" className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a] appearance-none cursor-pointer"><option>End of Tenancy Clearance</option><option>HardHat Waste Hub</option><option>Garden Clear-out</option><option>Office Removal</option></select></div><div><label htmlFor="postcode" className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Postcode Area</label><input id="postcode" type="text" placeholder="e.g. RG1" className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a]" /></div></div>
-               <div><label htmlFor="phone" className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Phone Number</label><input id="phone" type="tel" placeholder="07xxx xxxxxx" className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a]" /></div>
-               <button type="submit" className="w-full bg-slate-900 text-white p-6 md:p-8 font-black uppercase tracking-widest italic text-xl md:text-2xl hover:bg-[#16a34a] transition-all shadow-xl active:scale-95">Lock In Fixed Price</button>
-             </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
 const Services = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -110,7 +92,7 @@ const Services = () => {
         {/* SERVICES HERO */}
         <header className="relative min-h-[55vh] flex items-center pt-32 pb-16 overflow-hidden bg-[#064e3b]">
           <div className="absolute inset-0 z-0">
-            <img src="/hero.jpg" alt="Waste removal services" className="w-full h-full object-cover opacity-15 grayscale" loading="eager" />
+            <img src="/hero.jpg" alt="Professional waste removal services Berkshire Surrey including house clearance garden waste and commercial clearance" className="w-full h-full object-cover opacity-15 grayscale" loading="eager" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-transparent to-transparent" />
           </div>

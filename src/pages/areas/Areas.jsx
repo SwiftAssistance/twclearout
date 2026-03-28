@@ -210,6 +210,96 @@ const Areas = () => {
               </div>
             </div>
 
+            {/* Hampshire Areas */}
+            <div className="mb-16">
+              <h3 className="text-2xl font-black uppercase text-[#16a34a] mb-6 flex items-center gap-3 border-l-4 border-[#16a34a] pl-4">
+                <MapPin size={24} /> Hampshire
+              </h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {areas.filter(a => a.county === "Hampshire").map((area) => (
+                  <Link
+                    key={area.slug}
+                    to={`/${area.slug}`}
+                    className="bg-white border-4 border-slate-900 rounded-xl p-6 md:p-8 hover:shadow-[8px_8px_0px_#16a34a] transition-all hover:-translate-y-2 group"
+                  >
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="w-12 h-12 bg-[#16a34a] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <MapPin size={24} className="text-white" />
+                      </div>
+                      <span className="bg-[#dcfce7] text-[#16a34a] px-3 py-1 rounded-full text-xs font-black uppercase">{area.postcode}</span>
+                    </div>
+                    <h4 className="font-black text-2xl uppercase text-slate-900 mb-2 group-hover:text-[#16a34a] transition-colors">
+                      {area.name}
+                    </h4>
+                    <p className="text-slate-600 font-bold text-sm mb-4 leading-relaxed line-clamp-2">
+                      Waste removal, rubbish clearance, house clearance & garden waste in {area.name}.
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {area.nearbyAreas.slice(0, 3).map((nearby, idx) => (
+                        <span key={idx} className="bg-slate-100 px-2 py-1 rounded text-xs font-bold text-slate-500">
+                          {nearby}
+                        </span>
+                      ))}
+                      {area.nearbyAreas.length > 3 && (
+                        <span className="bg-slate-100 px-2 py-1 rounded text-xs font-bold text-slate-500">
+                          +{area.nearbyAreas.length - 3} more
+                        </span>
+                      )}
+                    </div>
+                    <div className="flex items-center justify-between pt-4 border-t-2 border-slate-100">
+                      <span className="text-[#16a34a] font-black text-sm uppercase">View Services</span>
+                      <ArrowRight size={18} className="text-slate-400 group-hover:text-[#16a34a] group-hover:translate-x-1 transition-all" />
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* West Sussex Areas */}
+            <div className="mb-16">
+              <h3 className="text-2xl font-black uppercase text-[#16a34a] mb-6 flex items-center gap-3 border-l-4 border-[#16a34a] pl-4">
+                <MapPin size={24} /> West Sussex
+              </h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {areas.filter(a => a.county === "West Sussex").map((area) => (
+                  <Link
+                    key={area.slug}
+                    to={`/${area.slug}`}
+                    className="bg-white border-4 border-slate-900 rounded-xl p-6 md:p-8 hover:shadow-[8px_8px_0px_#16a34a] transition-all hover:-translate-y-2 group"
+                  >
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="w-12 h-12 bg-[#16a34a] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <MapPin size={24} className="text-white" />
+                      </div>
+                      <span className="bg-[#dcfce7] text-[#16a34a] px-3 py-1 rounded-full text-xs font-black uppercase">{area.postcode}</span>
+                    </div>
+                    <h4 className="font-black text-2xl uppercase text-slate-900 mb-2 group-hover:text-[#16a34a] transition-colors">
+                      {area.name}
+                    </h4>
+                    <p className="text-slate-600 font-bold text-sm mb-4 leading-relaxed line-clamp-2">
+                      Waste removal, rubbish clearance, house clearance & garden waste in {area.name}.
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {area.nearbyAreas.slice(0, 3).map((nearby, idx) => (
+                        <span key={idx} className="bg-slate-100 px-2 py-1 rounded text-xs font-bold text-slate-500">
+                          {nearby}
+                        </span>
+                      ))}
+                      {area.nearbyAreas.length > 3 && (
+                        <span className="bg-slate-100 px-2 py-1 rounded text-xs font-bold text-slate-500">
+                          +{area.nearbyAreas.length - 3} more
+                        </span>
+                      )}
+                    </div>
+                    <div className="flex items-center justify-between pt-4 border-t-2 border-slate-100">
+                      <span className="text-[#16a34a] font-black text-sm uppercase">View Services</span>
+                      <ArrowRight size={18} className="text-slate-400 group-hover:text-[#16a34a] group-hover:translate-x-1 transition-all" />
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             {/* SEO Content Section */}
             <section className="mb-16">
               <div className="bg-white border-4 border-slate-900 rounded-xl p-8 md:p-12 shadow-[8px_8px_0px_#e2e8f0]">

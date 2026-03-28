@@ -49,12 +49,14 @@ import Contact from './pages/Contact';
 import Areas from './pages/areas/Areas';
 import AreaPage from './pages/areas/AreaPage';
 import ServiceAreaPage from './pages/areas/ServiceAreaPage';
+import NotFound from './pages/NotFound';
 import QuoteModal from './components/QuoteModal';
 import StatsTicker from './components/StatsTicker';
+import HomeQuote from './components/HomeQuote';
 
 // --- GLOBAL DATA & CONFIGURATION ---
 
-const TOWNS = ["Reading", "Slough", "Guildford", "Woking", "Bracknell", "Windsor", "Ascot", "Egham", "Maidenhead", "Staines"];
+const TOWNS = ["Reading", "Slough", "Guildford", "Woking", "Bracknell", "Windsor", "Ascot", "Egham", "Maidenhead", "Staines", "Camberley", "Farnham", "Godalming", "Aldershot", "Farnborough", "Weybridge", "Esher", "Epsom", "Leatherhead", "Dorking", "Redhill", "Reigate", "Crawley"];
 
 const REVIEWS = [
   {
@@ -130,7 +132,7 @@ const ReviewCard = ({ review, idx }) => (
 const HomeHero = () => (
   <header className="relative min-h-[85vh] md:min-h-screen flex items-center pt-20 md:pt-24 overflow-hidden bg-[#064e3b]">
     <div className="absolute inset-0 z-0">
-      <img src="/hero.jpg" alt="Waste removal and rubbish bags" className="w-full h-full object-cover opacity-15 grayscale" loading="eager" />
+      <img src="/hero.jpg" alt="Professional waste removal service loading rubbish in Berkshire" className="w-full h-full object-cover opacity-15 grayscale" loading="eager" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-transparent to-transparent" />
     </div>
@@ -139,7 +141,7 @@ const HomeHero = () => (
         <div className="mb-8 inline-block animate-pulse">
           <span className="bg-[#4ade80] text-slate-900 px-4 md:px-6 py-2 md:py-3 text-[10px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.3em] italic border-2 md:border-4 border-white shadow-lg rounded-sm">Professional Clearance</span>
         </div>
-        <h1 className="text-5xl md:text-[8rem] lg:text-[10rem] font-black text-white leading-[0.85] mb-8 tracking-tighter uppercase italic">WASTE <br /><span className="text-transparent stroke-text-light">REMOVAL</span> <br /><span className="text-[#4ade80]">TODAY.</span></h1>
+        <h1 className="text-5xl md:text-[8rem] lg:text-[10rem] font-black text-white leading-[0.85] mb-8 tracking-tighter uppercase italic">WASTE <br /><span className="text-transparent stroke-text-light">REMOVAL</span> <br /><span className="text-[#4ade80]">BERKSHIRE<br />& SURREY.</span></h1>
         <p className="text-lg md:text-3xl text-white/70 mb-12 max-w-2xl font-bold leading-tight italic text-balance">Premium waste removal for <span className="text-white border-b-4 border-orange-500">Berkshire & Surrey</span>. Fully licensed. Fixed pricing. Professional crews.</p>
         <div className="flex flex-wrap gap-4 md:gap-6">
           <Link to="/services" className="bg-orange-500 hover:bg-orange-400 text-black px-10 md:px-12 py-5 md:py-6 rounded-sm font-black text-lg md:text-xl uppercase italic tracking-wider transition-all hover:-translate-y-1 shadow-[8px_8px_0px_#022c22] active:shadow-none flex items-center cursor-pointer">
@@ -197,24 +199,6 @@ const HomeServices = () => (
   </section>
 );
 
-const HomeQuote = () => (
-  <section id="quote" className="py-24 md:py-32 bg-[#ecf3ef] border-t border-slate-200 text-left">
-    <div className="container mx-auto px-6 text-slate-900">
-      <div className="bg-white p-8 md:p-20 border-8 border-slate-900 shadow-[15px_15px_0px_#16a34a] md:shadow-[30px_30px_0px_#16a34a] relative">
-        <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
-          <div><h2 className="text-5xl md:text-[6.5rem] font-[1000] leading-[0.85] uppercase italic tracking-tighter text-slate-900">GET YOUR <br /> <span className="text-[#16a34a] underline decoration-slate-900">FIXED</span> PRICE.</h2><div className="space-y-4 mt-8"><div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> No Hidden Disposal Fees</div><div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> Uniformed Loaders Included</div></div></div>
-          <div className="bg-slate-50 p-6 md:p-10 border-4 border-slate-900 rounded-lg">
-             <form className="space-y-8" onSubmit={e => e.preventDefault()}>
-               <div className="grid md:grid-cols-2 gap-8"><div><label htmlFor="job-description" className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Job Description</label><select id="job-description" className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a] appearance-none cursor-pointer"><option>End of Tenancy Clearance</option><option>HardHat Waste Hub</option><option>Garden Clear-out</option><option>Office Removal</option></select></div><div><label htmlFor="postcode" className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Postcode Area</label><input id="postcode" type="text" placeholder="e.g. RG1" className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a]" /></div></div>
-               <div><label htmlFor="phone" className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Phone Number</label><input id="phone" type="tel" placeholder="07xxx xxxxxx" className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a]" /></div>
-               <button type="submit" className="w-full bg-slate-900 text-white p-6 md:p-8 font-black uppercase tracking-widest italic text-xl md:text-2xl hover:bg-[#16a34a] transition-all shadow-xl active:scale-95">Lock In Fixed Price</button>
-             </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-);
 
 const faqItems = [
   { q: "How much does waste removal cost in Berkshire?", a: "Total Waste Clearout offers fixed pricing with no hidden fees. A single item collection starts from £40, a partial load from £120, and a full load from £280. All prices include labour, loading, transport, and responsible disposal with a 94% recycling rate. We serve Reading, Slough, Bracknell, Windsor, Ascot, Maidenhead, Guildford, Woking, Egham and Staines." },
@@ -1015,6 +999,19 @@ const App = () => {
           <Route path="/waste-removal-egham" element={<AreaPage />} />
           <Route path="/waste-removal-maidenhead" element={<AreaPage />} />
           <Route path="/waste-removal-staines" element={<AreaPage />} />
+          <Route path="/waste-removal-camberley" element={<AreaPage />} />
+          <Route path="/waste-removal-farnham" element={<AreaPage />} />
+          <Route path="/waste-removal-godalming" element={<AreaPage />} />
+          <Route path="/waste-removal-aldershot" element={<AreaPage />} />
+          <Route path="/waste-removal-farnborough" element={<AreaPage />} />
+          <Route path="/waste-removal-weybridge" element={<AreaPage />} />
+          <Route path="/waste-removal-esher" element={<AreaPage />} />
+          <Route path="/waste-removal-epsom" element={<AreaPage />} />
+          <Route path="/waste-removal-leatherhead" element={<AreaPage />} />
+          <Route path="/waste-removal-dorking" element={<AreaPage />} />
+          <Route path="/waste-removal-redhill" element={<AreaPage />} />
+          <Route path="/waste-removal-reigate" element={<AreaPage />} />
+          <Route path="/waste-removal-crawley" element={<AreaPage />} />
           {/* Service + Area combination pages (60 pages) */}
           <Route path="/house-clearance-reading" element={<ServiceAreaPage />} />
           <Route path="/house-clearance-slough" element={<ServiceAreaPage />} />
@@ -1076,9 +1073,88 @@ const App = () => {
           <Route path="/garage-shed-clearance-egham" element={<ServiceAreaPage />} />
           <Route path="/garage-shed-clearance-maidenhead" element={<ServiceAreaPage />} />
           <Route path="/garage-shed-clearance-staines" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-camberley" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-camberley" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-camberley" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-camberley" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-camberley" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-camberley" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-farnham" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-farnham" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-farnham" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-farnham" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-farnham" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-farnham" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-godalming" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-godalming" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-godalming" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-godalming" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-godalming" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-godalming" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-aldershot" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-aldershot" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-aldershot" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-aldershot" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-aldershot" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-aldershot" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-farnborough" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-farnborough" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-farnborough" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-farnborough" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-farnborough" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-farnborough" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-weybridge" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-weybridge" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-weybridge" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-weybridge" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-weybridge" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-weybridge" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-esher" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-esher" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-esher" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-esher" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-esher" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-esher" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-epsom" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-epsom" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-epsom" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-epsom" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-epsom" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-epsom" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-leatherhead" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-leatherhead" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-leatherhead" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-leatherhead" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-leatherhead" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-leatherhead" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-dorking" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-dorking" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-dorking" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-dorking" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-dorking" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-dorking" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-redhill" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-redhill" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-redhill" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-redhill" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-redhill" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-redhill" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-reigate" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-reigate" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-reigate" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-reigate" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-reigate" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-reigate" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-crawley" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-crawley" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-crawley" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-crawley" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-crawley" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-crawley" element={<ServiceAreaPage />} />
           <Route path="/services" element={<Services />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
 
@@ -1090,7 +1166,7 @@ const App = () => {
             {/* Brand */}
             <div className="lg:col-span-4 space-y-6">
               <Link to="/" aria-label="Go to homepage" className="flex items-center gap-4 group cursor-pointer">
-                <img src="/logo.webp" alt="Total Waste Clearout Ltd logo" className="w-14 h-14 object-contain group-hover:rotate-12 transition-transform" loading="lazy" />
+                <img src="/logo.webp" alt="Total Waste Clearout Ltd licensed waste removal Berkshire Surrey" className="w-14 h-14 object-contain group-hover:rotate-12 transition-transform" loading="lazy" />
                 <div className="flex flex-col leading-none">
                   <span className="font-black text-2xl md:text-3xl tracking-tighter uppercase italic leading-none text-white">Total Waste</span>
                   <span className="text-[#4ade80] font-black text-xs tracking-[.4em] uppercase">Clearout Ltd</span>

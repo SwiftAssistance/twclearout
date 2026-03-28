@@ -12,7 +12,7 @@ const items = [
 export default function StatsTicker() {
   const doubled = [...items, ...items];
   return (
-    <div className="bg-[#4ade80] py-3 overflow-hidden border-y-4 border-slate-900">
+    <div className="bg-[#4ade80] py-3 overflow-hidden border-y-4 border-slate-900 h-[52px] flex items-center">
       <div className="flex animate-marquee whitespace-nowrap">
         {doubled.map((item, i) => (
           <span key={i} className="mx-8 font-black uppercase text-slate-900 text-sm tracking-widest">
