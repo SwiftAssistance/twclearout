@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import StatsTicker from '../components/StatsTicker';
-import QuoteModal from '../components/QuoteModal';
+import ContactForm from '../components/ContactForm';
 import {
   Phone,
   Recycle,
@@ -75,11 +75,7 @@ const HomeQuote = () => (
         <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
           <div><h2 className="text-5xl md:text-[6.5rem] font-[1000] leading-[0.85] uppercase italic tracking-tighter text-slate-900">GET YOUR <br /> <span className="text-[#16a34a] underline decoration-slate-900">FIXED</span> PRICE.</h2><div className="space-y-4 mt-8"><div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> No Hidden Disposal Fees</div><div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> Uniformed Loaders Included</div></div></div>
           <div className="bg-slate-50 p-6 md:p-10 border-4 border-slate-900 rounded-lg">
-             <form className="space-y-8" onSubmit={e => e.preventDefault()}>
-               <div className="grid md:grid-cols-2 gap-8"><div><label htmlFor="job-description" className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Job Description</label><select id="job-description" className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a] appearance-none cursor-pointer"><option>End of Tenancy Clearance</option><option>HardHat Waste Hub</option><option>Garden Clear-out</option><option>Office Removal</option></select></div><div><label htmlFor="postcode" className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Postcode Area</label><input id="postcode" type="text" placeholder="e.g. RG1" className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a]" /></div></div>
-               <div><label htmlFor="phone" className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Phone Number</label><input id="phone" type="tel" placeholder="07xxx xxxxxx" className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a]" /></div>
-               <button type="submit" className="w-full bg-slate-900 text-white p-6 md:p-8 font-black uppercase tracking-widest italic text-xl md:text-2xl hover:bg-[#16a34a] transition-all shadow-xl active:scale-95">Lock In Fixed Price</button>
-             </form>
+             <ContactForm subject="Services Page Quote" />
           </div>
         </div>
       </div>
@@ -131,10 +127,9 @@ const Services = () => {
                 <a href="tel:07769844298" className="bg-white text-[#064e3b] px-8 py-4 rounded-lg font-black text-base uppercase transition-all hover:scale-105 shadow-2xl flex items-center gap-3 group">
                   <Phone size={20} className="group-hover:rotate-12 transition-transform" /> Call for a Quote
                 </a>
-                <QuoteModal
-                  buttonLabel="Get a Fixed Quote"
-                  buttonClassName="bg-[#4ade80] hover:bg-white text-slate-900 px-8 py-4 rounded-lg font-black text-base uppercase transition-all hover:scale-105 shadow-2xl flex items-center gap-3"
-                />
+                <a href="#quote" className="bg-[#4ade80] hover:bg-white text-slate-900 px-8 py-4 rounded-lg font-black text-base uppercase transition-all hover:scale-105 shadow-2xl flex items-center gap-3">
+                  Get a Fixed Quote
+                </a>
               </div>
 
             </div>
@@ -321,24 +316,7 @@ const Services = () => {
                 </div>
                 <div className="bg-white p-8 rounded-lg border-4 border-slate-900">
                   <h3 className="text-2xl font-black uppercase italic mb-6 text-slate-900">Get Your Quote</h3>
-                  <form className="space-y-6" onSubmit={e => e.preventDefault()}>
-                    <div>
-                      <label htmlFor="service-type" className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Service Type</label>
-                      <select id="service-type" className="w-full bg-white border-4 border-slate-900 p-4 font-black uppercase text-xs outline-none focus:border-[#16a34a]">
-                        <option>Home Clearance</option>
-                        <option>Garden Clearance</option>
-                        <option>Office Rip-Out</option>
-                        <option>Trade Waste</option>
-                        <option>Retail Unit</option>
-                        <option>Industrial Site</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label htmlFor="phone-service" className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Your Phone</label>
-                      <input id="phone-service" type="tel" placeholder="07xxx xxxxxx" className="w-full bg-white border-4 border-slate-900 p-4 font-black uppercase text-xs outline-none focus:border-[#16a34a]" />
-                    </div>
-                    <button type="submit" className="w-full bg-[#16a34a] hover:bg-[#4ade80] text-white p-5 font-black uppercase text-sm transition-all shadow-xl active:scale-95">Get Fixed Price</button>
-                  </form>
+                  <ContactForm subject="Services Sidebar Quote" compact />
                 </div>
               </div>
             </div>

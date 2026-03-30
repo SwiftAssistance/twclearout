@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import StatsTicker from '../../components/StatsTicker';
-import QuoteModal from '../../components/QuoteModal';
 import {
   MapPin, Phone, CheckCircle, Recycle, ShieldCheck, Zap, Scale,
   Star, ArrowRight, Truck, TreePine, Briefcase, HardHat, Hammer,
@@ -256,10 +255,12 @@ const AreaPage = () => {
             >
               <Phone size={20} /> 07769 844298
             </a>
-            <QuoteModal
-              buttonLabel="Get a Fixed Quote"
-              buttonClassName="bg-[#25D366] hover:bg-[#128C7E] text-white px-8 py-4 rounded-lg font-black text-lg uppercase flex items-center gap-3 transition-all hover:scale-105 shadow-xl"
-            />
+            <Link
+              to="/contact"
+              className="bg-[#25D366] hover:bg-[#128C7E] text-white px-8 py-4 rounded-lg font-black text-lg uppercase flex items-center gap-3 transition-all hover:scale-105 shadow-xl"
+            >
+              Get a Fixed Quote
+            </Link>
           </div>
         </div>
       </header>
