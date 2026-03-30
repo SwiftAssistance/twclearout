@@ -35,14 +35,44 @@ const GarageShed = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Helmet>
-        <title>Garage Shed Demolition Reading Slough | Building Removal Berkshire Surrey</title>
-        <meta name="description" content="Complete garage & shed demolition in Reading, Slough, Guildford. Contents clearance, dismantling, waste removal. Same-day service, licensed from £250." />
-        <meta name="keywords" content="garage clearance, garage clearance reading, garage clearance slough, garage clearance guildford, garage clearance berkshire, garage clearance surrey, shed clearance reading, shed clearance slough, shed clearance berkshire, garage demolition reading, garage demolition slough, garage demolition berkshire, shed demolition reading, shed demolition berkshire, shed removal near me, garage clearout reading, garage clearout berkshire, outbuilding removal, outbuilding demolition berkshire, concrete garage removal, prefab garage demolition, garden building removal, workshop demolition berkshire, summerhouse removal, shed dismantling surrey, garage contents clearance, garden shed clearance near me, cheap garage clearance, same day shed removal" />
+        <title>Garage Clearout Reading Slough | Shed Clearout & Demolition Berkshire Surrey</title>
+        <meta name="description" content="Professional garage clearout and shed clearout in Reading, Slough, Guildford & Berkshire. Contents clearance, full demolition, waste removal. Same-day service, licensed from £100." />
+        <meta name="keywords" content="garage clearout, garage clearout reading, garage clearout slough, garage clearout guildford, garage clearout berkshire, garage clearout surrey, garage clearout near me, shed clearout, shed clearout reading, shed clearout slough, shed clearout berkshire, shed clearout surrey, garage clearance, garage clearance reading, garage clearance slough, garage clearance guildford, garage clearance berkshire, garage clearance surrey, shed clearance reading, shed clearance slough, shed clearance berkshire, garage demolition reading, garage demolition slough, garage demolition berkshire, shed demolition reading, shed demolition berkshire, shed removal near me, outbuilding clearout, outbuilding clearance, outbuilding demolition berkshire, concrete garage removal, prefab garage demolition, garden building removal, workshop clearout berkshire, workshop demolition berkshire, summerhouse removal, shed dismantling surrey, garage contents clearout, garage contents clearance, garden shed clearout near me, cheap garage clearout, same day garage clearout, same day shed clearout" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/garage-shed/" />
-        <meta property="og:title" content="Garage & Shed Demolition | Total Waste Clearout Berkshire" />
-        <meta property="og:description" content="Professional garage and shed demolition services across Berkshire & Surrey. Complete service from clearance to cleanup." />
+        <meta property="og:title" content="Garage Clearout &amp; Shed Clearout | Total Waste Clearout Berkshire" />
+        <meta property="og:description" content="Professional garage clearout and shed clearout services across Berkshire & Surrey. Complete service from contents clearance to site cleanup." />
         <meta property="og:url" content="https://totalwasteclearout.co.uk/services/garage-shed/" />
         <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Do you do garage clearouts in Reading?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Total Waste Clearout provides full garage clearout services in Reading and across Berkshire. We empty garage contents, dismantle structures if required, remove all waste, and leave the site clean. Same-day garage clearouts are available. Call 07769 844298 for a free quote."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does a garage clearout cost in Berkshire?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Garage clearout prices in Berkshire start from £100 for contents-only clearout, £250 for a small shed clearout including demolition, and £500+ for a full garage clearout with demolition and removal. All prices include loading, transport, and disposal. Call Total Waste Clearout on 07769 844298 for a free quote."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you demolish sheds and garages as part of the clearout?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Total Waste Clearout offers complete garage and shed clearout and demolition services across Berkshire and Surrey. We clear the contents, carefully dismantle the structure, remove all materials, and leave the site clean and level. We serve Reading, Slough, Guildford, Woking, Bracknell, Windsor, and all surrounding areas."
+              }
+            }
+          ]
+        })}</script>
       </Helmet>
 
       {/* Hero Section */}
@@ -53,11 +83,11 @@ const GarageShed = () => {
               <Hammer size={40} className="text-[#064e3b]" />
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic text-white tracking-tight leading-none">
-              Garage & Shed Demolition
+              Garage &amp; Shed Clearout
             </h1>
           </div>
           <p className="text-white/80 text-lg md:text-xl font-bold italic max-w-3xl">
-            Complete garage and shed demolition services across Berkshire and Surrey. Contents clearance, dismantling, waste removal, and site cleanup - all in one service.
+            Complete garage clearout and shed clearout services across Berkshire and Surrey. Contents clearance, demolition, waste removal, and site cleanup — all in one service.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <div className="bg-white/10 border-2 border-white/20 px-4 py-2 rounded-lg">
@@ -252,20 +282,20 @@ const GarageShed = () => {
 
           {/* Service Description */}
           <section className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Professional Garage & Shed Demolition</h2>
+            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Garage Clearout &amp; Shed Clearout Services — Reading, Berkshire &amp; Surrey</h2>
             <div className="prose prose-lg max-w-none">
               <div className="bg-white border-4 border-slate-900 rounded-xl p-8 shadow-[8px_8px_0px_#e2e8f0] mb-8">
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  Total Waste Clearout Ltd provides comprehensive garage and shed demolition services throughout Reading, Slough, Guildford, Woking, and across Berkshire and Surrey. Whether you're clearing space for a garden renovation, removing a dilapidated shed, demolishing an old garage for a property development, or simply reclaiming outdoor space, we handle the entire process from start to finish - no DIY required, no heavy lifting, no mess left behind.
+                  Total Waste Clearout Ltd provides comprehensive garage clearout and shed clearout services throughout Reading, Slough, Guildford, Woking, and across Berkshire and Surrey. Whether you're clearing space for a garden renovation, doing a garage clearout on a dilapidated shed, demolishing an old garage for a property development, or simply reclaiming outdoor space, we handle the entire process from start to finish — no DIY required, no heavy lifting, no mess left behind.
                 </p>
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  Our complete service covers everything: clearing the contents of your garage or shed, carefully dismantling the structure, removing all materials and waste, and leaving your garden or property clean and clear. We work efficiently and safely, with consideration for neighboring properties, existing gardens, and surrounding structures. Whether it's a small garden shed in Windsor, a concrete garage in Bracknell, a timber outbuilding in Woking, or multiple structures that need removing, we have the experience, equipment, and manpower to handle projects of any size.
+                  Our complete garage clearout and shed clearout service covers everything: clearing the contents, carefully dismantling the structure, removing all materials and waste, and leaving your garden or property clean and clear. We work efficiently and safely, with consideration for neighbouring properties, existing gardens, and surrounding structures. Whether it's a small shed clearout in Windsor, a concrete garage clearout in Bracknell, a timber outbuilding clearout in Woking, or multiple structures that need removing, we have the experience, equipment, and manpower for projects of any size.
                 </p>
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  Most garage and shed demolitions are completed in a single day. We arrive with the right tools and equipment, systematically dismantle the structure (salvaging reusable materials where possible), load everything onto our vehicles, and clear the site completely. We can handle timber sheds, metal garages, concrete garages, brick outbuildings, and combination structures. If you need the concrete base or foundation removed, we can arrange that too. The service is particularly popular with homeowners planning garden redesigns, developers preparing plots, and landlords maintaining rental properties across Berkshire and Surrey.
+                  Most garage and shed clearouts are completed in a single day. We arrive with the right tools and equipment, systematically dismantle the structure (salvaging reusable materials where possible), load everything onto our vehicles, and clear the site completely. We handle timber sheds, metal garages, concrete garages, brick outbuildings, and combination structures. If you need the concrete base or foundation removed, we can arrange that too. The service is particularly popular with homeowners planning garden redesigns, developers preparing plots, and landlords maintaining properties across Berkshire and Surrey.
                 </p>
                 <p className="text-slate-700 leading-relaxed">
-                  As a fully licensed waste carrier registered with the Environment Agency, we ensure all demolition waste is disposed of legally and responsibly. Timber is recycled, metal is salvaged for scrap, and concrete and bricks are processed at authorized facilities. We provide waste transfer notes for your records and work to our standard 94% recycling rate. With £5 million public liability insurance covering all demolition work, you have complete peace of mind. Whether you're in Reading town, the Surrey countryside, or anywhere across our service area, we deliver fast, professional, and competitively priced garage and shed demolition services.
+                  As a fully licensed waste carrier registered with the Environment Agency (licence CBDU630127), we ensure all clearout waste is disposed of legally and responsibly. Timber is recycled, metal is salvaged for scrap, and concrete and bricks are processed at authorised facilities. We provide waste transfer notes for your records and work to our standard 94% recycling rate. With £5 million public liability insurance covering all clearout and demolition work, you have complete peace of mind throughout Berkshire and Surrey.
                 </p>
               </div>
             </div>
@@ -275,10 +305,10 @@ const GarageShed = () => {
           <section className="mb-16">
             <div className="bg-gradient-to-r from-[#064e3b] to-[#065f46] border-4 border-slate-900 rounded-xl p-8 md:p-12 text-white text-center">
               <h2 className="text-3xl md:text-5xl font-black uppercase italic mb-6">
-                Need A Garage Or Shed Demolished?
+                Need A Garage Or Shed Clearout?
               </h2>
               <p className="text-white/90 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-                Complete demolition and clearance services across Reading, Guildford, Slough, and all Berkshire & Surrey. Free site visits.
+                Complete garage clearout and shed clearout services across Reading, Guildford, Slough, and all Berkshire &amp; Surrey. Free site visits.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a

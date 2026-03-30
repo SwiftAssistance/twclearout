@@ -35,14 +35,44 @@ const EndOfTenancy = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Helmet>
-        <title>End of Tenancy Clearance Reading Slough Guildford | Same-Day Service</title>
-        <meta name="description" content="Professional end of tenancy clearance in Reading, Slough, Guildford & Berkshire. Same-day service, help secure your deposit. Licensed waste removal from £150." />
-        <meta name="keywords" content="end of tenancy clearance, end of tenancy clearance reading, end of tenancy clearance slough, end of tenancy clearance guildford, end of tenancy clearance berkshire, end of tenancy clearance surrey, end of tenancy clearance woking, end of tenancy clearance bracknell, end of tenancy clearance windsor, tenant clearance reading, tenant clearance slough, tenant clearout berkshire, rental property clearance, move out clearance berkshire, landlord clearance reading, flat clearance slough, flat clearance reading, deposit return clearance, letting agent clearance surrey, end of lease clearance, rental clearance near me, same day tenancy clearance, emergency tenant clearance, cheap end of tenancy clearance, student house clearance berkshire, HMO clearance berkshire, property clearance for landlords, tenant rubbish removal, end of tenancy waste removal" />
+        <title>End of Tenancy Clearout Reading Slough Guildford | Tenant Clearout Same-Day Berkshire</title>
+        <meta name="description" content="Professional end of tenancy clearout in Reading, Slough, Guildford & Berkshire. Same-day tenant clearouts, help secure your deposit. Licensed waste removal from £150." />
+        <meta name="keywords" content="end of tenancy clearout, end of tenancy clearout reading, end of tenancy clearout slough, end of tenancy clearout guildford, end of tenancy clearout berkshire, end of tenancy clearout surrey, tenant clearout, tenant clearout reading, tenant clearout slough, tenant clearout berkshire, flat clearout, flat clearout reading, flat clearout slough, rental clearout, rental clearout berkshire, end of tenancy clearance, end of tenancy clearance reading, end of tenancy clearance slough, end of tenancy clearance guildford, end of tenancy clearance berkshire, end of tenancy clearance surrey, tenant clearance reading, tenant clearance slough, rental property clearance, move out clearance berkshire, move out clearout berkshire, landlord clearance reading, landlord clearout reading, flat clearance slough, flat clearance reading, deposit return clearance, deposit return clearout, letting agent clearance surrey, end of lease clearance, end of lease clearout, rental clearance near me, same day tenancy clearout, same day tenancy clearance, emergency tenant clearout, cheap end of tenancy clearout, student house clearout berkshire, HMO clearout berkshire, property clearout for landlords, tenant rubbish removal, end of tenancy waste removal" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/end-of-tenancy/" />
-        <meta property="og:title" content="End of Tenancy Clearance | Total Waste Clearout Berkshire" />
-        <meta property="og:description" content="Same-day end of tenancy clearance across Reading, Slough, Guildford. Help secure your deposit with professional clearance." />
+        <meta property="og:title" content="End of Tenancy Clearout | Total Waste Clearout Berkshire" />
+        <meta property="og:description" content="Same-day end of tenancy clearouts across Reading, Slough, Guildford. Help secure your deposit with professional tenant clearout service." />
         <meta property="og:url" content="https://totalwasteclearout.co.uk/services/end-of-tenancy/" />
         <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Do you do end of tenancy clearouts in Reading?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Total Waste Clearout provides same-day end of tenancy clearouts throughout Reading and Berkshire. We help tenants meet move-out deadlines and landlords prepare properties for new occupants. Call 07769 844298 for immediate availability."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does an end of tenancy clearout cost?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "End of tenancy clearout costs start from £150 for a single room, £350 for a full flat, and £600 for a whole house in Berkshire and Surrey. Fixed pricing with no hidden fees. Call Total Waste Clearout on 07769 844298 for an instant quote."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can you do a same-day tenant clearout in Berkshire?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Total Waste Clearout specialises in same-day and emergency tenant clearouts across Berkshire and Surrey, including Reading, Slough, Guildford, Woking, Bracknell, Windsor, and Maidenhead. We can typically be with you within 2 hours of your call."
+              }
+            }
+          ]
+        })}</script>
       </Helmet>
 
       {/* Hero Section */}
@@ -53,11 +83,11 @@ const EndOfTenancy = () => {
               <Home size={40} className="text-[#064e3b]" />
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic text-white tracking-tight leading-none">
-              End of Tenancy Clearance
+              End of Tenancy Clearout
             </h1>
           </div>
           <p className="text-white/80 text-lg md:text-xl font-bold italic max-w-3xl">
-            Professional end of tenancy clearance services across Berkshire and Surrey. Same-day service available. Get your deposit back with a spotless clearance.
+            Professional end of tenancy clearout services across Berkshire and Surrey. Same-day tenant clearouts available. Get your deposit back with a spotless clearout.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <div className="bg-white/10 border-2 border-white/20 px-4 py-2 rounded-lg">
@@ -198,20 +228,20 @@ const EndOfTenancy = () => {
 
           {/* Service Description */}
           <section className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Complete End of Tenancy Clearance Services</h2>
+            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">End of Tenancy Clearout Services — Reading, Berkshire &amp; Surrey</h2>
             <div className="prose prose-lg max-w-none">
               <div className="bg-white border-4 border-slate-900 rounded-xl p-8 shadow-[8px_8px_0px_#e2e8f0] mb-8">
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  Moving out of a rental property in Reading, Slough, Guildford, or anywhere across Berkshire and Surrey? Total Waste Clearout Ltd provides fast, professional end of tenancy clearance services that help tenants secure their deposit returns and landlords prepare properties for new occupants quickly.
+                  Moving out of a rental property in Reading, Slough, Guildford, or anywhere across Berkshire and Surrey? Total Waste Clearout Ltd provides fast, professional end of tenancy clearout services that help tenants secure their deposit returns and landlords prepare properties for new occupants quickly.
                 </p>
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  Our experienced teams understand the time pressures of end-of-tenancy situations. Whether you're a tenant facing tight move-out deadlines or a landlord dealing with abandoned items, we offer same-day and next-day clearance services throughout the local area. We've worked with hundreds of letting agents across Berkshire and Surrey, and we know exactly what's required to meet property inspection standards.
+                  Our experienced teams understand the time pressures of end-of-tenancy situations. Whether you're a tenant facing tight move-out deadlines or a landlord dealing with abandoned items, we offer same-day and next-day tenant clearouts throughout the local area. We've worked with hundreds of letting agents across Berkshire and Surrey, and we know exactly what's required to meet property inspection standards.
                 </p>
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  Unlike skip hire (which requires council permits, waiting times, and manual loading), our professional clearance service is immediate, comprehensive, and hassle-free. Our uniformed teams arrive on time, load everything efficiently, and leave the property clean and ready for inspection. We handle everything from single-room clearances to entire house clearouts, including bulky furniture, white goods, and accumulated rubbish.
+                  Unlike skip hire (which requires council permits, waiting times, and manual loading), our professional end of tenancy clearout service is immediate, comprehensive, and hassle-free. Our uniformed teams arrive on time, load everything efficiently, and leave the property clean and ready for inspection. We handle everything from single-room clearouts to entire house clearouts, including bulky furniture, white goods, and accumulated rubbish.
                 </p>
                 <p className="text-slate-700 leading-relaxed">
-                  As fully licensed waste carriers registered with the Environment Agency, we provide legal waste transfer notes for every job - essential documentation for landlords and property managers. Our 94% recycling rate means your unwanted items are disposed of responsibly, with usable furniture donated to local charities across Reading, Slough, and Guildford wherever possible. With £5 million public liability insurance, you can trust us to work safely and professionally in your property.
+                  As fully licensed waste carriers registered with the Environment Agency (licence CBDU630127), we provide legal waste transfer notes for every tenant clearout — essential documentation for landlords and property managers. Our 94% recycling rate means your unwanted items are disposed of responsibly, with usable furniture donated to local charities across Reading, Slough, and Guildford wherever possible. With £5 million public liability insurance, you can trust us to work safely and professionally in your property.
                 </p>
               </div>
             </div>
@@ -221,10 +251,10 @@ const EndOfTenancy = () => {
           <section className="mb-16">
             <div className="bg-gradient-to-r from-[#064e3b] to-[#065f46] border-4 border-slate-900 rounded-xl p-8 md:p-12 text-white text-center">
               <h2 className="text-3xl md:text-5xl font-black uppercase italic mb-6">
-                Need An End Of Tenancy Clearance?
+                Need An End Of Tenancy Clearout?
               </h2>
               <p className="text-white/90 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-                Same-day service available across Reading, Slough, Guildford, and all Berkshire & Surrey areas. Free quotes in minutes.
+                Same-day tenant clearouts across Reading, Slough, Guildford, and all Berkshire &amp; Surrey. Free quotes in minutes.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a

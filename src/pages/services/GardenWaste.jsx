@@ -35,14 +35,44 @@ const GardenWaste = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Helmet>
-        <title>Garden Waste Removal Reading Guildford | Green Waste Clearance Berkshire</title>
-        <meta name="description" content="Professional garden waste removal in Reading, Guildford, Slough. Trees, hedges, grass cleared. 100% composted, same-day service, licensed from £80." />
-        <meta name="keywords" content="garden waste removal, garden waste removal reading, garden waste removal slough, garden waste removal guildford, garden waste removal woking, garden waste removal bracknell, garden waste removal windsor, garden waste removal berkshire, garden waste removal surrey, green waste clearance, green waste collection berkshire, tree removal reading, tree branch removal slough, hedge clearance berkshire, hedge trimming waste removal, garden clearance near me, garden rubbish removal, garden skip hire alternative, soil removal reading, turf removal berkshire, grass cutting waste, garden furniture disposal, shed waste removal, fencing removal berkshire, decking removal surrey, landscaping waste clearance, same day garden waste collection, cheap garden waste removal, compost waste collection" />
+        <title>Garden Clearout Reading Guildford | Garden Waste Removal & Green Waste Clearout Berkshire</title>
+        <meta name="description" content="Professional garden clearout and garden waste removal in Reading, Guildford, Slough & Berkshire. Trees, hedges, grass cleared. 100% composted, same-day service, licensed from £80." />
+        <meta name="keywords" content="garden clearout, garden clearout reading, garden clearout slough, garden clearout guildford, garden clearout woking, garden clearout berkshire, garden clearout surrey, garden clearout near me, green waste clearout, green waste clearout reading, garden waste removal, garden waste removal reading, garden waste removal slough, garden waste removal guildford, garden waste removal woking, garden waste removal bracknell, garden waste removal windsor, garden waste removal berkshire, garden waste removal surrey, garden clearance, garden clearance reading, green waste clearance, green waste collection berkshire, tree removal reading, tree branch removal slough, hedge clearout berkshire, hedge clearance berkshire, hedge trimming waste removal, garden rubbish removal, garden skip hire alternative, soil removal reading, turf removal berkshire, grass cutting waste, garden furniture disposal, shed waste removal, fencing removal berkshire, decking removal surrey, landscaping waste clearout, landscaping waste clearance, same day garden clearout, same day garden waste collection, cheap garden clearout, cheap garden waste removal, compost waste collection" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/garden-waste/" />
-        <meta property="og:title" content="Garden & Green Waste Removal | Total Waste Clearout" />
-        <meta property="og:description" content="Professional garden waste clearance across Berkshire & Surrey. 100% composted, same-day service available." />
+        <meta property="og:title" content="Garden Clearout & Green Waste Removal | Total Waste Clearout" />
+        <meta property="og:description" content="Professional garden clearout and waste removal across Berkshire & Surrey. 100% composted, same-day service available." />
         <meta property="og:url" content="https://totalwasteclearout.co.uk/services/garden-waste/" />
         <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Do you do garden clearouts in Reading?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Total Waste Clearout provides professional garden clearout services throughout Reading and Berkshire. We remove trees, branches, hedges, grass, soil, garden furniture, fencing, and all green waste. Same-day garden clearouts are available. Call 07769 844298 for a free quote."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does a garden clearout cost in Berkshire?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Garden clearout prices in Berkshire start from £80 for a small load, £180 for a medium load, and £350+ for a full garden clearout. All prices include loading, transport, and composting at licensed facilities. Call Total Waste Clearout on 07769 844298 for a free quote."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is included in a garden clearout?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A garden clearout from Total Waste Clearout includes removal of trees, branches, hedges, shrubs, grass cuttings, soil, turf, garden furniture, fencing, decking, paving slabs, and any other garden waste. No bagging required — we load everything loose. All green waste is composted at licensed facilities. We serve Reading, Guildford, Slough, Woking, Bracknell, Windsor, Maidenhead, Egham, and Staines."
+              }
+            }
+          ]
+        })}</script>
       </Helmet>
 
       {/* Hero Section */}
@@ -53,11 +83,11 @@ const GardenWaste = () => {
               <TreePine size={40} className="text-[#064e3b]" />
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic text-white tracking-tight leading-none">
-              Garden & Green Waste
+              Garden Clearout &amp; Green Waste Removal
             </h1>
           </div>
           <p className="text-white/80 text-lg md:text-xl font-bold italic max-w-3xl">
-            Professional garden waste removal across Berkshire and Surrey. From grass cuttings to fallen trees - we clear it all. Same-day service available.
+            Professional garden clearout and green waste removal across Berkshire and Surrey. From grass cuttings to fallen trees — we clear it all. Same-day garden clearouts available.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <div className="bg-white/10 border-2 border-white/20 px-4 py-2 rounded-lg">
@@ -127,7 +157,7 @@ const GardenWaste = () => {
 
           {/* Pricing Section */}
           <section className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">Garden Clearance Pricing</h2>
+            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">Garden Clearout Pricing</h2>
             <div className="bg-gradient-to-r from-[#064e3b] to-[#065f46] border-4 border-slate-900 rounded-xl p-8 md:p-12 text-white">
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-white/20">
@@ -210,20 +240,20 @@ const GardenWaste = () => {
 
           {/* Service Description */}
           <section className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Complete Garden Waste Clearance Services</h2>
+            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Garden Clearout Services — Reading, Berkshire &amp; Surrey</h2>
             <div className="prose prose-lg max-w-none">
               <div className="bg-white border-4 border-slate-900 rounded-xl p-8 shadow-[8px_8px_0px_#e2e8f0] mb-8">
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  Total Waste Clearout Ltd provides comprehensive garden and green waste removal services throughout Reading, Slough, Guildford, Woking, and all of Berkshire and Surrey. Whether you're a homeowner clearing seasonal garden waste, a landlord maintaining rental properties, or a professional gardener working across multiple sites, we offer fast, reliable, and environmentally responsible garden clearance.
+                  Total Waste Clearout Ltd provides comprehensive garden clearout and green waste removal services throughout Reading, Slough, Guildford, Woking, and all of Berkshire and Surrey. Whether you're a homeowner doing a seasonal garden clearout, a landlord maintaining rental properties, or a professional gardener working across multiple sites, we offer fast, reliable, and environmentally responsible garden clearouts.
                 </p>
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  Garden waste can quickly pile up after hedge trimming, tree felling, lawn maintenance, or major landscaping projects. Instead of making multiple trips to your local council recycling centre in Reading or Guildford - wasting fuel, time, and vehicle space - let our professional team handle everything. We arrive with the right equipment, load all your green waste efficiently, and transport it directly to licensed composting facilities where it's processed responsibly.
+                  Garden waste quickly piles up after hedge trimming, tree felling, lawn maintenance, or major landscaping projects. Instead of making multiple trips to your local council recycling centre in Reading or Guildford — wasting fuel, time, and vehicle space — let our professional team handle your garden clearout. We arrive with the right equipment, load all your green waste efficiently, and transport it directly to licensed composting facilities where it's processed responsibly.
                 </p>
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  We handle all types of garden waste: fallen trees and large branches, hedge trimmings and prunings, grass cuttings and leaves, soil and turf, plant pots and garden furniture, shed contents, and general garden clearance. Our experienced crews come equipped with proper loading equipment, so you don't need to lift a finger - we do all the heavy work. Whether it's a small amount of cuttings from a day's gardening or a complete garden overhaul involving multiple loads, we scale our service to match your needs.
+                  We handle all types of garden clearouts: fallen trees and large branches, hedge trimmings and prunings, grass cuttings and leaves, soil and turf, plant pots and garden furniture, shed contents, and complete garden clearances. Our experienced crews come equipped with proper loading equipment, so you don't need to lift a finger — we do all the heavy work. Whether it's a small amount of cuttings from a day's gardening or a full garden clearout involving multiple loads, we scale our service to match your needs.
                 </p>
                 <p className="text-slate-700 leading-relaxed">
-                  As a fully licensed waste carrier registered with the Environment Agency, we guarantee legal, compliant disposal for all garden waste. We provide waste transfer notes as documentation, and all green waste is transported to authorized composting facilities across Berkshire and Surrey. With same-day service often available and competitive pricing that's frequently cheaper than DIY disposal, we're the smart choice for garden waste removal. Our service is particularly popular with landscapers and professional gardeners who need reliable, repeat collections without the hassle of permits or waiting.
+                  As a fully licensed waste carrier registered with the Environment Agency (licence CBDU630127), we guarantee legal, compliant disposal for all garden clearouts. We provide waste transfer notes as documentation, and all green waste is transported to authorised composting facilities across Berkshire and Surrey. With same-day garden clearouts often available and competitive pricing that's frequently cheaper than DIY disposal, we're the smart choice. Our service is particularly popular with landscapers and professional gardeners who need reliable, repeat clearouts without the hassle of permits or waiting.
                 </p>
               </div>
             </div>
@@ -233,10 +263,10 @@ const GardenWaste = () => {
           <section className="mb-16">
             <div className="bg-gradient-to-r from-[#064e3b] to-[#065f46] border-4 border-slate-900 rounded-xl p-8 md:p-12 text-white text-center">
               <h2 className="text-3xl md:text-5xl font-black uppercase italic mb-6">
-                Need Garden Waste Removed?
+                Need A Garden Clearout?
               </h2>
               <p className="text-white/90 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-                Same-day service across Reading, Guildford, Slough, and all Berkshire & Surrey. We do all the heavy lifting.
+                Same-day garden clearouts across Reading, Guildford, Slough, and all Berkshire &amp; Surrey. We do all the heavy lifting.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a
