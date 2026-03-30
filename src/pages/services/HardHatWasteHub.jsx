@@ -35,14 +35,44 @@ const HardHatWasteHub = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Helmet>
-        <title>Construction Waste Removal Reading Slough | Trade Waste Collection Berkshire</title>
-        <meta name="description" content="Fast construction & trade waste removal for builders in Reading, Slough, Guildford. No skip permits needed. Same-day service, licensed carrier from £120." />
-        <meta name="keywords" content="construction waste removal, construction waste removal reading, construction waste removal slough, construction waste removal guildford, construction waste removal berkshire, construction waste removal surrey, builder waste removal, builder waste removal reading, builder waste collection slough, trade waste collection berkshire, trade waste collection surrey, skip hire alternative reading, skip hire alternative slough, skip hire alternative berkshire, skip alternative near me, rubble removal reading, rubble removal slough, rubble clearance berkshire, plasterboard disposal, timber waste removal, building waste collection, renovation waste removal, kitchen refit waste, bathroom refit waste, demolition waste berkshire, construction site clearance, builder skip alternative, cheap skip alternative reading, same day builder waste collection, no permit waste removal" />
+        <title>Builders Clearout Reading Slough | Construction Waste Clearout & Trade Waste Berkshire</title>
+        <meta name="description" content="Professional builders clearout and construction waste clearout in Reading, Slough, Guildford & Berkshire. No skip permits. Same-day service, licensed carrier from £120." />
+        <meta name="keywords" content="builders clearout, builders clearout reading, builders clearout slough, builders clearout guildford, builders clearout berkshire, builders clearout surrey, construction clearout, construction clearout reading, construction clearout berkshire, building site clearout, building site clearout reading, trade clearout, trade clearout berkshire, construction waste removal, construction waste removal reading, construction waste removal slough, construction waste removal guildford, construction waste removal berkshire, construction waste removal surrey, builder waste removal, builder waste removal reading, builder waste collection slough, trade waste collection berkshire, trade waste collection surrey, skip hire alternative reading, skip hire alternative slough, skip hire alternative berkshire, skip alternative near me, rubble removal reading, rubble removal slough, rubble clearance berkshire, plasterboard disposal, timber waste removal, building waste collection, renovation waste clearout, renovation waste removal, kitchen refit waste, bathroom refit waste, demolition waste berkshire, construction site clearance, builder skip alternative, cheap skip alternative reading, same day builders clearout, same day builder waste collection, no permit waste removal" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/construction-waste/" />
-        <meta property="og:title" content="Construction & Trade Waste Removal | Total Waste Clearout" />
-        <meta property="og:description" content="Professional construction waste removal for builders across Berkshire & Surrey. No permits, same-day service." />
+        <meta property="og:title" content="Builders Clearout &amp; Construction Waste Removal | Total Waste Clearout" />
+        <meta property="og:description" content="Professional builders clearout and construction waste removal for tradespeople across Berkshire & Surrey. No permits, same-day service." />
         <meta property="og:url" content="https://totalwasteclearout.co.uk/services/construction-waste/" />
         <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Do you do builders clearouts in Reading?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Total Waste Clearout provides same-day builders clearout services throughout Reading and Berkshire. We collect all construction waste including rubble, timber, plasterboard, tiles, and mixed building waste. No council permits needed. Call 07769 844298 for immediate availability."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does a construction clearout cost in Berkshire?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Construction clearout prices in Berkshire start from £120 for a small load, £250 for a medium load, and are quoted for larger projects. All prices include our crew loading everything — you don't need to fill a skip. Call Total Waste Clearout on 07769 844298 for an instant quote."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are you cheaper than a skip for builders clearouts in Berkshire?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "In most cases, yes. Skip hire in Berkshire requires a council permit, takes days to arrange, has weight limits, and you load it yourself. Total Waste Clearout arrives same-day, our crew loads everything for you, and there are no permits required. We provide waste transfer notes for every builders clearout."
+              }
+            }
+          ]
+        })}</script>
       </Helmet>
 
       {/* Hero Section */}
@@ -53,11 +83,11 @@ const HardHatWasteHub = () => {
               <HardHat size={40} className="text-[#064e3b]" />
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic text-white tracking-tight leading-none">
-              Construction & Trade Waste
+              Builders Clearout &amp; Construction Waste
             </h1>
           </div>
           <p className="text-white/80 text-lg md:text-xl font-bold italic max-w-3xl">
-            Fast, reliable construction waste removal for builders and tradespeople across Berkshire and Surrey. No skip permits. No waiting. Just immediate clearance.
+            Fast, reliable builders clearout and construction waste removal for tradespeople across Berkshire and Surrey. No skip permits. No waiting. Same-day construction clearouts.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <div className="bg-white/10 border-2 border-white/20 px-4 py-2 rounded-lg">
@@ -210,20 +240,20 @@ const HardHatWasteHub = () => {
 
           {/* Service Description */}
           <section className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Professional Construction Waste Removal</h2>
+            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Builders Clearout &amp; Construction Waste Services — Reading, Berkshire &amp; Surrey</h2>
             <div className="prose prose-lg max-w-none">
               <div className="bg-white border-4 border-slate-900 rounded-xl p-8 shadow-[8px_8px_0px_#e2e8f0] mb-8">
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  Total Waste Clearout Ltd is the go-to construction waste removal service for builders, plumbers, electricians, and contractors working across Reading, Slough, Guildford, Woking, and throughout Berkshire and Surrey. We understand the demands of construction projects - tight deadlines, limited site space, and the need for efficient waste management that doesn't slow down your work.
+                  Total Waste Clearout Ltd is the go-to builders clearout service for builders, plumbers, electricians, and contractors working across Reading, Slough, Guildford, Woking, and throughout Berkshire and Surrey. We understand the demands of construction projects — tight deadlines, limited site space, and the need for efficient builders clearouts that don't slow down your work.
                 </p>
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  Forget the hassle of skip hire with its council permits, waiting times, parking restrictions, and manual loading. Our professional waste removal service is faster, more flexible, and often more cost-effective. We arrive at your site when it suits you - whether that's early morning before your crew starts or evening after they finish - load everything ourselves, and clear the area completely. No permits required, no waiting weeks for council approval, and no skip blocking your workspace or parking.
+                  Forget the hassle of skip hire with its council permits, waiting times, parking restrictions, and manual loading. Our professional builders clearout service is faster, more flexible, and often more cost-effective. We arrive at your site when it suits you — early morning before your crew starts or evening after they finish — load everything ourselves, and clear the site completely. No permits required, no waiting for council approval, and no skip blocking your workspace or parking.
                 </p>
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  We handle all types of construction and trade waste: plasterboard from drywalling jobs, timber offcuts from carpentry work, packaging materials from new installations, bathroom and kitchen rip-out debris, bricks and concrete, metal piping and electrical waste. Our experienced teams know how to load efficiently and safely, segregating materials for maximum recycling. Whether you're fitting one kitchen in Windsor or managing a multi-unit refurbishment project in Bracknell, we scale our service to match your needs.
+                  We handle all types of construction clearouts: plasterboard from drywalling jobs, timber offcuts from carpentry work, packaging materials from new installations, bathroom and kitchen rip-out debris, bricks and concrete, metal piping and electrical waste. Our experienced teams know how to load efficiently and safely, segregating materials for maximum recycling. Whether you're fitting one kitchen in Windsor or managing a multi-unit refurbishment in Bracknell, we scale our builders clearout service to match your needs.
                 </p>
                 <p className="text-slate-700 leading-relaxed">
-                  As a fully licensed waste carrier registered with the Environment Agency, we provide complete legal compliance for your construction projects. All waste is transported to authorized facilities with proper documentation - we issue waste transfer notes for every collection, giving you and your clients peace of mind. With £5 million public liability insurance and a 94% recycling rate, we're the professional choice for trade waste removal across Berkshire and Surrey. Many local contractors use us exclusively because we're reliable, efficient, and understand the pressures of site work.
+                  As a fully licensed waste carrier registered with the Environment Agency (licence CBDU630127), we provide complete legal compliance for your construction clearouts. All waste is transported to authorised facilities with proper documentation — we issue waste transfer notes for every collection, giving you and your clients peace of mind. With £5 million public liability insurance and a 94% recycling rate, we're the professional choice for builders clearouts and trade waste removal across Berkshire and Surrey. Many local contractors use us exclusively because we're reliable, efficient, and understand the pressures of site work.
                 </p>
               </div>
             </div>
@@ -233,10 +263,10 @@ const HardHatWasteHub = () => {
           <section className="mb-16">
             <div className="bg-gradient-to-r from-[#064e3b] to-[#065f46] border-4 border-slate-900 rounded-xl p-8 md:p-12 text-white text-center">
               <h2 className="text-3xl md:text-5xl font-black uppercase italic mb-6">
-                Need Construction Waste Removed?
+                Need A Builders Clearout?
               </h2>
               <p className="text-white/90 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-                Same-day collections across Berkshire & Surrey. No permits. No hassle. Just fast, professional service.
+                Same-day builders clearouts across Berkshire &amp; Surrey. No permits. No hassle. Just fast, professional service.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a

@@ -35,14 +35,44 @@ const HomeAndProbate = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Helmet>
-        <title>Probate House Clearance Reading Guildford | Bereavement Estate Clearance</title>
-        <meta name="description" content="Compassionate probate & estate clearance in Reading, Guildford, Slough. Respectful bereavement house clearance, charity donations, licensed & insured." />
-        <meta name="keywords" content="house clearance, house clearance reading, house clearance slough, house clearance guildford, house clearance berkshire, house clearance surrey, house clearance woking, house clearance bracknell, house clearance windsor, probate clearance reading, probate clearance berkshire, probate house clearance, estate clearance reading, estate clearance surrey, bereavement clearance, deceased estate clearance, home clearance reading, home clearance slough, property clearance berkshire, full house clearance, furniture removal reading, furniture disposal berkshire, house clearout near me, cheap house clearance reading, downsizing clearance, hoarder house clearance berkshire, whole house clearance, charity donation clearance, sensitive house clearance, compassionate clearance service" />
+        <title>House Clearout Reading Guildford | Probate Clearout & House Clearance Berkshire</title>
+        <meta name="description" content="Professional house clearout and probate clearance in Reading, Guildford, Slough & Berkshire. Compassionate bereavement house clearouts, charity donations, licensed & insured." />
+        <meta name="keywords" content="house clearout, house clearout reading, house clearout slough, house clearout guildford, house clearout berkshire, house clearout surrey, house clearout woking, house clearout bracknell, house clearout windsor, probate clearout, probate clearout reading, probate clearout berkshire, probate clearout guildford, estate clearout, estate clearout reading, estate clearout surrey, home clearout, home clearout reading, home clearout slough, house clearance, house clearance reading, house clearance slough, house clearance guildford, house clearance berkshire, house clearance surrey, probate clearance reading, probate clearance berkshire, probate house clearance, estate clearance reading, estate clearance surrey, bereavement clearance, bereavement clearout, deceased estate clearance, deceased estate clearout, property clearance berkshire, full house clearout, full house clearance, furniture removal reading, furniture disposal berkshire, house clearout near me, cheap house clearout reading, downsizing clearout, downsizing clearance, hoarder house clearout berkshire, whole house clearout, charity donation clearance, sensitive house clearout, compassionate clearance service" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/home-probate-clearance/" />
-        <meta property="og:title" content="House & Probate Clearance | Total Waste Clearout Berkshire" />
-        <meta property="og:description" content="Compassionate probate and estate clearance services across Reading, Guildford, and Berkshire & Surrey." />
+        <meta property="og:title" content="House Clearout & Probate Clearance | Total Waste Clearout Berkshire" />
+        <meta property="og:description" content="Compassionate house clearout and probate clearance services across Reading, Guildford, and Berkshire & Surrey." />
         <meta property="og:url" content="https://totalwasteclearout.co.uk/services/home-probate-clearance/" />
         <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Do you do house clearouts in Reading?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Total Waste Clearout provides professional house clearout services throughout Reading and Berkshire. We handle probate clearouts, bereavement clearouts, downsizing clearouts, and landlord clearouts. Same-day service available. Call 07769 844298 for a free quote."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does a house clearout cost in Berkshire?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "House clearout costs in Berkshire start from £150 for a single room, £400 for a 2-3 bedroom house, and £600+ for larger properties. All prices include loading, transport, and responsible disposal with a 94% recycling rate. Call Total Waste Clearout on 07769 844298 for a free no-obligation quote."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you do probate clearouts in Berkshire and Surrey?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Total Waste Clearout specialises in sensitive probate clearouts across Berkshire and Surrey. We work with families and solicitors, provide full documentation including waste transfer notes, carefully set aside any valuables or sentimental items, and handle the entire clearout with respect and discretion. We serve Reading, Guildford, Slough, Woking, Bracknell, Windsor, Maidenhead, and all surrounding areas."
+              }
+            }
+          ]
+        })}</script>
       </Helmet>
 
       {/* Hero Section */}
@@ -53,11 +83,11 @@ const HomeAndProbate = () => {
               <Home size={40} className="text-[#064e3b]" />
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic text-white tracking-tight leading-none">
-              Home & Probate Clearance
+              House Clearout &amp; Probate Clearance
             </h1>
           </div>
           <p className="text-white/80 text-lg md:text-xl font-bold italic max-w-3xl">
-            Compassionate, professional house and probate clearance services across Berkshire and Surrey. Handling bereavement clearances with respect, care, and sensitivity.
+            Compassionate, professional house clearout and probate clearance services across Berkshire and Surrey. Bereavement clearouts, downsizing clearouts, and full estate clearances handled with respect and sensitivity.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <div className="bg-white/10 border-2 border-white/20 px-4 py-2 rounded-lg">
@@ -126,20 +156,20 @@ const HomeAndProbate = () => {
 
           {/* Service Description */}
           <section className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Compassionate House & Estate Clearance</h2>
+            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Compassionate House Clearout &amp; Probate Clearance Services</h2>
             <div className="prose prose-lg max-w-none">
               <div className="bg-white border-4 border-slate-900 rounded-xl p-8 shadow-[8px_8px_0px_#e2e8f0] mb-8">
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  Total Waste Clearout Ltd provides sensitive, professional house and probate clearance services throughout Reading, Slough, Guildford, Woking, and across Berkshire and Surrey. We understand that clearing a deceased loved one's home is one of the most difficult tasks families face during bereavement. Our experienced teams approach every probate clearance with respect, care, and the utmost sensitivity, treating your family member's belongings with dignity throughout the process.
+                  Total Waste Clearout Ltd provides sensitive, professional house clearout and probate clearance services throughout Reading, Slough, Guildford, Woking, and across Berkshire and Surrey. We understand that clearing a deceased loved one's home is one of the most difficult tasks families face during bereavement. Our experienced teams approach every probate clearout with respect, care, and the utmost sensitivity, treating your family member's belongings with dignity throughout the process.
                 </p>
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  Whether you're dealing with probate requirements after a bereavement, clearing a parent's property in Reading or Guildford, preparing an inherited house for sale, or managing an estate clearance as an executor, we provide a comprehensive service that removes the physical and emotional burden from your shoulders. We've worked with hundreds of families across Berkshire and Surrey, and we understand both the practical challenges (tight probate deadlines, property sale requirements) and the emotional difficulty of sorting through a lifetime of possessions.
+                  Whether you're dealing with probate requirements after a bereavement, completing a house clearout in Reading or Guildford, preparing an inherited property for sale, or managing an estate clearout as an executor, we provide a comprehensive service that removes the physical and emotional burden from your shoulders. We've completed hundreds of probate clearouts and house clearances across Berkshire and Surrey, and we understand both the practical challenges (tight probate deadlines, property sale requirements) and the emotional difficulty of sorting through a lifetime of possessions.
                 </p>
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  Our house clearance service is complete and thorough. We clear entire properties from top to bottom: all rooms, garages and outbuildings, gardens and sheds. During clearance, our teams pay careful attention to locating important documents (wills, deeds, insurance policies), valuable items (jewelry, collectibles, photographs), and items of sentimental value that family members may wish to keep. We work methodically through each room, checking drawers, cupboards, and storage spaces - nothing is simply thrown away without consideration.
+                  Our house clearout service is complete and thorough. We clear entire properties from top to bottom: all rooms, garages and outbuildings, gardens and sheds. During the clearout, our teams pay careful attention to locating important documents (wills, deeds, insurance policies), valuable items (jewellery, collectibles, photographs), and items of sentimental value that family members may wish to keep. We work methodically through each room, checking drawers, cupboards, and storage spaces — nothing is simply thrown away without consideration.
                 </p>
                 <p className="text-slate-700 leading-relaxed">
-                  We're committed to handling estate clearances responsibly and respectfully. Usable furniture, household items, books, and clothing are donated to local charities across Reading, Slough, and Guildford wherever possible - many families find comfort knowing their loved one's possessions will benefit others. Unusable items are recycled extensively (we achieve 94% recycling rates). As a fully licensed waste carrier with the Environment Agency, we provide proper documentation for executors and solicitors. With £5 million public liability insurance and years of experience in sensitive clearances, we're the trusted choice for probate and bereavement house clearances throughout Berkshire and Surrey.
+                  We're committed to handling estate clearouts responsibly and respectfully. Usable furniture, household items, books, and clothing are donated to local charities across Reading, Slough, and Guildford wherever possible — many families find comfort knowing their loved one's possessions will benefit others. Unusable items are recycled extensively (94% recycling rate). As a fully licensed waste carrier registered with the Environment Agency (licence CBDU630127), we provide proper documentation for executors and solicitors. With £5 million public liability insurance and years of experience in sensitive clearouts, we're the trusted choice for probate and bereavement house clearouts throughout Berkshire and Surrey.
                 </p>
               </div>
             </div>
@@ -249,10 +279,10 @@ const HomeAndProbate = () => {
           <section className="mb-16">
             <div className="bg-gradient-to-r from-[#064e3b] to-[#065f46] border-4 border-slate-900 rounded-xl p-8 md:p-12 text-white text-center">
               <h2 className="text-3xl md:text-5xl font-black uppercase italic mb-6">
-                Need A House Clearance?
+                Need A House Clearout?
               </h2>
               <p className="text-white/90 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-                Compassionate probate clearance services across Reading, Guildford, Slough, and all Berkshire & Surrey. Free home visits.
+                Compassionate house clearout and probate clearance services across Reading, Guildford, Slough, and all Berkshire &amp; Surrey. Free home visits and fixed-price quotes.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a
