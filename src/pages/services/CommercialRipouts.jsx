@@ -35,14 +35,44 @@ const CommercialRipouts = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Helmet>
-        <title>Commercial Clearance Reading Slough | Office Strip-Out Berkshire Surrey</title>
-        <meta name="description" content="Professional commercial site rip-outs in Reading, Slough, Guildford. Office, retail, restaurant clearance. Out-of-hours service, licensed from £400." />
-        <meta name="keywords" content="commercial waste removal, commercial waste removal reading, commercial waste removal slough, commercial waste removal guildford, commercial waste removal berkshire, commercial waste removal surrey, office clearance reading, office clearance slough, office clearance guildford, office clearance berkshire, office strip out reading, office strip out slough, retail clearance berkshire, shop fitting removal, restaurant clearance surrey, commercial rip out, office furniture removal reading, office furniture disposal, IT equipment disposal berkshire, WEEE disposal surrey, warehouse clearance reading, business waste removal, commercial skip alternative, out of hours waste collection, evening waste collection berkshire, data destruction berkshire, office clearance near me, commercial clearance near me" />
+        <title>Commercial Clearout Reading | Office & Commercial Waste Clearout Berkshire Surrey</title>
+        <meta name="description" content="Commercial clearout services in Reading, Slough, Guildford & across Berkshire and Surrey. Office strip-outs, retail clearouts, restaurant clearances. Out-of-hours service, licensed from £400." />
+        <meta name="keywords" content="commercial clearout, commercial clearout reading, commercial clearout berkshire, commercial clearout surrey, commercial clearout slough, commercial clearout guildford, commercial waste removal, commercial waste removal reading, commercial waste removal slough, commercial waste removal guildford, commercial waste removal berkshire, commercial waste removal surrey, office clearance reading, office clearout reading, office clearance slough, office clearance guildford, office clearance berkshire, office strip out reading, office strip out slough, retail clearout berkshire, retail clearance berkshire, shop fitting removal, restaurant clearout surrey, restaurant clearance surrey, commercial rip out, office furniture removal reading, office furniture disposal, IT equipment disposal berkshire, WEEE disposal surrey, warehouse clearout reading, warehouse clearance reading, business waste removal, commercial skip alternative, out of hours waste collection, evening waste collection berkshire, data destruction berkshire, office clearout near me, commercial clearout near me, office clearance near me, commercial clearance near me" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/commercial-ripouts/" />
-        <meta property="og:title" content="Commercial Site Rip-outs | Total Waste Clearout Berkshire" />
-        <meta property="og:description" content="Professional commercial clearance and strip-out services across Berkshire & Surrey. Out-of-hours available." />
+        <meta property="og:title" content="Commercial Clearout Reading & Berkshire | Total Waste Clearout" />
+        <meta property="og:description" content="Professional commercial clearout and strip-out services across Berkshire & Surrey. Out-of-hours available." />
         <meta property="og:url" content="https://totalwasteclearout.co.uk/services/commercial-ripouts/" />
         <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Do you do commercial clearouts in Reading?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Total Waste Clearout provides commercial clearout services throughout Reading and Berkshire. We handle office clearouts, retail clearouts, restaurant clearouts, and warehouse clearouts. Same-day and out-of-hours commercial clearouts are available. Call 07769 844298 for a free quote."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does a commercial clearout cost in Berkshire?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Commercial clearout costs in Berkshire start from £400 for a small office, £1,200 for a medium retail or restaurant unit, and are quoted individually for larger sites. All prices include labour, loading, transport, and compliant disposal with full waste transfer documentation. Contact Total Waste Clearout on 07769 844298 for a free commercial clearout quote."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is included in a commercial clearout service?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A commercial clearout from Total Waste Clearout includes removal of office furniture, IT equipment, retail fixtures, shop fittings, partitions, carpets, signage, kitchen equipment, and all general commercial waste. We also provide WEEE-compliant disposal of electrical items, confidential document destruction with certificates, and waste transfer notes for your records. Evening and weekend commercial clearouts are available across Berkshire and Surrey."
+              }
+            }
+          ]
+        })}</script>
       </Helmet>
 
       {/* Hero Section */}
@@ -53,11 +83,11 @@ const CommercialRipouts = () => {
               <Briefcase size={40} className="text-[#064e3b]" />
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic text-white tracking-tight leading-none">
-              Commercial Site Rip-outs
+              Commercial Clearout &amp; Strip-Out Services
             </h1>
           </div>
           <p className="text-white/80 text-lg md:text-xl font-bold italic max-w-3xl">
-            Professional commercial clearance and strip-out services across Berkshire and Surrey. Offices, retail units, restaurants, and industrial sites cleared efficiently.
+            Professional commercial clearout and strip-out services across Berkshire and Surrey. Office clearouts, retail clearouts, restaurant clearances, and industrial site clearouts — done efficiently.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <div className="bg-white/10 border-2 border-white/20 px-4 py-2 rounded-lg">
@@ -154,7 +184,7 @@ const CommercialRipouts = () => {
 
           {/* Pricing Section */}
           <section className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">Commercial Clearance Pricing</h2>
+            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">Commercial Clearout Pricing</h2>
             <div className="bg-gradient-to-r from-[#064e3b] to-[#065f46] border-4 border-slate-900 rounded-xl p-8 md:p-12 text-white">
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-white/20">
@@ -237,20 +267,20 @@ const CommercialRipouts = () => {
 
           {/* Service Description */}
           <section className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Complete Commercial Strip-Out Services</h2>
+            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Commercial Clearout Services — Reading, Berkshire &amp; Surrey</h2>
             <div className="prose prose-lg max-w-none">
               <div className="bg-white border-4 border-slate-900 rounded-xl p-8 shadow-[8px_8px_0px_#e2e8f0] mb-8">
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  Total Waste Clearout Ltd provides comprehensive commercial site rip-out and clearance services for businesses across Reading, Slough, Guildford, Woking, and throughout Berkshire and Surrey. Whether you're relocating offices in Reading town centre, closing a retail unit in Guildford High Street, refitting a restaurant in Windsor, or clearing an industrial unit in Bracknell, we deliver fast, professional, and discreet commercial clearance services.
+                  Total Waste Clearout Ltd provides comprehensive commercial clearout and strip-out services for businesses across Reading, Slough, Guildford, Woking, and throughout Berkshire and Surrey. Whether you need a full office clearout in Reading town centre, a retail unit clearout in Guildford High Street, a restaurant clearout in Windsor, or an industrial unit clearout in Bracknell, we deliver fast, professional, and discreet commercial clearout services.
                 </p>
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  Commercial property clearances require specialist knowledge, proper equipment, and strict adherence to health and safety regulations. Our experienced teams understand the unique challenges of commercial work: tight deadlines, lease-end requirements, data security concerns, minimizing disruption to neighboring businesses, and meeting landlord handover standards. We've worked with hundreds of commercial clients across Berkshire and Surrey - from small independent shops to large corporate offices - and we know exactly what's required to strip premises back to specification.
+                  Commercial clearouts require specialist knowledge, proper equipment, and strict adherence to health and safety regulations. Our experienced teams understand the unique challenges of commercial work: tight deadlines, lease-end requirements, data security concerns, minimising disruption to neighbouring businesses, and meeting landlord handover standards. We've completed hundreds of commercial clearouts across Berkshire and Surrey — from small independent shops to large corporate offices — and we know exactly what's required to strip premises back to specification.
                 </p>
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  Our commercial rip-out service is comprehensive: office furniture and partitions, IT equipment and server rooms, retail fixtures and shop fittings, signage and displays, carpets and flooring, suspended ceilings and lighting, kitchen equipment, air conditioning units, and all general commercial waste. We handle everything from complete strip-outs (leaving premises as bare shells) to selective clearances (removing specific items or areas). Evening, weekend, and overnight work is available to minimize disruption to your business operations or allow clearance to happen when premises are closed to the public.
+                  Our commercial clearout service covers everything: office furniture and partitions, IT equipment and server rooms, retail fixtures and shop fittings, signage and displays, carpets and flooring, suspended ceilings and lighting, kitchen equipment, air conditioning units, and all general commercial waste. We handle everything from complete strip-outs (leaving premises as bare shells) to selective clearouts (removing specific items or areas). Evening, weekend, and overnight work is available to minimise disruption to your business operations.
                 </p>
                 <p className="text-slate-700 leading-relaxed">
-                  As a fully licensed commercial waste carrier registered with the Environment Agency, we provide complete legal compliance for all commercial clearances. This includes WEEE (Waste Electrical and Electronic Equipment) regulations for IT and electrical items, confidential waste destruction certificates for sensitive documents, and comprehensive waste transfer notes for your audit trail. With £5 million public liability insurance, full employer's liability cover, and professional indemnity insurance, we meet all commercial insurance requirements. Our 94% recycling rate means office furniture, retail fixtures, and electrical equipment are recycled or donated wherever possible, supporting your corporate social responsibility goals.
+                  As a fully licensed commercial waste carrier registered with the Environment Agency (licence CBDU630127), we provide complete legal compliance for all commercial clearouts. This includes WEEE (Waste Electrical and Electronic Equipment) regulations for IT and electrical items, confidential waste destruction certificates for sensitive documents, and comprehensive waste transfer notes for your audit trail. With £5 million public liability insurance, full employer's liability cover, and professional indemnity insurance, we meet all commercial insurance requirements. Our 94% recycling rate means office furniture, retail fixtures, and electrical equipment are recycled or donated wherever possible, supporting your corporate social responsibility goals.
                 </p>
               </div>
             </div>
@@ -260,10 +290,10 @@ const CommercialRipouts = () => {
           <section className="mb-16">
             <div className="bg-gradient-to-r from-[#064e3b] to-[#065f46] border-4 border-slate-900 rounded-xl p-8 md:p-12 text-white text-center">
               <h2 className="text-3xl md:text-5xl font-black uppercase italic mb-6">
-                Need A Commercial Clearance?
+                Need A Commercial Clearout?
               </h2>
               <p className="text-white/90 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-                Professional strip-out services across Reading, Guildford, Slough, and all Berkshire & Surrey. Free detailed quotes.
+                Professional commercial clearout services across Reading, Guildford, Slough, and all Berkshire &amp; Surrey. Free detailed quotes.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a
