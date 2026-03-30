@@ -52,6 +52,8 @@ import AreaPage from './pages/areas/AreaPage';
 import ServiceAreaPage from './pages/areas/ServiceAreaPage';
 import ContactForm from './components/ContactForm';
 import StatsTicker from './components/StatsTicker';
+import HomeQuoteComponent from './components/HomeQuote';
+import NotFound from './pages/NotFound';
 
 // --- GLOBAL DATA & CONFIGURATION ---
 
@@ -131,7 +133,7 @@ const ReviewCard = ({ review, idx }) => (
 const HomeHero = () => (
   <header className="relative min-h-[85vh] md:min-h-screen flex items-center pt-20 md:pt-24 overflow-hidden bg-[#064e3b]">
     <div className="absolute inset-0 z-0">
-      <img src="/hero.jpg" alt="Waste removal and rubbish bags" className="w-full h-full object-cover opacity-15 grayscale" loading="eager" />
+      <img src="/hero.jpg" alt="Professional waste removal service loading rubbish in Berkshire" className="w-full h-full object-cover opacity-15 grayscale" loading="eager" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-transparent to-transparent" />
     </div>
@@ -140,7 +142,7 @@ const HomeHero = () => (
         <div className="mb-8 inline-block animate-pulse">
           <span className="bg-[#4ade80] text-slate-900 px-4 md:px-6 py-2 md:py-3 text-[10px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.3em] italic border-2 md:border-4 border-white shadow-lg rounded-sm">Professional Clearance</span>
         </div>
-        <h1 className="text-5xl md:text-[8rem] lg:text-[10rem] font-black text-white leading-[0.85] mb-8 tracking-tighter uppercase italic">WASTE <br /><span className="text-transparent stroke-text-light">REMOVAL</span> <br /><span className="text-[#4ade80]">TODAY.</span></h1>
+        <h1 className="text-5xl md:text-[8rem] lg:text-[10rem] font-black text-white leading-[0.85] mb-8 tracking-tighter uppercase italic">WASTE <br /><span className="text-transparent stroke-text-light">REMOVAL</span> <br /><span className="text-[#4ade80]">BERKSHIRE<br />& SURREY.</span></h1>
         <p className="text-lg md:text-3xl text-white/70 mb-12 max-w-2xl font-bold leading-tight italic text-balance">Premium waste removal for <span className="text-white border-b-4 border-orange-500">Berkshire & Surrey</span>. Fully licensed. Fixed pricing. Professional crews.</p>
         <div className="flex flex-wrap gap-4 md:gap-6">
           <Link to="/services" className="bg-orange-500 hover:bg-orange-400 text-black px-10 md:px-12 py-5 md:py-6 rounded-sm font-black text-lg md:text-xl uppercase italic tracking-wider transition-all hover:-translate-y-1 shadow-[8px_8px_0px_#022c22] active:shadow-none flex items-center cursor-pointer">
@@ -198,20 +200,7 @@ const HomeServices = () => (
   </section>
 );
 
-const HomeQuote = () => (
-  <section id="quote" className="py-24 md:py-32 bg-[#ecf3ef] border-t border-slate-200 text-left">
-    <div className="container mx-auto px-6 text-slate-900">
-      <div className="bg-white p-8 md:p-20 border-8 border-slate-900 shadow-[15px_15px_0px_#16a34a] md:shadow-[30px_30px_0px_#16a34a] relative">
-        <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
-          <div><h2 className="text-5xl md:text-[6.5rem] font-[1000] leading-[0.85] uppercase italic tracking-tighter text-slate-900">GET YOUR <br /> <span className="text-[#16a34a] underline decoration-slate-900">FIXED</span> PRICE.</h2><div className="space-y-4 mt-8"><div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> No Hidden Disposal Fees</div><div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> Uniformed Loaders Included</div></div></div>
-          <div className="bg-slate-50 p-6 md:p-10 border-4 border-slate-900 rounded-lg">
-             <ContactForm subject="New Quote Request" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-);
+const HomeQuote = HomeQuoteComponent;
 
 const faqItems = [
   { q: "How much does waste removal cost in Berkshire?", a: "Total Waste Clearout offers fixed pricing with no hidden fees. A single item collection starts from £40, a partial load from £120, and a full load from £280. All prices include labour, loading, transport, and responsible disposal with a 94% recycling rate. We serve Reading, Slough, Bracknell, Windsor, Ascot, Maidenhead, Guildford, Woking, Egham and Staines." },
@@ -1064,6 +1053,7 @@ const App = () => {
           <Route path="/services" element={<Services />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
 
@@ -1075,7 +1065,7 @@ const App = () => {
             {/* Brand */}
             <div className="lg:col-span-4 space-y-6">
               <Link to="/" aria-label="Go to homepage" className="flex items-center gap-4 group cursor-pointer">
-                <img src="/logo.webp" alt="Total Waste Clearout Ltd logo" className="w-14 h-14 object-contain group-hover:rotate-12 transition-transform" loading="lazy" />
+                <img src="/logo.webp" alt="Total Waste Clearout Ltd licensed waste removal Berkshire Surrey" className="w-14 h-14 object-contain group-hover:rotate-12 transition-transform" loading="lazy" />
                 <div className="flex flex-col leading-none">
                   <span className="font-black text-2xl md:text-3xl tracking-tighter uppercase italic leading-none text-white">Total Waste</span>
                   <span className="text-[#4ade80] font-black text-xs tracking-[.4em] uppercase">Clearout Ltd</span>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import StatsTicker from '../components/StatsTicker';
 import ContactForm from '../components/ContactForm';
+import HomeQuote from '../components/HomeQuote';
 import {
   Phone,
   Recycle,
@@ -68,20 +69,6 @@ const ModernServiceCard = ({ icon, emoji, title, description, features, price, d
   </div>
 );
 
-const HomeQuote = () => (
-  <section id="quote" className="py-24 md:py-32 bg-[#ecf3ef] border-t border-slate-200 text-left">
-    <div className="container mx-auto px-6 text-slate-900">
-      <div className="bg-white p-8 md:p-20 border-8 border-slate-900 shadow-[15px_15px_0px_#16a34a] md:shadow-[30px_30px_0px_#16a34a] relative">
-        <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
-          <div><h2 className="text-5xl md:text-[6.5rem] font-[1000] leading-[0.85] uppercase italic tracking-tighter text-slate-900">GET YOUR <br /> <span className="text-[#16a34a] underline decoration-slate-900">FIXED</span> PRICE.</h2><div className="space-y-4 mt-8"><div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> No Hidden Disposal Fees</div><div className="flex items-center gap-3 font-black uppercase italic text-sm text-slate-500"><CheckCircle size={16} className="text-[#16a34a]" aria-hidden="true" /> Uniformed Loaders Included</div></div></div>
-          <div className="bg-slate-50 p-6 md:p-10 border-4 border-slate-900 rounded-lg">
-             <ContactForm subject="Services Page Quote" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-);
 
 const Services = () => {
   useEffect(() => {
@@ -106,7 +93,7 @@ const Services = () => {
         {/* SERVICES HERO */}
         <header className="relative min-h-[55vh] flex items-center pt-32 pb-16 overflow-hidden bg-[#064e3b]">
           <div className="absolute inset-0 z-0">
-            <img src="/hero.jpg" alt="Waste removal services" className="w-full h-full object-cover opacity-15 grayscale" loading="eager" />
+            <img src="/hero.jpg" alt="Professional waste removal services Berkshire Surrey including house clearance garden waste and commercial clearance" className="w-full h-full object-cover opacity-15 grayscale" loading="eager" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-transparent to-transparent" />
           </div>
