@@ -62,7 +62,7 @@ const AreaPage = () => {
     "description": `Professional waste removal and rubbish clearance services in ${area.name}, ${area.county}. Same-day collection, 94% recycling rate, fully licensed.`,
     "url": `https://totalwasteclearout.co.uk/${area.slug}`,
     "telephone": "+447769844298",
-    "email": "info@totalwasteclearout.co.uk",
+    "email": "office@totalwasteclearout.co.uk",
     "image": "https://totalwasteclearout.co.uk/logo-512.png",
     "hasMap": `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(area.mapQuery)}`,
     "address": {
@@ -550,7 +550,7 @@ const AreaPage = () => {
                   WhatsApp Quote
                 </a>
                 <a
-                  href="mailto:info@totalwasteclearout.co.uk"
+                  href="mailto:office@totalwasteclearout.co.uk"
                   className="inline-flex items-center gap-3 bg-white hover:bg-slate-100 text-slate-900 font-black uppercase px-8 py-5 rounded-xl transition-colors border-4 border-slate-900 shadow-[6px_6px_0px_#0f172a] text-lg"
                 >
                   <Mail size={24} />
