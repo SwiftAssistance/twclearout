@@ -23,14 +23,16 @@ export default function QuoteModal({ buttonClassName, buttonLabel = 'Get a Quote
     e.preventDefault();
     setError(false);
     try {
-      await fetch('/', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          'form-name': 'quote-request',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: '2302ca48-2fbd-4e27-a517-e214142cf489',
+          subject: `New Quote Request – ${form.jobType}`,
           ...form,
-        }).toString(),
+        }),
       });
+      if (!res.ok) throw new Error();
       setSubmitted(true);
     } catch {
       setError(true);
@@ -77,11 +79,8 @@ export default function QuoteModal({ buttonClassName, buttonLabel = 'Get a Quote
 
                 <form
                   onSubmit={handleSubmit}
-                  name="quote-request"
-                  data-netlify="true"
                   className="space-y-4"
                 >
-                  <input type="hidden" name="form-name" value="quote-request" />
                   <div>
                     <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Your Name</label>
                     <input required name="name" type="text" value={form.name} onChange={set('name')} placeholder="John Smith" className="w-full border-2 border-slate-900 p-3 font-bold text-sm outline-none focus:border-[#16a34a]" />

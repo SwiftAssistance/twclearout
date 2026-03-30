@@ -327,7 +327,7 @@ const Legal = () => {
                 </div>
                 <div>
                   <p className="text-white/60 text-xs uppercase tracking-wider mb-1">Email</p>
-                  <a href="mailto:info@totalwasteclearout.co.uk" className="text-[#4ade80] font-black text-lg hover:underline">info@totalwasteclearout.co.uk</a>
+                  <a href="mailto:office@totalwasteclearout.co.uk" className="text-[#4ade80] font-black text-lg hover:underline">office@totalwasteclearout.co.uk</a>
                 </div>
                 <div>
                   <p className="text-white/60 text-xs uppercase tracking-wider mb-1">Operating Hours</p>
