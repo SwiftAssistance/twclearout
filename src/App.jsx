@@ -198,6 +198,12 @@ const HomeServices = () => (
           </div>
         </Link>
       </div>
+
+      <div className="text-center">
+        <Link to="/services" className="inline-flex items-center gap-3 bg-slate-900 hover:bg-[#16a34a] text-white px-10 py-5 font-black uppercase italic tracking-wider text-lg transition-all shadow-[6px_6px_0px_#16a34a] hover:shadow-[6px_6px_0px_#064e3b] active:shadow-none active:translate-x-1 active:translate-y-1">
+          View All Services <ArrowRight size={20} />
+        </Link>
+      </div>
     </div>
   </section>
 );
