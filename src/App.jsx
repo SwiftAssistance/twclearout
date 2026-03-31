@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, lazy, Suspense } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import {
@@ -33,27 +33,29 @@ import {
   ChevronDown
 } from 'lucide-react';
 
-// Page components
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import CookieUsage from './pages/CookieUsage';
-import Legal from './pages/Legal';
-import Sitemap from './pages/Sitemap';
-import EndOfTenancy from './pages/services/EndOfTenancy';
-import HardHatWasteHub from './pages/services/HardHatWasteHub';
-import GardenWaste from './pages/services/GardenWaste';
-import CommercialRipouts from './pages/services/CommercialRipouts';
-import HomeAndProbate from './pages/services/HomeAndProbate';
-import GarageShed from './pages/services/GarageShed';
-import Services from './pages/Services';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import Areas from './pages/areas/Areas';
-import AreaPage from './pages/areas/AreaPage';
-import ServiceAreaPage from './pages/areas/ServiceAreaPage';
+// Eagerly loaded (used on every page)
 import ContactForm from './components/ContactForm';
 import StatsTicker from './components/StatsTicker';
 import HomeQuoteComponent from './components/HomeQuote';
-import NotFound from './pages/NotFound';
+
+// Route-based code splitting
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const CookieUsage = lazy(() => import('./pages/CookieUsage'));
+const Legal = lazy(() => import('./pages/Legal'));
+const Sitemap = lazy(() => import('./pages/Sitemap'));
+const EndOfTenancy = lazy(() => import('./pages/services/EndOfTenancy'));
+const HardHatWasteHub = lazy(() => import('./pages/services/HardHatWasteHub'));
+const GardenWaste = lazy(() => import('./pages/services/GardenWaste'));
+const CommercialRipouts = lazy(() => import('./pages/services/CommercialRipouts'));
+const HomeAndProbate = lazy(() => import('./pages/services/HomeAndProbate'));
+const GarageShed = lazy(() => import('./pages/services/GarageShed'));
+const Services = lazy(() => import('./pages/Services'));
+const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Areas = lazy(() => import('./pages/areas/Areas'));
+const AreaPage = lazy(() => import('./pages/areas/AreaPage'));
+const ServiceAreaPage = lazy(() => import('./pages/areas/ServiceAreaPage'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 // --- GLOBAL DATA & CONFIGURATION ---
 
@@ -133,7 +135,7 @@ const ReviewCard = ({ review, idx }) => (
 const HomeHero = () => (
   <header className="relative min-h-[85vh] md:min-h-screen flex items-center pt-20 md:pt-24 overflow-hidden bg-[#064e3b]">
     <div className="absolute inset-0 z-0">
-      <img src="/hero.jpg" alt="Professional waste removal service loading rubbish in Berkshire" className="w-full h-full object-cover opacity-15 grayscale" loading="eager" />
+      <img src="/hero.webp" alt="Professional waste removal service loading rubbish in Berkshire" className="w-full h-full object-cover opacity-15 grayscale" loading="eager" fetchpriority="high" width="1600" height="1487" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-transparent to-transparent" />
     </div>
@@ -248,7 +250,9 @@ const GeoFaqSection = () => {
   );
 };
 
-const MapContact = () => (
+const MapContact = () => {
+  const [mapLoaded, setMapLoaded] = useState(false);
+  return (
   <section id="location" className="py-24 md:py-32 bg-white">
     <div className="container mx-auto px-6">
       <div className="mb-16 text-center">
@@ -294,22 +298,35 @@ const MapContact = () => (
           </div>
         </div>
 
-        <div className="border-4 border-slate-900 rounded-lg overflow-hidden shadow-lg h-[500px]">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d201683.57894736842!2d-0.9781303!3d51.4542645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48768c3f0d0d0d0d%3A0x0!2sBerkshire%2C%20UK!5e0!3m2!1sen!2suk!4v1234567890"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Service Area Map - Entire Berkshire Region"
-          ></iframe>
+        <div className="border-4 border-slate-900 rounded-lg overflow-hidden shadow-lg h-[500px] relative bg-[#ecf3ef]">
+          {mapLoaded ? (
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d201683.57894736842!2d-0.9781303!3d51.4542645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48768c3f0d0d0d0d%3A0x0!2sBerkshire%2C%20UK!5e0!3m2!1sen!2suk!4v1234567890"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Service Area Map - Entire Berkshire Region"
+            />
+          ) : (
+            <button
+              onClick={() => setMapLoaded(true)}
+              className="w-full h-full flex flex-col items-center justify-center gap-4 cursor-pointer hover:bg-[#dcfce7] transition-colors"
+              aria-label="Load interactive map of service area"
+            >
+              <MapPin size={48} className="text-[#16a34a]" />
+              <span className="font-black uppercase text-slate-700 text-sm tracking-widest italic">Click to load map</span>
+              <span className="text-xs font-bold text-slate-500">Berkshire & Surrey service area</span>
+            </button>
+          )}
         </div>
       </div>
     </div>
   </section>
-);
+  );
+};
 
 const ModernServiceCard = ({ icon, emoji, title, description, features, price, dark, green, accentColor, borderColor }) => (
   <div className={`group relative ${accentColor} p-8 md:p-10 rounded-3xl border-4 ${borderColor} shadow-[8px_8px_0px_rgba(0,0,0,0.1)] hover:shadow-[16px_16px_0px_rgba(0,0,0,0.15)] transition-all duration-300 hover:-translate-y-3 overflow-hidden`}>
@@ -362,7 +379,7 @@ const AboutView = () => (
     {/* ABOUT HERO */}
     <header className="relative min-h-[55vh] flex items-center pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden bg-[#064e3b]">
       <div className="absolute inset-0 z-0">
-        <img src="/hero.jpg" alt="About us" className="w-full h-full object-cover opacity-15 grayscale" loading="eager" />
+        <img src="/hero.webp" alt="About us" className="w-full h-full object-cover opacity-15 grayscale" loading="lazy" width="1600" height="1487" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-transparent to-transparent" />
       </div>
@@ -461,7 +478,7 @@ const ContactView = () => (
     {/* CONTACT HERO */}
     <header className="relative min-h-[55vh] flex items-center pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden bg-[#064e3b]">
       <div className="absolute inset-0 z-0">
-        <img src="/hero.jpg" alt="Contact us" className="w-full h-full object-cover opacity-15 grayscale" loading="eager" />
+        <img src="/hero.webp" alt="Contact us" className="w-full h-full object-cover opacity-15 grayscale" loading="lazy" width="1600" height="1487" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-transparent to-transparent" />
       </div>
@@ -531,7 +548,7 @@ const ServicesView = () => (
     {/* SERVICES HERO */}
     <header className="relative min-h-[55vh] flex items-center pt-20 md:pt-24 pb-16 overflow-hidden bg-[#064e3b]">
       <div className="absolute inset-0 z-0">
-        <img src="/hero.jpg" alt="Waste removal services" className="w-full h-full object-cover opacity-15 grayscale" loading="eager" />
+        <img src="/hero.webp" alt="Waste removal services" className="w-full h-full object-cover opacity-15 grayscale" loading="lazy" width="1600" height="1487" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-transparent to-transparent" />
       </div>
@@ -891,7 +908,7 @@ const App = () => {
       {/* NAVIGATION */}
       <nav role="navigation" className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-300 transform-gpu ${isScrolled ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-md py-2' : 'bg-[#064e3b] py-3 md:py-4'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center relative">
-          <Link to="/" onClick={() => setIsMenuOpen(false)} aria-label="Go to homepage" className="flex items-center gap-3 md:gap-4 shrink-0 group text-left"><div className="relative h-12 w-12 md:h-16 md:w-16 transition-transform group-hover:scale-105"><img src="/logo.webp" alt="Total Waste Clearout Ltd logo" className="h-full w-full object-contain relative z-10" loading="eager" /></div><div className="flex flex-col leading-none text-left"><span className={`font-[1000] text-lg md:text-2xl tracking-tighter uppercase italic transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-white'}`}>Total Waste</span><span className="text-[#4ade80] font-black text-[8px] md:text-[10px] tracking-[.3em] md:tracking-[.4em] uppercase text-left text-balance">Clearout Ltd</span></div></Link>
+          <Link to="/" onClick={() => setIsMenuOpen(false)} aria-label="Go to homepage" className="flex items-center gap-3 md:gap-4 shrink-0 group text-left"><div className="relative h-12 w-12 md:h-16 md:w-16 transition-transform group-hover:scale-105"><img src="/logo.webp" alt="Total Waste Clearout Ltd logo" className="h-full w-full object-contain relative z-10" loading="eager" width="64" height="64" /></div><div className="flex flex-col leading-none text-left"><span className={`font-[1000] text-lg md:text-2xl tracking-tighter uppercase italic transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-white'}`}>Total Waste</span><span className="text-[#4ade80] font-black text-[8px] md:text-[10px] tracking-[.3em] md:tracking-[.4em] uppercase text-left text-balance">Clearout Ltd</span></div></Link>
           <div className={`hidden xl:flex items-center gap-8 font-black text-[11px] uppercase tracking-[0.2em] transition-colors duration-300 ${isScrolled ? 'text-slate-600' : 'text-white/80'}`}>
             <Link to="/" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname === '/' ? 'text-[#16a34a]' : ''}`}>Home<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname === '/' ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
             <Link to="/services" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname.startsWith('/services') ? 'text-[#16a34a]' : ''}`}>Services<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname.startsWith('/services') ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
@@ -918,6 +935,7 @@ const App = () => {
 
       {/* PAGE CONTENT */}
       <main className="relative min-h-[70vh] text-left text-slate-900">
+        <Suspense fallback={<div className="min-h-[70vh] flex items-center justify-center"><div className="w-8 h-8 border-4 border-[#16a34a] border-t-transparent rounded-full animate-spin" /></div>}>
         <Routes>
           <Route path="/" element={
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 text-slate-900 text-left">
@@ -1055,6 +1073,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </Suspense>
       </main>
 
       {/* FOOTER */}
