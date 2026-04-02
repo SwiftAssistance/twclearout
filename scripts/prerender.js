@@ -14,6 +14,8 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
+import { AREA_DATA } from '../src/data/areaData.js';
+import { SERVICE_AREA_DATA, getServiceAreaFromSlug } from '../src/data/serviceAreaData.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = join(__dirname, '..', 'dist');
@@ -21,6 +23,35 @@ const BASE_URL = 'https://totalwasteclearout.co.uk';
 
 // Read the built index.html as the template
 const template = readFileSync(join(DIST, 'index.html'), 'utf-8');
+
+/**
+ * Build FAQPage JSON-LD for a list of {q, a} FAQ items.
+ */
+function buildFaqSchema(faqs) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a }
+    }))
+  };
+}
+
+/**
+ * Replace the homepage FAQ schema placeholder with page-specific markup.
+ * If no pageSchema is provided the placeholder is removed entirely.
+ */
+function replaceFaqSchema(html, pageSchema) {
+  const replacement = pageSchema
+    ? `<script type="application/ld+json">${JSON.stringify(pageSchema)}</script>`
+    : '';
+  return html.replace(
+    /<!-- PRERENDER_FAQ_SCHEMA_START -->[\s\S]*?<!-- PRERENDER_FAQ_SCHEMA_END -->/,
+    replacement
+  );
+}
 
 /**
  * Every route with its unique meta tags.
@@ -299,6 +330,25 @@ for (const page of pages) {
       /<meta name="keywords" content="[^"]*" \/>/,
       `<meta name="keywords" content="${page.keywords}" />`
     );
+  }
+
+  // ── Inject page-specific FAQ schema ───────────────────────────────
+  const pageSlug = page.path.replace(/^\//, '');
+
+  // Service+area combination page  (e.g. construction-waste-removal-egham)
+  const serviceArea = getServiceAreaFromSlug(pageSlug);
+  if (serviceArea) {
+    const faqs = serviceArea.service.getFaqs(serviceArea.area);
+    html = replaceFaqSchema(html, buildFaqSchema(faqs));
+  }
+  // Area overview page  (e.g. waste-removal-egham)
+  else if (AREA_DATA[pageSlug]) {
+    const area = AREA_DATA[pageSlug];
+    html = replaceFaqSchema(html, buildFaqSchema(area.faqs));
+  }
+  // All other pages — remove the homepage FAQ schema placeholder
+  else {
+    html = replaceFaqSchema(html, null);
   }
 
   // Write to dist/<path>/index.html

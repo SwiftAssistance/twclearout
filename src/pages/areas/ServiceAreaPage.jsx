@@ -116,8 +116,7 @@ const ServiceAreaPage = () => {
         "opens": "08:00",
         "closes": "17:00"
       }
-    ],
-    "priceRange": "££"
+    ]
   };
 
   // Schema.org Service
@@ -185,6 +184,7 @@ const ServiceAreaPage = () => {
         <title>{meta.title}</title>
         <meta name="description" content={meta.description} />
         <meta name="keywords" content={meta.keywords} />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href={`https://totalwasteclearout.co.uk/${slug}/`} />
         <meta name="geo.region" content={area.region} />
         <meta name="geo.placename" content={`${area.name}, ${area.county}`} />
