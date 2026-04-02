@@ -190,6 +190,7 @@ const AreaPage = () => {
         <title>{area.meta.title}</title>
         <meta name="description" content={area.meta.description} />
         <meta name="keywords" content={area.meta.keywords} />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href={`https://totalwasteclearout.co.uk/${area.slug}/`} />
         <meta name="geo.region" content={area.region} />
         <meta name="geo.placename" content={`${area.name}, ${area.county}`} />

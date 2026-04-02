@@ -8,7 +8,7 @@
  * unique, locally-relevant content that Google treats as distinct.
  */
 
-import { AREA_DATA } from './areaData';
+import { AREA_DATA } from './areaData.js';
 
 // ── SERVICE DEFINITIONS ──────────────────────────────────────────────
 
