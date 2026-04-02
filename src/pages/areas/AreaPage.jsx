@@ -203,7 +203,6 @@ const AreaPage = () => {
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:title" content={area.meta.title} />
         <meta property="twitter:description" content={area.meta.description} />
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
