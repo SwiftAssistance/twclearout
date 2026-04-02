@@ -15,7 +15,7 @@ import { AREA_DATA } from './areaData';
 const SERVICE_AREA_DATA = {
   "house-clearance": {
     name: "House Clearance",
-    servicePageSlug: "/services/home-probate-clearance",
+    servicePageSlug: "/services/home-probate-clearance/",
     icon: "Home",
     price: "From £150",
     badges: ["Same-Day Available", "Probate Specialists", "94% Recycled"],
@@ -74,7 +74,7 @@ const SERVICE_AREA_DATA = {
 
   "end-of-tenancy-clearance": {
     name: "End of Tenancy Clearance",
-    servicePageSlug: "/services/end-of-tenancy",
+    servicePageSlug: "/services/end-of-tenancy/",
     icon: "Home",
     price: "From £150",
     badges: ["Same-Day Available", "Deposit Protection", "94% Recycled"],
@@ -134,7 +134,7 @@ const SERVICE_AREA_DATA = {
 
   "garden-waste-removal": {
     name: "Garden Waste Removal",
-    servicePageSlug: "/services/garden-waste",
+    servicePageSlug: "/services/garden-waste/",
     icon: "TreePine",
     price: "From £80",
     badges: ["100% Composted", "Same-Day Available", "Skip Alternative"],
@@ -194,7 +194,7 @@ const SERVICE_AREA_DATA = {
 
   "commercial-waste-removal": {
     name: "Commercial Waste Removal",
-    servicePageSlug: "/services/commercial-ripouts",
+    servicePageSlug: "/services/commercial-ripouts/",
     icon: "Briefcase",
     price: "From £300",
     badges: ["Out-of-Hours Available", "Full Compliance", "WEEE Disposal"],
@@ -254,7 +254,7 @@ const SERVICE_AREA_DATA = {
 
   "construction-waste-removal": {
     name: "Construction Waste Removal",
-    servicePageSlug: "/services/construction-waste",
+    servicePageSlug: "/services/construction-waste/",
     icon: "HardHat",
     price: "From £180",
     badges: ["Skip Alternative", "No Permits Needed", "Same-Day Service"],
@@ -314,7 +314,7 @@ const SERVICE_AREA_DATA = {
 
   "garage-shed-clearance": {
     name: "Garage & Shed Clearance",
-    servicePageSlug: "/services/garage-shed",
+    servicePageSlug: "/services/garage-shed/",
     icon: "Hammer",
     price: "From £100",
     badges: ["Complete Service", "Demolition Included", "Site Left Clean"],

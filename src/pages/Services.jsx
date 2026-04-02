@@ -148,7 +148,7 @@ const Services = () => {
                   price="From £150"
                   accentColor="bg-[#dcfce7]"
                   borderColor="border-[#16a34a]"
-                  to="/services/home-probate-clearance"
+                  to="/services/home-probate-clearance/"
                 />
                 <ModernServiceCard
                   icon={<TreePine size={40} className="text-[#16a34a]" />}
@@ -159,7 +159,7 @@ const Services = () => {
                   price="From £120"
                   accentColor="bg-[#dcfce7]"
                   borderColor="border-[#16a34a]"
-                  to="/services/garden-waste"
+                  to="/services/garden-waste/"
                 />
                 <ModernServiceCard
                   icon={<Hammer size={40} className="text-[#16a34a]" />}
@@ -170,7 +170,7 @@ const Services = () => {
                   price="From £100"
                   accentColor="bg-[#dcfce7]"
                   borderColor="border-[#16a34a]"
-                  to="/services/garage-shed"
+                  to="/services/garage-shed/"
                 />
               </div>
             </div>
@@ -197,7 +197,7 @@ const Services = () => {
                   dark
                   accentColor="bg-slate-900"
                   borderColor="border-[#4ade80]"
-                  to="/services/commercial-ripouts"
+                  to="/services/commercial-ripouts/"
                 />
                 <ModernServiceCard
                   icon={<HardHat size={40} className="text-white" />}
@@ -209,7 +209,7 @@ const Services = () => {
                   green
                   accentColor="bg-[#16a34a]"
                   borderColor="border-slate-900"
-                  to="/services/construction-waste"
+                  to="/services/construction-waste/"
                 />
                 <ModernServiceCard
                   icon={<Users size={40} className="text-orange-500" />}
@@ -220,7 +220,7 @@ const Services = () => {
                   price="From £250"
                   accentColor="bg-orange-50"
                   borderColor="border-orange-500"
-                  to="/services/commercial-ripouts"
+                  to="/services/commercial-ripouts/"
                 />
                 <ModernServiceCard
                   icon={<Hammer size={40} className="text-[#16a34a]" />}
@@ -231,7 +231,7 @@ const Services = () => {
                   price="From £500"
                   accentColor="bg-[#ecf3ef]"
                   borderColor="border-[#16a34a]"
-                  to="/services/commercial-ripouts"
+                  to="/services/commercial-ripouts/"
                 />
               </div>
             </div>
