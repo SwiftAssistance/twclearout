@@ -2,7 +2,39 @@
   publish = "dist"
   command = "npm run build"
 
-# Serve sitemap and robots directly
+# ── Headers ────────────────────────────────────────────────────────────
+# Cache hashed assets (JS, CSS) immutably — Vite generates unique hashes
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache images for 30 days
+[[headers]]
+  for = "*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+# Security headers for all pages
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# ── Redirects ──────────────────────────────────────────────────────────
+# Serve sitemap and robots directly (explicit rules for clarity)
 [[redirects]]
   from = "/sitemap.xml"
   to = "/sitemap.xml"
@@ -13,7 +45,9 @@
   to = "/robots.txt"
   status = 200
 
-# SPA fallback — serves pre-rendered index.html for every route
+# SPA fallback — only fires when no matching static file exists.
+# Prerendered HTML files (from prerender.js) are served directly by Netlify
+# because this is a non-forced (200, not 200!) rewrite.
 [[redirects]]
   from = "/*"
   to = "/index.html"

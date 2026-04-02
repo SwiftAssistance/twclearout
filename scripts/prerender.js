@@ -40,15 +40,22 @@ function buildFaqSchema(faqs) {
 }
 
 /**
- * Replace the homepage FAQ schema placeholder with page-specific markup.
- * If no pageSchema is provided the placeholder is removed entirely.
+ * Strip ALL homepage-specific schemas (LocalBusiness, BreadcrumbList, FAQPage, Service)
+ * from non-homepage pages to prevent duplicate/conflicting structured data.
+ *
+ * Each page's React component injects its own schemas via react-helmet-async at runtime.
+ * Keeping the homepage schemas causes Google to see duplicates (e.g. 2 FAQPage schemas,
+ * 2 LocalBusiness schemas) which triggers "invalid items" errors in Search Console.
+ *
+ * If a page-specific FAQ schema is provided, it is injected OUTSIDE the stripped block
+ * so crawlers see it in the initial HTML before JavaScript executes.
  */
-function replaceFaqSchema(html, pageSchema) {
+function replacePageSchemas(html, pageSchema) {
   const replacement = pageSchema
     ? `<script type="application/ld+json">${JSON.stringify(pageSchema)}</script>`
     : '';
   return html.replace(
-    /<!-- PRERENDER_FAQ_SCHEMA_START -->[\s\S]*?<!-- PRERENDER_FAQ_SCHEMA_END -->/,
+    /<!-- PRERENDER_PAGE_SCHEMA_START -->[\s\S]*?<!-- PRERENDER_PAGE_SCHEMA_END -->/,
     replacement
   );
 }
@@ -332,23 +339,28 @@ for (const page of pages) {
     );
   }
 
-  // ── Inject page-specific FAQ schema ───────────────────────────────
+  // ── Strip homepage schemas & inject page-specific FAQ schema ────────
+  // All non-homepage pages: remove LocalBusiness, BreadcrumbList, FAQPage,
+  // and Service schemas that belong to the homepage. Each page's React
+  // component provides its own schemas via react-helmet-async.
+  // For area & service-area pages, inject a FAQ schema into the static HTML
+  // so Google sees it before JavaScript executes.
   const pageSlug = page.path.replace(/^\//, '');
 
   // Service+area combination page  (e.g. construction-waste-removal-egham)
   const serviceArea = getServiceAreaFromSlug(pageSlug);
   if (serviceArea) {
     const faqs = serviceArea.service.getFaqs(serviceArea.area);
-    html = replaceFaqSchema(html, buildFaqSchema(faqs));
+    html = replacePageSchemas(html, buildFaqSchema(faqs));
   }
   // Area overview page  (e.g. waste-removal-egham)
   else if (AREA_DATA[pageSlug]) {
     const area = AREA_DATA[pageSlug];
-    html = replaceFaqSchema(html, buildFaqSchema(area.faqs));
+    html = replacePageSchemas(html, buildFaqSchema(area.faqs));
   }
-  // All other pages — remove the homepage FAQ schema placeholder
+  // All other pages — remove homepage schemas entirely
   else {
-    html = replaceFaqSchema(html, null);
+    html = replacePageSchemas(html, null);
   }
 
   // Write to dist/<path>/index.html
