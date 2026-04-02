@@ -29,7 +29,7 @@ const ServiceAreaPage = () => {
         <div className="text-center">
           <h1 className="text-4xl font-black uppercase text-slate-900 mb-4">Page Not Found</h1>
           <p className="text-slate-600 mb-8">The page you're looking for doesn't exist.</p>
-          <Link to="/services" className="bg-[#16a34a] text-white px-8 py-4 font-black uppercase rounded-lg">
+          <Link to="/services/" className="bg-[#16a34a] text-white px-8 py-4 font-black uppercase rounded-lg">
             View All Services
           </Link>
         </div>
@@ -220,7 +220,7 @@ const ServiceAreaPage = () => {
             <ol className="flex flex-wrap items-center gap-2 text-white/60 text-xs font-bold uppercase tracking-wider">
               <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
               <li><ChevronRight size={12} /></li>
-              <li><Link to="/services" className="hover:text-white transition-colors">Services</Link></li>
+              <li><Link to="/services/" className="hover:text-white transition-colors">Services</Link></li>
               <li><ChevronRight size={12} /></li>
               <li><Link to={service.servicePageSlug} className="hover:text-white transition-colors">{service.name}</Link></li>
               <li><ChevronRight size={12} /></li>
@@ -253,7 +253,7 @@ const ServiceAreaPage = () => {
               <Phone size={20} /> 07769 844298
             </a>
             <Link
-              to="/contact"
+              to="/contact/"
               className="bg-[#25D366] hover:bg-[#128C7E] text-white px-8 py-4 rounded-lg font-black text-lg uppercase flex items-center gap-3 transition-all hover:scale-105 shadow-xl"
             >
               Get a Fixed Quote
@@ -468,7 +468,7 @@ const ServiceAreaPage = () => {
                 return (
                   <Link
                     key={svc.key}
-                    to={`/${svc.slug}`}
+                    to={`/${svc.slug}/`}
                     className="bg-white border-4 border-slate-900 rounded-xl p-6 hover:shadow-[8px_8px_0px_#16a34a] transition-all hover:-translate-y-1 group"
                   >
                     <div className="w-14 h-14 bg-[#16a34a] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -498,7 +498,7 @@ const ServiceAreaPage = () => {
                 return (
                   <Link
                     key={otherArea.slug}
-                    to={`/${otherSlug}`}
+                    to={`/${otherSlug}/`}
                     className="bg-white border-4 border-slate-900 rounded-xl p-6 hover:shadow-[6px_6px_0px_#16a34a] transition-all hover:-translate-y-1 group text-center"
                   >
                     <MapPin size={24} className="text-[#16a34a] mx-auto mb-2 group-hover:scale-110 transition-transform" />
@@ -512,7 +512,7 @@ const ServiceAreaPage = () => {
             </div>
             <div className="text-center mt-8">
               <Link
-                to="/areas"
+                to="/areas/"
                 className="inline-flex items-center gap-2 bg-[#16a34a] hover:bg-[#064e3b] text-white font-black uppercase px-8 py-4 rounded-xl transition-colors border-4 border-slate-900 shadow-[6px_6px_0px_#0f172a]"
               >
                 <MapPin size={20} />
@@ -524,7 +524,7 @@ const ServiceAreaPage = () => {
           {/* Back Links */}
           <div className="flex flex-wrap gap-4 justify-center pt-8">
             <Link
-              to={`/${area.slug}`}
+              to={`/${area.slug}/`}
               className="inline-flex items-center gap-2 bg-slate-900 hover:bg-[#16a34a] text-white font-black uppercase px-8 py-4 rounded-xl transition-colors border-4 border-slate-900 shadow-[6px_6px_0px_#0f172a]"
             >
               ← All Services in {area.name}

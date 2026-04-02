@@ -20,8 +20,8 @@ const NotFound = () => {
         </p>
         <div className="flex flex-wrap gap-4 justify-center mb-10">
           <Link to="/" className="bg-[#16a34a] text-white px-8 py-4 font-black uppercase rounded-lg border-4 border-slate-900 shadow-[6px_6px_0px_#0f172a] hover:bg-[#064e3b] transition-colors flex items-center gap-2"><Home size={20}/>Home</Link>
-          <Link to="/services" className="bg-white text-slate-900 px-8 py-4 font-black uppercase rounded-lg border-4 border-slate-900 shadow-[6px_6px_0px_#e2e8f0] hover:bg-[#dcfce7] transition-colors flex items-center gap-2"><Briefcase size={20}/>Services</Link>
-          <Link to="/areas" className="bg-white text-slate-900 px-8 py-4 font-black uppercase rounded-lg border-4 border-slate-900 shadow-[6px_6px_0px_#e2e8f0] hover:bg-[#dcfce7] transition-colors flex items-center gap-2"><MapPin size={20}/>Areas</Link>
+          <Link to="/services/" className="bg-white text-slate-900 px-8 py-4 font-black uppercase rounded-lg border-4 border-slate-900 shadow-[6px_6px_0px_#e2e8f0] hover:bg-[#dcfce7] transition-colors flex items-center gap-2"><Briefcase size={20}/>Services</Link>
+          <Link to="/areas/" className="bg-white text-slate-900 px-8 py-4 font-black uppercase rounded-lg border-4 border-slate-900 shadow-[6px_6px_0px_#e2e8f0] hover:bg-[#dcfce7] transition-colors flex items-center gap-2"><MapPin size={20}/>Areas</Link>
           <a href="tel:07769844298" className="bg-orange-500 text-black px-8 py-4 font-black uppercase rounded-lg border-4 border-slate-900 shadow-[6px_6px_0px_#0f172a] hover:bg-orange-400 transition-colors flex items-center gap-2"><Phone size={20}/>Call Us</a>
         </div>
         <p className="text-slate-400 text-sm font-bold">Total Waste Clearout — Licensed waste removal across Berkshire, Surrey & Hampshire. Call 07769 844298.</p>

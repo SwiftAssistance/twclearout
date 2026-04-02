@@ -147,7 +147,7 @@ const HomeHero = () => (
         <h1 className="text-5xl md:text-[8rem] lg:text-[10rem] font-black text-white leading-[0.85] mb-8 tracking-tighter uppercase italic">WASTE <br /><span className="text-transparent stroke-text-light">REMOVAL</span> <br /><span className="text-[#4ade80]">BERKSHIRE<br />& SURREY.</span></h1>
         <p className="text-lg md:text-3xl text-white/70 mb-12 max-w-2xl font-bold leading-tight italic text-balance">Premium waste removal for <span className="text-white border-b-4 border-orange-500">Berkshire & Surrey</span>. Fully licensed. Fixed pricing. Professional crews.</p>
         <div className="flex flex-wrap gap-4 md:gap-6">
-          <Link to="/services" className="bg-orange-500 hover:bg-orange-400 text-black px-10 md:px-12 py-5 md:py-6 rounded-sm font-black text-lg md:text-xl uppercase italic tracking-wider transition-all hover:-translate-y-1 shadow-[8px_8px_0px_#022c22] active:shadow-none flex items-center cursor-pointer">
+          <Link to="/services/" className="bg-orange-500 hover:bg-orange-400 text-black px-10 md:px-12 py-5 md:py-6 rounded-sm font-black text-lg md:text-xl uppercase italic tracking-wider transition-all hover:-translate-y-1 shadow-[8px_8px_0px_#022c22] active:shadow-none flex items-center cursor-pointer">
             Explore Services <ArrowRight className="ml-2" size={24} />
           </Link>
         </div>
@@ -165,13 +165,13 @@ const HomeServices = () => (
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 text-left">
-        <Link to="/services/commercial-ripouts" className="lg:col-span-7 bg-[#dcfce7] p-10 md:p-20 flex flex-col justify-end min-h-[400px] border-4 border-slate-900 shadow-[12px_12px_0px_#16a34a] relative overflow-hidden group cursor-pointer hover:border-[#16a34a] transition-colors">
+        <Link to="/services/commercial-ripouts/" className="lg:col-span-7 bg-[#dcfce7] p-10 md:p-20 flex flex-col justify-end min-h-[400px] border-4 border-slate-900 shadow-[12px_12px_0px_#16a34a] relative overflow-hidden group cursor-pointer hover:border-[#16a34a] transition-colors">
           <Truck size={350} className="absolute top-0 right-0 p-10 opacity-5 text-black group-hover:translate-x-10 transition-transform duration-1000" />
           <h3 className="text-4xl md:text-6xl font-[1000] text-slate-900 uppercase italic mb-6 leading-none tracking-tight">Full Site <br /> Clear-outs</h3>
           <p className="font-bold text-lg md:text-xl text-slate-700 max-w-sm italic leading-relaxed text-balance text-left">Industrial warehouses and multi-floor office blocks. Professional logistical removal.</p>
         </Link>
 
-        <Link to="/services/commercial-ripouts" className="lg:col-span-5 bg-[#064e3b] p-10 md:p-12 border-4 border-slate-900 flex flex-col justify-between shadow-xl text-white group cursor-pointer hover:border-[#4ade80] transition-colors">
+        <Link to="/services/commercial-ripouts/" className="lg:col-span-5 bg-[#064e3b] p-10 md:p-12 border-4 border-slate-900 flex flex-col justify-between shadow-xl text-white group cursor-pointer hover:border-[#4ade80] transition-colors">
           <Briefcase size={50} className="text-[#4ade80]" />
           <div>
             <h3 className="text-3xl md:text-4xl font-black uppercase italic mb-4 leading-tight text-white text-left">Commercial <br /> Rip-outs</h3>
@@ -179,7 +179,7 @@ const HomeServices = () => (
           </div>
         </Link>
 
-        <Link to="/services/construction-waste" className="lg:col-span-4 bg-slate-900 p-10 border-4 border-slate-900 flex flex-col justify-between text-white group hover:bg-orange-500 transition-all duration-500 cursor-pointer text-left">
+        <Link to="/services/construction-waste/" className="lg:col-span-4 bg-slate-900 p-10 border-4 border-slate-900 flex flex-col justify-between text-white group hover:bg-orange-500 transition-all duration-500 cursor-pointer text-left">
            <HardHat size={40} className="text-orange-500 group-hover:text-black transition-colors" />
            <div className="text-left text-white">
              <h4 className="text-3xl font-black uppercase italic mb-2 leading-none">Trade Waste</h4>
@@ -187,7 +187,7 @@ const HomeServices = () => (
            </div>
         </Link>
 
-        <Link to="/services/garden-waste" className="lg:col-span-8 bg-[#ecf3ef] border-4 border-slate-900 p-8 md:p-12 flex flex-col items-start shadow-lg cursor-pointer hover:border-[#16a34a] transition-colors group">
+        <Link to="/services/garden-waste/" className="lg:col-span-8 bg-[#ecf3ef] border-4 border-slate-900 p-8 md:p-12 flex flex-col items-start shadow-lg cursor-pointer hover:border-[#16a34a] transition-colors group">
           <div className="w-full text-left">
             <TreePine size={40} className="text-[#16a34a] mb-4" aria-hidden="true" />
             <h4 className="text-4xl md:text-5xl font-black text-slate-900 uppercase italic leading-none mb-6">Exterior <br /> Recovery.</h4>
@@ -200,7 +200,7 @@ const HomeServices = () => (
       </div>
 
       <div className="text-center">
-        <Link to="/services" className="inline-flex items-center gap-3 bg-slate-900 hover:bg-[#16a34a] text-white px-10 py-5 font-black uppercase italic tracking-wider text-lg transition-all shadow-[6px_6px_0px_#16a34a] hover:shadow-[6px_6px_0px_#064e3b] active:shadow-none active:translate-x-1 active:translate-y-1">
+        <Link to="/services/" className="inline-flex items-center gap-3 bg-slate-900 hover:bg-[#16a34a] text-white px-10 py-5 font-black uppercase italic tracking-wider text-lg transition-all shadow-[6px_6px_0px_#16a34a] hover:shadow-[6px_6px_0px_#064e3b] active:shadow-none active:translate-x-1 active:translate-y-1">
           View All Services <ArrowRight size={20} />
         </Link>
       </div>
@@ -917,10 +917,10 @@ const App = () => {
           <Link to="/" onClick={() => setIsMenuOpen(false)} aria-label="Go to homepage" className="flex items-center gap-3 md:gap-4 shrink-0 group text-left"><div className="relative h-12 w-12 md:h-16 md:w-16 transition-transform group-hover:scale-105"><img src="/logo.webp" alt="Total Waste Clearout Ltd logo" className="h-full w-full object-contain relative z-10" loading="eager" width="64" height="64" /></div><div className="flex flex-col leading-none text-left"><span className={`font-[1000] text-lg md:text-2xl tracking-tighter uppercase italic transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-white'}`}>Total Waste</span><span className="text-[#4ade80] font-black text-[8px] md:text-[10px] tracking-[.3em] md:tracking-[.4em] uppercase text-left text-balance">Clearout Ltd</span></div></Link>
           <div className={`hidden xl:flex items-center gap-8 font-black text-[11px] uppercase tracking-[0.2em] transition-colors duration-300 ${isScrolled ? 'text-slate-600' : 'text-white/80'}`}>
             <Link to="/" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname === '/' ? 'text-[#16a34a]' : ''}`}>Home<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname === '/' ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
-            <Link to="/services" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname.startsWith('/services') ? 'text-[#16a34a]' : ''}`}>Services<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname.startsWith('/services') ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
-            <Link to="/areas" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname.startsWith('/areas') ? 'text-[#16a34a]' : ''}`}>Areas<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname.startsWith('/areas') ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
-            <Link to="/about" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname === '/about' ? 'text-[#16a34a]' : ''}`}>Why Us<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname === '/about' ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
-            <Link to="/contact" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname === '/contact' ? 'text-[#16a34a]' : ''}`}>Contact<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname === '/contact' ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
+            <Link to="/services/" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname.startsWith('/services') ? 'text-[#16a34a]' : ''}`}>Services<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname.startsWith('/services') ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
+            <Link to="/areas/" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname.startsWith('/areas') ? 'text-[#16a34a]' : ''}`}>Areas<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname.startsWith('/areas') ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
+            <Link to="/about/" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname === '/about' ? 'text-[#16a34a]' : ''}`}>Why Us<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname === '/about' ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
+            <Link to="/contact/" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname === '/contact' ? 'text-[#16a34a]' : ''}`}>Contact<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname === '/contact' ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
             <div className="h-6 w-px bg-white/20 mx-2" /><a href="tel:07769844298" className="bg-[#16a34a] hover:bg-slate-900 text-white px-6 py-3 rounded-sm flex items-center gap-3 transition-all shadow-md font-black italic uppercase tracking-wider"><Phone size={16} fill="white" /> 07769 844298</a>
           </div>
           <button className={`xl:hidden p-2 transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-white'}`} onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle Menu" aria-expanded={isMenuOpen} aria-controls="mobile-menu">{isMenuOpen ? <X size={28} /> : <Menu size={28} />}</button>
@@ -929,10 +929,10 @@ const App = () => {
           <div className="p-8 flex flex-col h-full overflow-y-auto text-left text-slate-900">
             <div className="flex flex-col gap-6 font-black text-xl uppercase tracking-widest italic text-slate-900 mb-12">
               <Link key="m-home" to="/" onClick={() => setIsMenuOpen(false)} className={`border-b border-slate-100 pb-4 flex justify-between items-center transition-colors ${location.pathname === '/' ? 'text-[#16a34a]' : ''}`}>Home <ChevronRight size={24} className={location.pathname === '/' ? 'text-[#16a34a]' : 'text-slate-200'} /></Link>
-              <Link key="m-serv" to="/services" onClick={() => setIsMenuOpen(false)} className={`border-b border-slate-100 pb-4 flex justify-between items-center transition-colors ${location.pathname.startsWith('/services') ? 'text-[#16a34a]' : ''}`}>Services <ChevronRight size={24} className={location.pathname.startsWith('/services') ? 'text-[#16a34a]' : 'text-slate-200'} /></Link>
-              <Link key="m-areas" to="/areas" onClick={() => setIsMenuOpen(false)} className={`border-b border-slate-100 pb-4 flex justify-between items-center transition-colors ${location.pathname.startsWith('/areas') ? 'text-[#16a34a]' : ''}`}>Areas <ChevronRight size={24} className={location.pathname.startsWith('/areas') ? 'text-[#16a34a]' : 'text-slate-200'} /></Link>
-              <Link key="m-about" to="/about" onClick={() => setIsMenuOpen(false)} className={`border-b border-slate-100 pb-4 flex justify-between items-center transition-colors ${location.pathname === '/about' ? 'text-[#16a34a]' : ''}`}>Why Us <ChevronRight size={24} className={location.pathname === '/about' ? 'text-[#16a34a]' : 'text-slate-200'} /></Link>
-              <Link key="m-contact" to="/contact" onClick={() => setIsMenuOpen(false)} className={`border-b border-slate-100 pb-4 flex justify-between items-center transition-colors ${location.pathname === '/contact' ? 'text-[#16a34a]' : ''}`}>Contact <ChevronRight size={24} className={location.pathname === '/contact' ? 'text-[#16a34a]' : 'text-slate-200'} /></Link>
+              <Link key="m-serv" to="/services/" onClick={() => setIsMenuOpen(false)} className={`border-b border-slate-100 pb-4 flex justify-between items-center transition-colors ${location.pathname.startsWith('/services') ? 'text-[#16a34a]' : ''}`}>Services <ChevronRight size={24} className={location.pathname.startsWith('/services') ? 'text-[#16a34a]' : 'text-slate-200'} /></Link>
+              <Link key="m-areas" to="/areas/" onClick={() => setIsMenuOpen(false)} className={`border-b border-slate-100 pb-4 flex justify-between items-center transition-colors ${location.pathname.startsWith('/areas') ? 'text-[#16a34a]' : ''}`}>Areas <ChevronRight size={24} className={location.pathname.startsWith('/areas') ? 'text-[#16a34a]' : 'text-slate-200'} /></Link>
+              <Link key="m-about" to="/about/" onClick={() => setIsMenuOpen(false)} className={`border-b border-slate-100 pb-4 flex justify-between items-center transition-colors ${location.pathname === '/about' ? 'text-[#16a34a]' : ''}`}>Why Us <ChevronRight size={24} className={location.pathname === '/about' ? 'text-[#16a34a]' : 'text-slate-200'} /></Link>
+              <Link key="m-contact" to="/contact/" onClick={() => setIsMenuOpen(false)} className={`border-b border-slate-100 pb-4 flex justify-between items-center transition-colors ${location.pathname === '/contact' ? 'text-[#16a34a]' : ''}`}>Contact <ChevronRight size={24} className={location.pathname === '/contact' ? 'text-[#16a34a]' : 'text-slate-200'} /></Link>
             </div>
             <div className="mt-auto space-y-6 text-center pb-12"><a href="tel:07769844298" className="bg-[#16a34a] text-white w-full p-6 text-center rounded-sm flex items-center justify-center gap-4 font-black italic text-xl uppercase shadow-lg"><Phone fill="white" /> CALL 07769 844298</a></div>
           </div>
@@ -1113,23 +1113,23 @@ const App = () => {
             <div className="lg:col-span-3 space-y-6">
               <h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-xs italic border-l-4 border-[#4ade80] pl-4 leading-none">Our Services</h5>
               <ul className="space-y-3">
-                <li><Link to="/services/home-probate-clearance" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><Home size={14} className="text-[#4ade80]/60 shrink-0" /> House & Probate Clearance</Link></li>
-                <li><Link to="/services/end-of-tenancy" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><Home size={14} className="text-[#4ade80]/60 shrink-0" /> End of Tenancy Clearance</Link></li>
-                <li><Link to="/services/garden-waste" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><TreePine size={14} className="text-[#4ade80]/60 shrink-0" /> Garden Waste Removal</Link></li>
-                <li><Link to="/services/commercial-ripouts" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><Briefcase size={14} className="text-[#4ade80]/60 shrink-0" /> Commercial Waste Removal</Link></li>
-                <li><Link to="/services/construction-waste" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><HardHat size={14} className="text-[#4ade80]/60 shrink-0" /> Construction Waste Removal</Link></li>
-                <li><Link to="/services/garage-shed" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><Hammer size={14} className="text-[#4ade80]/60 shrink-0" /> Garage & Shed Clearance</Link></li>
+                <li><Link to="/services/home-probate-clearance/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><Home size={14} className="text-[#4ade80]/60 shrink-0" /> House & Probate Clearance</Link></li>
+                <li><Link to="/services/end-of-tenancy/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><Home size={14} className="text-[#4ade80]/60 shrink-0" /> End of Tenancy Clearance</Link></li>
+                <li><Link to="/services/garden-waste/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><TreePine size={14} className="text-[#4ade80]/60 shrink-0" /> Garden Waste Removal</Link></li>
+                <li><Link to="/services/commercial-ripouts/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><Briefcase size={14} className="text-[#4ade80]/60 shrink-0" /> Commercial Waste Removal</Link></li>
+                <li><Link to="/services/construction-waste/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><HardHat size={14} className="text-[#4ade80]/60 shrink-0" /> Construction Waste Removal</Link></li>
+                <li><Link to="/services/garage-shed/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><Hammer size={14} className="text-[#4ade80]/60 shrink-0" /> Garage & Shed Clearance</Link></li>
               </ul>
-              <Link to="/services" className="text-[10px] font-black uppercase tracking-widest text-[#4ade80]/60 hover:text-[#4ade80] transition-colors italic inline-flex items-center gap-1">View All Services <ArrowRight size={10} /></Link>
+              <Link to="/services/" className="text-[10px] font-black uppercase tracking-widest text-[#4ade80]/60 hover:text-[#4ade80] transition-colors italic inline-flex items-center gap-1">View All Services <ArrowRight size={10} /></Link>
             </div>
 
             {/* Quick Links */}
             <div className="lg:col-span-2 space-y-6">
               <h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-xs italic border-l-4 border-[#4ade80] pl-4 leading-none">Company</h5>
               <ul className="space-y-3">
-                <li><Link to="/about" className="text-white/70 hover:text-[#4ade80] transition-all text-sm font-bold">About Us</Link></li>
-                <li><Link to="/areas" className="text-white/70 hover:text-[#4ade80] transition-all text-sm font-bold">Areas We Serve</Link></li>
-                <li><Link to="/contact" className="text-white/70 hover:text-[#4ade80] transition-all text-sm font-bold">Contact & Quotes</Link></li>
+                <li><Link to="/about/" className="text-white/70 hover:text-[#4ade80] transition-all text-sm font-bold">About Us</Link></li>
+                <li><Link to="/areas/" className="text-white/70 hover:text-[#4ade80] transition-all text-sm font-bold">Areas We Serve</Link></li>
+                <li><Link to="/contact/" className="text-white/70 hover:text-[#4ade80] transition-all text-sm font-bold">Contact & Quotes</Link></li>
                 <li><Link to="/privacy-policy" className="text-white/70 hover:text-[#4ade80] transition-all text-sm font-bold">Privacy Policy</Link></li>
                 <li><Link to="/cookie-usage" className="text-white/70 hover:text-[#4ade80] transition-all text-sm font-bold">Cookie Policy</Link></li>
                 <li><Link to="/legal" className="text-white/70 hover:text-[#4ade80] transition-all text-sm font-bold">Terms & Conditions</Link></li>
@@ -1184,13 +1184,13 @@ const App = () => {
             <h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-[10px] italic mb-6 text-center text-balance">Areas We Cover Across Berkshire & Surrey</h5>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-y-3 gap-x-8 text-center">
               {TOWNS.map(t => (
-                <Link key={`town-f-${t}`} to={`/waste-removal-${t.toLowerCase()}`} className="text-[10px] font-black uppercase tracking-widest text-white/30 hover:text-[#4ade80] transition-colors italic flex items-center justify-center gap-2">
+                <Link key={`town-f-${t}`} to={`/waste-removal-${t.toLowerCase()}/`} className="text-[10px] font-black uppercase tracking-widest text-white/30 hover:text-[#4ade80] transition-colors italic flex items-center justify-center gap-2">
                   <MapPin size={10} /> {t}
                 </Link>
               ))}
             </div>
             <div className="text-center mt-4">
-              <Link to="/areas" className="text-[10px] font-black uppercase tracking-widest text-[#4ade80]/60 hover:text-[#4ade80] transition-colors italic inline-flex items-center gap-1">View All Service Areas <ArrowRight size={10} /></Link>
+              <Link to="/areas/" className="text-[10px] font-black uppercase tracking-widest text-[#4ade80]/60 hover:text-[#4ade80] transition-colors italic inline-flex items-center gap-1">View All Service Areas <ArrowRight size={10} /></Link>
             </div>
           </div>
 
