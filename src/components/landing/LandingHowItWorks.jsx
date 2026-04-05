@@ -48,10 +48,11 @@ const LandingHowItWorks = () => (
       <div className="mt-12 text-center">
         <a
           href="#quote-form"
-          className="inline-flex items-center gap-3 bg-[#16a34a] hover:bg-[#15803d] text-white px-10 py-5 font-black uppercase italic tracking-wider text-base transition-all shadow-[6px_6px_0px_#4ade80] hover:shadow-[6px_6px_0px_#022c22] active:shadow-none active:translate-x-1 active:translate-y-1"
+          className="inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-400 text-black px-10 py-5 font-black uppercase italic tracking-wider text-base transition-all shadow-[6px_6px_0px_#022c22] hover:-translate-y-1 active:shadow-none active:translate-x-1 active:translate-y-1"
         >
           Get Your Free Quote Now →
         </a>
+        <p className="text-xs font-bold text-white/40 mt-4 italic uppercase tracking-wider">No obligation · Fixed price · 60-min response</p>
       </div>
     </div>
   </section>

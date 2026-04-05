@@ -31,7 +31,7 @@ const LandingServices = () => (
             <h3 className="font-black text-lg uppercase italic tracking-tight text-slate-900 mb-2 leading-tight">{name}</h3>
             <p className="text-sm font-bold text-slate-600 leading-relaxed flex-grow mb-5">{desc}</p>
             <span className="text-[#16a34a] font-black text-xs uppercase tracking-widest italic group-hover:underline">
-              Get Quote →
+              Get Free Quote →
             </span>
           </a>
         ))}
