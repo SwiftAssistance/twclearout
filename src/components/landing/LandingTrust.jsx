@@ -1,68 +1,75 @@
 import React from 'react';
-import { ShieldCheck, BadgeCheck, Star } from 'lucide-react';
+import { ShieldCheck, BadgeCheck, Star, Recycle, Scale, Zap } from 'lucide-react';
+
+const stats = [
+  { value: '94%', label: 'Waste Recycled', icon: Recycle },
+  { value: '< 2hrs', label: 'Response Time', icon: Zap },
+  { value: '100%', label: 'Compliance', icon: ShieldCheck },
+  { value: '£5M', label: 'Public Liability', icon: Scale },
+];
+
+const credentials = [
+  {
+    icon: BadgeCheck,
+    title: 'Licensed Waste Carrier',
+    detail: 'Environment Agency registered — Licence No: CBDU630127',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Fully Insured',
+    detail: '£5 million public liability insurance on every job',
+  },
+  {
+    icon: Star,
+    title: '5★ Google Reviews',
+    detail: 'Trusted by hundreds of homeowners and businesses',
+  },
+];
 
 const LandingTrust = () => (
-  <section className="py-16 sm:py-20 bg-slate-50">
-    <div className="container mx-auto px-4 sm:px-6">
-      <h2 className="text-2xl sm:text-3xl font-black text-center text-slate-900 mb-10 sm:mb-12">
-        Trust &amp; Credentials
-      </h2>
-      <div className="max-w-4xl mx-auto space-y-10">
-        {/* Credentials badges */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="bg-white rounded-xl p-5 border border-slate-200 flex items-start gap-3">
-            <BadgeCheck size={24} className="text-[#16a34a] shrink-0 mt-0.5" />
+  <section className="py-20 md:py-28 bg-[#ecf3ef] overflow-hidden">
+    <div className="container mx-auto px-6">
+      <div className="mb-12 md:mb-16">
+        <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Why Choose Us</h2>
+        <p className="text-4xl md:text-6xl lg:text-7xl font-[1000] text-slate-900 italic uppercase leading-[0.9] tracking-tighter">
+          FULLY LICENSED<br />&amp; TRUSTED.
+        </p>
+      </div>
+
+      {/* Stats row */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+        {stats.map(({ value, label, icon: Icon }) => (
+          <div key={label} className="bg-white border-4 border-slate-900 p-6 shadow-[6px_6px_0px_#16a34a] text-center">
+            <Icon size={28} className="text-[#16a34a] mx-auto mb-3" />
+            <p className="font-[1000] text-3xl md:text-4xl text-slate-900 uppercase italic tracking-tight leading-none mb-1">{value}</p>
+            <p className="font-black text-[10px] uppercase tracking-widest text-slate-500 italic">{label}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Credential cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+        {credentials.map(({ icon: Icon, title, detail }) => (
+          <div key={title} className="bg-white border-4 border-slate-900 p-6 flex items-start gap-4">
+            <div className="bg-[#16a34a] p-3 shrink-0">
+              <Icon size={22} className="text-white" />
+            </div>
             <div>
-              <p className="font-bold text-sm text-slate-900">Licensed Waste Carrier</p>
-              <p className="text-xs text-slate-500 mt-1">Environment Agency registered — Licence No: CBDU XXXXXX</p>
+              <p className="font-black text-sm uppercase italic text-slate-900 mb-1">{title}</p>
+              <p className="text-xs font-bold text-slate-500 leading-snug">{detail}</p>
             </div>
           </div>
-          <div className="bg-white rounded-xl p-5 border border-slate-200 flex items-start gap-3">
-            <ShieldCheck size={24} className="text-[#16a34a] shrink-0 mt-0.5" />
-            <div>
-              <p className="font-bold text-sm text-slate-900">Fully Insured</p>
-              <p className="text-xs text-slate-500 mt-1">Public liability coverage for every job</p>
-            </div>
-          </div>
-          <div className="bg-white rounded-xl p-5 border border-slate-200 flex items-start gap-3">
-            <Star size={24} className="text-[#16a34a] shrink-0 mt-0.5" />
-            <div>
-              <p className="font-bold text-sm text-slate-900">5★ Google Reviews</p>
-              <p className="text-xs text-slate-500 mt-1">Trusted by homeowners and businesses</p>
-            </div>
-          </div>
-        </div>
+        ))}
+      </div>
 
-        {/* Google reviews placeholder */}
-        <div id="google-reviews" className="bg-white rounded-xl border border-slate-200 p-6 text-center min-h-[100px] flex items-center justify-center">
-          <p className="text-sm text-slate-400">Google Reviews widget will appear here</p>
-        </div>
-
-        {/* Before & After photos */}
-        <div>
-          <h3 className="font-bold text-lg text-slate-900 mb-4 text-center">Before &amp; After</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {[1, 2, 3, 4].map((n) => (
-              <div key={n} className="space-y-2">
-                <div className="aspect-[4/3] bg-slate-100 rounded-lg border border-slate-200 flex items-center justify-center">
-                  <span className="text-xs text-slate-400 font-semibold">Before</span>
-                </div>
-                <div className="aspect-[4/3] bg-slate-100 rounded-lg border border-slate-200 flex items-center justify-center">
-                  <span className="text-xs text-slate-400 font-semibold">After</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Where does your waste go */}
-        <div className="bg-[#064e3b] rounded-xl p-6 sm:p-8 text-white">
-          <h3 className="font-bold text-lg mb-3">Where Does Your Waste Go?</h3>
-          <p className="text-sm text-white/80 leading-relaxed">
-            We take your waste to licensed transfer stations. We recycle and donate wherever possible.
-            You receive a waste transfer note for your records. We never fly-tip — guaranteed.
-          </p>
-        </div>
+      {/* Where does your waste go */}
+      <div className="bg-[#064e3b] border-4 border-slate-900 p-8 md:p-10 shadow-[10px_10px_0px_#16a34a]">
+        <h3 className="font-black text-xl md:text-2xl uppercase italic text-white mb-4 tracking-tight">Where Does Your Waste Go?</h3>
+        <p className="font-bold text-white/80 leading-relaxed max-w-3xl">
+          We take your waste to licensed transfer stations where it is sorted, recycled, and donated wherever possible.
+          You receive a <span className="text-[#4ade80]">waste transfer note</span> for your records — proof of responsible disposal.
+          We never fly-tip. Guaranteed.
+        </p>
       </div>
     </div>
   </section>

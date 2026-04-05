@@ -5,39 +5,51 @@ const berkshire = ['Windsor', 'Slough', 'Maidenhead', 'Reading', 'Bracknell', 'W
 const surrey = ['Guildford', 'Woking', 'Camberley', 'Farnham', 'Staines', 'Egham', 'Weybridge', 'Chertsey', 'Virginia Water'];
 
 const LandingAreas = () => (
-  <section className="py-16 sm:py-20 bg-white">
-    <div className="container mx-auto px-4 sm:px-6">
-      <div className="text-center mb-10 sm:mb-12">
-        <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-2">Areas We Cover</h2>
-        <p className="text-sm sm:text-base text-slate-500">
-          Based in Windsor. Covering a 20-mile radius across Berkshire and Surrey.
+  <section className="py-20 md:py-28 bg-white overflow-hidden">
+    <div className="container mx-auto px-6">
+      <div className="mb-12 md:mb-16">
+        <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Service Area</h2>
+        <p className="text-4xl md:text-6xl lg:text-7xl font-[1000] text-slate-900 italic uppercase leading-[0.9] tracking-tighter">
+          COVERING<br />BERKSHIRE<br />&amp; SURREY.
         </p>
       </div>
-      <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10">
-        <div>
-          <h3 className="font-bold text-base text-slate-900 mb-3 flex items-center gap-2">
-            <MapPin size={16} className="text-[#16a34a]" /> Berkshire
+
+      <div className="grid lg:grid-cols-2 gap-8 items-start max-w-4xl">
+        {/* Berkshire */}
+        <div className="bg-[#ecf3ef] border-4 border-slate-900 p-8 shadow-[8px_8px_0px_#16a34a]">
+          <h3 className="flex items-center gap-3 font-black text-lg uppercase italic text-slate-900 mb-6">
+            <div className="bg-[#16a34a] p-2">
+              <MapPin size={16} className="text-white" />
+            </div>
+            Berkshire
           </h3>
-          <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-2">
             {berkshire.map((t) => (
-              <li key={t} className="text-sm text-slate-600">{t}</li>
+              <p key={t} className="text-sm font-bold text-slate-700 uppercase italic tracking-wide">{t}</p>
             ))}
-          </ul>
+          </div>
         </div>
-        <div>
-          <h3 className="font-bold text-base text-slate-900 mb-3 flex items-center gap-2">
-            <MapPin size={16} className="text-[#16a34a]" /> Surrey
+
+        {/* Surrey */}
+        <div className="bg-[#dcfce7] border-4 border-slate-900 p-8 shadow-[8px_8px_0px_#064e3b]">
+          <h3 className="flex items-center gap-3 font-black text-lg uppercase italic text-slate-900 mb-6">
+            <div className="bg-[#16a34a] p-2">
+              <MapPin size={16} className="text-white" />
+            </div>
+            Surrey
           </h3>
-          <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-2">
             {surrey.map((t) => (
-              <li key={t} className="text-sm text-slate-600">{t}</li>
+              <p key={t} className="text-sm font-bold text-slate-700 uppercase italic tracking-wide">{t}</p>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
-      <div id="service-area-map" className="max-w-3xl mx-auto bg-slate-100 rounded-xl border border-slate-200 h-64 flex items-center justify-center">
-        <p className="text-sm text-slate-400">Google Map embed will appear here</p>
-      </div>
+
+      <p className="mt-8 font-bold text-slate-500 italic text-sm">
+        Based in Windsor. Covering a 20-mile radius. Not sure if we cover your area?{' '}
+        <a href="tel:07769844298" className="text-[#16a34a] underline font-black">Call us — we'll confirm instantly.</a>
+      </p>
     </div>
   </section>
 );
