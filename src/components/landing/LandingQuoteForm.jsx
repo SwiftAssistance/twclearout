@@ -97,6 +97,7 @@ const LandingQuoteForm = () => {
                 'Response within 1 hour',
                 'Same day collection available',
                 'You do no lifting whatsoever',
+                'EA licensed — waste transfer note included',
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-[#4ade80] shrink-0" />
@@ -104,6 +105,20 @@ const LandingQuoteForm = () => {
                 </div>
               ))}
             </div>
+
+            {/* Inline testimonial for trust near form */}
+            <div className="bg-white/5 border-2 border-white/10 p-5 mb-8">
+              <div className="flex gap-0.5 mb-2">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-3.5 h-3.5 text-[#4ade80] fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                ))}
+              </div>
+              <p className="text-sm font-bold text-white/80 italic leading-snug mb-2">
+                "Called in the morning, cleared by lunchtime. Fixed price, no surprises. Brilliant service."
+              </p>
+              <p className="text-[10px] font-black text-white/40 uppercase tracking-wider">— Sarah, Windsor · Google Review</p>
+            </div>
+
             <a
               href="tel:07769844298"
               className="inline-flex items-center gap-3 bg-[#16a34a] hover:bg-[#15803d] text-white px-8 py-4 font-black uppercase italic tracking-wide text-sm transition-all shadow-[4px_4px_0px_#4ade80] active:shadow-none"

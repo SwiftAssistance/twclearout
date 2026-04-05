@@ -11,6 +11,7 @@ import LandingReviews from '../components/landing/LandingReviews';
 import LandingQuoteForm from '../components/landing/LandingQuoteForm';
 import LandingFAQ from '../components/landing/LandingFAQ';
 import LandingStickyMobileCTA from '../components/landing/LandingStickyMobileCTA';
+import LandingSocialProof from '../components/landing/LandingSocialProof';
 import LandingFooter from '../components/landing/LandingFooter';
 
 const GetQuote = () => {
@@ -51,13 +52,14 @@ const GetQuote = () => {
       <div className="min-h-screen bg-white font-sans text-slate-900 pb-16 md:pb-0">
         <LandingHeader />
         <LandingHero />
+        <LandingSocialProof />
         <LandingServices />
         <LandingHowItWorks />
         <LandingPricing />
-        <LandingTrust />
-        <LandingAreas />
         <LandingReviews />
+        <LandingTrust />
         <LandingQuoteForm />
+        <LandingAreas />
         <LandingFAQ />
         <LandingFooter />
         <LandingStickyMobileCTA />
