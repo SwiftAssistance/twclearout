@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle, Lock } from 'lucide-react';
+import { Send, CheckCircle, Lock, Phone } from 'lucide-react';
 
 const clearanceTypes = [
   'House Clearance',
@@ -9,6 +9,9 @@ const clearanceTypes = [
   'Furniture / Bulky Items',
   'Other',
 ];
+
+const inputClass = "w-full px-4 py-3 bg-white/10 border-2 border-white/20 text-white placeholder-white/40 text-sm font-bold focus:outline-none focus:border-[#4ade80] focus:bg-white/15 transition-colors";
+const labelClass = "block text-[10px] font-black uppercase tracking-widest text-white/60 mb-1.5 italic";
 
 const LandingQuoteForm = () => {
   const [formData, setFormData] = useState({
@@ -20,7 +23,7 @@ const LandingQuoteForm = () => {
     description: '',
     preferredDate: '',
   });
-  const [status, setStatus] = useState('idle'); // idle | sending | success | error
+  const [status, setStatus] = useState('idle');
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -51,7 +54,6 @@ const LandingQuoteForm = () => {
 
       if (response.ok) {
         setStatus('success');
-        // Fire GTM event
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({ event: 'quote_form_submission' });
       } else {
@@ -64,12 +66,14 @@ const LandingQuoteForm = () => {
 
   if (status === 'success') {
     return (
-      <section id="quote-form" className="py-16 sm:py-20 bg-[#064e3b]">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-lg mx-auto text-center text-white">
-            <CheckCircle size={48} className="text-[#4ade80] mx-auto mb-4" />
-            <h2 className="text-2xl font-black mb-2">Thanks {formData.name}!</h2>
-            <p className="text-white/80">We'll be in touch within the hour.</p>
+      <section id="quote-form" className="py-20 md:py-28 bg-[#022c22]">
+        <div className="container mx-auto px-6">
+          <div className="max-w-lg mx-auto text-center">
+            <CheckCircle size={56} className="text-[#4ade80] mx-auto mb-6" />
+            <h2 className="text-3xl md:text-4xl font-[1000] uppercase italic text-white tracking-tight mb-3">
+              Thanks, {formData.name}!
+            </h2>
+            <p className="font-bold text-white/70">We'll be in touch within the hour during business hours.</p>
           </div>
         </div>
       </section>
@@ -77,148 +81,141 @@ const LandingQuoteForm = () => {
   }
 
   return (
-    <section id="quote-form" className="py-16 sm:py-20 bg-[#064e3b]">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="max-w-lg mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-black text-white mb-2">Get Your Free Quote</h2>
-            <p className="text-sm text-white/60">We'll respond within 1 hour during business hours.</p>
+    <section id="quote-form" className="py-20 md:py-28 bg-[#022c22]">
+      <div className="container mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-12 items-start max-w-5xl">
+
+          {/* Left: Copy */}
+          <div>
+            <h2 className="text-[#4ade80] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-white/30">Free, No Obligation</h2>
+            <p className="text-4xl md:text-6xl font-[1000] text-white italic uppercase leading-[0.9] tracking-tighter mb-8">
+              GET YOUR<br />FREE QUOTE.
+            </p>
+            <div className="space-y-4 mb-8">
+              {[
+                'Fixed price — no hidden extras',
+                'Response within 1 hour',
+                'Same day collection available',
+                'You do no lifting whatsoever',
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-[#4ade80] shrink-0" />
+                  <p className="font-bold text-sm text-white/80 uppercase italic tracking-wide">{item}</p>
+                </div>
+              ))}
+            </div>
+            <a
+              href="tel:07769844298"
+              className="inline-flex items-center gap-3 bg-[#16a34a] hover:bg-[#15803d] text-white px-8 py-4 font-black uppercase italic tracking-wide text-sm transition-all shadow-[4px_4px_0px_#4ade80] active:shadow-none"
+            >
+              <Phone size={16} fill="white" />
+              Prefer to Call? 07769 844298
+            </a>
           </div>
 
-          <form
-            onSubmit={handleSubmit}
-            data-netlify="true"
-            name="landing-quote"
-            className="space-y-4"
-          >
-            <input type="hidden" name="form-name" value="landing-quote" />
+          {/* Right: Form */}
+          <div className="bg-white/5 border-4 border-white/10 p-8">
+            <form onSubmit={handleSubmit} data-netlify="true" name="landing-quote" className="space-y-4">
+              <input type="hidden" name="form-name" value="landing-quote" />
 
-            <div>
-              <label htmlFor="lq-name" className="block text-xs font-bold text-white/70 mb-1.5">Name *</label>
-              <input
-                id="lq-name"
-                name="name"
-                type="text"
-                required
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:ring-2 focus:ring-[#4ade80] focus:border-transparent"
-                placeholder="Your name"
-              />
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="lq-phone" className="block text-xs font-bold text-white/70 mb-1.5">Phone *</label>
+                <label htmlFor="lq-name" className={labelClass}>Your Name *</label>
                 <input
-                  id="lq-phone"
-                  name="phone"
-                  type="tel"
-                  required
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:ring-2 focus:ring-[#4ade80] focus:border-transparent"
-                  placeholder="07XXX XXXXXX"
+                  id="lq-name" name="name" type="text" required
+                  value={formData.name} onChange={handleChange}
+                  className={inputClass} placeholder="First and last name"
                 />
               </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="lq-phone" className={labelClass}>Phone *</label>
+                  <input
+                    id="lq-phone" name="phone" type="tel" required
+                    value={formData.phone} onChange={handleChange}
+                    className={inputClass} placeholder="07XXX XXXXXX"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="lq-email" className={labelClass}>Email *</label>
+                  <input
+                    id="lq-email" name="email" type="email" required
+                    value={formData.email} onChange={handleChange}
+                    className={inputClass} placeholder="you@email.com"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="lq-postcode" className={labelClass}>Postcode *</label>
+                  <input
+                    id="lq-postcode" name="postcode" type="text" required
+                    value={formData.postcode} onChange={handleChange}
+                    className={inputClass} placeholder="e.g. SL4 1AA"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="lq-type" className={labelClass}>Type of Clearance *</label>
+                  <select
+                    id="lq-type" name="clearanceType" required
+                    value={formData.clearanceType} onChange={handleChange}
+                    className={`${inputClass} appearance-none`}
+                  >
+                    <option value="" disabled className="text-slate-900 bg-white">Select type...</option>
+                    {clearanceTypes.map((t) => (
+                      <option key={t} value={t} className="text-slate-900 bg-white">{t}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
               <div>
-                <label htmlFor="lq-email" className="block text-xs font-bold text-white/70 mb-1.5">Email *</label>
-                <input
-                  id="lq-email"
-                  name="email"
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:ring-2 focus:ring-[#4ade80] focus:border-transparent"
-                  placeholder="you@email.com"
+                <label htmlFor="lq-desc" className={labelClass}>Brief Description</label>
+                <textarea
+                  id="lq-desc" name="description" rows={3}
+                  value={formData.description} onChange={handleChange}
+                  className={`${inputClass} resize-none`}
+                  placeholder="Tell us what needs clearing..."
                 />
               </div>
-            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="lq-postcode" className="block text-xs font-bold text-white/70 mb-1.5">Postcode *</label>
+                <label htmlFor="lq-date" className={labelClass}>Preferred Date</label>
                 <input
-                  id="lq-postcode"
-                  name="postcode"
-                  type="text"
-                  required
-                  value={formData.postcode}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:ring-2 focus:ring-[#4ade80] focus:border-transparent"
-                  placeholder="e.g. SL4 1AA"
+                  id="lq-date" name="preferredDate" type="date"
+                  value={formData.preferredDate} onChange={handleChange}
+                  className={inputClass}
                 />
               </div>
-              <div>
-                <label htmlFor="lq-type" className="block text-xs font-bold text-white/70 mb-1.5">Type of clearance *</label>
-                <select
-                  id="lq-type"
-                  name="clearanceType"
-                  required
-                  value={formData.clearanceType}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#4ade80] focus:border-transparent appearance-none"
-                >
-                  <option value="" disabled className="text-slate-900">Select type...</option>
-                  {clearanceTypes.map((t) => (
-                    <option key={t} value={t} className="text-slate-900">{t}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
 
-            <div>
-              <label htmlFor="lq-desc" className="block text-xs font-bold text-white/70 mb-1.5">Brief description</label>
-              <textarea
-                id="lq-desc"
-                name="description"
-                rows={3}
-                value={formData.description}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:ring-2 focus:ring-[#4ade80] focus:border-transparent resize-none"
-                placeholder="Tell us what needs clearing..."
-              />
-            </div>
+              <button
+                type="submit"
+                disabled={status === 'sending'}
+                className="w-full bg-[#16a34a] hover:bg-[#15803d] disabled:opacity-60 text-white py-4 font-black uppercase italic tracking-wide text-base flex items-center justify-center gap-2 transition-colors shadow-[4px_4px_0px_#4ade80] active:shadow-none"
+              >
+                {status === 'sending' ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    Sending…
+                  </>
+                ) : (
+                  <>
+                    <Send size={18} />
+                    Get My Free Quote
+                  </>
+                )}
+              </button>
 
-            <div>
-              <label htmlFor="lq-date" className="block text-xs font-bold text-white/70 mb-1.5">Preferred date</label>
-              <input
-                id="lq-date"
-                name="preferredDate"
-                type="date"
-                value={formData.preferredDate}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#4ade80] focus:border-transparent"
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={status === 'sending'}
-              className="w-full bg-[#16a34a] hover:bg-[#15803d] disabled:opacity-60 text-white py-4 rounded-lg font-bold text-base flex items-center justify-center gap-2 transition-colors shadow-lg"
-            >
-              {status === 'sending' ? (
-                <>
-                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  Sending…
-                </>
-              ) : (
-                <>
-                  <Send size={18} />
-                  Get My Free Quote
-                </>
+              {status === 'error' && (
+                <p className="text-red-300 text-sm text-center font-bold italic">Something went wrong. Please call us instead.</p>
               )}
-            </button>
 
-            {status === 'error' && (
-              <p className="text-red-300 text-sm text-center">Something went wrong. Please call us instead.</p>
-            )}
-
-            <p className="flex items-center justify-center gap-1.5 text-xs text-white/40 mt-3">
-              <Lock size={12} /> Your details are safe. We never share your information.
-            </p>
-          </form>
+              <p className="flex items-center justify-center gap-1.5 text-xs text-white/30 mt-2 font-bold italic">
+                <Lock size={12} /> Your details are safe. We never share your information.
+              </p>
+            </form>
+          </div>
         </div>
       </div>
     </section>

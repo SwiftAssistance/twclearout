@@ -1,55 +1,77 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 
 const faqs = [
   {
     q: 'How quickly can you come?',
-    a: 'In most cases we offer same day or next day collection across Berkshire and Surrey.',
+    a: 'In most cases we offer same day or next day collection across Berkshire and Surrey. Call us at 07769 844298 for immediate availability.',
   },
   {
     q: 'Are you a licensed waste carrier?',
-    a: 'Yes. We\u2019re registered with the Environment Agency (Licence No: CBDU XXXXXX). You can verify this on the public register.',
+    a: "Yes. We're registered with the Environment Agency (Licence No: CBDU630127). You can verify this on the public register. We carry £5 million public liability insurance.",
   },
   {
     q: 'What happens to my waste?',
-    a: 'We take everything to licensed transfer stations. We recycle and donate wherever possible, and you receive a waste transfer note for your records.',
+    a: 'We take everything to licensed transfer stations. We recycle and donate wherever possible — achieving a 94% recycling rate. You receive a waste transfer note for your records.',
   },
   {
     q: 'Do I need to be home?',
-    a: 'It helps, but it\u2019s not essential. We can work from photos and clear instructions if needed.',
+    a: "It helps, but it's not essential. We can work from photos and clear instructions if you need to be elsewhere.",
   },
   {
     q: 'How much does it cost?',
-    a: 'It depends on the volume and type of waste. Single items start from \u00a350, full van loads from \u00a3220. Call or use the form above for a free, no-obligation quote.',
+    a: 'It depends on the volume and type of waste. Single items start from £50, full van loads from £220. Call or use the form above for a free, no-obligation quote with a fixed price.',
   },
   {
     q: 'Do you clear everything?',
-    a: 'Almost. We handle household, garden, commercial and bulky waste. We can\u2019t take asbestos, clinical waste, or hazardous materials.',
+    a: "Almost everything. We handle household, garden, commercial and bulky waste. We can't take asbestos, clinical waste, or hazardous materials.",
   },
   {
-    q: 'What areas do you cover?',
-    a: 'We\u2019re based in Windsor and cover Berkshire and Surrey \u2014 including Slough, Reading, Bracknell, Guildford, Woking, Camberley and everywhere in between.',
+    q: 'Why use you instead of a skip?',
+    a: "No council permits, no blocked driveways, no waiting. We arrive, load everything ourselves, and leave the same day. Often cheaper than a skip when you add up permit costs and waiting time.",
   },
 ];
 
-const LandingFAQ = () => (
-  <section className="py-16 sm:py-20 bg-white">
-    <div className="container mx-auto px-4 sm:px-6">
-      <h2 className="text-2xl sm:text-3xl font-black text-center text-slate-900 mb-10 sm:mb-12">
-        Frequently Asked Questions
-      </h2>
-      <div className="max-w-2xl mx-auto divide-y divide-slate-200">
-        {faqs.map(({ q, a }) => (
-          <details key={q} className="group">
-            <summary className="flex justify-between items-center cursor-pointer py-4 sm:py-5 text-sm sm:text-base font-bold text-slate-900 list-none [&::-webkit-details-marker]:hidden">
-              {q}
-              <span className="ml-4 shrink-0 text-[#16a34a] group-open:rotate-45 transition-transform text-xl leading-none">+</span>
-            </summary>
-            <p className="pb-4 sm:pb-5 text-sm text-slate-500 leading-relaxed -mt-1">{a}</p>
-          </details>
-        ))}
+const LandingFAQ = () => {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  return (
+    <section className="py-20 md:py-28 bg-white overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="mb-12 md:mb-16">
+          <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Everything You Need To Know</h2>
+          <p className="text-4xl md:text-6xl lg:text-7xl font-[1000] text-slate-900 italic uppercase leading-[0.9] tracking-tighter">
+            FREQUENTLY<br />ASKED.
+          </p>
+        </div>
+
+        <div className="max-w-4xl space-y-4">
+          {faqs.map((faq, i) => (
+            <div key={i} className="border-4 border-slate-900 overflow-hidden">
+              <button
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                className="w-full flex items-center justify-between gap-4 p-6 md:p-8 bg-[#ecf3ef] hover:bg-[#dcfce7] transition-colors text-left cursor-pointer"
+                aria-expanded={openIndex === i}
+              >
+                <h3 className="text-base md:text-lg font-black uppercase italic text-slate-900">{faq.q}</h3>
+                <ChevronDown
+                  size={24}
+                  className={`text-slate-900 shrink-0 transition-transform duration-300 ${openIndex === i ? 'rotate-180' : ''}`}
+                />
+              </button>
+              <div
+                className={`grid transition-all duration-300 ease-in-out ${openIndex === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
+              >
+                <div className="overflow-hidden">
+                  <p className="px-6 md:px-8 pb-6 md:pb-8 pt-2 text-slate-700 font-bold leading-relaxed bg-[#ecf3ef]">{faq.a}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default LandingFAQ;
