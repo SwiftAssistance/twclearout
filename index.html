@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Waste Removal Berkshire & Surrey | Total Waste Clearout</title>
+    <title>Waste Removal Berkshire & Surrey | Same Day Collection | Total Waste Clearout</title>
     <meta name="description" content="Berkshire & Surrey's #1 waste removal service. Same-day rubbish clearance, house clearance, garden waste & commercial waste removal. 94% recycling rate, licensed carrier, £5M insured. Serving Reading, Slough, Guildford, Woking, Bracknell, Windsor. Call 07769 844298." />
 
     <!-- SEO Keywords for Top Google Rankings -->
@@ -21,6 +21,16 @@
     <meta name="DC.coverage" content="Berkshire, Surrey, Reading, Slough, Guildford, Woking, Bracknell, Windsor, Ascot, Egham, Maidenhead, Staines" />
     <meta name="DC.language" content="en-GB" />
     <meta http-equiv="content-language" content="en-GB" />
+
+    <!-- Google Tag Manager - dataLayer -->
+    <script>window.dataLayer = window.dataLayer || [];</script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+    <!-- End Google Tag Manager -->
 
     <!-- Preload LCP hero image for faster paint -->
     <link rel="preload" as="image" href="/hero.webp" type="image/webp" fetchpriority="high" />
@@ -515,6 +525,11 @@
 
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <!-- Hidden form for Netlify Forms detection -->
     <form name="quote-request" data-netlify="true" hidden>
       <input type="text" name="name" />
@@ -526,6 +541,15 @@
       <select name="jobType"></select>
       <input type="text" name="postcode" />
       <input type="tel" name="phone" />
+    </form>
+    <form name="landing-quote" data-netlify="true" hidden>
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <input type="email" name="email" />
+      <input type="text" name="postcode" />
+      <select name="clearanceType"></select>
+      <textarea name="description"></textarea>
+      <input type="date" name="preferredDate" />
     </form>
     <div id="root"></div>
     <noscript>
