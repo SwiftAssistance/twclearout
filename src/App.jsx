@@ -56,6 +56,7 @@ const Areas = lazy(() => import('./pages/areas/Areas'));
 const AreaPage = lazy(() => import('./pages/areas/AreaPage'));
 const ServiceAreaPage = lazy(() => import('./pages/areas/ServiceAreaPage'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const HomePage = lazy(() => import('./pages/Home'));
 
 // --- GLOBAL DATA & CONFIGURATION ---
 
@@ -943,55 +944,7 @@ const App = () => {
       <main className="relative min-h-[70vh] text-left text-slate-900">
         <Suspense fallback={<div className="min-h-[70vh] flex items-center justify-center"><div className="w-8 h-8 border-4 border-[#16a34a] border-t-transparent rounded-full animate-spin" /></div>}>
         <Routes>
-          <Route path="/" element={
-            <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 text-slate-900 text-left">
-              <Helmet>
-                <title>Total Waste Clearout | Waste Removal Berkshire & Surrey | 07769 844298</title>
-                <meta name="description" content="Professional waste removal across Berkshire & Surrey. Same-day collection, fixed pricing, 94% recycling rate. House clearance, garden waste, commercial waste. Call 07769 844298." />
-                <link rel="canonical" href="https://totalwasteclearout.co.uk/" />
-              </Helmet>
-              <HomeHero />
-              {/* STATS STRIP */}
-              <section className="bg-[#16a34a] py-6 border-y-4 border-black relative z-20 shadow-xl">
-                <div className="container mx-auto px-6 text-left text-white">
-                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10">
-                    {STATS.map((s, idx) => (<div key={`stat-${idx}`} className="flex items-center gap-3 md:gap-5 text-white"><div className="bg-[#064e3b] text-[#4ade80] p-2 md:p-3 rounded-sm shrink-0 shadow-sm"><s.Icon size={20} /></div><div className="flex flex-col"><span className="text-xl md:text-3xl font-black uppercase italic leading-none">{s.value}</span><span className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest opacity-80">{s.label}</span></div></div>))}
-                  </div>
-                </div>
-              </section>
-              {/* TRUST BADGES */}
-              <section className="bg-slate-900 py-6 md:py-8 border-b-4 border-black">
-                <div className="container mx-auto px-6">
-                  <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12">
-                    <div className="flex items-center gap-3">
-                      <ShieldCheck size={28} className="text-[#4ade80] shrink-0" />
-                      <div>
-                        <span className="text-white font-black text-sm md:text-base uppercase">EA Registered</span>
-                        <span className="block text-[#4ade80] font-black text-xs md:text-sm tracking-wider">CBDU630127</span>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Scale size={28} className="text-[#4ade80] shrink-0" />
-                      <span className="text-white font-black text-sm md:text-base uppercase">£5M Insured</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Recycle size={28} className="text-[#4ade80] shrink-0" />
-                      <span className="text-white font-black text-sm md:text-base uppercase">94% Recycling</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle size={28} className="text-[#4ade80] shrink-0" />
-                      <span className="text-white font-black text-sm md:text-base uppercase">Waste Transfer Notes</span>
-                    </div>
-                  </div>
-                </div>
-              </section>
-              <HomeServices />
-              <ReviewsSection title="CLIENTS TALK." />
-              <HomeQuote />
-              <GeoFaqSection />
-              <MapContact />
-            </div>
-          } />
+          <Route path="/" element={<HomePage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/cookie-usage" element={<CookieUsage />} />
           <Route path="/legal" element={<Legal />} />
