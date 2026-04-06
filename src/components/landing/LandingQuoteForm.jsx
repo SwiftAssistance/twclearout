@@ -116,7 +116,7 @@ const LandingQuoteForm = () => {
               <p className="text-sm font-bold text-white/80 italic leading-snug mb-2">
                 "Called in the morning, cleared by lunchtime. Fixed price, no surprises. Brilliant service."
               </p>
-              <p className="text-[10px] font-black text-white/40 uppercase tracking-wider">— Sarah, Windsor · Google Review</p>
+              <p className="text-[10px] font-black text-white/40 uppercase tracking-wider">— Sarah, Windsor</p>
             </div>
 
             <a

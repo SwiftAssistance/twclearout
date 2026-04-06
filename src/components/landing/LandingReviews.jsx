@@ -65,7 +65,7 @@ const LandingReviews = () => (
               </div>
               <div>
                 <p className="font-[1000] uppercase text-sm leading-none">{name}</p>
-                <p className="font-bold opacity-60 text-[10px] uppercase italic mt-0.5">{town} · Verified Review</p>
+                <p className="font-bold opacity-60 text-[10px] uppercase italic mt-0.5">{town} · Verified Customer</p>
               </div>
             </div>
           </div>

@@ -20,9 +20,9 @@ const credentials = [
     detail: '£5 million public liability insurance on every job',
   },
   {
-    icon: Star,
-    title: '5★ Google Reviews',
-    detail: 'Trusted by hundreds of homeowners and businesses',
+    icon: Recycle,
+    title: '94% Recycling Rate',
+    detail: 'We sort, recycle and donate — minimal waste goes to landfill',
   },
 ];
 
