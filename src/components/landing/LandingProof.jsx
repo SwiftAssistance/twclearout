@@ -102,7 +102,15 @@ const LandingProof = () => (
               <Star key={i} size={18} fill="#f59e0b" className="text-yellow-500" />
             ))}
           </div>
-          <p className="text-sm font-black text-slate-900 uppercase italic">5.0 on Google</p>
+          {/* FIX 13: wrapped in anchor linking to Google reviews so claim is verifiable */}
+          <a
+            href="https://www.google.com/search?q=Total+Waste+Clearout+reviews"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-black text-slate-900 uppercase italic underline decoration-[#16a34a] hover:text-[#16a34a] transition-colors"
+          >
+            5.0 on Google ↗ {/* FIX 13: arrow indicates external link */}
+          </a>
           <span className="text-slate-300">|</span>
           <p className="text-xs font-bold text-slate-500">Verified reviews</p>
         </div>
@@ -170,6 +178,25 @@ const LandingProof = () => (
             ))}
           </div>
         </div>
+
+        {/* FIX 10: mid-page CTA after trust grid — phone primary, written quote secondary */}
+        <div className="mt-8 flex flex-col sm:flex-row gap-4 items-center pt-8 border-t-4 border-slate-900">
+          {/* FIX 10: Phone is already imported in this file, no new import needed */}
+          <a
+            href="tel:07769844298"
+            className="inline-flex items-center gap-2 bg-[#16a34a] text-white px-8 py-4 font-black uppercase italic tracking-wide text-sm shadow-[4px_4px_0px_#064e3b] hover:bg-[#15803d] transition-colors"
+          >
+            <Phone size={16} fill="white" /> Call 07769 844298 {/* FIX 10: Phone icon with fill */}
+          </a>
+          {/* FIX 10: secondary link to hero form for users who prefer written quote */}
+          <a
+            href="#hero-form"
+            className="text-sm font-black uppercase italic text-[#16a34a] underline decoration-slate-900"
+          >
+            Or get a written quote → {/* FIX 10: anchors to the form div via #hero-form */}
+          </a>
+        </div>
+
       </div>
     </section>
   </>

@@ -8,12 +8,8 @@ const LandingStickyMobileCTA = () => {
   useEffect(() => {
     const onScroll = () => {
       const currentY = window.scrollY;
-      // Show after scrolling past hero (roughly 500px)
-      const pastHero = currentY > 500;
-      // On mobile, hide when scrolling up fast
-      const scrollingDown = currentY > lastScrollY.current;
-      setVisible(pastHero && (scrollingDown || currentY < 10));
-      lastScrollY.current = currentY;
+      lastScrollY.current = currentY; // still track for potential future use
+      setVisible(currentY > 500); // FIX 6: show whenever past hero, regardless of direction
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -27,25 +23,25 @@ const LandingStickyMobileCTA = () => {
     >
       <div className="container mx-auto px-3 sm:px-6">
         <div className="flex items-center gap-2 py-2.5 max-w-6xl mx-auto">
-          {/* Desktop: show text + buttons */}
           <p className="hidden md:block text-white font-bold text-sm italic flex-shrink-0 mr-2">
             Get your waste cleared today →
           </p>
-          <div className="flex gap-2 flex-1 md:flex-none md:ml-auto">
+          {/* FIX 6: phone is primary (flex-[2], full green), quote is secondary (outlined, smaller) */}
+          <div className="flex gap-2 flex-1 md:flex-none md:ml-auto items-center">
             <a
               href="tel:07769844298"
-              className="flex-1 md:flex-none bg-[#16a34a] text-white py-3 md:py-2.5 px-4 md:px-6 font-black text-xs uppercase italic tracking-wider flex items-center justify-center gap-2 active:opacity-80"
+              className="flex-[2] md:flex-none bg-[#16a34a] text-white py-3 md:py-2.5 px-4 md:px-8 font-black text-sm uppercase italic tracking-wider flex items-center justify-center gap-2 active:opacity-80"
             >
-              <Phone size={14} fill="white" />
-              <span className="md:hidden">Call Now</span>
-              <span className="hidden md:inline">07769 844298</span>
+              <Phone size={15} fill="white" />
+              07769 844298
             </a>
+            {/* FIX 5: href changed from #top to #hero-form; FIX 6: secondary outlined style */}
             <a
-              href="#quote-form"
-              className="flex-1 md:flex-none bg-orange-500 text-black py-3 md:py-2.5 px-4 md:px-6 font-black text-xs uppercase italic tracking-wider flex items-center justify-center gap-2 active:opacity-80"
+              href="#hero-form"
+              className="flex-1 md:flex-none border-2 border-white/30 text-white/70 py-3 px-3 font-black text-xs uppercase italic tracking-wider flex items-center justify-center gap-1.5 active:opacity-80"
             >
-              <FileText size={14} />
-              Get Quote
+              <FileText size={12} />
+              Quote
             </a>
           </div>
         </div>
