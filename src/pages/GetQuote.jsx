@@ -2,18 +2,11 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import LandingHeader from '../components/landing/LandingHeader';
 import LandingHero from '../components/landing/LandingHero';
-import LandingServices from '../components/landing/LandingServices';
-import LandingHowItWorks from '../components/landing/LandingHowItWorks';
-import LandingPricing from '../components/landing/LandingPricing';
-import LandingTrust from '../components/landing/LandingTrust';
-// LandingAreas removed — keeps landing page focused on conversion
-import LandingReviews from '../components/landing/LandingReviews';
-import LandingQuoteForm from '../components/landing/LandingQuoteForm';
-import LandingFAQ from '../components/landing/LandingFAQ';
-import LandingStickyMobileCTA from '../components/landing/LandingStickyMobileCTA';
 import LandingSocialProof from '../components/landing/LandingSocialProof';
-import LandingGallery from '../components/landing/LandingGallery';
+import LandingProof from '../components/landing/LandingProof';
+import LandingFinalCTA from '../components/landing/LandingFinalCTA';
 import LandingFooter from '../components/landing/LandingFooter';
+import LandingStickyMobileCTA from '../components/landing/LandingStickyMobileCTA';
 
 const GetQuote = () => {
   useEffect(() => {
@@ -39,30 +32,26 @@ const GetQuote = () => {
         }}
       />
 
-      {/* Google Tag Manager — replace GTM-XXXXXXX with your real container ID */}
-      {/*
-        <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-        <!-- End Google Tag Manager -->
-      */}
-
-      <div className="min-h-screen bg-white font-sans text-slate-900 pb-16 md:pb-0">
+      <div id="top" className="min-h-screen bg-white font-sans text-slate-900">
+        {/* 1. Header — logo + phone, nothing else */}
         <LandingHeader />
+
+        {/* 2. Hero — the main event: headline + form above the fold */}
         <LandingHero />
+
+        {/* 3. Trust strip — one thin line of proof */}
         <LandingSocialProof />
-        <LandingServices />
-        <LandingHowItWorks />
-        <LandingPricing />
-        <LandingGallery />
-        <LandingReviews />
-        <LandingTrust />
-        <LandingQuoteForm />
-        <LandingFAQ />
+
+        {/* 4. Proof — job photos + reviews + trust signals, all in one flowing section */}
+        <LandingProof />
+
+        {/* 5. Final CTA — last push to convert */}
+        <LandingFinalCTA />
+
+        {/* 6. Minimal footer */}
         <LandingFooter />
+
+        {/* Sticky bottom bar — appears after scrolling past hero, desktop + mobile */}
         <LandingStickyMobileCTA />
       </div>
     </>
