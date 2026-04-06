@@ -34,11 +34,28 @@ const reviews = [
 const LandingReviews = () => (
   <section className="py-20 md:py-28 bg-[#064e3b] overflow-hidden">
     <div className="container mx-auto px-6">
-      <div className="mb-12 md:mb-16">
-        <h2 className="text-[#4ade80] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-white/30">Real Customers</h2>
-        <p className="text-4xl md:text-6xl lg:text-7xl font-[1000] text-white italic uppercase leading-[0.9] tracking-tighter">
-          WHAT THEY<br />SAY.
-        </p>
+      <div className="mb-12 md:mb-16 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+        <div>
+          <h2 className="text-[#4ade80] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-white/30">Real Customers</h2>
+          <p className="text-4xl md:text-6xl lg:text-7xl font-[1000] text-white italic uppercase leading-[0.9] tracking-tighter">
+            WHAT THEY<br />SAY.
+          </p>
+        </div>
+        {/* Google Reviews summary badge */}
+        <div className="bg-white/10 border-2 border-white/20 px-6 py-4 flex items-center gap-4 shrink-0">
+          <div className="text-center">
+            <p className="font-[1000] text-3xl text-white italic leading-none">5.0</p>
+            <div className="flex gap-0.5 mt-1">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} size={12} fill="currentColor" className="text-yellow-400" />
+              ))}
+            </div>
+          </div>
+          <div className="border-l border-white/20 pl-4">
+            <p className="text-xs font-black text-white uppercase italic tracking-wide">Google Reviews</p>
+            <p className="text-[10px] font-bold text-white/50 uppercase tracking-wider mt-0.5">Verified 5-Star Rating</p>
+          </div>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

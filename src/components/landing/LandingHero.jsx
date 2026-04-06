@@ -143,13 +143,13 @@ const LandingHero = () => (
       <img
         src="/hero.webp"
         alt="Professional waste removal service loading rubbish in Berkshire"
-        className="w-full h-full object-cover opacity-15 grayscale"
+        className="w-full h-full object-cover opacity-30"
         loading="eager"
         fetchPriority="high"
         width="1600"
         height="1487"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/90 to-[#064e3b]/70" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/85 to-[#064e3b]/60" />
     </div>
 
     <div className="container mx-auto px-6 relative z-10 text-left py-12 md:py-20">

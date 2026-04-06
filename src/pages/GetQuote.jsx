@@ -12,6 +12,7 @@ import LandingQuoteForm from '../components/landing/LandingQuoteForm';
 import LandingFAQ from '../components/landing/LandingFAQ';
 import LandingStickyMobileCTA from '../components/landing/LandingStickyMobileCTA';
 import LandingSocialProof from '../components/landing/LandingSocialProof';
+import LandingGallery from '../components/landing/LandingGallery';
 import LandingFooter from '../components/landing/LandingFooter';
 
 const GetQuote = () => {
@@ -56,6 +57,7 @@ const GetQuote = () => {
         <LandingServices />
         <LandingHowItWorks />
         <LandingPricing />
+        <LandingGallery />
         <LandingReviews />
         <LandingTrust />
         <LandingQuoteForm />
