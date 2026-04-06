@@ -6,7 +6,7 @@ import LandingServices from '../components/landing/LandingServices';
 import LandingHowItWorks from '../components/landing/LandingHowItWorks';
 import LandingPricing from '../components/landing/LandingPricing';
 import LandingTrust from '../components/landing/LandingTrust';
-import LandingAreas from '../components/landing/LandingAreas';
+// LandingAreas removed — keeps landing page focused on conversion
 import LandingReviews from '../components/landing/LandingReviews';
 import LandingQuoteForm from '../components/landing/LandingQuoteForm';
 import LandingFAQ from '../components/landing/LandingFAQ';
@@ -59,7 +59,6 @@ const GetQuote = () => {
         <LandingReviews />
         <LandingTrust />
         <LandingQuoteForm />
-        <LandingAreas />
         <LandingFAQ />
         <LandingFooter />
         <LandingStickyMobileCTA />

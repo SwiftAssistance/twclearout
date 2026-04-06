@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, ChevronDown, ShieldCheck, Star, Clock, BadgeCheck, Send, Lock, CheckCircle } from 'lucide-react';
+import { Phone, ShieldCheck, Clock, BadgeCheck, Send, Lock, CheckCircle, Leaf } from 'lucide-react';
 
 const clearanceTypes = [
   'House Clearance',
@@ -10,8 +10,8 @@ const clearanceTypes = [
   'Other',
 ];
 
-const inputClass = "w-full px-3 py-2.5 bg-white/10 border-2 border-white/20 text-white placeholder-white/40 text-sm font-bold focus:outline-none focus:border-[#4ade80] focus:bg-white/15 transition-colors";
-const labelClass = "block text-[10px] font-black uppercase tracking-widest text-white/60 mb-1 italic";
+const inputClass = "w-full px-4 py-3 bg-white border-2 border-slate-200 text-slate-900 placeholder-slate-400 text-sm font-bold focus:outline-none focus:border-[#16a34a] focus:ring-2 focus:ring-[#16a34a]/20 transition-all rounded-none";
+const labelClass = "block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1 italic";
 
 const HeroQuoteForm = () => {
   const [formData, setFormData] = useState({
@@ -58,68 +58,87 @@ const HeroQuoteForm = () => {
 
   if (status === 'success') {
     return (
-      <div className="bg-white/5 border-4 border-[#4ade80] p-6 text-center">
-        <CheckCircle size={40} className="text-[#4ade80] mx-auto mb-3" />
-        <p className="font-black text-lg uppercase italic text-white mb-1">We'll call you within 60 mins!</p>
-        <p className="text-sm font-bold text-white/60">During business hours</p>
+      <div className="bg-white border-4 border-[#16a34a] p-8 text-center shadow-[8px_8px_0px_#064e3b]">
+        <CheckCircle size={48} className="text-[#16a34a] mx-auto mb-4" />
+        <p className="font-black text-xl uppercase italic text-slate-900 mb-2">Quote Request Received!</p>
+        <p className="text-sm font-bold text-slate-600 mb-4">We'll call you back within 60 minutes during business hours.</p>
+        <a
+          href="tel:07769844298"
+          className="inline-flex items-center gap-2 bg-[#16a34a] text-white px-6 py-3 font-black uppercase italic text-sm tracking-wide"
+        >
+          <Phone size={14} fill="white" />
+          Need It Faster? Call Us
+        </a>
       </div>
     );
   }
 
   return (
-    <div className="bg-white/5 border-4 border-white/20 p-5 md:p-6">
-      <div className="flex items-center gap-2 mb-4">
-        <div className="w-2.5 h-2.5 bg-[#4ade80] rounded-full animate-pulse" />
-        <p className="text-xs font-black uppercase italic tracking-wider text-[#4ade80]">Get Your Free Quote in 60 Seconds</p>
+    <div className="bg-white border-4 border-slate-900 shadow-[8px_8px_0px_#16a34a]">
+      {/* Form header */}
+      <div className="bg-slate-900 px-6 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <div className="w-2.5 h-2.5 bg-[#4ade80] rounded-full animate-pulse" />
+          <p className="text-sm font-black uppercase italic tracking-wider text-white">Get a Free Quote</p>
+        </div>
+        <p className="text-[10px] font-bold uppercase tracking-wider text-white/50">Takes 30 secs</p>
       </div>
-      <form onSubmit={handleSubmit} className="space-y-3">
-        <div>
-          <label htmlFor="hero-name" className={labelClass}>Your Name *</label>
-          <input id="hero-name" name="name" type="text" required value={formData.name} onChange={handleChange} className={inputClass} placeholder="First and last name" />
-        </div>
-        <div className="grid grid-cols-2 gap-3">
+
+      <div className="p-6">
+        <form onSubmit={handleSubmit} className="space-y-3">
           <div>
-            <label htmlFor="hero-phone" className={labelClass}>Phone *</label>
-            <input id="hero-phone" name="phone" type="tel" required value={formData.phone} onChange={handleChange} className={inputClass} placeholder="07XXX XXXXXX" />
+            <label htmlFor="hero-name" className={labelClass}>Your Name *</label>
+            <input id="hero-name" name="name" type="text" required value={formData.name} onChange={handleChange} className={inputClass} placeholder="First and last name" />
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label htmlFor="hero-phone" className={labelClass}>Phone *</label>
+              <input id="hero-phone" name="phone" type="tel" required value={formData.phone} onChange={handleChange} className={inputClass} placeholder="07XXX XXXXXX" />
+            </div>
+            <div>
+              <label htmlFor="hero-postcode" className={labelClass}>Postcode *</label>
+              <input id="hero-postcode" name="postcode" type="text" required value={formData.postcode} onChange={handleChange} className={inputClass} placeholder="e.g. SL4 1AA" />
+            </div>
           </div>
           <div>
-            <label htmlFor="hero-postcode" className={labelClass}>Postcode *</label>
-            <input id="hero-postcode" name="postcode" type="text" required value={formData.postcode} onChange={handleChange} className={inputClass} placeholder="e.g. SL4 1AA" />
+            <label htmlFor="hero-type" className={labelClass}>What Needs Clearing? *</label>
+            <select id="hero-type" name="clearanceType" required value={formData.clearanceType} onChange={handleChange} className={`${inputClass} appearance-none`}>
+              <option value="" disabled>Select type...</option>
+              {clearanceTypes.map((t) => (
+                <option key={t} value={t}>{t}</option>
+              ))}
+            </select>
           </div>
-        </div>
-        <div>
-          <label htmlFor="hero-type" className={labelClass}>What Do You Need Cleared? *</label>
-          <select id="hero-type" name="clearanceType" required value={formData.clearanceType} onChange={handleChange} className={`${inputClass} appearance-none`}>
-            <option value="" disabled className="text-slate-900 bg-white">Select type...</option>
-            {clearanceTypes.map((t) => (
-              <option key={t} value={t} className="text-slate-900 bg-white">{t}</option>
-            ))}
-          </select>
-        </div>
-        <button
-          type="submit"
-          disabled={status === 'sending'}
-          className="w-full bg-orange-500 hover:bg-orange-400 disabled:opacity-60 text-black py-3.5 font-black uppercase italic tracking-wide text-sm flex items-center justify-center gap-2 transition-colors shadow-[4px_4px_0px_#022c22] active:shadow-none"
-        >
-          {status === 'sending' ? (
-            <><div className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />Sending…</>
-          ) : (
-            <><Send size={16} />Get My Free Quote Now</>
+          <button
+            type="submit"
+            disabled={status === 'sending'}
+            className="w-full bg-orange-500 hover:bg-orange-400 disabled:opacity-60 text-black py-4 font-black uppercase italic tracking-wide text-base flex items-center justify-center gap-2 transition-colors shadow-[4px_4px_0px_#064e3b] active:shadow-none active:translate-y-0.5"
+          >
+            {status === 'sending' ? (
+              <><div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" />Sending...</>
+            ) : (
+              <><Send size={16} />Get My Free Quote</>
+            )}
+          </button>
+          {status === 'error' && (
+            <p className="text-red-600 text-sm text-center font-bold italic">Something went wrong. Please call us instead.</p>
           )}
-        </button>
-        {status === 'error' && (
-          <p className="text-red-300 text-sm text-center font-bold italic">Something went wrong. Please call us instead.</p>
-        )}
-        <p className="flex items-center justify-center gap-1.5 text-[10px] text-white/30 font-bold italic">
-          <Lock size={10} /> No spam. We reply within 60 minutes.
-        </p>
-      </form>
+        </form>
+        <div className="flex items-center justify-center gap-4 mt-4 pt-3 border-t border-slate-100">
+          <p className="flex items-center gap-1 text-[10px] text-slate-400 font-bold italic">
+            <Lock size={10} /> No spam ever
+          </p>
+          <p className="flex items-center gap-1 text-[10px] text-slate-400 font-bold italic">
+            <Clock size={10} /> Reply in 60 mins
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
 
 const LandingHero = () => (
-  <header className="relative min-h-[85vh] md:min-h-screen flex items-center pt-14 sm:pt-16 overflow-hidden bg-[#064e3b]">
+  <header className="relative flex items-center pt-14 sm:pt-16 overflow-hidden bg-[#064e3b]">
     <div className="absolute inset-0 z-0">
       <img
         src="/hero.webp"
@@ -130,59 +149,81 @@ const LandingHero = () => (
         width="1600"
         height="1487"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/80 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#064e3b] via-[#064e3b]/90 to-[#064e3b]/70" />
     </div>
 
-    <div className="container mx-auto px-6 relative z-10 text-left py-12 md:py-16">
-      <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center max-w-6xl">
+    <div className="container mx-auto px-6 relative z-10 text-left py-12 md:py-20">
+      <div className="grid lg:grid-cols-[1fr,420px] gap-10 lg:gap-16 items-center max-w-6xl mx-auto">
         {/* Left: Copy */}
         <div>
           <div className="mb-5 flex flex-wrap items-center gap-3">
-            <span className="bg-orange-500 text-black px-4 md:px-5 py-2 text-[10px] md:text-xs font-black uppercase tracking-[0.15em] italic border-2 border-white shadow-lg animate-pulse">
+            <span className="bg-orange-500 text-black px-4 py-2 text-[10px] md:text-xs font-black uppercase tracking-[0.1em] italic shadow-lg">
               Limited Slots Today
             </span>
-            <span className="bg-[#4ade80] text-slate-900 px-4 md:px-5 py-2 text-[10px] md:text-xs font-black uppercase tracking-[0.15em] italic border-2 border-white shadow-lg">
+            <span className="bg-[#4ade80] text-slate-900 px-4 py-2 text-[10px] md:text-xs font-black uppercase tracking-[0.1em] italic shadow-lg">
               Same Day Collection
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-[5.5rem] lg:text-[7rem] font-black text-white leading-[0.85] mb-6 tracking-tighter uppercase italic">
-            FAST WASTE<br />
-            <span className="text-transparent" style={{ WebkitTextStroke: '2px rgba(255,255,255,0.4)' }}>REMOVAL</span><br />
-            <span className="text-[#4ade80]">FROM £50.</span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[0.9] mb-6 tracking-tighter uppercase italic">
+            WASTE REMOVAL<br />
+            <span className="text-[#4ade80]">FROM £50</span><br />
+            <span className="text-white/30 text-3xl md:text-5xl lg:text-6xl">BERKSHIRE &amp; SURREY</span>
           </h1>
 
-          <p className="text-base md:text-xl text-white/70 mb-8 max-w-xl font-bold leading-tight italic">
-            Berkshire &amp; Surrey's trusted waste clearance. <span className="text-white border-b-4 border-orange-500">Fixed prices. No hidden fees.</span> We do all the heavy lifting.
+          <p className="text-base md:text-lg text-white/80 mb-8 max-w-lg font-bold leading-snug">
+            Licensed waste carrier. Fixed prices — <span className="text-[#4ade80] font-black">no hidden fees.</span> We do all the heavy lifting. You don't touch a thing.
           </p>
 
-          <a
-            href="tel:07769844298"
-            className="bg-orange-500 hover:bg-orange-400 text-black px-8 md:px-10 py-4 md:py-5 font-black text-base md:text-lg uppercase italic tracking-wide inline-flex items-center gap-3 transition-all hover:-translate-y-1 shadow-[6px_6px_0px_#022c22] active:shadow-none mb-8"
-          >
-            <Phone size={20} fill="black" />
-            Call Now: 07769 844298
-          </a>
-
-          <div className="grid grid-cols-2 gap-3">
+          {/* Trust badges - desktop only, mobile sees them below form */}
+          <div className="hidden lg:grid grid-cols-2 gap-3 mb-8">
             {[
-              { icon: BadgeCheck, text: 'EA Licensed Carrier' },
-              { icon: ShieldCheck, text: '£5M Insured' },
-              { icon: Star, text: '5★ Rated on Google' },
-              { icon: Clock, text: 'Same Day Service' },
+              { icon: BadgeCheck, text: 'EA Licensed (CBDU630127)' },
+              { icon: ShieldCheck, text: '£5M Public Liability' },
+              { icon: Clock, text: 'Same Day Available' },
+              { icon: Leaf, text: '94% Waste Recycled' },
             ].map(({ icon: Icon, text }) => (
-              <div key={text} className="flex items-center gap-2 bg-white/5 border-2 border-white/10 px-3 py-2">
+              <div key={text} className="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-2.5">
                 <Icon size={14} className="text-[#4ade80] shrink-0" />
-                <span className="text-[10px] sm:text-xs font-bold text-white/90 uppercase tracking-wide">{text}</span>
+                <span className="text-xs font-bold text-white/80 uppercase tracking-wide">{text}</span>
               </div>
             ))}
           </div>
+
+          <a
+            href="tel:07769844298"
+            className="hidden lg:inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white px-8 py-4 font-black uppercase italic tracking-wide text-sm transition-all border-2 border-white/30 hover:border-white/50"
+          >
+            <Phone size={16} fill="white" />
+            Prefer to Call? 07769 844298
+          </a>
         </div>
 
-        {/* Right: Quick Quote Form */}
-        <div className="lg:mt-0 mt-4">
+        {/* Right: Quote Form */}
+        <div>
           <HeroQuoteForm />
+          {/* Phone CTA - mobile only */}
+          <a
+            href="tel:07769844298"
+            className="lg:hidden mt-4 bg-white/10 hover:bg-white/20 text-white px-6 py-3.5 font-black uppercase italic tracking-wide text-sm flex items-center justify-center gap-2 border-2 border-white/30"
+          >
+            <Phone size={14} fill="white" />
+            Or Call: 07769 844298
+          </a>
+          {/* Trust badges - mobile only */}
+          <div className="grid grid-cols-2 gap-2 mt-4 lg:hidden">
+            {[
+              { icon: BadgeCheck, text: 'EA Licensed' },
+              { icon: ShieldCheck, text: '£5M Insured' },
+              { icon: Clock, text: 'Same Day Service' },
+              { icon: Leaf, text: '94% Recycled' },
+            ].map(({ icon: Icon, text }) => (
+              <div key={text} className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-2.5 py-2">
+                <Icon size={12} className="text-[#4ade80] shrink-0" />
+                <span className="text-[10px] font-bold text-white/80 uppercase tracking-wide">{text}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
