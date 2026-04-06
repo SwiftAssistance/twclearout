@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Phone, Send, Lock, Clock, CheckCircle, BadgeCheck, ShieldCheck } from 'lucide-react';
 
 const clearanceTypes = [
@@ -136,16 +136,7 @@ const HeroQuoteForm = () => {
   );
 };
 
-const LandingHero = () => {
-  const [slotsLeft] = useState(() => Math.floor(Math.random() * 3) + 2);
-  const [todayStr, setTodayStr] = useState('');
-
-  useEffect(() => {
-    const d = new Date();
-    setTodayStr(d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' }));
-  }, []);
-
-  return (
+const LandingHero = () => (
     <header className="relative pt-14 sm:pt-16 overflow-hidden bg-[#064e3b]">
       {/* Background image - visible and real */}
       <div className="absolute inset-0 z-0">
@@ -167,15 +158,10 @@ const LandingHero = () => {
 
           {/* Left: The pitch */}
           <div>
-            {/* Urgency bar */}
-            <div className="mb-6 flex flex-wrap items-center gap-2">
-              <span className="bg-orange-500 text-black px-3 py-1.5 text-[10px] font-black uppercase tracking-wider italic inline-flex items-center gap-1.5">
-                <span className="w-2 h-2 bg-black rounded-full animate-pulse" />
-                {slotsLeft} slots left today
+            <div className="mb-5">
+              <span className="bg-[#4ade80] text-slate-900 px-3 py-1.5 text-[10px] font-black uppercase tracking-wider italic">
+                Same Day Collection Available
               </span>
-              {todayStr && (
-                <span className="text-white/40 text-[10px] font-bold uppercase tracking-wider">{todayStr}</span>
-              )}
             </div>
 
             <h1 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] font-black text-white leading-[0.95] mb-5 tracking-tighter uppercase italic">
@@ -233,7 +219,6 @@ const LandingHero = () => {
         </div>
       </div>
     </header>
-  );
-};
+);
 
 export default LandingHero;
