@@ -13,12 +13,28 @@ const clearanceTypes = [
 const inputClass = "w-full px-4 py-3 bg-white border-2 border-slate-200 text-slate-900 placeholder-slate-400 text-sm font-bold focus:outline-none focus:border-[#16a34a] focus:ring-2 focus:ring-[#16a34a]/20 transition-all rounded-none";
 const labelClass = "block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1 italic";
 
+// FIX 7B: maps service URL param to the dropdown option string
+const serviceToType = {
+  'house-clearance': 'House Clearance',
+  'garden-waste': 'Garden Waste',
+  'office-clearance': 'Office Clearance',
+  'rubbish-removal': 'Rubbish Removal',
+  'bulky-items': 'Furniture / Bulky Items',
+  'same-day': '',
+  'estate-clearance': 'House Clearance',
+};
+
 const HeroQuoteForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    postcode: '',
-    clearanceType: '',
+  // FIX 7B: lazy initialiser reads ?service= param to pre-select clearance type on load
+  const [formData, setFormData] = useState(() => {
+    const params = new URLSearchParams(window.location.search); // read URL params once on init
+    const service = params.get('service'); // get service param if present
+    return {
+      name: '',
+      phone: '',
+      postcode: '',
+      clearanceType: serviceToType[service] || '', // pre-select matching type or leave blank
+    };
   });
   const [status, setStatus] = useState('idle');
 
@@ -74,7 +90,8 @@ const HeroQuoteForm = () => {
   }
 
   return (
-    <div className="bg-white border-4 border-slate-900 shadow-[8px_8px_0px_#16a34a]">
+    // FIX 4: id="hero-form" added so anchor links (#hero-form) can scroll here
+    <div id="hero-form" className="bg-white border-4 border-slate-900 shadow-[8px_8px_0px_#16a34a]">
       <div className="bg-slate-900 px-5 py-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="w-2.5 h-2.5 bg-[#4ade80] rounded-full animate-pulse" />
@@ -119,8 +136,21 @@ const HeroQuoteForm = () => {
               <><Send size={16} />Get My Free Quote</>
             )}
           </button>
+          {/* FIX 12: licence/insurance badge directly below submit to build trust before they leave */}
+          <p className="text-center text-[10px] text-slate-400 font-bold italic">
+            EA Licensed · CBDU630127 · £5M Insured
+          </p>
+          {/* FIX 3: error state replaced with tappable phone link so mobile users can convert */}
           {status === 'error' && (
-            <p className="text-red-600 text-sm text-center font-bold italic">Something went wrong. Please call us instead.</p>
+            <div className="bg-red-50 border-2 border-red-500 p-3 text-center rounded">
+              <p className="text-red-700 text-sm font-bold">Form failed — please call us directly.</p>
+              <a
+                href="tel:07769844298"
+                className="inline-flex items-center gap-1.5 mt-2 text-red-700 font-black text-base underline"
+              >
+                <Phone size={14} /> Call 07769 844298 {/* FIX 3: Phone icon already imported, no new import */}
+              </a>
+            </div>
           )}
         </form>
         <div className="flex items-center justify-center gap-4 mt-3 pt-2.5 border-t border-slate-100">
@@ -137,12 +167,53 @@ const HeroQuoteForm = () => {
 };
 
 const LandingHero = () => {
-  const [slotsLeft] = useState(() => Math.floor(Math.random() * 3) + 2);
+  // FIX 1: real time-based urgency text (replaces fake random slotsLeft)
+  const [urgencyText, setUrgencyText] = useState('');
   const [todayStr, setTodayStr] = useState('');
+  // FIX 7A: dynamic headline driven by URL params, defaults to original copy
+  const [heroHeadline, setHeroHeadline] = useState({ line1: "We'll clear it.", line2: 'Today.' });
 
   useEffect(() => {
     const d = new Date();
+    // Set the human-readable date string for display alongside the urgency badge
     setTodayStr(d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' }));
+
+    // FIX 1: derive urgency message from actual day and hour
+    const day = d.getDay(); // 0 = Sunday, 6 = Saturday
+    const hour = d.getHours(); // 0–23
+
+    if (day === 0) {
+      setUrgencyText(''); // Sunday: show nothing, we're closed
+    } else if (day === 6 && hour >= 17) {
+      setUrgencyText(''); // Saturday after 5pm: show nothing
+    } else if (hour < 7) {
+      setUrgencyText('Bookings open from 7am'); // before working hours start
+    } else if (hour >= 17) {
+      setUrgencyText('Same-day slots may still be available — call to confirm'); // after hours but may still help
+    } else {
+      setUrgencyText('Same-day collection available today'); // active working hours, strongest message
+    }
+  }, []);
+
+  useEffect(() => {
+    // FIX 7A: read ?service= and ?loc= params to customise headline for ad scent
+    const params = new URLSearchParams(window.location.search);
+    const service = params.get('service'); // e.g. "house-clearance"
+    const loc = params.get('loc'); // e.g. "Windsor"
+
+    const serviceMap = {
+      'house-clearance': 'House clearance.',
+      'garden-waste': 'Garden waste.',
+      'same-day': 'Same day clearance.',
+      'office-clearance': 'Office clearance.',
+      'rubbish-removal': 'Rubbish removed.',
+      'bulky-items': 'Bulky items gone.',
+      'estate-clearance': 'Estate clearance.',
+    };
+
+    const line1 = serviceMap[service] || "We'll clear it."; // service-specific or default
+    const line2 = loc ? loc + ', today.' : 'Today.'; // location-specific or plain "Today."
+    setHeroHeadline({ line1, line2 }); // update headline on mount
   }, []);
 
   return (
@@ -167,24 +238,31 @@ const LandingHero = () => {
 
           {/* Left: The pitch */}
           <div>
-            {/* Urgency bar */}
+            {/* FIX 1: Urgency bar — only renders when urgencyText is non-empty */}
             <div className="mb-6 flex flex-wrap items-center gap-2">
-              <span className="bg-orange-500 text-black px-3 py-1.5 text-[10px] font-black uppercase tracking-wider italic inline-flex items-center gap-1.5">
-                <span className="w-2 h-2 bg-black rounded-full animate-pulse" />
-                {slotsLeft} slots left today
-              </span>
+              {urgencyText && ( // FIX 1: conditional render — no badge on Sunday or late Saturday
+                <span className="bg-[#16a34a] text-white px-3 py-1.5 text-[10px] font-black uppercase tracking-wider italic inline-flex items-center gap-1.5">
+                  {/* FIX 1: green background (was orange) reads as informational not alarming */}
+                  <span className="w-2 h-2 bg-white rounded-full animate-pulse" /> {/* FIX 1: white pulse dot on green */}
+                  {urgencyText} {/* FIX 1: real time-based string, no fake slot count */}
+                </span>
+              )}
               {todayStr && (
                 <span className="text-white/40 text-[10px] font-bold uppercase tracking-wider">{todayStr}</span>
               )}
             </div>
 
             <h1 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] font-black text-white leading-[0.95] mb-5 tracking-tighter uppercase italic">
-              We'll clear it.<br />
-              <span className="text-[#4ade80]">Today.</span>
+              {heroHeadline.line1}{/* FIX 7A: dynamic service-specific or default headline */}<br />
+              {/* FIX 7A: capitalize handles "windsor, today." → "Windsor, today." from loc param */}
+              <span className="text-[#4ade80] capitalize">{heroHeadline.line2}</span>
             </h1>
 
+            {/* FIX 8: updated subtext with two price anchors (£50 single, £220 full van) */}
             <p className="text-base md:text-lg text-white/80 mb-6 max-w-md font-bold leading-snug">
-              Waste removal from <span className="text-white font-black">£50</span>. Fixed price, no hidden fees. We do the heavy lifting — you don't touch a thing.
+              Single items from <span className="text-white font-black">£50</span>. Full van loads
+              from <span className="text-white font-black">£220</span>. Fixed price — no hidden fees,
+              no permits, we do all the lifting.
             </p>
 
             {/* Trust - NOT in a neat grid. Stacked, rough, real */}
@@ -221,14 +299,29 @@ const LandingHero = () => {
           {/* Right: The form */}
           <div>
             <HeroQuoteForm />
-            {/* Mobile phone CTA */}
-            <a
-              href="tel:07769844298"
-              className="lg:hidden mt-3 bg-white/10 text-white px-5 py-3 font-black uppercase italic tracking-wide text-sm flex items-center justify-center gap-2 border-2 border-white/20"
-            >
-              <Phone size={14} fill="white" />
-              Or Call: 07769 844298
-            </a>
+            {/* FIX 11: two-button grid replaces single phone anchor — phone + WhatsApp on mobile */}
+            <div className="lg:hidden mt-3 grid grid-cols-2 gap-2">
+              {/* FIX 11: phone call button — left of pair */}
+              <a
+                href="tel:07769844298"
+                className="bg-white/10 text-white px-4 py-3 font-black uppercase italic tracking-wide text-xs flex items-center justify-center gap-2 border-2 border-white/20"
+              >
+                <Phone size={13} fill="white" /> Call Us {/* FIX 11: Phone already imported, no new import */}
+              </a>
+              {/* FIX 11: WhatsApp as second mobile conversion path with pre-filled message */}
+              <a
+                href="https://wa.me/447769844298?text=Hi%2C%20I%27d%20like%20a%20waste%20clearance%20quote"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#25d366] text-white px-4 py-3 font-black uppercase italic tracking-wide text-xs flex items-center justify-center gap-2"
+              >
+                {/* FIX 11: inline SVG — no new lucide import needed for WhatsApp logo */}
+                <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-white" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </div>
