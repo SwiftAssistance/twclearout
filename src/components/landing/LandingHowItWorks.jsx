@@ -7,18 +7,21 @@ const steps = [
     icon: MessageSquare,
     title: 'Get Your Free Quote',
     desc: "Call us or fill in the form below. We'll give you a fixed price within the hour — no surprises.",
+    image: 'https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=480&h=360&fit=crop&auto=format&q=80',
   },
   {
     num: '02',
     icon: Truck,
     title: 'We Arrive & Load Up',
     desc: "Our uniformed team arrives at the agreed time. You point, we load. You don't lift a thing.",
+    image: 'https://images.unsplash.com/photo-1601628828688-632f38a5a7d0?w=480&h=360&fit=crop&auto=format&q=80',
   },
   {
     num: '03',
     icon: Recycle,
     title: 'Responsibly Disposed',
     desc: 'We sort, recycle and dispose at licensed facilities. Waste transfer note provided every time.',
+    image: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=480&h=360&fit=crop&auto=format&q=80',
   },
 ];
 
@@ -33,14 +36,31 @@ const LandingHowItWorks = () => (
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-        {steps.map(({ num, icon: Icon, title, desc }) => (
-          <div key={num} className="bg-white/5 border-4 border-white/20 p-8 relative overflow-hidden">
-            <span className="absolute -top-4 -right-2 text-[6rem] font-[1000] text-white/5 leading-none select-none">{num}</span>
-            <div className="w-14 h-14 bg-[#16a34a] flex items-center justify-center border-4 border-[#4ade80] mb-6">
-              <Icon size={24} className="text-white" />
+        {steps.map(({ num, icon: Icon, title, desc, image }) => (
+          <div key={num} className="bg-white/5 border-4 border-white/20 relative overflow-hidden">
+            {/* Step image */}
+            <div className="aspect-[4/3] overflow-hidden relative">
+              <img
+                src={image}
+                alt={title}
+                className="w-full h-full object-cover"
+                loading="lazy"
+                width="480"
+                height="360"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#064e3b] via-[#064e3b]/40 to-transparent" />
+              <span className="absolute top-3 left-3 bg-[#16a34a] text-white font-[1000] text-lg italic w-10 h-10 flex items-center justify-center border-2 border-[#4ade80]">
+                {num}
+              </span>
             </div>
-            <h3 className="font-black text-xl uppercase italic tracking-tight text-white mb-3 leading-tight">{title}</h3>
-            <p className="text-sm font-bold text-white/70 leading-relaxed">{desc}</p>
+            <div className="p-6 relative">
+              <span className="absolute -top-4 -right-2 text-[5rem] font-[1000] text-white/5 leading-none select-none">{num}</span>
+              <div className="w-12 h-12 bg-[#16a34a] flex items-center justify-center border-3 border-[#4ade80] mb-4">
+                <Icon size={22} className="text-white" />
+              </div>
+              <h3 className="font-black text-xl uppercase italic tracking-tight text-white mb-3 leading-tight">{title}</h3>
+              <p className="text-sm font-bold text-white/70 leading-relaxed">{desc}</p>
+            </div>
           </div>
         ))}
       </div>
