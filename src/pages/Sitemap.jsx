@@ -10,6 +10,7 @@ const Sitemap = () => {
 
   const pages = [
     { name: 'Home', path: '/', priority: 'High' },
+    { name: 'Waste Removal Berkshire & Surrey', path: '/waste-removal', priority: 'High' },
     { name: 'Services', path: '/services', priority: 'High' },
     { name: 'About Us', path: '/about', priority: 'High' },
     { name: 'Contact', path: '/contact', priority: 'High' },

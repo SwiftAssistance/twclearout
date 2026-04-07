@@ -55,6 +55,7 @@ const Contact = lazy(() => import('./pages/Contact'));
 const Areas = lazy(() => import('./pages/areas/Areas'));
 const AreaPage = lazy(() => import('./pages/areas/AreaPage'));
 const ServiceAreaPage = lazy(() => import('./pages/areas/ServiceAreaPage'));
+const WasteRemovalPage = lazy(() => import('./pages/WasteRemoval'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const GetQuote = lazy(() => import('./pages/GetQuote'));
 
@@ -210,6 +211,46 @@ const HomeServices = () => (
 );
 
 const HomeQuote = HomeQuoteComponent;
+
+const WasteRemovalIntro = () => (
+  <section className="py-20 md:py-28 bg-[#ecf3ef]">
+    <div className="container mx-auto px-6">
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">About Our Service</h2>
+        <p className="text-4xl md:text-6xl lg:text-7xl font-[1000] text-slate-900 italic uppercase leading-[0.9] tracking-tighter mb-10">
+          PROFESSIONAL<br />WASTE REMOVAL.
+        </p>
+        <div className="grid lg:grid-cols-2 gap-10 text-slate-700 font-bold leading-relaxed text-base">
+          <div className="space-y-5">
+            <p>
+              Total Waste Clearout provides licensed waste removal across Berkshire and Surrey. Whether you need a single sofa collected or a full property cleared, our uniformed team arrives, loads everything, and leaves your space clean — often the same day you call.
+            </p>
+            <p>
+              Our waste removal service covers every type of job: house clearances, garden waste removal, end of tenancy clearances, commercial and trade waste, garage and shed clearances, and construction debris. We take on the work skips can't — tight access, upstairs rooms, and jobs that need to be done today.
+            </p>
+            <p>
+              Every waste removal job comes with a <strong className="text-slate-900">waste transfer note</strong> — your legal proof that your waste has been disposed of correctly by a licensed carrier. We recycle or donate 94% of everything we collect, keeping as much as possible out of landfill.
+            </p>
+          </div>
+          <div className="space-y-5">
+            <p>
+              As an alternative to skip hire, our waste removal service is often faster and simpler. No council permit needed, no waiting days for a skip to arrive and be collected, no heavy lifting on your part. We arrive within hours, do the work, and the job is done.
+            </p>
+            <p>
+              We serve all of Berkshire including Reading, Slough, Bracknell, Windsor, Ascot, and Maidenhead, and all of Surrey including Guildford, Woking, Egham, and Staines-upon-Thames. Same-day waste removal is available across our entire service area — call <a href="tel:07769844298" className="text-[#16a34a] underline hover:text-[#15803d]">07769 844298</a> or use the quote form to book.
+            </p>
+            <Link
+              to="/waste-removal"
+              className="inline-flex items-center gap-2 bg-slate-900 hover:bg-[#16a34a] text-white px-8 py-4 font-black uppercase italic tracking-wider text-sm transition-all shadow-[4px_4px_0px_#16a34a] hover:shadow-[4px_4px_0px_#064e3b]"
+            >
+              Learn More About Our Waste Removal Service →
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
 const faqItems = [
   { q: "How much does waste removal cost in Berkshire?", a: "Total Waste Clearout offers fixed pricing with no hidden fees. A single item collection starts from £40, a partial load from £120, and a full load from £280. All prices include labour, loading, transport, and responsible disposal with a 94% recycling rate. We serve Reading, Slough, Bracknell, Windsor, Ascot, Maidenhead, Guildford, Woking, Egham and Staines." },
@@ -988,12 +1029,14 @@ const App = () => {
                 </div>
               </section>
               <HomeServices />
+              <WasteRemovalIntro />
               <ReviewsSection title="CLIENTS TALK." />
               <HomeQuote />
               <GeoFaqSection />
               <MapContact />
             </div>
           } />
+          <Route path="/waste-removal" element={<WasteRemovalPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/cookie-usage" element={<CookieUsage />} />
           <Route path="/legal" element={<Legal />} />
@@ -1116,6 +1159,7 @@ const App = () => {
             <div className="lg:col-span-3 space-y-6">
               <h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-xs italic border-l-4 border-[#4ade80] pl-4 leading-none">Our Services</h5>
               <ul className="space-y-3">
+                <li><Link to="/waste-removal" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><Truck size={14} className="text-[#4ade80]/60 shrink-0" /> Waste Removal Service</Link></li>
                 <li><Link to="/services/home-probate-clearance/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><Home size={14} className="text-[#4ade80]/60 shrink-0" /> House & Probate Clearance</Link></li>
                 <li><Link to="/services/end-of-tenancy/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><Home size={14} className="text-[#4ade80]/60 shrink-0" /> End of Tenancy Clearance</Link></li>
                 <li><Link to="/services/garden-waste/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><TreePine size={14} className="text-[#4ade80]/60 shrink-0" /> Garden Waste Removal</Link></li>
