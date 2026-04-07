@@ -161,21 +161,21 @@ const HomeServices = () => (
   <section id="services" className="py-24 md:py-32 bg-white text-left text-slate-900 overflow-hidden">
     <div className="container mx-auto px-6">
       <div className="mb-16">
-        <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Capabilities</h2>
-        <p className="text-5xl md:text-7xl lg:text-8xl font-[1000] text-slate-900 italic uppercase leading-[0.9] tracking-tighter">OUR <br /> SERVICES.</p>
+        <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Waste Removal Services</h2>
+        <p className="text-5xl md:text-7xl lg:text-8xl font-[1000] text-slate-900 italic uppercase leading-[0.9] tracking-tighter">WASTE <br /> REMOVAL.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 text-left">
         <Link to="/services/commercial-ripouts/" className="lg:col-span-7 bg-[#dcfce7] p-10 md:p-20 flex flex-col justify-end min-h-[400px] border-4 border-slate-900 shadow-[12px_12px_0px_#16a34a] relative overflow-hidden group cursor-pointer hover:border-[#16a34a] transition-colors">
           <Truck size={350} className="absolute top-0 right-0 p-10 opacity-5 text-black group-hover:translate-x-10 transition-transform duration-1000" />
-          <h3 className="text-4xl md:text-6xl font-[1000] text-slate-900 uppercase italic mb-6 leading-none tracking-tight">Full Site <br /> Clear-outs</h3>
+          <h3 className="text-4xl md:text-6xl font-[1000] text-slate-900 uppercase italic mb-6 leading-none tracking-tight">Full Site <br /> Waste Removal</h3>
           <p className="font-bold text-lg md:text-xl text-slate-700 max-w-sm italic leading-relaxed text-balance text-left">Industrial warehouses and multi-floor office blocks. Professional logistical removal.</p>
         </Link>
 
         <Link to="/services/commercial-ripouts/" className="lg:col-span-5 bg-[#064e3b] p-10 md:p-12 border-4 border-slate-900 flex flex-col justify-between shadow-xl text-white group cursor-pointer hover:border-[#4ade80] transition-colors">
           <Briefcase size={50} className="text-[#4ade80]" />
           <div>
-            <h3 className="text-3xl md:text-4xl font-black uppercase italic mb-4 leading-tight text-white text-left">Commercial <br /> Rip-outs</h3>
+            <h3 className="text-3xl md:text-4xl font-black uppercase italic mb-4 leading-tight text-white text-left">Commercial <br /> Waste Removal</h3>
             <p className="text-white/70 font-bold italic text-lg leading-snug text-balance text-left">Retail decommissioning with secure WEEE disposal notes and full audit trails.</p>
           </div>
         </Link>
@@ -183,7 +183,7 @@ const HomeServices = () => (
         <Link to="/services/construction-waste/" className="lg:col-span-4 bg-slate-900 p-10 border-4 border-slate-900 flex flex-col justify-between text-white group hover:bg-orange-500 transition-all duration-500 cursor-pointer text-left">
            <HardHat size={40} className="text-orange-500 group-hover:text-black transition-colors" />
            <div className="text-left text-white">
-             <h4 className="text-3xl font-black uppercase italic mb-2 leading-none">Trade Waste</h4>
+             <h4 className="text-3xl font-black uppercase italic mb-2 leading-none">Trade Waste Removal</h4>
              <p className="text-white/50 group-hover:text-black/70 font-bold italic text-sm leading-tight">Skip-alternative for builders. Rubble and timber cleared instantly.</p>
            </div>
         </Link>
@@ -191,7 +191,7 @@ const HomeServices = () => (
         <Link to="/services/garden-waste/" className="lg:col-span-8 bg-[#ecf3ef] border-4 border-slate-900 p-8 md:p-12 flex flex-col items-start shadow-lg cursor-pointer hover:border-[#16a34a] transition-colors group">
           <div className="w-full text-left">
             <TreePine size={40} className="text-[#16a34a] mb-4" aria-hidden="true" />
-            <h4 className="text-4xl md:text-5xl font-black text-slate-900 uppercase italic leading-none mb-6">Exterior <br /> Recovery.</h4>
+            <h4 className="text-4xl md:text-5xl font-black text-slate-900 uppercase italic leading-none mb-6">Garden Waste <br /> Removal.</h4>
             <p className="text-slate-600 font-bold italic text-lg mb-8 leading-snug text-balance">Garden clearing, shed demolition, and soil removal. Site-ready for landscaping.</p>
             <div className="flex flex-wrap gap-2">
               {['Sheds', 'Green Waste', 'Soil'].map(t => <span key={t} className="bg-white border-2 border-slate-900 px-4 py-1 text-[10px] font-black uppercase tracking-widest italic">{t}</span>)}
@@ -264,7 +264,7 @@ const MapContact = () => {
     <div className="container mx-auto px-6">
       <div className="mb-16 text-center">
         <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Service Area</h2>
-        <p className="text-5xl md:text-8xl font-black text-slate-900 italic uppercase leading-[0.85] tracking-tighter">COVERING BERKSHIRE.</p>
+        <p className="text-5xl md:text-8xl font-black text-slate-900 italic uppercase leading-[0.85] tracking-tighter">WASTE REMOVAL ACROSS BERKSHIRE & SURREY.</p>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-start">
@@ -638,7 +638,7 @@ const ServicesView = () => (
               <Briefcase size={48} className="text-orange-500 mx-auto mb-4" />
             </div>
             <h2 className="text-orange-500 font-black uppercase tracking-[0.4em] text-xs mb-4 italic">Commercial Solutions</h2>
-            <p className="text-5xl md:text-7xl font-black text-slate-900 italic uppercase leading-[0.85] tracking-tighter mb-6">BUSINESS CLEARANCE.</p>
+            <p className="text-5xl md:text-7xl font-black text-slate-900 italic uppercase leading-[0.85] tracking-tighter mb-6">COMMERCIAL WASTE REMOVAL.</p>
             <p className="text-slate-600 text-lg font-bold max-w-2xl mx-auto">Industrial-grade waste management for businesses, builders, and commercial operations.</p>
           </div>
 

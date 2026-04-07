@@ -179,12 +179,12 @@ const LandingHero = () => {
             </div>
 
             <h1 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] font-black text-white leading-[0.95] mb-5 tracking-tighter uppercase italic">
-              We'll clear it.<br />
-              <span className="text-[#4ade80]">Today.</span>
+              Waste Removal.<br />
+              <span className="text-[#4ade80]">Done Today.</span>
             </h1>
 
             <p className="text-base md:text-lg text-white/80 mb-6 max-w-md font-bold leading-snug">
-              Waste removal from <span className="text-white font-black">£50</span>. Fixed price, no hidden fees. We do the heavy lifting — you don't touch a thing.
+              Professional waste removal from <span className="text-white font-black">£50</span>. Fixed price, no hidden fees. We do the heavy lifting — you don't touch a thing.
             </p>
 
             {/* Trust - NOT in a neat grid. Stacked, rough, real */}
