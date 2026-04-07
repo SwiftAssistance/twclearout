@@ -4,8 +4,8 @@ import { Trash2, Home, TreePine, Briefcase, Sofa, Warehouse } from 'lucide-react
 const services = [
   {
     icon: Trash2,
-    name: 'Rubbish Removal',
-    desc: 'Household junk and general waste cleared same day.',
+    name: 'Waste Removal',
+    desc: 'Household junk and general waste removal, cleared same day.',
     image: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=480&h=320&fit=crop&auto=format&q=80',
   },
   {
@@ -44,9 +44,9 @@ const LandingServices = () => (
   <section className="py-20 md:py-28 bg-white text-slate-900 overflow-hidden">
     <div className="container mx-auto px-6">
       <div className="mb-12 md:mb-16">
-        <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">What We Clear</h2>
+        <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Waste Removal Services</h2>
         <p className="text-4xl md:text-6xl lg:text-7xl font-[1000] text-slate-900 italic uppercase leading-[0.9] tracking-tighter">
-          OUR <br /> SERVICES.
+          WASTE <br /> REMOVAL.
         </p>
       </div>
 

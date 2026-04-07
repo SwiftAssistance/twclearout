@@ -106,6 +106,12 @@ const pages = [
 
   // ── Info pages ─────────────────────────────────────────────────
   {
+    path: '/waste-removal',
+    title: 'Waste Removal Berkshire & Surrey | Same-Day Licensed Collection | Total Waste Clearout',
+    description: 'Professional waste removal across Berkshire & Surrey. Same-day collection, fixed pricing, 94% recycling rate. Licensed carrier, £5M insured. Call 07769 844298 for a free quote.',
+    keywords: 'waste removal, waste removal berkshire, waste removal surrey, waste removal near me, waste removal service, same day waste removal, licensed waste removal, rubbish removal berkshire, rubbish removal surrey, waste collection berkshire, junk removal berkshire, man and van waste removal, waste removal reading, waste removal slough, waste removal guildford, waste removal woking'
+  },
+  {
     path: '/services',
     title: 'Waste Removal Services Berkshire & Surrey | House, Garden, Commercial Clearance',
     description: 'Complete waste removal services in Berkshire & Surrey. House clearance, garden waste, office rip-outs, construction waste, garage demolition. 94% recycling rate. Same-day service. Call 07769 844298.',

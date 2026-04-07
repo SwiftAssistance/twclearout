@@ -55,6 +55,7 @@ const Contact = lazy(() => import('./pages/Contact'));
 const Areas = lazy(() => import('./pages/areas/Areas'));
 const AreaPage = lazy(() => import('./pages/areas/AreaPage'));
 const ServiceAreaPage = lazy(() => import('./pages/areas/ServiceAreaPage'));
+const WasteRemovalPage = lazy(() => import('./pages/WasteRemoval'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const GetQuote = lazy(() => import('./pages/GetQuote'));
 
@@ -161,21 +162,21 @@ const HomeServices = () => (
   <section id="services" className="py-24 md:py-32 bg-white text-left text-slate-900 overflow-hidden">
     <div className="container mx-auto px-6">
       <div className="mb-16">
-        <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Capabilities</h2>
-        <p className="text-5xl md:text-7xl lg:text-8xl font-[1000] text-slate-900 italic uppercase leading-[0.9] tracking-tighter">OUR <br /> SERVICES.</p>
+        <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Waste Removal Services</h2>
+        <p className="text-5xl md:text-7xl lg:text-8xl font-[1000] text-slate-900 italic uppercase leading-[0.9] tracking-tighter">WASTE <br /> REMOVAL.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 text-left">
         <Link to="/services/commercial-ripouts/" className="lg:col-span-7 bg-[#dcfce7] p-10 md:p-20 flex flex-col justify-end min-h-[400px] border-4 border-slate-900 shadow-[12px_12px_0px_#16a34a] relative overflow-hidden group cursor-pointer hover:border-[#16a34a] transition-colors">
           <Truck size={350} className="absolute top-0 right-0 p-10 opacity-5 text-black group-hover:translate-x-10 transition-transform duration-1000" />
-          <h3 className="text-4xl md:text-6xl font-[1000] text-slate-900 uppercase italic mb-6 leading-none tracking-tight">Full Site <br /> Clear-outs</h3>
+          <h3 className="text-4xl md:text-6xl font-[1000] text-slate-900 uppercase italic mb-6 leading-none tracking-tight">Full Site <br /> Waste Removal</h3>
           <p className="font-bold text-lg md:text-xl text-slate-700 max-w-sm italic leading-relaxed text-balance text-left">Industrial warehouses and multi-floor office blocks. Professional logistical removal.</p>
         </Link>
 
         <Link to="/services/commercial-ripouts/" className="lg:col-span-5 bg-[#064e3b] p-10 md:p-12 border-4 border-slate-900 flex flex-col justify-between shadow-xl text-white group cursor-pointer hover:border-[#4ade80] transition-colors">
           <Briefcase size={50} className="text-[#4ade80]" />
           <div>
-            <h3 className="text-3xl md:text-4xl font-black uppercase italic mb-4 leading-tight text-white text-left">Commercial <br /> Rip-outs</h3>
+            <h3 className="text-3xl md:text-4xl font-black uppercase italic mb-4 leading-tight text-white text-left">Commercial <br /> Waste Removal</h3>
             <p className="text-white/70 font-bold italic text-lg leading-snug text-balance text-left">Retail decommissioning with secure WEEE disposal notes and full audit trails.</p>
           </div>
         </Link>
@@ -183,7 +184,7 @@ const HomeServices = () => (
         <Link to="/services/construction-waste/" className="lg:col-span-4 bg-slate-900 p-10 border-4 border-slate-900 flex flex-col justify-between text-white group hover:bg-orange-500 transition-all duration-500 cursor-pointer text-left">
            <HardHat size={40} className="text-orange-500 group-hover:text-black transition-colors" />
            <div className="text-left text-white">
-             <h4 className="text-3xl font-black uppercase italic mb-2 leading-none">Trade Waste</h4>
+             <h4 className="text-3xl font-black uppercase italic mb-2 leading-none">Trade Waste Removal</h4>
              <p className="text-white/50 group-hover:text-black/70 font-bold italic text-sm leading-tight">Skip-alternative for builders. Rubble and timber cleared instantly.</p>
            </div>
         </Link>
@@ -191,7 +192,7 @@ const HomeServices = () => (
         <Link to="/services/garden-waste/" className="lg:col-span-8 bg-[#ecf3ef] border-4 border-slate-900 p-8 md:p-12 flex flex-col items-start shadow-lg cursor-pointer hover:border-[#16a34a] transition-colors group">
           <div className="w-full text-left">
             <TreePine size={40} className="text-[#16a34a] mb-4" aria-hidden="true" />
-            <h4 className="text-4xl md:text-5xl font-black text-slate-900 uppercase italic leading-none mb-6">Exterior <br /> Recovery.</h4>
+            <h4 className="text-4xl md:text-5xl font-black text-slate-900 uppercase italic leading-none mb-6">Garden Waste <br /> Removal.</h4>
             <p className="text-slate-600 font-bold italic text-lg mb-8 leading-snug text-balance">Garden clearing, shed demolition, and soil removal. Site-ready for landscaping.</p>
             <div className="flex flex-wrap gap-2">
               {['Sheds', 'Green Waste', 'Soil'].map(t => <span key={t} className="bg-white border-2 border-slate-900 px-4 py-1 text-[10px] font-black uppercase tracking-widest italic">{t}</span>)}
@@ -210,6 +211,46 @@ const HomeServices = () => (
 );
 
 const HomeQuote = HomeQuoteComponent;
+
+const WasteRemovalIntro = () => (
+  <section className="py-20 md:py-28 bg-[#ecf3ef]">
+    <div className="container mx-auto px-6">
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">About Our Service</h2>
+        <p className="text-4xl md:text-6xl lg:text-7xl font-[1000] text-slate-900 italic uppercase leading-[0.9] tracking-tighter mb-10">
+          PROFESSIONAL<br />WASTE REMOVAL.
+        </p>
+        <div className="grid lg:grid-cols-2 gap-10 text-slate-700 font-bold leading-relaxed text-base">
+          <div className="space-y-5">
+            <p>
+              Total Waste Clearout provides licensed waste removal across Berkshire and Surrey. Whether you need a single sofa collected or a full property cleared, our uniformed team arrives, loads everything, and leaves your space clean — often the same day you call.
+            </p>
+            <p>
+              Our waste removal service covers every type of job: house clearances, garden waste removal, end of tenancy clearances, commercial and trade waste, garage and shed clearances, and construction debris. We take on the work skips can't — tight access, upstairs rooms, and jobs that need to be done today.
+            </p>
+            <p>
+              Every waste removal job comes with a <strong className="text-slate-900">waste transfer note</strong> — your legal proof that your waste has been disposed of correctly by a licensed carrier. We recycle or donate 94% of everything we collect, keeping as much as possible out of landfill.
+            </p>
+          </div>
+          <div className="space-y-5">
+            <p>
+              As an alternative to skip hire, our waste removal service is often faster and simpler. No council permit needed, no waiting days for a skip to arrive and be collected, no heavy lifting on your part. We arrive within hours, do the work, and the job is done.
+            </p>
+            <p>
+              We serve all of Berkshire including Reading, Slough, Bracknell, Windsor, Ascot, and Maidenhead, and all of Surrey including Guildford, Woking, Egham, and Staines-upon-Thames. Same-day waste removal is available across our entire service area — call <a href="tel:07769844298" className="text-[#16a34a] underline hover:text-[#15803d]">07769 844298</a> or use the quote form to book.
+            </p>
+            <Link
+              to="/waste-removal"
+              className="inline-flex items-center gap-2 bg-slate-900 hover:bg-[#16a34a] text-white px-8 py-4 font-black uppercase italic tracking-wider text-sm transition-all shadow-[4px_4px_0px_#16a34a] hover:shadow-[4px_4px_0px_#064e3b]"
+            >
+              Learn More About Our Waste Removal Service →
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
 const faqItems = [
   { q: "How much does waste removal cost in Berkshire?", a: "Total Waste Clearout offers fixed pricing with no hidden fees. A single item collection starts from £40, a partial load from £120, and a full load from £280. All prices include labour, loading, transport, and responsible disposal with a 94% recycling rate. We serve Reading, Slough, Bracknell, Windsor, Ascot, Maidenhead, Guildford, Woking, Egham and Staines." },
@@ -264,7 +305,7 @@ const MapContact = () => {
     <div className="container mx-auto px-6">
       <div className="mb-16 text-center">
         <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Service Area</h2>
-        <p className="text-5xl md:text-8xl font-black text-slate-900 italic uppercase leading-[0.85] tracking-tighter">COVERING BERKSHIRE.</p>
+        <p className="text-5xl md:text-8xl font-black text-slate-900 italic uppercase leading-[0.85] tracking-tighter">WASTE REMOVAL ACROSS BERKSHIRE & SURREY.</p>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-start">
@@ -638,7 +679,7 @@ const ServicesView = () => (
               <Briefcase size={48} className="text-orange-500 mx-auto mb-4" />
             </div>
             <h2 className="text-orange-500 font-black uppercase tracking-[0.4em] text-xs mb-4 italic">Commercial Solutions</h2>
-            <p className="text-5xl md:text-7xl font-black text-slate-900 italic uppercase leading-[0.85] tracking-tighter mb-6">BUSINESS CLEARANCE.</p>
+            <p className="text-5xl md:text-7xl font-black text-slate-900 italic uppercase leading-[0.85] tracking-tighter mb-6">COMMERCIAL WASTE REMOVAL.</p>
             <p className="text-slate-600 text-lg font-bold max-w-2xl mx-auto">Industrial-grade waste management for businesses, builders, and commercial operations.</p>
           </div>
 
@@ -988,12 +1029,14 @@ const App = () => {
                 </div>
               </section>
               <HomeServices />
+              <WasteRemovalIntro />
               <ReviewsSection title="CLIENTS TALK." />
               <HomeQuote />
               <GeoFaqSection />
               <MapContact />
             </div>
           } />
+          <Route path="/waste-removal" element={<WasteRemovalPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/cookie-usage" element={<CookieUsage />} />
           <Route path="/legal" element={<Legal />} />
@@ -1116,6 +1159,7 @@ const App = () => {
             <div className="lg:col-span-3 space-y-6">
               <h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-xs italic border-l-4 border-[#4ade80] pl-4 leading-none">Our Services</h5>
               <ul className="space-y-3">
+                <li><Link to="/waste-removal" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><Truck size={14} className="text-[#4ade80]/60 shrink-0" /> Waste Removal Service</Link></li>
                 <li><Link to="/services/home-probate-clearance/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><Home size={14} className="text-[#4ade80]/60 shrink-0" /> House & Probate Clearance</Link></li>
                 <li><Link to="/services/end-of-tenancy/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><Home size={14} className="text-[#4ade80]/60 shrink-0" /> End of Tenancy Clearance</Link></li>
                 <li><Link to="/services/garden-waste/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><TreePine size={14} className="text-[#4ade80]/60 shrink-0" /> Garden Waste Removal</Link></li>

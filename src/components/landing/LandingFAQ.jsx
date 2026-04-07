@@ -3,8 +3,8 @@ import { ChevronDown } from 'lucide-react';
 
 const faqs = [
   {
-    q: 'How quickly can you come?',
-    a: 'In most cases we offer same day or next day collection across Berkshire and Surrey. Call us at 07769 844298 for immediate availability.',
+    q: 'How quickly can you arrange waste removal?',
+    a: 'In most cases we offer same day or next day waste removal across Berkshire and Surrey. Call us at 07769 844298 for immediate availability.',
   },
   {
     q: 'Are you a licensed waste carrier?',
@@ -19,16 +19,16 @@ const faqs = [
     a: "It helps, but it's not essential. We can work from photos and clear instructions if you need to be elsewhere.",
   },
   {
-    q: 'How much does it cost?',
-    a: 'It depends on the volume and type of waste. Single items start from £50, full van loads from £220. Call or use the form above for a free, no-obligation quote with a fixed price.',
+    q: 'How much does waste removal cost?',
+    a: 'Waste removal costs depend on the volume and type of waste. Single items start from £50, full van loads from £220. Call or use the form above for a free, no-obligation waste removal quote with a fixed price.',
   },
   {
     q: 'Do you clear everything?',
     a: "Almost everything. We handle household, garden, commercial and bulky waste. We can't take asbestos, clinical waste, or hazardous materials.",
   },
   {
-    q: 'Why use you instead of a skip?',
-    a: "No council permits, no blocked driveways, no waiting. We arrive, load everything ourselves, and leave the same day. Often cheaper than a skip when you add up permit costs and waiting time.",
+    q: 'Why use your waste removal service instead of a skip?',
+    a: "Our waste removal service needs no council permits, causes no blocked driveways, and has no waiting. We arrive, load everything ourselves, and leave the same day. Often cheaper than a skip when you add up permit costs and waiting time.",
   },
 ];
 
@@ -39,7 +39,7 @@ const LandingFAQ = () => {
     <section className="py-20 md:py-28 bg-white overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="mb-12 md:mb-16">
-          <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Everything You Need To Know</h2>
+          <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Waste Removal FAQ</h2>
           <p className="text-4xl md:text-6xl lg:text-7xl font-[1000] text-slate-900 italic uppercase leading-[0.9] tracking-tighter">
             FREQUENTLY<br />ASKED.
           </p>

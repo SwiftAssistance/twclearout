@@ -30,7 +30,7 @@ const LandingTrust = () => (
   <section className="py-20 md:py-28 bg-[#ecf3ef] overflow-hidden">
     <div className="container mx-auto px-6">
       <div className="mb-12 md:mb-16">
-        <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Why Choose Us</h2>
+        <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Why Choose Our Waste Removal Service</h2>
         <p className="text-4xl md:text-6xl lg:text-7xl font-[1000] text-slate-900 italic uppercase leading-[0.9] tracking-tighter">
           FULLY LICENSED<br />&amp; TRUSTED.
         </p>
