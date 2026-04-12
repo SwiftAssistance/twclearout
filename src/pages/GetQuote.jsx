@@ -4,6 +4,7 @@ import LandingHeader from '../components/landing/LandingHeader';
 import LandingHero from '../components/landing/LandingHero';
 import LandingSocialProof from '../components/landing/LandingSocialProof';
 import LandingProof from '../components/landing/LandingProof';
+import LandingQuoteForm from '../components/landing/LandingQuoteForm';
 import LandingFinalCTA from '../components/landing/LandingFinalCTA';
 import LandingFooter from '../components/landing/LandingFooter';
 import LandingStickyMobileCTA from '../components/landing/LandingStickyMobileCTA';
@@ -11,6 +12,9 @@ import LandingStickyMobileCTA from '../components/landing/LandingStickyMobileCTA
 const GetQuote = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
+    const params = new URLSearchParams(window.location.search);
+    const gclid = params.get('gclid');
+    if (gclid) localStorage.setItem('gclid', gclid);
   }, []);
 
   return (
@@ -22,15 +26,10 @@ const GetQuote = () => {
         <meta property="og:description" content="Fast, licensed waste removal across Berkshire and Surrey. Same day collection, fixed prices, no hidden fees." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://totalwasteclearout.co.uk/get-quote" />
+        <meta property="og:image" content="https://totalwasteclearout.co.uk/logo-512.png" />
+        <meta name="robots" content="noindex, follow" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/get-quote" />
       </Helmet>
-
-      {/* GTM dataLayer init */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: 'window.dataLayer = window.dataLayer || [];',
-        }}
-      />
 
       <div id="top" className="min-h-screen bg-white font-sans text-slate-900">
         {/* 1. Header — logo + phone, nothing else */}
@@ -45,7 +44,10 @@ const GetQuote = () => {
         {/* 4. Proof — job photos + reviews + trust signals, all in one flowing section */}
         <LandingProof />
 
-        {/* 5. Final CTA — last push to convert */}
+        {/* 5. Second quote form */}
+        <LandingQuoteForm />
+
+        {/* 6. Final CTA — last push to convert */}
         <LandingFinalCTA />
 
         {/* 6. Minimal footer */}

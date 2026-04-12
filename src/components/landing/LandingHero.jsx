@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, Send, Lock, Clock, CheckCircle, BadgeCheck, ShieldCheck } from 'lucide-react';
 
 const clearanceTypes = [
@@ -21,6 +21,12 @@ const HeroQuoteForm = () => {
     clearanceType: '',
   });
   const [status, setStatus] = useState('idle');
+  const [gclid, setGclid] = useState('');
+
+  useEffect(() => {
+    const stored = localStorage.getItem('gclid');
+    if (stored) setGclid(stored);
+  }, []);
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -42,6 +48,7 @@ const HeroQuoteForm = () => {
           Phone: formData.phone,
           Postcode: formData.postcode,
           'Clearance Type': formData.clearanceType,
+          gclid: gclid || undefined,
         }),
       });
       if (response.ok) {
@@ -92,7 +99,7 @@ const HeroQuoteForm = () => {
           <div className="grid grid-cols-2 gap-2.5">
             <div>
               <label htmlFor="hero-phone" className={labelClass}>Phone *</label>
-              <input id="hero-phone" name="phone" type="tel" required value={formData.phone} onChange={handleChange} className={inputClass} placeholder="07XXX XXXXXX" />
+              <input id="hero-phone" name="phone" type="tel" required value={formData.phone} onChange={handleChange} className={inputClass} placeholder="07XXX XXXXXX" pattern="^0[0-9\s]{9,13}$" title="Please enter a valid UK phone number starting with 0" />
             </div>
             <div>
               <label htmlFor="hero-postcode" className={labelClass}>Postcode *</label>
@@ -130,6 +137,9 @@ const HeroQuoteForm = () => {
           <p className="flex items-center gap-1 text-[10px] text-slate-400 font-bold italic">
             <Clock size={10} /> Reply in 60 mins
           </p>
+          <a href="/privacy" className="flex items-center gap-1 text-[10px] text-slate-400 font-bold italic hover:text-slate-600 transition-colors">
+            <ShieldCheck size={10} /> Privacy
+          </a>
         </div>
       </div>
     </div>
@@ -205,7 +215,7 @@ const LandingHero = () => (
           </div>
 
           {/* Right: The form */}
-          <div>
+          <div id="quote-form-hero">
             <HeroQuoteForm />
             {/* Mobile phone CTA */}
             <a
