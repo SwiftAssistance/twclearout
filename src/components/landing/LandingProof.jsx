@@ -12,19 +12,23 @@ import { Star, Phone, CheckCircle, Recycle, Clock, BadgeCheck, Trash2, Home, Tre
 
 const jobPhotos = [
   {
-    src: '/jobs/job1.webp',
+    before: '/jobs/job1-before.webp',
+    after: '/jobs/job1-after.webp',
     caption: 'House clearance, Windsor',
   },
   {
-    src: '/jobs/job2.webp',
+    before: '/jobs/job2-before.webp',
+    after: '/jobs/job2-after.webp',
     caption: 'Garden waste, Bracknell',
   },
   {
-    src: '/jobs/job3.webp',
+    before: '/jobs/job3-before.webp',
+    after: '/jobs/job3-after.webp',
     caption: 'Rubbish removal, Slough',
   },
   {
-    src: '/jobs/job4.webp',
+    before: '/jobs/job4-before.webp',
+    after: '/jobs/job4-after.webp',
     caption: 'Office clearance, Guildford',
   },
 ];
@@ -39,16 +43,32 @@ const LandingProof = () => (
         </p>
       </div>
       <div className="flex gap-1 overflow-x-auto pb-1 scrollbar-hide">
-        {jobPhotos.map(({ src, caption }) => (
-          <div key={caption} className="shrink-0 w-[260px] sm:w-[280px] md:w-[300px] relative group">
-            <img
-              src={src}
-              alt={caption}
-              className="w-full h-[200px] sm:h-[220px] object-cover"
-              loading="lazy"
-              width="400"
-              height="500"
-            />
+        {jobPhotos.map(({ before, after, caption }) => (
+          <div key={caption} className="shrink-0 w-[320px] sm:w-[360px] md:w-[400px] relative group">
+            <div className="flex h-[200px] sm:h-[220px]">
+              <div className="relative w-1/2">
+                <img
+                  src={before}
+                  alt={`Before — ${caption}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  width="200"
+                  height="220"
+                />
+                <span className="absolute top-2 left-2 bg-red-600 text-white text-[9px] font-black uppercase tracking-wider px-1.5 py-0.5">Before</span>
+              </div>
+              <div className="relative w-1/2">
+                <img
+                  src={after}
+                  alt={`After — ${caption}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  width="200"
+                  height="220"
+                />
+                <span className="absolute top-2 left-2 bg-[#16a34a] text-white text-[9px] font-black uppercase tracking-wider px-1.5 py-0.5">After</span>
+              </div>
+            </div>
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent px-3 py-2">
               <p className="text-white text-[11px] font-bold">{caption}</p>
             </div>
