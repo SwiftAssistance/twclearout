@@ -41,7 +41,7 @@ const LandingStickyMobileCTA = () => {
               <span className="hidden md:inline">07769 844298</span>
             </a>
             <a
-              href="#top"
+              href="#quote-form"
               className="flex-1 md:flex-none bg-orange-500 text-black py-3 md:py-2.5 px-4 md:px-6 font-black text-xs uppercase italic tracking-wider flex items-center justify-center gap-2 active:opacity-80"
             >
               <FileText size={14} />

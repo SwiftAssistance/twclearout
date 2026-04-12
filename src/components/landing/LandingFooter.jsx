@@ -10,6 +10,9 @@ const LandingFooter = () => (
       <p className="text-[10px] font-bold uppercase tracking-widest">
         © 2026 Total Waste Clearout Ltd · EA Reg: CBDU630127
       </p>
+      <a href="/privacy" className="text-[10px] font-bold uppercase tracking-widest text-white/30 hover:text-white/60 transition-colors">
+        Privacy Policy
+      </a>
     </div>
   </footer>
 );

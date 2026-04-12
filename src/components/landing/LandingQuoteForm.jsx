@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Send, CheckCircle, Lock, Phone } from 'lucide-react';
 
 const clearanceTypes = [
@@ -24,6 +24,12 @@ const LandingQuoteForm = () => {
     preferredDate: '',
   });
   const [status, setStatus] = useState('idle');
+  const [gclid, setGclid] = useState('');
+
+  useEffect(() => {
+    const stored = localStorage.getItem('gclid');
+    if (stored) setGclid(stored);
+  }, []);
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -49,6 +55,7 @@ const LandingQuoteForm = () => {
           'Clearance Type': formData.clearanceType,
           Description: formData.description || 'Not provided',
           'Preferred Date': formData.preferredDate || 'Not specified',
+          gclid: gclid || undefined,
         }),
       });
 
@@ -130,8 +137,7 @@ const LandingQuoteForm = () => {
 
           {/* Right: Form */}
           <div className="bg-white/5 border-4 border-white/10 p-8">
-            <form onSubmit={handleSubmit} data-netlify="true" name="landing-quote" className="space-y-4">
-              <input type="hidden" name="form-name" value="landing-quote" />
+            <form onSubmit={handleSubmit} className="space-y-4">
 
               <div>
                 <label htmlFor="lq-name" className={labelClass}>Your Name *</label>
@@ -149,6 +155,7 @@ const LandingQuoteForm = () => {
                     id="lq-phone" name="phone" type="tel" required
                     value={formData.phone} onChange={handleChange}
                     className={inputClass} placeholder="07XXX XXXXXX"
+                    pattern="^0[0-9\s]{9,13}$" title="Please enter a valid UK phone number starting with 0"
                   />
                 </div>
                 <div>
@@ -227,7 +234,7 @@ const LandingQuoteForm = () => {
               )}
 
               <p className="flex items-center justify-center gap-1.5 text-xs text-white/30 mt-2 font-bold italic">
-                <Lock size={12} /> Your details are safe. We never share your information.
+                <Lock size={12} /> Your details are safe. <a href="/privacy" className="underline text-white/50 hover:text-white/70">Privacy Policy</a>
               </p>
             </form>
           </div>

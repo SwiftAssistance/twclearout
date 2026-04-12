@@ -12,19 +12,19 @@ import { Star, Phone, CheckCircle, Recycle, Clock, BadgeCheck, Trash2, Home, Tre
 
 const jobPhotos = [
   {
-    src: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=500&fit=crop&auto=format&q=80',
+    src: '/jobs/job1.webp',
     caption: 'House clearance, Windsor',
   },
   {
-    src: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=500&fit=crop&auto=format&q=80',
+    src: '/jobs/job2.webp',
     caption: 'Garden waste, Bracknell',
   },
   {
-    src: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=400&h=500&fit=crop&auto=format&q=80',
+    src: '/jobs/job3.webp',
     caption: 'Rubbish removal, Slough',
   },
   {
-    src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=500&fit=crop&auto=format&q=80',
+    src: '/jobs/job4.webp',
     caption: 'Office clearance, Guildford',
   },
 ];
@@ -77,7 +77,7 @@ const LandingProof = () => (
           ].map(({ icon: Icon, label }) => (
             <a
               key={label}
-              href="#top"
+              href="#quote-form"
               className="inline-flex items-center gap-2 bg-white border-2 border-slate-900 px-3 py-2 hover:bg-[#dcfce7] hover:border-[#16a34a] transition-colors group"
             >
               <Icon size={14} className="text-[#16a34a] shrink-0" />
