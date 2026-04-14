@@ -47,14 +47,17 @@ const LandingProof = () => (
         </p>
       </div>
       <div className="flex gap-1 overflow-x-auto pb-1 scrollbar-hide">
-        {jobPhotos.map(({ src, caption }) => (
+        {jobPhotos.map(({ src, caption }, idx) => (
           <div key={caption} className="shrink-0 w-[260px] sm:w-[280px] md:w-[300px] relative group bg-slate-800">
             <img
               src={src}
               alt={caption}
               className="w-full h-[200px] sm:h-[220px] object-cover opacity-0 transition-opacity duration-300"
               onLoad={(e) => e.currentTarget.classList.replace('opacity-0', 'opacity-100')}
-              loading="lazy"
+              /* Eager-load all 6 proof photos so horizontal scroll is instant.
+                 fetchpriority="low" keeps the hero image (LCP) ahead in priority. */
+              loading="eager"
+              fetchpriority="low"
               decoding="async"
               width="400"
               height="500"
