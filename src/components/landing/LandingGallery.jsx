@@ -60,12 +60,14 @@ const LandingGallery = () => (
             className="group relative block overflow-hidden border-4 border-white/10 hover:border-[#16a34a] transition-colors"
           >
             {/* Image */}
-            <div className="aspect-[3/2] overflow-hidden">
+            <div className="aspect-[3/2] overflow-hidden bg-slate-800">
               <img
                 src={image}
                 alt={`${title} job in ${location}`}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-105 transition-[transform,opacity] duration-500 opacity-0"
+                onLoad={(e) => e.currentTarget.classList.replace('opacity-0', 'opacity-100')}
                 loading="lazy"
+                decoding="async"
                 width="600"
                 height="400"
               />
