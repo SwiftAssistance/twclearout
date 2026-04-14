@@ -3,22 +3,28 @@ import { Camera, ArrowRight } from 'lucide-react';
 
 const jobs = [
   {
-    title: 'House Clearance',
-    location: 'Windsor',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop&auto=format&q=80',
-    tag: 'Full Clearance',
+    title: 'Garden Clearout',
+    location: 'Bracknell',
+    image: '/jobs/garden-before.webp',
+    tag: 'Before',
   },
   {
     title: 'Garden Clearout',
     location: 'Bracknell',
-    image: '/jobs/garden-clearout.webp',
-    tag: 'Same Day',
+    image: '/jobs/garden-after.webp',
+    tag: 'After',
   },
   {
-    title: 'Office Clearance',
-    location: 'Guildford',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop&auto=format&q=80',
-    tag: 'Commercial',
+    title: 'Shed Demolition',
+    location: 'Maidenhead',
+    image: '/jobs/shed-before.webp',
+    tag: 'Before',
+  },
+  {
+    title: 'Shed Demolition',
+    location: 'Maidenhead',
+    image: '/jobs/shed-after.webp',
+    tag: 'After',
   },
   {
     title: 'Construction Clearout',
@@ -31,12 +37,6 @@ const jobs = [
     location: 'Reading',
     image: '/jobs/construction-after.webp',
     tag: 'After',
-  },
-  {
-    title: 'Shed Demolition',
-    location: 'Maidenhead',
-    image: '/jobs/shed-demolition.webp',
-    tag: 'Dismantled & Removed',
   },
 ];
 
