@@ -29,11 +29,13 @@ const GetQuote = () => {
         <meta property="og:image" content="https://totalwasteclearout.co.uk/logo-512.png" />
         <meta name="robots" content="noindex, follow" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/get-quote" />
-        {/* Preload the first visible proof photos so the horizontal strip fills instantly */}
-        <link rel="preload" as="image" href="/jobs/garden-before.webp" type="image/webp" fetchpriority="low" />
-        <link rel="preload" as="image" href="/jobs/garden-after.webp" type="image/webp" fetchpriority="low" />
-        <link rel="preload" as="image" href="/jobs/construction-before.webp" type="image/webp" fetchpriority="low" />
-        <link rel="preload" as="image" href="/jobs/construction-after.webp" type="image/webp" fetchpriority="low" />
+        {/* Preload all six proof photos at high priority so the strip fills instantly */}
+        <link rel="preload" as="image" href="/jobs/garden-before.webp" type="image/webp" fetchpriority="high" />
+        <link rel="preload" as="image" href="/jobs/garden-after.webp" type="image/webp" fetchpriority="high" />
+        <link rel="preload" as="image" href="/jobs/shed-before.webp" type="image/webp" fetchpriority="high" />
+        <link rel="preload" as="image" href="/jobs/shed-after.webp" type="image/webp" fetchpriority="high" />
+        <link rel="preload" as="image" href="/jobs/construction-before.webp" type="image/webp" fetchpriority="high" />
+        <link rel="preload" as="image" href="/jobs/construction-after.webp" type="image/webp" fetchpriority="high" />
       </Helmet>
 
       <div id="top" className="min-h-screen bg-white font-sans text-slate-900">
