@@ -63,6 +63,9 @@ const LandingQuoteForm = () => {
         setStatus('success');
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({ event: 'quote_form_submission' });
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', { send_to: 'AW-18054894614' });
+        }
       } else {
         setStatus('error');
       }
@@ -128,6 +131,7 @@ const LandingQuoteForm = () => {
 
             <a
               href="tel:07769844298"
+              onClick={() => typeof gtag === 'function' && gtag('event', 'conversion', { send_to: 'AW-18054894614' })}
               className="inline-flex items-center gap-3 bg-[#16a34a] hover:bg-[#15803d] text-white px-8 py-4 font-black uppercase italic tracking-wide text-sm transition-all shadow-[4px_4px_0px_#4ade80] active:shadow-none"
             >
               <Phone size={16} fill="white" />
