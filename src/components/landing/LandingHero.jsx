@@ -56,6 +56,7 @@ const HeroQuoteForm = () => {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({ event: 'quote_form_submission', form_location: 'hero' });
         if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', { currency: 'GBP', value: 1.0 });
           gtag('event', 'conversion', { send_to: 'AW-18054894614' });
         }
       } else {
