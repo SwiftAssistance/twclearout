@@ -1,11 +1,14 @@
 # robots.txt for Total Waste Clearout - Berkshire & Surrey Waste Removal
 # https://totalwasteclearout.co.uk
+# Last updated: 2026-04-14
 
 # Allow all search engines full access
 User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /admin/
+# Note: /get-quote is a Google Ads landing page. It carries a noindex tag
+# so search engines must be allowed to crawl it in order to honour that.
 
 # Sitemap location
 Sitemap: https://totalwasteclearout.co.uk/sitemap.xml
@@ -17,20 +20,42 @@ Allow: /
 User-agent: Googlebot-Image
 Allow: /
 
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 
-# AI and Generative Engine crawlers - full access for GEO
+User-agent: DuckDuckBot
+Allow: /
+
+# AI and Generative Engine crawlers - full access for Generative Engine Optimization (GEO)
+# These bots power AI Overviews, ChatGPT Search, Perplexity, Claude, Gemini, Copilot etc.
 User-agent: GPTBot
 Allow: /
 
-User-agent: Google-Extended
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
 Allow: /
 
 User-agent: Amazonbot
@@ -39,15 +64,51 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
 User-agent: Applebot-Extended
 Allow: /
 
 User-agent: cohere-ai
 Allow: /
 
-# Yell.com and directory crawlers
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+# Directory, review & local-business crawlers
 User-agent: YellowPagesBot
 Allow: /
 
+User-agent: YandexBot
+Allow: /
+
 User-agent: Slurp
+Allow: /
+
+User-agent: TrustpilotBot
 Allow: /
