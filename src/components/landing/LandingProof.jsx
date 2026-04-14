@@ -12,12 +12,20 @@ import { Star, Phone, CheckCircle, Recycle, Clock, BadgeCheck, Trash2, Home, Tre
 
 const jobPhotos = [
   {
-    src: '/jobs/garden-clearout.webp',
-    caption: 'Garden clearout, Berkshire',
+    src: '/jobs/garden-before.webp',
+    caption: 'Garden clearout — before',
   },
   {
-    src: '/jobs/shed-demolition.webp',
-    caption: 'Shed demolition, Surrey',
+    src: '/jobs/garden-after.webp',
+    caption: 'Garden clearout — after',
+  },
+  {
+    src: '/jobs/shed-before.webp',
+    caption: 'Shed demolition — before',
+  },
+  {
+    src: '/jobs/shed-after.webp',
+    caption: 'Shed demolition — after',
   },
   {
     src: '/jobs/construction-before.webp',

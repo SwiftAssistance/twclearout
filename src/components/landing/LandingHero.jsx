@@ -55,6 +55,9 @@ const HeroQuoteForm = () => {
         setStatus('success');
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({ event: 'quote_form_submission', form_location: 'hero' });
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', { send_to: 'AW-18054894614' });
+        }
       } else {
         setStatus('error');
       }
@@ -202,6 +205,7 @@ const LandingHero = () => (
             {/* Phone CTA - big, obvious */}
             <a
               href="tel:07769844298"
+              onClick={() => typeof gtag === 'function' && gtag('event', 'conversion', { send_to: 'AW-18054894614' })}
               className="hidden lg:inline-flex items-center gap-3 text-white hover:text-[#4ade80] transition-colors group"
             >
               <span className="bg-[#16a34a] p-3 group-hover:bg-[#15803d] transition-colors">
@@ -220,6 +224,7 @@ const LandingHero = () => (
             {/* Mobile phone CTA */}
             <a
               href="tel:07769844298"
+              onClick={() => typeof gtag === 'function' && gtag('event', 'conversion', { send_to: 'AW-18054894614' })}
               className="lg:hidden mt-3 bg-white/10 text-white px-5 py-3 font-black uppercase italic tracking-wide text-sm flex items-center justify-center gap-2 border-2 border-white/20"
             >
               <Phone size={14} fill="white" />
