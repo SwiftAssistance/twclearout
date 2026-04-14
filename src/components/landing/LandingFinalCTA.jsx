@@ -16,8 +16,9 @@ const LandingFinalCTA = () => (
           <Phone size={18} fill="black" />
           Call 07769 844298
         </a>
+        {/* FIX 5: href changed from #top to #hero-form so it scrolls to the form div */}
         <a
-          href="#top"
+          href="#hero-form"
           className="text-white/60 hover:text-white text-sm font-bold uppercase italic tracking-wider inline-flex items-center gap-1.5 transition-colors"
         >
           <ArrowUp size={14} />

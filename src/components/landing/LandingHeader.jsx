@@ -20,11 +20,12 @@ const LandingHeader = () => (
         </a>
         <a
           href="tel:07769844298"
-          className="bg-orange-500 hover:bg-orange-400 text-black px-4 sm:px-6 py-2 sm:py-2.5 font-black text-xs sm:text-sm uppercase italic tracking-wide flex items-center gap-2 transition-colors shadow-[3px_3px_0px_#16a34a] active:shadow-none"
+          // FIX 2: reduced px and gap on mobile so full number fits; text size shrunk to 11px mobile
+          className="bg-orange-500 hover:bg-orange-400 text-black px-3 sm:px-6 py-2 sm:py-2.5 font-black text-[11px] sm:text-sm uppercase italic tracking-wide flex items-center gap-1.5 sm:gap-2 transition-colors shadow-[3px_3px_0px_#16a34a] active:shadow-none"
         >
           <Phone size={14} fill="black" />
-          <span className="hidden sm:inline">07769 844298</span>
-          <span className="sm:hidden">Call</span>
+          {/* FIX 2: single span always shows number (removed hidden sm:inline / sm:hidden split) */}
+          <span>07769 844298</span>
         </a>
       </div>
     </div>
