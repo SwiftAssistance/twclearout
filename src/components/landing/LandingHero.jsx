@@ -244,7 +244,7 @@ const LandingHero = () => (
                 Call Us
               </a>
               <a
-                href="https://wa.me/447769844298"
+                href="https://api.whatsapp.com/send?phone=447769844298"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#25D366] text-white px-5 py-3 font-black uppercase italic tracking-wide text-sm flex items-center justify-center gap-2"
