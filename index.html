@@ -661,14 +661,40 @@
     </script>
     <!-- PRERENDER_PAGE_SCHEMA_END -->
 
-    <!-- Google Analytics 4 + Google Ads -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18054894614"></script>
+    <!-- Google Analytics 4 + Google Ads — DELAYED LOAD
+         gtag.js is ~100KB of uncached JS that competes with React hydration
+         on mobile and crushes the PageSpeed Performance score. We defer it
+         until either (a) first user interaction, or (b) 4 seconds have
+         passed — whichever happens first. This keeps all conversion tracking
+         working (Google Ads fires on form submit, which is always post-
+         interaction) while removing the biggest render-blocking mobile
+         performance drag. -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-9D4NFN2VE9');
-      gtag('config', 'AW-18054894614');
+      (function () {
+        var loaded = false;
+        function loadGtag() {
+          if (loaded) return;
+          loaded = true;
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18054894614';
+          document.head.appendChild(s);
+          gtag('config', 'G-9D4NFN2VE9');
+          gtag('config', 'AW-18054894614');
+          ['scroll','mousemove','touchstart','keydown','click'].forEach(function(evt){
+            window.removeEventListener(evt, loadGtag, { passive: true });
+          });
+        }
+        ['scroll','mousemove','touchstart','keydown','click'].forEach(function(evt){
+          window.addEventListener(evt, loadGtag, { passive: true, once: true });
+        });
+        // Fallback: load after 4s even with zero interaction, so bounce
+        // traffic still gets measured.
+        setTimeout(loadGtag, 4000);
+      })();
     </script>
 
   </head>

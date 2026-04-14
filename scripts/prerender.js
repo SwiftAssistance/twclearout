@@ -369,6 +369,20 @@ for (const page of pages) {
     html = replacePageSchemas(html, null);
   }
 
+  // Minify all JSON-LD blocks (strip pretty-print whitespace) — saves
+  // ~8–10KB of HTML per page × 85 pages. No SEO impact (Google parses
+  // JSON regardless of whitespace) but material mobile performance win.
+  html = html.replace(
+    /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g,
+    (match, body) => {
+      try {
+        return `<script type="application/ld+json">${JSON.stringify(JSON.parse(body))}</script>`;
+      } catch {
+        return match;
+      }
+    }
+  );
+
   // Write to dist/<path>/index.html
   const outDir = join(DIST, page.path);
   if (!existsSync(outDir)) {
@@ -376,6 +390,25 @@ for (const page of pages) {
   }
   writeFileSync(join(outDir, 'index.html'), html, 'utf-8');
   created++;
+}
+
+// Also minify JSON-LD in the homepage itself (Vite emits it pretty-printed).
+{
+  let home = readFileSync(join(DIST, 'index.html'), 'utf-8');
+  const before = home.length;
+  home = home.replace(
+    /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g,
+    (match, body) => {
+      try {
+        return `<script type="application/ld+json">${JSON.stringify(JSON.parse(body))}</script>`;
+      } catch {
+        return match;
+      }
+    }
+  );
+  writeFileSync(join(DIST, 'index.html'), home, 'utf-8');
+  const saved = before - home.length;
+  console.log(`   Homepage JSON-LD minified — saved ${saved} bytes (${(saved/1024).toFixed(1)} KB).`);
 }
 
 console.log(`\n✅ Pre-rendered ${created} pages with unique meta tags.`);
