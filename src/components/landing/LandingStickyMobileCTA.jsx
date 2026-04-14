@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, FileText } from 'lucide-react';
 
 const WhatsAppIcon = () => (
@@ -10,18 +10,9 @@ const WhatsAppIcon = () => (
 
 const LandingStickyMobileCTA = () => {
   const [visible, setVisible] = useState(false);
-  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const onScroll = () => {
-      const currentY = window.scrollY;
-      // Show after scrolling past hero (roughly 500px)
-      const pastHero = currentY > 500;
-      // On mobile, hide when scrolling up fast
-      const scrollingDown = currentY > lastScrollY.current;
-      setVisible(pastHero && (scrollingDown || currentY < 10));
-      lastScrollY.current = currentY;
-    };
+    const onScroll = () => setVisible(window.scrollY > 500);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
