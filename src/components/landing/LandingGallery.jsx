@@ -9,9 +9,9 @@ const jobs = [
     tag: 'Full Clearance',
   },
   {
-    title: 'Garden Waste Removal',
+    title: 'Garden Clearout',
     location: 'Bracknell',
-    image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=400&fit=crop&auto=format&q=80',
+    image: '/jobs/garden-clearout.webp',
     tag: 'Same Day',
   },
   {
@@ -21,21 +21,21 @@ const jobs = [
     tag: 'Commercial',
   },
   {
-    title: 'Furniture Removal',
+    title: 'Construction Clearout',
     location: 'Reading',
-    image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop&auto=format&q=80',
-    tag: 'Bulky Items',
+    image: '/jobs/construction-before.webp',
+    tag: 'Before',
   },
   {
-    title: 'Rubbish Clearance',
-    location: 'Slough',
-    image: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&h=400&fit=crop&auto=format&q=80',
-    tag: 'Recycled 94%',
+    title: 'Construction Clearout',
+    location: 'Reading',
+    image: '/jobs/construction-after.webp',
+    tag: 'After',
   },
   {
     title: 'Shed Demolition',
     location: 'Maidenhead',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop&auto=format&q=80',
+    image: '/jobs/shed-demolition.webp',
     tag: 'Dismantled & Removed',
   },
 ];
