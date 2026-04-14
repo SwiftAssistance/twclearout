@@ -22,6 +22,7 @@ const LandingStickyMobileCTA = () => {
       className={`fixed bottom-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-t-2 border-[#16a34a] shadow-[0_-4px_20px_rgba(0,0,0,0.3)] transition-transform duration-300 ${
         visible ? 'translate-y-0' : 'translate-y-full'
       }`}
+      style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
     >
       <div className="container mx-auto px-3 sm:px-6">
         <div className="flex items-center gap-2 py-2.5 max-w-6xl mx-auto">
