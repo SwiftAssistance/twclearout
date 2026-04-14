@@ -65,7 +65,11 @@ const LandingQuoteForm = () => {
         window.dataLayer.push({ event: 'quote_form_submission' });
         if (typeof gtag === 'function') {
           gtag('event', 'generate_lead', { currency: 'GBP', value: 1.0 });
-          gtag('event', 'conversion', { send_to: 'AW-18054894614' });
+          gtag('event', 'conversion', {
+            send_to: 'AW-18054894614/YJ5BCIWWxZscEJaon6FD',
+            value: 1.0,
+            currency: 'GBP',
+          });
         }
       } else {
         setStatus('error');
