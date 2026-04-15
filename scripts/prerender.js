@@ -369,6 +369,20 @@ for (const page of pages) {
     html = replacePageSchemas(html, null);
   }
 
+  // Minify all JSON-LD blocks (strip pretty-print whitespace) — saves
+  // ~8–10KB of HTML per page × 85 pages. No SEO impact (Google parses
+  // JSON regardless of whitespace) but material mobile performance win.
+  html = html.replace(
+    /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g,
+    (match, body) => {
+      try {
+        return `<script type="application/ld+json">${JSON.stringify(JSON.parse(body))}</script>`;
+      } catch {
+        return match;
+      }
+    }
+  );
+
   // Write to dist/<path>/index.html
   const outDir = join(DIST, page.path);
   if (!existsSync(outDir)) {
@@ -376,6 +390,132 @@ for (const page of pages) {
   }
   writeFileSync(join(outDir, 'index.html'), html, 'utf-8');
   created++;
+}
+
+// Also minify JSON-LD in the homepage itself (Vite emits it pretty-printed).
+{
+  let home = readFileSync(join(DIST, 'index.html'), 'utf-8');
+  const before = home.length;
+  home = home.replace(
+    /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g,
+    (match, body) => {
+      try {
+        return `<script type="application/ld+json">${JSON.stringify(JSON.parse(body))}</script>`;
+      } catch {
+        return match;
+      }
+    }
+  );
+  writeFileSync(join(DIST, 'index.html'), home, 'utf-8');
+  const saved = before - home.length;
+  console.log(`   Homepage JSON-LD minified — saved ${saved} bytes (${(saved/1024).toFixed(1)} KB).`);
+}
+
+// ── /get-quote landing page — dedicated prerender ─────────────────────
+// /get-quote is the primary Google Ads landing page, so mobile PageSpeed
+// on this URL is business-critical. Generating a dedicated HTML lets us:
+//   1. Preload the lazy GetQuote chunk in parallel with the main bundle,
+//      eliminating one network-waterfall RTT (~150–250ms on 3G).
+//   2. Ship correct meta/canonical/og tags in the initial response so
+//      react-helmet-async has zero work to do on first paint.
+//   3. Strip homepage schemas entirely — the page is noindex, crawlers
+//      don't want LocalBusiness/FAQ schemas on an ads landing page.
+//   4. Inline a tiny critical background color so there's no white
+//      flash before the CSS file arrives.
+{
+  // Discover the hashed GetQuote chunk filename from the assets directory.
+  const { readdirSync } = await import('fs');
+  const assetFiles = readdirSync(join(DIST, 'assets'));
+  const getQuoteChunk = assetFiles.find(f => /^GetQuote-.*\.js$/.test(f));
+
+  let html = template;
+
+  // Title + meta
+  html = html.replace(
+    /<title>[^<]*<\/title>/,
+    '<title>Waste Removal Berkshire &amp; Surrey | Same Day Collection | Total Waste Clearout</title>'
+  );
+  html = html.replace(
+    /<meta name="description" content="[^"]*" \/>/,
+    '<meta name="description" content="Fast, licensed waste removal across Berkshire and Surrey. Same day collection, fixed prices, no hidden fees. Get a free quote from Total Waste Clearout." />'
+  );
+  // Make the page noindex in the static HTML (Helmet also sets this but
+  // we want it correct before JS runs in case a crawler hits the ads URL).
+  if (/<meta name="robots"/.test(html)) {
+    html = html.replace(
+      /<meta name="robots" content="[^"]*" \/>/,
+      '<meta name="robots" content="noindex, follow" />'
+    );
+  } else {
+    html = html.replace(
+      /<link rel="canonical"/,
+      '<meta name="robots" content="noindex, follow" />\n    <link rel="canonical"'
+    );
+  }
+  html = html.replace(
+    /<link rel="canonical" href="[^"]*" \/>/,
+    '<link rel="canonical" href="https://totalwasteclearout.co.uk/get-quote" />'
+  );
+  html = html.replace(
+    /<meta property="og:url" content="[^"]*" \/>/,
+    '<meta property="og:url" content="https://totalwasteclearout.co.uk/get-quote" />'
+  );
+  html = html.replace(
+    /<meta property="og:title" content="[^"]*" \/>/,
+    '<meta property="og:title" content="Waste Removal Berkshire & Surrey | Same Day Collection | Total Waste Clearout" />'
+  );
+  html = html.replace(
+    /<meta property="og:description" content="[^"]*" \/>/,
+    '<meta property="og:description" content="Fast, licensed waste removal across Berkshire and Surrey. Same day collection, fixed prices, no hidden fees." />'
+  );
+
+  // Preload the lazy GetQuote chunk — huge mobile-performance win.
+  if (getQuoteChunk) {
+    html = html.replace(
+      /<link rel="modulepreload" crossorigin href="\/assets\/vendor-[^"]*">/,
+      (match) => `<link rel="modulepreload" crossorigin href="/assets/${getQuoteChunk}">\n    ${match}`
+    );
+  }
+
+  // Preload all six job-photo webps at high priority (duplicates the
+  // Helmet preload hints so they start downloading before JS executes).
+  const jobPreloads = [
+    'garden-before','garden-after','shed-before','shed-after',
+    'construction-before','construction-after'
+  ].map(name =>
+    `<link rel="preload" as="image" href="/jobs/${name}.webp" type="image/webp" fetchpriority="high" />`
+  ).join('\n    ');
+  html = html.replace(
+    /<link rel="preload" as="image" href="\/hero\.webp"[^>]*>/,
+    (match) => `${match}\n    ${jobPreloads}`
+  );
+
+  // Strip all homepage schemas — this is a noindex page.
+  html = replacePageSchemas(html, null);
+
+  // Minify remaining JSON-LD (Organization, WebSite at the top).
+  html = html.replace(
+    /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g,
+    (match, body) => {
+      try {
+        return `<script type="application/ld+json">${JSON.stringify(JSON.parse(body))}</script>`;
+      } catch {
+        return match;
+      }
+    }
+  );
+
+  // Inline critical background color — kills the white flash between
+  // first paint and the CSS file arriving.
+  html = html.replace(
+    /<link rel="stylesheet"/,
+    '<style>html,body{background:#064e3b;margin:0}</style>\n    <link rel="stylesheet"'
+  );
+
+  const outDir = join(DIST, 'get-quote');
+  if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true });
+  writeFileSync(join(outDir, 'index.html'), html, 'utf-8');
+  console.log(`   /get-quote prerendered with modulepreload for ${getQuoteChunk || '(chunk not found)'}.`);
 }
 
 console.log(`\n✅ Pre-rendered ${created} pages with unique meta tags.`);
