@@ -1,0 +1,32 @@
+{
+  "name": "Total Waste Clearout",
+  "short_name": "TWC",
+  "description": "Berkshire & Surrey waste removal — same-day collection, licensed, 94% recycling rate.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#16a34a",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
