@@ -4,9 +4,9 @@ import { Star, Quote } from 'lucide-react';
 const reviews = [
   {
     text: "We used Total Waste Clearout twice and honestly couldn't fault them either time. First they cleared out our office - old furniture, filing cabinets, general junk that had built up over the years - and the whole thing was done quickly and without any fuss. Then a few weeks later I had them back to sort out my garden at home, and again, brilliant. Showed up on time, got stuck in straight away, and left everything spotless. Really professional team, great communication throughout, and the price was fair. Would recommend to anyone.",
-    name: 'Sarah',
-    initials: 'S',
-    town: 'Windsor',
+    name: 'Wisetax Accountants',
+    initials: 'W',
+    town: 'Slough',
     color: 'bg-white text-slate-900',
     accent: 'text-[#16a34a]',
     avatarBg: 'bg-[#16a34a] text-white',
