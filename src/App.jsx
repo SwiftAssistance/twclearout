@@ -122,11 +122,7 @@ const ReviewCard = ({ review, idx }) => (
           <div className="flex gap-0.5">
             {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" className={review.accent} />)}
           </div>
-          {review.platform && (
-            <div className="bg-white rounded-full p-1.5 shadow border border-slate-100 shrink-0">
-              <PlatformLogo platform={review.platform} size={18} />
-            </div>
-          )}
+          {review.platform && <PlatformLogo platform={review.platform} size={18} />}
         </div>
         <p className="text-base sm:text-xl md:text-3xl lg:text-4xl font-[1000] uppercase italic leading-tight md:leading-[1.2] tracking-tight text-balance">
           "{review.text}"

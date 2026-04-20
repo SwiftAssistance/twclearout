@@ -129,11 +129,7 @@ const LandingReviews = () => {
                     <div className="flex gap-0.5">
                       {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="currentColor" className={accent} />)}
                     </div>
-                    {platform && (
-                      <div className="bg-white rounded-full p-1.5 shadow border border-slate-100 shrink-0">
-                        <PlatformLogo platform={platform} size={20} />
-                      </div>
-                    )}
+                    {platform && <PlatformLogo platform={platform} size={20} />}
                   </div>
 
                   <p className="text-lg md:text-2xl font-[1000] uppercase italic leading-tight tracking-tight mb-8 flex-grow relative z-10">
