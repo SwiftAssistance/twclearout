@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import LandingHeader from '../components/landing/LandingHeader';
 import LandingHero from '../components/landing/LandingHero';
+import LandingPriceStrip from '../components/landing/LandingPriceStrip';
 import LandingSocialProof from '../components/landing/LandingSocialProof';
+import LandingSkipPanel from '../components/landing/LandingSkipPanel';
 import LandingProof from '../components/landing/LandingProof';
 import LandingQuoteForm from '../components/landing/LandingQuoteForm';
 import LandingFinalCTA from '../components/landing/LandingFinalCTA';
@@ -42,25 +44,31 @@ const GetQuote = () => {
         {/* 1. Header — logo + phone, nothing else */}
         <LandingHeader />
 
-        {/* 2. Hero — the main event: headline + form above the fold */}
+        {/* 2. Hero — headline + form above the fold */}
         <LandingHero />
 
-        {/* 3. Trust strip — one thin line of proof */}
+        {/* 3. Price guide strip — anchors expectations, pre-qualifies enquiries */}
+        <LandingPriceStrip />
+
+        {/* 4. Trust strip — one thin line of proof */}
         <LandingSocialProof />
 
-        {/* 4. Proof — job photos + reviews + trust signals, all in one flowing section */}
+        {/* 5. Skip comparison — strongest differentiator, promoted before photo carousel */}
+        <LandingSkipPanel />
+
+        {/* 6. Proof — job photos + reviews in one flowing section */}
         <LandingProof />
 
-        {/* 5. Second quote form */}
+        {/* 7. Second quote form */}
         <LandingQuoteForm />
 
-        {/* 6. Final CTA — last push to convert */}
+        {/* 8. Final CTA — last push to convert */}
         <LandingFinalCTA />
 
-        {/* 6. Minimal footer */}
+        {/* 9. Minimal footer */}
         <LandingFooter />
 
-        {/* Sticky bottom bar — appears after scrolling past hero, desktop + mobile */}
+        {/* Sticky bottom bar — Call + WhatsApp + Quote, appears after scrolling past hero */}
         <LandingStickyMobileCTA />
       </div>
     </>
