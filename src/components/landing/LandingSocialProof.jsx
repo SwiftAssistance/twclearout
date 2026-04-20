@@ -1,5 +1,5 @@
 import React from 'react';
-import { BadgeCheck, Star, Clock, Recycle } from 'lucide-react';
+import { BadgeCheck, Star, Clock, TrendingDown } from 'lucide-react';
 
 const LandingSocialProof = () => (
   <div className="bg-slate-900 border-b-2 border-[#16a34a]/40 py-2.5 overflow-hidden">
@@ -18,9 +18,9 @@ const LandingSocialProof = () => (
           <Clock size={13} className="text-[#4ade80]" />
           Same Day
         </span>
-        <span className="hidden sm:flex items-center gap-1.5 text-white/70">
-          <Recycle size={13} className="text-[#4ade80]" />
-          94% Recycled
+        <span className="flex items-center gap-1.5 text-orange-400 font-black">
+          <TrendingDown size={13} className="text-orange-400" />
+          Beats Skip Hire
         </span>
       </div>
     </div>

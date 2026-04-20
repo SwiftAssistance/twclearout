@@ -183,9 +183,12 @@ const LandingHero = () => (
 
           {/* Left: The pitch */}
           <div>
-            <div className="mb-5">
+            <div className="mb-5 flex flex-wrap gap-2">
               <span className="bg-[#4ade80] text-slate-900 px-3 py-1.5 text-[10px] font-black uppercase tracking-wider italic">
                 Same Day Collection Available
+              </span>
+              <span className="bg-orange-500 text-black px-3 py-1.5 text-[10px] font-black uppercase tracking-wider italic">
+                Cheaper Than Skip Hire ✓
               </span>
             </div>
 
@@ -195,7 +198,7 @@ const LandingHero = () => (
             </h1>
 
             <p className="text-base md:text-lg text-white/80 mb-6 max-w-md font-bold leading-snug">
-              Professional waste removal from <span className="text-white font-black">£50</span>. Fixed price, no hidden fees. We do the heavy lifting — you don't touch a thing.
+              From <span className="text-white font-black">£50</span> — beats skip hire on price, every time. No permits, no waiting. Fixed price, no hidden fees. We do the heavy lifting.
             </p>
 
             {/* Trust - NOT in a neat grid. Stacked, rough, real */}

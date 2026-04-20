@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, XCircle, TrendingDown } from 'lucide-react';
 
 const rows = [
   { size: 'Single Item', example: 'Mattress, sofa, fridge', price: 'From £50', highlight: false },
@@ -16,14 +16,51 @@ const included = [
   'No skip permits needed',
 ];
 
+const skipComparison = [
+  { feature: 'Full Van Load', us: 'From £220', skip: '£250–£350', usBetter: true },
+  { feature: 'Council Permit', us: 'Not needed', skip: '£60–£100 extra', usBetter: true },
+  { feature: 'Labour (loading)', us: 'Included', skip: 'You load it', usBetter: true },
+  { feature: 'Same-Day Collection', us: 'Available', skip: '3–5 day wait', usBetter: true },
+  { feature: 'Typical Total Cost', us: '~£220', skip: '~£350–£500', usBetter: true },
+];
+
 const LandingPricing = () => (
   <section className="py-20 md:py-28 bg-white overflow-hidden">
     <div className="container mx-auto px-6">
       <div className="mb-12 md:mb-16">
-        <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">No Hidden Fees</h2>
+        <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Cheaper Than Skip Hire</h2>
         <p className="text-4xl md:text-6xl lg:text-7xl font-[1000] text-slate-900 italic uppercase leading-[0.9] tracking-tighter">
           PRICING<br />GUIDE.
         </p>
+      </div>
+
+      {/* Skip hire comparison */}
+      <div className="mb-12 max-w-3xl">
+        <div className="flex items-center gap-2 mb-4">
+          <TrendingDown size={18} className="text-[#16a34a]" />
+          <p className="font-black text-sm uppercase italic tracking-wide text-slate-900">Us vs Skip Hire — See the difference</p>
+        </div>
+        <div className="border-4 border-slate-900 overflow-hidden shadow-[8px_8px_0px_#16a34a]">
+          <div className="grid grid-cols-3 bg-slate-900 text-white">
+            <div className="px-4 py-3 font-black text-xs uppercase italic tracking-wide"></div>
+            <div className="px-4 py-3 font-black text-xs uppercase italic tracking-wide text-[#4ade80] text-center">Total Waste Clearout</div>
+            <div className="px-4 py-3 font-black text-xs uppercase italic tracking-wide text-white/40 text-center">Skip Hire</div>
+          </div>
+          {skipComparison.map(({ feature, us, skip }) => (
+            <div key={feature} className="grid grid-cols-3 border-t-2 border-slate-200 items-center">
+              <div className="px-4 py-3">
+                <p className="text-xs font-black uppercase italic text-slate-600">{feature}</p>
+              </div>
+              <div className="px-4 py-3 text-center bg-[#f0fdf4] border-x-2 border-[#16a34a]/20">
+                <span className="text-xs font-black text-[#16a34a] italic">{us}</span>
+              </div>
+              <div className="px-4 py-3 text-center">
+                <span className="text-xs font-bold text-slate-400 line-through italic">{skip}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="text-[10px] font-bold text-slate-400 mt-2 italic">* Skip hire estimates based on typical Berkshire/Surrey rates including standard permits.</p>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8 items-start max-w-5xl">
