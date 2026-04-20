@@ -10,6 +10,8 @@ const clearanceTypes = [
   'Other',
 ];
 
+const dateChips = ['Today', 'Tomorrow', 'This Week', 'Next Week'];
+
 const inputClass = "w-full px-4 py-3 bg-white/10 border-2 border-white/20 text-white placeholder-white/40 text-sm font-bold focus:outline-none focus:border-[#4ade80] focus:bg-white/15 transition-colors";
 const labelClass = "block text-[10px] font-black uppercase tracking-widest text-white/60 mb-1.5 italic";
 
@@ -50,7 +52,7 @@ const LandingQuoteForm = () => {
           'Form Source': 'Google Ads Landing Page (/get-quote)',
           Name: formData.name,
           Phone: formData.phone,
-          Email: formData.email,
+          Email: formData.email || 'Not provided',
           Postcode: formData.postcode,
           'Clearance Type': formData.clearanceType,
           Description: formData.description || 'Not provided',
@@ -146,6 +148,13 @@ const LandingQuoteForm = () => {
 
           {/* Right: Form */}
           <div className="bg-white/5 border-4 border-white/10 p-8">
+            {/* Reply time note */}
+            <div className="bg-[#4ade80]/10 border border-[#4ade80]/30 px-4 py-2.5 mb-5">
+              <p className="text-xs font-bold text-[#4ade80]/90 italic leading-snug">
+                ⏱ Reply within 1 hour during working hours · Same-day slots usually available
+              </p>
+            </div>
+
             <form onSubmit={handleSubmit} className="space-y-4">
 
               <div>
@@ -168,11 +177,11 @@ const LandingQuoteForm = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="lq-email" className={labelClass}>Email *</label>
+                  <label htmlFor="lq-email" className={labelClass}>Email</label>
                   <input
-                    id="lq-email" name="email" type="email" required
+                    id="lq-email" name="email" type="email"
                     value={formData.email} onChange={handleChange}
-                    className={inputClass} placeholder="you@email.com"
+                    className={inputClass} placeholder="you@email.com (optional)"
                   />
                 </div>
               </div>
@@ -211,13 +220,25 @@ const LandingQuoteForm = () => {
                 />
               </div>
 
+              {/* Chip-picker for preferred date */}
               <div>
-                <label htmlFor="lq-date" className={labelClass}>Preferred Date</label>
-                <input
-                  id="lq-date" name="preferredDate" type="date"
-                  value={formData.preferredDate} onChange={handleChange}
-                  className={inputClass}
-                />
+                <label className={labelClass}>Preferred Date</label>
+                <div className="flex flex-wrap gap-2">
+                  {dateChips.map((chip) => (
+                    <button
+                      key={chip}
+                      type="button"
+                      onClick={() => setFormData((prev) => ({ ...prev, preferredDate: prev.preferredDate === chip ? '' : chip }))}
+                      className={`px-4 py-2 border-2 font-black text-xs uppercase italic transition-all ${
+                        formData.preferredDate === chip
+                          ? 'bg-[#4ade80] border-[#4ade80] text-slate-900'
+                          : 'bg-transparent border-white/20 text-white/60 hover:border-white/40 hover:text-white/80'
+                      }`}
+                    >
+                      {chip}
+                    </button>
+                  ))}
+                </div>
               </div>
 
               <button
