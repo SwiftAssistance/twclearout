@@ -1,5 +1,6 @@
 import React from 'react';
 import { Star, Phone, Trash2, Home, TreePine, Briefcase, Sofa, Warehouse } from 'lucide-react';
+import PlatformLogo from '../PlatformLogo';
 
 /*
   This section does THREE things in one flowing block:
@@ -123,10 +124,15 @@ const LandingProof = () => (
 
           {/* Big featured review */}
           <div className="md:w-1/2 bg-[#064e3b] border-4 border-slate-900 p-6 md:p-8 shadow-[6px_6px_0px_#16a34a]">
-            <div className="flex gap-0.5 mb-3">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} size={14} fill="currentColor" className="text-[#4ade80]" />
-              ))}
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={14} fill="currentColor" className="text-[#4ade80]" />
+                ))}
+              </div>
+              <div className="bg-white rounded-full p-1.5 shadow-sm">
+                <PlatformLogo platform="google" size={16} />
+              </div>
             </div>
             <p className="text-white font-black text-lg md:text-xl italic leading-tight mb-4">
               "We used Total Waste Clearout twice and honestly couldn't fault them either time. First they cleared out our office, then a few weeks later sorted my garden at home. Showed up on time, got stuck in straight away, and left everything spotless. Really professional team, great communication, and the price was fair."
@@ -137,10 +143,15 @@ const LandingProof = () => (
           {/* Smaller stacked reviews */}
           <div className="md:w-1/2 space-y-4">
             <div className="border-4 border-slate-900 p-5 bg-[#ecf3ef]">
-              <div className="flex gap-0.5 mb-2">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={12} fill="currentColor" className="text-[#16a34a]" />
-                ))}
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={12} fill="currentColor" className="text-[#16a34a]" />
+                  ))}
+                </div>
+                <div className="bg-white rounded-full p-1 shadow-sm border border-slate-200">
+                  <PlatformLogo platform="google" size={14} />
+                </div>
               </div>
               <p className="text-slate-900 font-black text-sm italic leading-snug mb-2">
                 "Really pleased with Total Waste Clearout. They demolished an old shed and cleared all the waste from my garden - turned up on time, worked quickly, and left everything spotless. Great value and friendly team. Will definitely use them again."
@@ -149,10 +160,15 @@ const LandingProof = () => (
             </div>
 
             <div className="border-4 border-slate-900 p-5 bg-white">
-              <div className="flex gap-0.5 mb-2">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={12} fill="currentColor" className="text-[#16a34a]" />
-                ))}
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={12} fill="currentColor" className="text-[#16a34a]" />
+                  ))}
+                </div>
+                <div className="bg-white rounded-full p-1 shadow-sm border border-slate-200">
+                  <PlatformLogo platform="google" size={14} />
+                </div>
               </div>
               <p className="text-slate-900 font-black text-sm italic leading-snug mb-2">
                 "Brilliant service from Total Waste Clear Out. Quick, reliable, and very professional. They cleared out my garden, shed, and old trees with no hassle and left everything spotless."

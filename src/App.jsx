@@ -37,6 +37,7 @@ import {
 import ContactForm from './components/ContactForm';
 import StatsTicker from './components/StatsTicker';
 import HomeQuoteComponent from './components/HomeQuote';
+import PlatformLogo from './components/PlatformLogo';
 
 // Route-based code splitting
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
@@ -70,7 +71,8 @@ const REVIEWS = [
     initials: "MS",
     color: "bg-white text-slate-900",
     accent: "text-[#16a34a]",
-    text: "The best waste company in Berkshire. Same-day service, zero fuss, and much cheaper than the skip permit process. Uniformed team were brilliant."
+    text: "The best waste company in Berkshire. Same-day service, zero fuss, and much cheaper than the skip permit process. Uniformed team were brilliant.",
+    platform: "google"
   },
   {
     name: "Sarah Jenkins",
@@ -78,7 +80,8 @@ const REVIEWS = [
     initials: "SJ",
     color: "bg-[#16a34a] text-white",
     accent: "text-white",
-    text: "Cleared out my late father's property with such respect and speed. They recycled almost everything and provided a full audit note."
+    text: "Cleared out my late father's property with such respect and speed. They recycled almost everything and provided a full audit note.",
+    platform: "google"
   },
   {
     name: "Dave Miller",
@@ -86,7 +89,8 @@ const REVIEWS = [
     initials: "DM",
     color: "bg-white text-slate-900",
     accent: "text-[#16a34a]",
-    text: "Used them for trade waste on a kitchen fit. Way faster than a skip and saved me the headache of council permits. Reliable and professional."
+    text: "Used them for trade waste on a kitchen fit. Way faster than a skip and saved me the headache of council permits. Reliable and professional.",
+    platform: "google"
   },
   {
     name: "James Wilson",
@@ -94,7 +98,8 @@ const REVIEWS = [
     initials: "JW",
     color: "bg-[#16a34a] text-white",
     accent: "text-white",
-    text: "Total Waste Clearout is my go-to for commercial sites. They handle the compliance perfectly and the crews are incredibly hard-working."
+    text: "Total Waste Clearout is my go-to for commercial sites. They handle the compliance perfectly and the crews are incredibly hard-working.",
+    platform: "google"
   }
 ];
 
@@ -125,10 +130,15 @@ const ReviewCard = ({ review, idx }) => (
 
       <div className="flex items-center gap-4 pt-6 border-t border-current border-opacity-10 text-left">
         <div className={`w-10 md:w-16 h-10 md:h-16 rounded-full flex items-center justify-center font-[1000] border-2 md:border-4 border-slate-900 text-sm md:text-xl italic shrink-0 ${idx % 2 === 0 ? 'bg-[#16a34a] text-white' : 'bg-white text-[#16a34a]'}`}>{review.initials}</div>
-        <div className="overflow-hidden">
+        <div className="overflow-hidden flex-grow">
           <p className="font-[1000] uppercase text-sm md:text-lg leading-none truncate">{review.name}</p>
           <p className="font-bold opacity-60 text-[10px] md:text-xs uppercase italic truncate mt-1">{review.location} • Verified Review</p>
         </div>
+        {review.platform && (
+          <div className="shrink-0 bg-white rounded-full p-1.5 shadow-sm border border-slate-200">
+            <PlatformLogo platform={review.platform} size={18} />
+          </div>
+        )}
       </div>
     </div>
   </div>
