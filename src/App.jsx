@@ -1219,7 +1219,7 @@ const App = () => {
                 <a href="https://www.instagram.com/totalwasteclearout" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-[#4ade80] transition-colors hover:text-black group">
                   <Instagram size={18} className="group-hover:scale-110 transition-transform" />
                 </a>
-                <a href="https://www.facebook.com/totalwasteclearout" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-[#4ade80] transition-colors hover:text-black group">
+                <a href="https://m.facebook.com/totalwasteclearoutt/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-[#4ade80] transition-colors hover:text-black group">
                   <Facebook size={18} className="group-hover:scale-110 transition-transform" />
                 </a>
                 <a href="https://share.google/LlF3dWmvgamOAhgMy" target="_blank" rel="noopener noreferrer" aria-label="View us on Google Business" className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-[#4ade80] transition-colors hover:text-black group">
