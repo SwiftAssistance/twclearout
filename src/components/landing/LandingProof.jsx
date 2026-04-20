@@ -129,9 +129,9 @@ const LandingProof = () => (
               ))}
             </div>
             <p className="text-white font-black text-lg md:text-xl italic leading-tight mb-4">
-              "Called in the morning, they were here by lunchtime. Everything cleared, swept up, waste transfer note emailed over. Can't recommend enough."
+              "We used Total Waste Clearout twice and honestly couldn't fault them either time. First they cleared out our office, then a few weeks later sorted my garden at home. Showed up on time, got stuck in straight away, and left everything spotless. Really professional team, great communication, and the price was fair."
             </p>
-            <p className="text-white/60 text-sm font-bold">Sarah — Windsor</p>
+            <p className="text-white/60 text-sm font-bold">Wisetax Accountants — Slough</p>
           </div>
 
           {/* Smaller stacked reviews */}
@@ -143,9 +143,9 @@ const LandingProof = () => (
                 ))}
               </div>
               <p className="text-slate-900 font-black text-sm italic leading-snug mb-2">
-                "Used them for a full house clearance after my mum passed. Respectful, efficient, recycled as much as possible. Fair price. Would use again without hesitation."
+                "Really pleased with Total Waste Clearout. They demolished an old shed and cleared all the waste from my garden - turned up on time, worked quickly, and left everything spotless. Great value and friendly team. Will definitely use them again."
               </p>
-              <p className="text-slate-500 text-xs font-bold">James — Guildford</p>
+              <p className="text-slate-500 text-xs font-bold">Leo Luxe Clean — Slough</p>
             </div>
 
             <div className="border-4 border-slate-900 p-5 bg-white">
@@ -155,9 +155,9 @@ const LandingProof = () => (
                 ))}
               </div>
               <p className="text-slate-900 font-black text-sm italic leading-snug mb-2">
-                "Garden full of rubble, old decking and green waste. Loaded the lot in under an hour. Price was exactly what they quoted. Top job."
+                "Brilliant service from Total Waste Clear Out. Quick, reliable, and very professional. They cleared out my garden, shed, and old trees with no hassle and left everything spotless."
               </p>
-              <p className="text-slate-500 text-xs font-bold">Mark — Bracknell</p>
+              <p className="text-slate-500 text-xs font-bold">Conor Waterman — Woking</p>
             </div>
           </div>
         </div>

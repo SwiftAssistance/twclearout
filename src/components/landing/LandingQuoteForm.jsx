@@ -129,9 +129,9 @@ const LandingQuoteForm = () => {
                 ))}
               </div>
               <p className="text-sm font-bold text-white/80 italic leading-snug mb-2">
-                "Called in the morning, cleared by lunchtime. Fixed price, no surprises. Brilliant service."
+                "Used Total Waste Clearout twice — once for our office, once for my garden. Professional, on time, and spotless both times. Highly recommend."
               </p>
-              <p className="text-[10px] font-black text-white/40 uppercase tracking-wider">— Sarah, Windsor</p>
+              <p className="text-[10px] font-black text-white/40 uppercase tracking-wider">— Wisetax Accountants, Slough</p>
             </div>
 
             <a
