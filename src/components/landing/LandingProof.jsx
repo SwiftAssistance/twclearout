@@ -101,7 +101,7 @@ const ReviewCarousel = () => {
         style={{ touchAction: 'pan-y' }}
       >
         <div
-          className="flex"
+          className="flex items-stretch"
           style={{
             transform: `translateX(-${current * 100}%)`,
             transition: animated ? 'transform 500ms cubic-bezier(0.23,1,0.32,1)' : 'none',
@@ -109,13 +109,13 @@ const ReviewCarousel = () => {
           onTransitionEnd={handleTransitionEnd}
         >
           {SLIDES.map(({ text, name, location, platform }, idx) => (
-            <div key={idx} className="w-full flex-shrink-0">
-              <div className="border-4 border-slate-900 p-6 bg-[#064e3b] shadow-[6px_6px_0px_#16a34a]">
+            <div key={idx} className="w-full flex-shrink-0" style={{ minWidth: '100%' }}>
+              <div className="border-4 border-slate-900 p-6 bg-[#064e3b] shadow-[6px_6px_0px_#16a34a] h-full flex flex-col">
                 <div className="flex items-center gap-1.5 mb-4">
                   {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="currentColor" className="text-[#4ade80]" />)}
                   {platform && <PlatformLogo platform={platform} size={15} className="ml-1" />}
                 </div>
-                <p className="text-white font-black text-base md:text-lg italic leading-snug mb-4">
+                <p className="text-white font-black text-base md:text-lg italic leading-snug mb-4 flex-1">
                   "{text}"
                 </p>
                 <p className="text-white/50 text-xs font-bold uppercase tracking-wide">{name} — {location}</p>
