@@ -114,15 +114,16 @@ const STATS = [
 
 const ReviewCard = ({ review, idx }) => (
   <div className="w-full flex-shrink-0 px-1 sm:px-2">
-    {/* Review card with proper touch support */}
     <div className={`p-4 sm:p-10 md:p-14 border-4 sm:border-8 border-slate-900 rounded-[2rem] md:rounded-[3rem] shadow-[10px_10px_0px_#ecf3ef] md:shadow-[20px_20px_0px_#ecf3ef] flex flex-col relative overflow-hidden transition-all ${review.color} h-auto`}>
       <Quote className={`absolute -top-4 -left-4 w-16 md:w-32 opacity-10 ${review.accent}`} aria-hidden="true" />
-      
+
       <div className="relative z-10 flex-grow text-left mb-6 md:mb-10">
-        <div className="flex gap-0.5 mb-4">
-          {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" className={review.accent} />)}
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex gap-0.5">
+            {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" className={review.accent} />)}
+          </div>
+          {review.platform && <PlatformLogo platform={review.platform} size={18} />}
         </div>
-        {/* FIXED: Text scaling (text-base sm:text-xl) ensures content stays on-screen */}
         <p className="text-base sm:text-xl md:text-3xl lg:text-4xl font-[1000] uppercase italic leading-tight md:leading-[1.2] tracking-tight text-balance">
           "{review.text}"
         </p>
@@ -130,19 +131,114 @@ const ReviewCard = ({ review, idx }) => (
 
       <div className="flex items-center gap-4 pt-6 border-t border-current border-opacity-10 text-left">
         <div className={`w-10 md:w-16 h-10 md:h-16 rounded-full flex items-center justify-center font-[1000] border-2 md:border-4 border-slate-900 text-sm md:text-xl italic shrink-0 ${idx % 2 === 0 ? 'bg-[#16a34a] text-white' : 'bg-white text-[#16a34a]'}`}>{review.initials}</div>
-        <div className="overflow-hidden flex-grow">
+        <div className="overflow-hidden">
           <p className="font-[1000] uppercase text-sm md:text-lg leading-none truncate">{review.name}</p>
           <p className="font-bold opacity-60 text-[10px] md:text-xs uppercase italic truncate mt-1">{review.location} • Verified Review</p>
         </div>
-        {review.platform && (
-          <div className="shrink-0 bg-white rounded-full p-1.5 shadow-sm border border-slate-200">
-            <PlatformLogo platform={review.platform} size={18} />
-          </div>
-        )}
       </div>
     </div>
   </div>
 );
+
+// Clone last slide at start + first slide at end for seamless infinite forward loop
+const SLIDES = [REVIEWS[REVIEWS.length - 1], ...REVIEWS, REVIEWS[0]];
+
+const ReviewsSection = ({ title = "CLIENTS TALK." }) => {
+  const [current, setCurrent] = useState(1); // 1 = first real slide
+  const [animated, setAnimated] = useState(true);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
+  const goNext = useCallback(() => setCurrent(c => c + 1), []);
+  const goPrev = useCallback(() => setCurrent(c => c - 1), []);
+
+  const handleTransitionEnd = useCallback(() => {
+    if (current === SLIDES.length - 1) {
+      // Reached clone of first — silently jump to real first
+      setAnimated(false);
+      setCurrent(1);
+    } else if (current === 0) {
+      // Reached clone of last — silently jump to real last
+      setAnimated(false);
+      setCurrent(REVIEWS.length);
+    }
+  }, [current]);
+
+  useEffect(() => {
+    if (!animated) {
+      const id = requestAnimationFrame(() => requestAnimationFrame(() => setAnimated(true)));
+      return () => cancelAnimationFrame(id);
+    }
+  }, [animated]);
+
+  const handleTouchStart = (e) => { setTouchStart(e.targetTouches[0].clientX); setTouchEnd(null); };
+  const handleTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const dist = touchStart - touchEnd;
+    if (dist > 50) goNext();
+    else if (dist < -50) goPrev();
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
+  // Dot index maps to the real slide (strip the clones at 0 and end)
+  const dotIndex = (current - 1 + REVIEWS.length) % REVIEWS.length;
+
+  return (
+    <section id="reviews" className="py-24 md:py-32 bg-[#f8fafc] overflow-hidden text-left">
+      <div className="container mx-auto px-4 sm:px-6 text-left">
+        <div className="grid lg:grid-cols-12 gap-12 md:gap-20 items-start text-left">
+          <div className="lg:col-span-4 text-left text-slate-900">
+            <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Proven Trust</h2>
+            <p className="text-5xl md:text-8xl font-black text-slate-900 italic uppercase leading-[0.85] mb-12 tracking-tighter">{title}</p>
+            <div className="flex items-center gap-4 mb-12 relative z-[60]">
+              <button type="button" onClick={goPrev} aria-label="Previous review" className="w-12 h-12 md:w-14 md:h-14 border-4 border-slate-900 rounded-full flex items-center justify-center bg-white hover:bg-[#16a34a] hover:text-white transition-all text-slate-900 active:scale-90 shadow-md cursor-pointer pointer-events-auto">
+                <ChevronLeft size={24} className="md:w-7 md:h-7" />
+              </button>
+              <button type="button" onClick={goNext} aria-label="Next review" className="w-12 h-12 md:w-14 md:h-14 border-4 border-slate-900 rounded-full flex items-center justify-center bg-white hover:bg-[#16a34a] hover:text-white transition-all text-slate-900 active:scale-90 shadow-md cursor-pointer pointer-events-auto">
+                <ChevronRight size={24} className="md:w-7 md:h-7" />
+              </button>
+            </div>
+          </div>
+
+          <div className="lg:col-span-8 relative overflow-hidden">
+            <div
+              className="relative overflow-hidden w-full cursor-grab active:cursor-grabbing select-none touch-pan-y"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              style={{ touchAction: 'pan-y' }}
+            >
+              <div
+                className="flex flex-nowrap"
+                style={{
+                  transform: `translateX(-${current * 100}%)`,
+                  transition: animated ? 'transform 700ms cubic-bezier(0.23,1,0.32,1)' : 'none',
+                }}
+                onTransitionEnd={handleTransitionEnd}
+              >
+                {SLIDES.map((review, idx) => (
+                  <ReviewCard key={`slide-${idx}`} review={review} idx={idx} />
+                ))}
+              </div>
+            </div>
+            <div className="flex justify-center lg:justify-start gap-4 mt-12 px-4 text-left">
+              {REVIEWS.map((_, idx) => (
+                <button
+                  key={`dot-${idx}`}
+                  aria-label={`Slide ${idx + 1}`}
+                  onClick={() => { setAnimated(true); setCurrent(idx + 1); }}
+                  className={`h-3 transition-all duration-500 rounded-full border-2 border-slate-900 ${idx === dotIndex ? 'w-12 bg-[#16a34a]' : 'w-3 bg-slate-200'}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const HomeHero = () => (
   <header className="relative min-h-[85vh] md:min-h-screen flex items-center pt-20 md:pt-24 overflow-hidden bg-[#064e3b]">
@@ -841,9 +937,6 @@ const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentView, setCurrentView] = useState('home');
-  const [currentReview, setCurrentReview] = useState(0);
-  const [touchStart, setTouchStart] = useState(null);
-  const [touchEnd, setTouchEnd] = useState(null);
 
   // Logic: Stability & Scrolling
   useEffect(() => {
@@ -883,77 +976,6 @@ const App = () => {
     };
   }, [isMenuOpen]);
 
-  const nextReview = useCallback(() => setCurrentReview((prev) => (prev + 1) % REVIEWS.length), []);
-  const prevReview = useCallback(() => setCurrentReview((prev) => (prev - 1 + REVIEWS.length) % REVIEWS.length), []);
-
-  const handleTouchStart = (e) => {
-    setTouchStart(e.targetTouches[0].clientX);
-    setTouchEnd(null); // Reset touchEnd on new touch
-  };
-
-  const handleTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > 50;
-    const isRightSwipe = distance < -50;
-
-    if (isLeftSwipe) {
-      nextReview();
-    } else if (isRightSwipe) {
-      prevReview();
-    }
-
-    setTouchStart(null);
-    setTouchEnd(null);
-  };
-
-  const ReviewsSection = ({ title = "CLIENTS TALK." }) => (
-    <section id="reviews" className="py-24 md:py-32 bg-[#f8fafc] overflow-hidden text-left">
-      <div className="container mx-auto px-4 sm:px-6 text-left">
-        <div className="grid lg:grid-cols-12 gap-12 md:gap-20 items-start text-left">
-          <div className="lg:col-span-4 text-left text-slate-900">
-            <h2 className="text-[#16a34a] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-slate-900">Proven Trust</h2>
-            <p className="text-5xl md:text-8xl font-black text-slate-900 italic uppercase leading-[0.85] mb-12 tracking-tighter">{title}</p>
-            <div className="flex items-center gap-4 mb-12 relative z-[60]">
-               <button type="button" onClick={prevReview} aria-label="Previous review" className="w-12 h-12 md:w-14 md:h-14 border-4 border-slate-900 rounded-full flex items-center justify-center bg-white hover:bg-[#16a34a] hover:text-white transition-all text-slate-900 active:scale-90 shadow-md cursor-pointer pointer-events-auto">
-                 <ChevronLeft size={24} className="md:w-7 md:h-7" />
-               </button>
-               <button type="button" onClick={nextReview} aria-label="Next review" className="w-12 h-12 md:w-14 md:h-14 border-4 border-slate-900 rounded-full flex items-center justify-center bg-white hover:bg-[#16a34a] hover:text-white transition-all text-slate-900 active:scale-90 shadow-md cursor-pointer pointer-events-auto">
-                 <ChevronRight size={24} className="md:w-7 md:h-7" />
-               </button>
-            </div>
-          </div>
-
-          <div className="lg:col-span-8 relative overflow-hidden">
-            {/* Touch-enabled swipe area with proper event handling */}
-            <div
-              className="relative overflow-hidden w-full cursor-grab active:cursor-grabbing select-none touch-pan-y"
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-              style={{ touchAction: 'pan-y' }}
-            >
-              <div className="flex flex-nowrap transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]" style={{ transform: `translateX(-${currentReview * 100}%)` }}>
-                {REVIEWS.map((review, idx) => (
-                  <ReviewCard key={`rev-${idx}`} review={review} idx={idx} />
-                ))}
-              </div>
-            </div>
-            <div className="flex justify-center lg:justify-start gap-4 mt-12 px-4 text-left">
-                {REVIEWS.map((_, idx) => (
-                  <button key={`dot-${idx}`} aria-label={`Slide ${idx+1}`} onClick={() => setCurrentReview(idx)} className={`h-3 transition-all duration-500 rounded-full border-2 border-slate-900 ${idx === currentReview ? 'w-12 bg-[#16a34a]' : 'w-3 bg-slate-200'}`} />
-                ))}
-              </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-orange-500 selection:text-white overflow-x-hidden">
