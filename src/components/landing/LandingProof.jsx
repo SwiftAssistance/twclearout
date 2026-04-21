@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Star, Trash2, Home, TreePine, Briefcase, Sofa, Warehouse, ChevronLeft, ChevronRight } from 'lucide-react';
+import React from 'react';
+import { Star, Trash2, Home, TreePine, Briefcase, Sofa, Warehouse } from 'lucide-react';
 import PlatformLogo from '../PlatformLogo';
 
 const jobPhotos = [
@@ -32,125 +32,33 @@ const reviews = [
   },
 ];
 
-// Clone last at start + first at end for seamless infinite forward loop
-const SLIDES = [reviews[reviews.length - 1], ...reviews, reviews[0]];
-
-const ReviewCarousel = () => {
-  const [current, setCurrent] = useState(1);
-  const [animated, setAnimated] = useState(true);
-  const [touchStart, setTouchStart] = useState(null);
-  const [touchEnd, setTouchEnd] = useState(null);
-
-  const goNext = useCallback(() => setCurrent(c => c + 1), []);
-  const goPrev = useCallback(() => setCurrent(c => c - 1), []);
-
-  // Auto-advance every 6 seconds; resets whenever current changes
-  useEffect(() => {
-    const id = setInterval(goNext, 6000);
-    return () => clearInterval(id);
-  }, [current, goNext]);
-
-  const handleTransitionEnd = useCallback(() => {
-    if (current === SLIDES.length - 1) {
-      setAnimated(false);
-      setCurrent(1);
-    } else if (current === 0) {
-      setAnimated(false);
-      setCurrent(reviews.length);
-    }
-  }, [current]);
-
-  useEffect(() => {
-    if (!animated) {
-      const id = requestAnimationFrame(() => requestAnimationFrame(() => setAnimated(true)));
-      return () => cancelAnimationFrame(id);
-    }
-  }, [animated]);
-
-  const onTouchStart = (e) => { setTouchStart(e.targetTouches[0].clientX); setTouchEnd(null); };
-  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    const dist = touchStart - touchEnd;
-    if (dist > 50) goNext();
-    else if (dist < -50) goPrev();
-    setTouchStart(null);
-    setTouchEnd(null);
-  };
-
-  const dotIndex = (current - 1 + reviews.length) % reviews.length;
-
-  return (
-    <div>
-      {/* Header row */}
-      <div className="flex items-center gap-3 mb-6">
-        <div className="flex gap-0.5">
-          {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#f59e0b" className="text-yellow-500" />)}
-        </div>
-        <span className="text-sm font-black text-slate-900 uppercase italic">5.0</span>
-        <PlatformLogo platform="google" size={16} />
-        <span className="text-xs font-bold text-slate-400">Google Reviews</span>
+const Reviews = () => (
+  <div>
+    <div className="flex items-center gap-3 mb-8">
+      <div className="flex gap-0.5">
+        {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#f59e0b" className="text-yellow-500" />)}
       </div>
-
-      {/* Carousel */}
-      <div
-        className="overflow-hidden touch-pan-y select-none cursor-grab active:cursor-grabbing"
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
-        style={{ touchAction: 'pan-y' }}
-      >
-        <div
-          className="flex"
-          style={{
-            transform: `translateX(-${current * 100}%)`,
-            transition: animated ? 'transform 500ms cubic-bezier(0.23,1,0.32,1)' : 'none',
-          }}
-          onTransitionEnd={handleTransitionEnd}
-        >
-          {SLIDES.map(({ text, name, location, platform }, idx) => (
-            <div key={idx} className="w-full flex-shrink-0">
-              <div className="border-4 border-slate-900 p-6 bg-[#064e3b] shadow-[6px_6px_0px_#16a34a]">
-                <div className="flex items-center gap-1.5 mb-4">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="currentColor" className="text-[#4ade80]" />)}
-                  {platform && <PlatformLogo platform={platform} size={15} className="ml-1" />}
-                </div>
-                <p className="text-white font-black text-base md:text-lg italic leading-snug mb-4">
-                  "{text}"
-                </p>
-                <p className="text-white/50 text-xs font-bold uppercase tracking-wide">{name} — {location}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Controls */}
-      <div className="flex items-center justify-between mt-4">
-        <div className="flex gap-2">
-          <button type="button" onClick={goPrev} aria-label="Previous review"
-            className="w-9 h-9 border-2 border-slate-300 rounded-full flex items-center justify-center text-slate-500 hover:border-slate-900 hover:text-slate-900 transition-colors active:scale-90">
-            <ChevronLeft size={16} />
-          </button>
-          <button type="button" onClick={goNext} aria-label="Next review"
-            className="w-9 h-9 border-2 border-slate-300 rounded-full flex items-center justify-center text-slate-500 hover:border-slate-900 hover:text-slate-900 transition-colors active:scale-90">
-            <ChevronRight size={16} />
-          </button>
-        </div>
-        <div className="flex gap-2">
-          {reviews.map((_, idx) => (
-            <button
-              key={idx}
-              aria-label={`Review ${idx + 1}`}
-              onClick={() => { setAnimated(true); setCurrent(idx + 1); }}
-              className={`h-2 rounded-full border border-slate-300 transition-all duration-300 ${idx === dotIndex ? 'w-6 bg-slate-900' : 'w-2 bg-slate-200'}`}
-            />
-          ))}
-        </div>
-      </div>
+      <span className="text-sm font-black text-slate-900 uppercase italic">5.0</span>
+      <PlatformLogo platform="google" size={16} />
+      <span className="text-xs font-bold text-slate-400">Google Reviews</span>
     </div>
-  );
-};
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {reviews.map(({ text, name, location, platform }, idx) => (
+        <div key={idx} className="border-4 border-slate-900 p-6 bg-[#064e3b] shadow-[6px_6px_0px_#16a34a] flex flex-col">
+          <div className="flex items-center gap-1.5 mb-4">
+            {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="currentColor" className="text-[#4ade80]" />)}
+            {platform && <PlatformLogo platform={platform} size={15} className="ml-1" />}
+          </div>
+          <p className="text-white font-black text-base italic leading-snug mb-4 flex-grow">
+            "{text}"
+          </p>
+          <p className="text-white/50 text-xs font-bold uppercase tracking-wide">{name} — {location}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+);
 
 const LandingProof = () => (
   <>
@@ -204,10 +112,10 @@ const LandingProof = () => (
       </div>
     </section>
 
-    {/* REVIEWS — single card, auto-scroll */}
+    {/* REVIEWS */}
     <section className="bg-white py-14 md:py-20">
       <div className="container mx-auto px-5 sm:px-6">
-        <ReviewCarousel />
+        <Reviews />
       </div>
     </section>
   </>
