@@ -6,6 +6,7 @@ import LandingPriceStrip from '../components/landing/LandingPriceStrip';
 import LandingSocialProof from '../components/landing/LandingSocialProof';
 import LandingSkipPanel from '../components/landing/LandingSkipPanel';
 import LandingProof from '../components/landing/LandingProof';
+import LandingReviews from '../components/landing/LandingReviews';
 import LandingQuoteForm from '../components/landing/LandingQuoteForm';
 import LandingFinalCTA from '../components/landing/LandingFinalCTA';
 import LandingFooter from '../components/landing/LandingFooter';
@@ -56,10 +57,13 @@ const GetQuote = () => {
         {/* 5. Skip comparison — strongest differentiator, promoted before photo carousel */}
         <LandingSkipPanel />
 
-        {/* 6. Proof — job photos + reviews in one flowing section */}
+        {/* 6. Proof — job photos + services */}
         <LandingProof />
 
-        {/* 7. Second quote form */}
+        {/* 7. Reviews carousel */}
+        <LandingReviews />
+
+        {/* 8. Second quote form */}
         <LandingQuoteForm />
 
         {/* 8. Final CTA — last push to convert */}
