@@ -107,9 +107,6 @@ const HeroQuoteForm = () => {
           <div className="w-2.5 h-2.5 bg-[#4ade80] rounded-full animate-pulse" />
           <p className="text-sm font-black uppercase italic tracking-wider text-white">Free Quote</p>
         </div>
-        <p className="text-[9px] font-black uppercase tracking-wider text-orange-400">
-          ⚡ 3 same-day slots left today
-        </p>
       </div>
 
       {/* Mobile-only compact trust bar: Google 5.0 + EA Licence above the fields */}
