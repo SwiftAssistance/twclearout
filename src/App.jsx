@@ -371,21 +371,25 @@ const BeforeAfterSlider = ({ beforeSrc, afterSrc, label }) => {
   }, []);
 
   useEffect(() => {
+    const onMove = (e) => { if (isDragging.current) updatePos(e.clientX); };
+    const onTouchMove = (e) => { if (isDragging.current) { e.preventDefault(); updatePos(e.touches[0].clientX); } };
     const stop = () => { isDragging.current = false; };
+    window.addEventListener('mousemove', onMove);
     window.addEventListener('mouseup', stop);
+    window.addEventListener('touchmove', onTouchMove, { passive: false });
     window.addEventListener('touchend', stop);
     return () => {
+      window.removeEventListener('mousemove', onMove);
       window.removeEventListener('mouseup', stop);
+      window.removeEventListener('touchmove', onTouchMove);
       window.removeEventListener('touchend', stop);
     };
-  }, []);
+  }, [updatePos]);
 
   return (
     <div
       ref={containerRef}
       className="relative overflow-hidden select-none aspect-[4/3] cursor-ew-resize rounded-sm"
-      onMouseMove={(e) => { if (isDragging.current) updatePos(e.clientX); }}
-      onTouchMove={(e) => { e.preventDefault(); updatePos(e.touches[0].clientX); }}
     >
       <img src={beforeSrc} alt={`${label} before waste removal`} className="absolute inset-0 w-full h-full object-cover" draggable={false} />
       <div className="absolute inset-0 overflow-hidden" style={{ width: `${pos}%` }}>
@@ -1144,9 +1148,9 @@ const App = () => {
                   </div>
                 </div>
               </section>
+              <BeforeAfterSection />
               <HomeServices />
               <WasteRemovalIntro />
-              <BeforeAfterSection />
               <ReviewsSection title="CLIENTS TALK." />
               <HomeQuote />
               <GeoFaqSection />
