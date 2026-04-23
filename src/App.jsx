@@ -1167,8 +1167,8 @@ const App = () => {
                 </div>
               </section>
               <HomeServices />
-              <WasteRemovalIntro />
               <BeforeAfterSection />
+              <WasteRemovalIntro />
               <ReviewsSection title="CLIENTS TALK." />
               <HomeQuote />
               <GeoFaqSection />
