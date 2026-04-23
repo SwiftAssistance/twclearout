@@ -78,7 +78,7 @@ const LandingReviews = () => {
   const dotIndex = (current - 1 + reviews.length) % reviews.length;
 
   return (
-    <section className="py-20 md:py-28 bg-[#064e3b] overflow-hidden">
+    <section className="py-20 md:py-28 bg-[#064e3b]">
       <div className="container mx-auto px-6">
         <div className="mb-12 md:mb-16 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
           <div>
