@@ -289,13 +289,13 @@ const HomeServices = () => (
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 text-left">
         <Link to="/services/commercial-ripouts/" className="lg:col-span-7 bg-[#dcfce7] p-6 md:p-20 flex flex-col justify-end min-h-[260px] md:min-h-[400px] border-4 border-slate-900 shadow-[12px_12px_0px_#16a34a] relative overflow-hidden group cursor-pointer hover:border-[#16a34a] transition-colors">
-          <Truck size={350} className="absolute top-0 right-0 p-10 opacity-5 text-black group-hover:translate-x-10 transition-transform duration-1000" />
+          <Truck size={350} className="absolute top-0 right-0 p-10 opacity-5 text-black group-hover:translate-x-10 transition-transform duration-1000 w-[140px] h-[140px] md:w-[350px] md:h-[350px]" />
           <h3 className="text-3xl md:text-6xl font-[1000] text-slate-900 uppercase italic mb-3 md:mb-6 leading-none tracking-tight">Full Site <br /> Waste Removal</h3>
           <p className="font-bold text-sm md:text-xl text-slate-700 max-w-sm italic leading-relaxed text-balance text-left">Industrial warehouses and multi-floor office blocks. Professional logistical removal.</p>
         </Link>
 
         <Link to="/services/commercial-ripouts/" className="lg:col-span-5 bg-[#064e3b] p-6 md:p-12 border-4 border-slate-900 flex flex-col justify-between shadow-xl text-white group cursor-pointer hover:border-[#4ade80] transition-colors relative overflow-hidden min-h-[200px] md:min-h-0">
-          <Briefcase size={280} className="absolute -bottom-8 -right-8 opacity-[0.06] text-white pointer-events-none group-hover:translate-x-6 transition-transform duration-1000" />
+          <Briefcase size={280} className="absolute -bottom-8 -right-8 opacity-[0.06] text-white pointer-events-none group-hover:translate-x-6 transition-transform duration-1000 w-[110px] h-[110px] md:w-[280px] md:h-[280px]" />
           <Briefcase size={36} className="text-[#4ade80] relative z-10" />
           <div className="relative z-10">
             <h3 className="text-2xl md:text-4xl font-black uppercase italic mb-3 md:mb-4 leading-tight text-white text-left">Commercial <br /> Waste Removal</h3>
@@ -304,7 +304,7 @@ const HomeServices = () => (
         </Link>
 
         <Link to="/services/construction-waste/" className="lg:col-span-4 bg-slate-900 p-6 md:p-10 border-4 border-slate-900 flex flex-col justify-between text-white group hover:bg-orange-500 transition-all duration-500 cursor-pointer text-left relative overflow-hidden min-h-[200px] md:min-h-0">
-          <HardHat size={240} className="absolute -bottom-6 -right-6 opacity-[0.06] text-white pointer-events-none group-hover:text-black group-hover:translate-x-6 transition-all duration-1000" />
+          <HardHat size={240} className="absolute -bottom-6 -right-6 opacity-[0.06] text-white pointer-events-none group-hover:text-black group-hover:translate-x-6 transition-all duration-1000 w-[100px] h-[100px] md:w-[240px] md:h-[240px]" />
           <HardHat size={36} className="text-orange-500 group-hover:text-black transition-colors relative z-10" />
           <div className="text-left text-white relative z-10">
             <h4 className="text-2xl md:text-3xl font-black uppercase italic mb-2 leading-none">Trade Waste Removal</h4>
@@ -313,7 +313,7 @@ const HomeServices = () => (
         </Link>
 
         <Link to="/services/garden-waste/" className="lg:col-span-8 bg-[#ecf3ef] border-4 border-slate-900 p-5 md:p-12 flex flex-col items-start shadow-lg cursor-pointer hover:border-[#16a34a] transition-colors group relative overflow-hidden">
-          <TreePine size={300} className="absolute -bottom-8 -right-8 opacity-[0.06] text-[#16a34a] pointer-events-none group-hover:translate-x-6 transition-transform duration-1000" />
+          <TreePine size={300} className="absolute -bottom-8 -right-8 opacity-[0.06] text-[#16a34a] pointer-events-none group-hover:translate-x-6 transition-transform duration-1000 w-[120px] h-[120px] md:w-[300px] md:h-[300px]" />
           <div className="w-full text-left relative z-10">
             <TreePine size={36} className="text-[#16a34a] mb-3 md:mb-4" aria-hidden="true" />
             <h4 className="text-3xl md:text-5xl font-black text-slate-900 uppercase italic leading-none mb-4 md:mb-6">Garden Waste <br /> Removal.</h4>
@@ -1166,9 +1166,9 @@ const App = () => {
                   </div>
                 </div>
               </section>
-              <BeforeAfterSection />
               <HomeServices />
               <WasteRemovalIntro />
+              <BeforeAfterSection />
               <ReviewsSection title="CLIENTS TALK." />
               <HomeQuote />
               <GeoFaqSection />
