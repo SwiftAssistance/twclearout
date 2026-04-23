@@ -148,21 +148,36 @@ const ReviewsSection = ({ title = "CLIENTS TALK." }) => {
   const [animated, setAnimated] = useState(true);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
+  const currentRef = useRef(1);
 
-  const goNext = useCallback(() => setCurrent(c => c + 1), []);
-  const goPrev = useCallback(() => setCurrent(c => c - 1), []);
+  const goNext = useCallback(() => {
+    setCurrent(c => {
+      const next = Math.min(c + 1, SLIDES.length - 1);
+      currentRef.current = next;
+      return next;
+    });
+  }, []);
+
+  const goPrev = useCallback(() => {
+    setCurrent(c => {
+      const next = Math.max(c - 1, 0);
+      currentRef.current = next;
+      return next;
+    });
+  }, []);
 
   const handleTransitionEnd = useCallback(() => {
-    if (current === SLIDES.length - 1) {
-      // Reached clone of first — silently jump to real first
+    const c = currentRef.current;
+    if (c >= SLIDES.length - 1) {
       setAnimated(false);
+      currentRef.current = 1;
       setCurrent(1);
-    } else if (current === 0) {
-      // Reached clone of last — silently jump to real last
+    } else if (c <= 0) {
       setAnimated(false);
+      currentRef.current = REVIEWS.length;
       setCurrent(REVIEWS.length);
     }
-  }, [current]);
+  }, []);
 
   useEffect(() => {
     if (!animated) {
