@@ -377,7 +377,7 @@ const WasteRemovalIntro = () => (
 );
 
 const BeforeAfterSlider = ({ beforeSrc, afterSrc, label }) => {
-  const [pos, setPos] = useState(50);
+  const [pos, setPos] = useState(95);
   const containerRef = useRef(null);
   const isDragging = useRef(false);
 
@@ -386,6 +386,13 @@ const BeforeAfterSlider = ({ beforeSrc, afterSrc, label }) => {
     const rect = containerRef.current.getBoundingClientRect();
     const pct = Math.max(2, Math.min(98, ((clientX - rect.left) / rect.width) * 100));
     setPos(pct);
+  }, []);
+
+  // Hint sweep so users know to drag
+  useEffect(() => {
+    const t1 = setTimeout(() => setPos(60), 900);
+    const t2 = setTimeout(() => setPos(95), 1800);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
   }, []);
 
   useEffect(() => {
@@ -408,30 +415,33 @@ const BeforeAfterSlider = ({ beforeSrc, afterSrc, label }) => {
     <div
       ref={containerRef}
       className="relative overflow-hidden select-none aspect-[4/3] cursor-ew-resize rounded-sm"
+      onMouseDown={() => { isDragging.current = true; }}
+      onTouchStart={() => { isDragging.current = true; }}
     >
-      <img src={beforeSrc} alt={`${label} before waste removal`} className="absolute inset-0 w-full h-full object-cover" draggable={false} />
-      <div className="absolute inset-0 overflow-hidden" style={{ width: `${pos}%` }}>
-        <img
-          src={afterSrc}
-          alt={`${label} after waste removal`}
-          className="absolute inset-0 h-full object-cover"
-          style={{ width: `${10000 / pos}%` }}
-          draggable={false}
-        />
-      </div>
-      <div className="absolute top-0 bottom-0" style={{ left: `${pos}%`, transform: 'translateX(-50%)' }}>
+      {/* AFTER: base layer always full width */}
+      <img src={afterSrc} alt={`${label} after`} className="absolute inset-0 w-full h-full object-cover" draggable={false} />
+      {/* BEFORE: clipped to left pos% via clip-path */}
+      <img
+        src={beforeSrc}
+        alt={`${label} before`}
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+        draggable={false}
+      />
+      {/* Divider */}
+      <div className="absolute top-0 bottom-0 pointer-events-none" style={{ left: `${pos}%`, transform: 'translateX(-50%)' }}>
         <div className="w-0.5 h-full bg-white shadow-[0_0_8px_rgba(0,0,0,0.6)]" />
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-11 bg-white rounded-full shadow-2xl flex items-center justify-center border-2 border-slate-200 touch-none"
-          onMouseDown={() => { isDragging.current = true; }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-11 bg-white rounded-full shadow-2xl flex items-center justify-center border-2 border-slate-200 touch-none pointer-events-auto"
+          onMouseDown={(e) => { e.stopPropagation(); isDragging.current = true; }}
           onTouchStart={(e) => { e.preventDefault(); isDragging.current = true; }}
         >
           <ChevronLeft size={14} className="text-slate-800 shrink-0" />
           <ChevronRight size={14} className="text-slate-800 shrink-0" />
         </div>
       </div>
-      <span className="absolute top-3 left-3 bg-[#16a34a] text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-1 pointer-events-none shadow">AFTER</span>
-      <span className="absolute top-3 right-3 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-1 pointer-events-none shadow">BEFORE</span>
+      <span className="absolute top-3 left-3 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-1 pointer-events-none shadow">BEFORE</span>
+      <span className="absolute top-3 right-3 bg-[#16a34a] text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-1 pointer-events-none shadow">AFTER</span>
     </div>
   );
 };
