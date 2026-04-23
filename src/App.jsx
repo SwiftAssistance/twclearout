@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo, lazy, Suspense } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, useRef, lazy, Suspense } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import {
@@ -352,6 +352,90 @@ const WasteRemovalIntro = () => (
               Learn More About Our Waste Removal Service →
             </Link>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const BeforeAfterSlider = ({ beforeSrc, afterSrc, label }) => {
+  const [pos, setPos] = useState(50);
+  const containerRef = useRef(null);
+  const isDragging = useRef(false);
+
+  const updatePos = useCallback((clientX) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const pct = Math.max(2, Math.min(98, ((clientX - rect.left) / rect.width) * 100));
+    setPos(pct);
+  }, []);
+
+  useEffect(() => {
+    const stop = () => { isDragging.current = false; };
+    window.addEventListener('mouseup', stop);
+    window.addEventListener('touchend', stop);
+    return () => {
+      window.removeEventListener('mouseup', stop);
+      window.removeEventListener('touchend', stop);
+    };
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative overflow-hidden select-none aspect-[4/3] cursor-ew-resize rounded-sm"
+      onMouseMove={(e) => { if (isDragging.current) updatePos(e.clientX); }}
+      onTouchMove={(e) => { e.preventDefault(); updatePos(e.touches[0].clientX); }}
+    >
+      <img src={beforeSrc} alt={`${label} before waste removal`} className="absolute inset-0 w-full h-full object-cover" draggable={false} />
+      <div className="absolute inset-0 overflow-hidden" style={{ width: `${pos}%` }}>
+        <img
+          src={afterSrc}
+          alt={`${label} after waste removal`}
+          className="absolute inset-0 h-full object-cover"
+          style={{ width: `${10000 / pos}%` }}
+          draggable={false}
+        />
+      </div>
+      <div className="absolute top-0 bottom-0" style={{ left: `${pos}%`, transform: 'translateX(-50%)' }}>
+        <div className="w-0.5 h-full bg-white shadow-[0_0_8px_rgba(0,0,0,0.6)]" />
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-11 bg-white rounded-full shadow-2xl flex items-center justify-center border-2 border-slate-200 touch-none"
+          onMouseDown={() => { isDragging.current = true; }}
+          onTouchStart={(e) => { e.preventDefault(); isDragging.current = true; }}
+        >
+          <ChevronLeft size={14} className="text-slate-800 shrink-0" />
+          <ChevronRight size={14} className="text-slate-800 shrink-0" />
+        </div>
+      </div>
+      <span className="absolute top-3 left-3 bg-[#16a34a] text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-1 pointer-events-none shadow">AFTER</span>
+      <span className="absolute top-3 right-3 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-1 pointer-events-none shadow">BEFORE</span>
+    </div>
+  );
+};
+
+const BeforeAfterSection = () => (
+  <section className="py-20 md:py-28 bg-slate-900">
+    <div className="container mx-auto px-6">
+      <div className="mb-12">
+        <h2 className="text-[#4ade80] font-black uppercase tracking-[0.4em] text-xs mb-4 italic underline decoration-white">Real Jobs. Real Results.</h2>
+        <p className="text-4xl md:text-6xl lg:text-7xl font-[1000] text-white italic uppercase leading-[0.9] tracking-tighter">
+          SEE THE<br /><span className="text-[#4ade80]">DIFFERENCE.</span>
+        </p>
+        <p className="text-white/60 font-bold mt-6 max-w-xl">Drag the slider to see before and after on real jobs we've completed across Berkshire & Surrey.</p>
+      </div>
+      <div className="grid md:grid-cols-3 gap-6">
+        <div>
+          <BeforeAfterSlider beforeSrc="/jobs/garden-before.webp" afterSrc="/jobs/garden-after.webp" label="Garden waste clearance" />
+          <p className="text-white/60 font-black uppercase tracking-widest text-xs mt-3">Garden Clearance</p>
+        </div>
+        <div>
+          <BeforeAfterSlider beforeSrc="/jobs/shed-before.webp" afterSrc="/jobs/shed-after.webp" label="Shed clearance" />
+          <p className="text-white/60 font-black uppercase tracking-widest text-xs mt-3">Shed Clearance</p>
+        </div>
+        <div>
+          <BeforeAfterSlider beforeSrc="/jobs/construction-before.webp" afterSrc="/jobs/construction-after.webp" label="Construction waste" />
+          <p className="text-white/60 font-black uppercase tracking-widest text-xs mt-3">Construction Waste</p>
         </div>
       </div>
     </div>
@@ -1062,6 +1146,7 @@ const App = () => {
               </section>
               <HomeServices />
               <WasteRemovalIntro />
+              <BeforeAfterSection />
               <ReviewsSection title="CLIENTS TALK." />
               <HomeQuote />
               <GeoFaqSection />
