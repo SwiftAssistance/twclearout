@@ -34,6 +34,20 @@ const Areas = () => {
     ]
   };
 
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Waste Removal Service Areas — Berkshire & Surrey",
+    "description": "All towns and postcodes covered by Total Waste Clearout for waste removal in Berkshire and Surrey",
+    "numberOfItems": Object.keys(AREA_DATA).length,
+    "itemListElement": Object.values(AREA_DATA).map((area, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "name": `Waste Removal ${area.name}`,
+      "url": `https://totalwasteclearout.co.uk/${area.slug}/`
+    }))
+  };
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -67,6 +81,7 @@ const Areas = () => {
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>
       </Helmet>
 
       {/* Hero Section */}

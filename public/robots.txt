@@ -100,6 +100,25 @@ Allow: /
 User-agent: DuckAssistBot
 Allow: /
 
+# 2026 AI crawlers — Gemini, Grok, Naver, Timpi
+User-agent: GeminiBot
+Allow: /
+
+User-agent: Google-CloudVertexBot
+Allow: /
+
+User-agent: xAI
+Allow: /
+
+User-agent: GrokBot
+Allow: /
+
+User-agent: NaverBot
+Allow: /
+
+User-agent: Timpibot
+Allow: /
+
 # Directory, review & local-business crawlers
 User-agent: YellowPagesBot
 Allow: /
