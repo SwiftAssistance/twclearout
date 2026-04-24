@@ -12,6 +12,8 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="author" content="Total Waste Clearout" />
     <link rel="canonical" href="https://totalwasteclearout.co.uk/" />
+    <link rel="alternate" hreflang="en-GB" href="https://totalwasteclearout.co.uk/" />
+    <link rel="alternate" hreflang="x-default" href="https://totalwasteclearout.co.uk/" />
 
     <!-- Geographic targeting - Berkshire & Surrey -->
     <meta name="geo.region" content="GB-BRK" />
@@ -26,8 +28,8 @@
     <link rel="preload" as="image" href="/hero.webp" type="image/webp" fetchpriority="high" />
 
     <!-- Preconnect hints for faster resource loading (Core Web Vitals) -->
-    <link rel="preconnect" href="https://www.google.com" />
-    <link rel="preconnect" href="https://api.web3forms.com" />
+    <link rel="preconnect" href="https://www.google.com" crossorigin />
+    <link rel="preconnect" href="https://api.web3forms.com" crossorigin />
     <link rel="dns-prefetch" href="https://www.google.com" />
 
     <!-- Favicon -->
@@ -48,6 +50,7 @@
     <meta property="og:image" content="https://totalwasteclearout.co.uk/logo-512.png" />
     <meta property="og:image:width" content="512" />
     <meta property="og:image:height" content="512" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:alt" content="Total Waste Clearout logo — Berkshire &amp; Surrey waste removal" />
 
     <!-- Twitter -->
@@ -56,6 +59,7 @@
     <meta property="twitter:title" content="Waste Removal Berkshire & Surrey | Total Waste Clearout" />
     <meta property="twitter:description" content="Berkshire & Surrey's #1 waste removal service. Same-day rubbish clearance, house clearance, garden waste & commercial waste. 94% recycled, licensed, £5M insured. Call 07769 844298." />
     <meta property="twitter:image" content="https://totalwasteclearout.co.uk/logo-512.png" />
+    <meta property="twitter:image:alt" content="Total Waste Clearout logo — Berkshire &amp; Surrey waste removal" />
 
     <!-- Schema.org Structured Data for SEO and Rich Snippets -->
     <!-- Organization Schema for Logo Display in Search Results -->
@@ -138,12 +142,7 @@
       "@type": "WebSite",
       "name": "Total Waste Clearout",
       "alternateName": ["Berkshire Waste Removal", "Surrey Waste Removal", "Total Waste Clearout Ltd"],
-      "url": "https://totalwasteclearout.co.uk",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://totalwasteclearout.co.uk/areas?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "url": "https://totalwasteclearout.co.uk"
     }
     </script>
 
@@ -156,7 +155,8 @@
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "@id": "https://totalwasteclearout.co.uk/#organization",
+      "@id": "https://totalwasteclearout.co.uk/#localbusiness",
+      "parentOrganization": { "@id": "https://totalwasteclearout.co.uk/#organization" },
       "name": "Total Waste Clearout",
       "alternateName": "Berkshire Waste Removal",
       "description": "Berkshire & Surrey's premier waste removal service with 94% recycling rate, fully licensed, £5M insured. Professional clearance for homes, offices, and commercial sites.",
@@ -168,7 +168,6 @@
       "priceRange": "££",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Reading",
         "addressLocality": "Reading",
         "addressRegion": "Berkshire",
         "postalCode": "RG1",
@@ -588,12 +587,12 @@
             "name": "Small Office Clearout",
             "priceSpecification": { "@type": "PriceSpecification", "price": "400", "priceCurrency": "GBP", "valueAddedTaxIncluded": true }
           },
-          { "@type": "OfferCatalog", "name": "House Clearance", "description": "Probate, bereavement and landlord house clearance services" },
-          { "@type": "OfferCatalog", "name": "End of Tenancy Clearance", "description": "Same-day tenant clearout and rental property clearance" },
-          { "@type": "OfferCatalog", "name": "Garden Waste Removal", "description": "Trees, hedges, grass, soil and green waste clearance — boosted April–September for spring &amp; summer demand" },
-          { "@type": "OfferCatalog", "name": "Commercial Waste Removal", "description": "Office clearance, retail strip-outs and commercial waste" },
-          { "@type": "OfferCatalog", "name": "Construction Waste Removal", "description": "Skip alternative for builders - rubble, timber, building waste" },
-          { "@type": "OfferCatalog", "name": "Garage &amp; Shed Demolition", "description": "Complete garage and shed clearance, demolition and removal" }
+          { "@type": "Offer", "name": "House Clearance", "description": "Probate, bereavement and landlord house clearance services" },
+          { "@type": "Offer", "name": "End of Tenancy Clearance", "description": "Same-day tenant clearout and rental property clearance" },
+          { "@type": "Offer", "name": "Garden Waste Removal", "description": "Trees, hedges, grass, soil and green waste clearance — boosted April–September for spring &amp; summer demand" },
+          { "@type": "Offer", "name": "Commercial Waste Removal", "description": "Office clearance, retail strip-outs and commercial waste" },
+          { "@type": "Offer", "name": "Construction Waste Removal", "description": "Skip alternative for builders - rubble, timber, building waste" },
+          { "@type": "Offer", "name": "Garage &amp; Shed Demolition", "description": "Complete garage and shed clearance, demolition and removal" }
         ]
       }
     }
@@ -723,7 +722,7 @@
         <p>Reading, Slough, Guildford, Woking, Bracknell, Windsor, Ascot, Egham, Maidenhead, Staines, Camberley, Farnham, Godalming, Aldershot, Farnborough, Weybridge, Esher, Epsom, Leatherhead, Dorking, Redhill, Reigate, Crawley.</p>
         <!-- PRERENDER_AREA_LINKS_START --><!-- PRERENDER_AREA_LINKS_END -->
         <h2>Contact</h2>
-        <p>Phone: <a href="tel:07769844298">07769 844298</a> | Email: <a href="mailto:info@totalwasteclearout.co.uk">info@totalwasteclearout.co.uk</a></p>
+        <p>Phone: <a href="tel:07769844298">07769 844298</a> | Email: <a href="mailto:office@totalwasteclearout.co.uk">office@totalwasteclearout.co.uk</a></p>
         <p>Licensed waste carrier CBDU630127. £5M public liability insurance. 94% recycling rate. Waste transfer notes provided for every job.</p>
         <p>Open Monday–Friday 7am–7pm, Saturday 8am–5pm.</p>
       </div>
