@@ -275,12 +275,12 @@ const LandingHero = () => (
             </span>
           </div>
 
-          <h1 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] font-black text-white leading-[0.95] mb-5 tracking-tighter uppercase italic">
+          <h1 className="speakable-headline text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] font-black text-white leading-[0.95] mb-5 tracking-tighter uppercase italic">
             Waste Removal.<br />
             <span className="text-[#4ade80]">Done Today.</span>
           </h1>
 
-          <p className="text-base md:text-lg text-white/80 mb-6 max-w-md font-bold leading-snug">
+          <p className="speakable-summary text-base md:text-lg text-white/80 mb-6 max-w-md font-bold leading-snug">
             From <span className="text-white font-black">£50</span> — beats skip hire on price, every time. No permits, no waiting. Fixed price, no hidden fees. We do the heavy lifting.
           </p>
 
