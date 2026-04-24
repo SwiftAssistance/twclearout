@@ -218,21 +218,23 @@ const GarageShed = () => {
                 Garage and shed demolition services throughout Berkshire and Surrey:
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                {serviceAreas.map((area, idx) => {
-                  const mainAreas = ["Reading", "Slough", "Guildford", "Woking", "Bracknell", "Windsor", "Ascot", "Egham", "Maidenhead", "Staines"];
-                  const slug = mainAreas.includes(area) ? `/garage-shed-clearance-${area.toLowerCase()}` : null;
-                  return slug ? (
-                    <Link key={idx} to={slug} className="flex items-center gap-2 hover:text-[#16a34a] transition-colors group">
-                      <CheckCircle size={20} className="text-[#16a34a] shrink-0" />
-                      <span className="font-bold text-slate-900 group-hover:text-[#16a34a] underline decoration-[#16a34a]/30">{area}</span>
-                    </Link>
-                  ) : (
-                    <div key={idx} className="flex items-center gap-2">
-                      <CheckCircle size={20} className="text-[#16a34a] shrink-0" />
-                      <span className="font-bold text-slate-900">{area}</span>
-                    </div>
-                  );
-                })}
+                {[
+                  { name: "Reading", slug: "/waste-removal-reading/" },
+                  { name: "Slough", slug: "/waste-removal-slough/" },
+                  { name: "Guildford", slug: "/waste-removal-guildford/" },
+                  { name: "Woking", slug: "/waste-removal-woking/" },
+                  { name: "Bracknell", slug: "/waste-removal-bracknell/" },
+                  { name: "Windsor", slug: "/waste-removal-windsor/" },
+                  { name: "Ascot", slug: "/waste-removal-ascot/" },
+                  { name: "Egham", slug: "/waste-removal-egham/" },
+                  { name: "Maidenhead", slug: "/waste-removal-maidenhead/" },
+                  { name: "Staines", slug: "/waste-removal-staines/" },
+                ].map((area, idx) => (
+                  <Link key={idx} to={area.slug} className="flex items-center gap-2 hover:text-[#16a34a] transition-colors group">
+                    <CheckCircle size={20} className="text-[#16a34a] shrink-0" />
+                    <span className="font-bold text-slate-900 group-hover:text-[#16a34a] underline decoration-[#16a34a]/30">Waste Removal {area.name}</span>
+                  </Link>
+                ))}
               </div>
               <p className="text-slate-600 mt-6 text-sm">
                 Multiple structures to remove? We offer discounts for clearing multiple garages, sheds, or outbuildings.

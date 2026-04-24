@@ -200,6 +200,7 @@ const ServiceAreaPage = () => {
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
       {/* Hero Section */}
@@ -502,7 +503,7 @@ const ServiceAreaPage = () => {
                   >
                     <MapPin size={24} className="text-[#16a34a] mx-auto mb-2 group-hover:scale-110 transition-transform" />
                     <h3 className="font-black text-lg uppercase text-slate-900 group-hover:text-[#16a34a] transition-colors">
-                      {otherArea.name}
+                      {service.name} {otherArea.name}
                     </h3>
                     <p className="text-slate-500 text-xs font-bold uppercase mt-1">{otherArea.county} | {otherArea.postcode}</p>
                   </Link>
