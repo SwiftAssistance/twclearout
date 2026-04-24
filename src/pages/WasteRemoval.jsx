@@ -149,7 +149,7 @@ const WasteRemoval = () => {
               <a href="tel:07769844298" className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-400 text-black px-8 py-4 font-black uppercase italic tracking-wide transition-colors shadow-[4px_4px_0px_#064e3b]">
                 <Phone size={18} fill="black" /> Call 07769 844298
               </a>
-              <Link to="/get-quote" className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 px-8 py-4 font-black uppercase italic tracking-wide transition-colors">
+              <Link to="/get-quote/" className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 px-8 py-4 font-black uppercase italic tracking-wide transition-colors">
                 Get a Free Quote
               </Link>
             </div>
@@ -349,7 +349,7 @@ const WasteRemoval = () => {
             <a href="tel:07769844298" className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-400 text-black px-10 py-5 font-black uppercase italic tracking-wide text-lg transition-colors shadow-[6px_6px_0px_#022c22]">
               <Phone size={22} fill="black" /> 07769 844298
             </a>
-            <Link to="/get-quote" className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 px-10 py-5 font-black uppercase italic tracking-wide text-lg transition-colors">
+            <Link to="/get-quote/" className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 px-10 py-5 font-black uppercase italic tracking-wide text-lg transition-colors">
               Get a Free Quote
             </Link>
           </div>

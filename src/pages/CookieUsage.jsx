@@ -296,7 +296,7 @@ const CookieUsage = () => {
               </div>
               <div className="mt-8 pt-8 border-t border-white/20">
                 <p className="text-white/80 text-sm">
-                  For more information about how we handle your personal data, please see our <Link to="/privacy-policy" className="text-[#4ade80] font-bold hover:underline">Privacy Policy</Link>.
+                  For more information about how we handle your personal data, please see our <Link to="/privacy-policy/" className="text-[#4ade80] font-bold hover:underline">Privacy Policy</Link>.
                 </p>
               </div>
             </div>
