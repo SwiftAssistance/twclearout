@@ -306,7 +306,7 @@ const WasteRemoval = () => {
             {AREAS.map(({ name, slug }) => (
               <Link
                 key={slug}
-                to={`/waste-removal-${slug}`}
+                to={`/waste-removal-${slug}/`}
                 className="bg-[#ecf3ef] border-4 border-slate-900 p-4 text-center hover:bg-[#dcfce7] hover:border-[#16a34a] transition-colors group"
               >
                 <Truck size={18} className="text-[#16a34a] mx-auto mb-2 group-hover:scale-110 transition-transform" />
