@@ -57,6 +57,7 @@ const AreaPage = () => {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": `https://totalwasteclearout.co.uk/${area.slug}/#localbusiness`,
     "name": `Total Waste Clearout - ${area.name}`,
     "description": `Professional waste removal and rubbish clearance services in ${area.name}, ${area.county}. Same-day collection, 94% recycling rate, fully licensed.`,
     "url": `https://totalwasteclearout.co.uk/${area.slug}`,
@@ -128,7 +129,15 @@ const AreaPage = () => {
         "name": r.author
       },
       "reviewBody": r.text
-    }))
+    })),
+    "parentOrganization": { "@id": "https://totalwasteclearout.co.uk/#organization" },
+    "sameAs": [
+      "https://www.yell.com/biz/total-waste-clearout-reading/",
+      "https://m.facebook.com/totalwasteclearoutt/",
+      "https://www.instagram.com/totalwasteclearout",
+      "https://www.linkedin.com/company/totalwasteclearout",
+      "https://share.google/LlF3dWmvgamOAhgMy"
+    ]
   };
 
   // Schema.org Service structured data
