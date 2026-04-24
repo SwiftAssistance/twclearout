@@ -45,6 +45,502 @@
   to = "/robots.txt"
   status = 200
 
+# Trailing-slash redirects for SEO — non-slash → slash, 301 permanent
+# Area pages
+[[redirects]]
+  from = "/waste-removal-reading"
+  to = "/waste-removal-reading/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/waste-removal-slough"
+  to = "/waste-removal-slough/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/waste-removal-guildford"
+  to = "/waste-removal-guildford/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/waste-removal-woking"
+  to = "/waste-removal-woking/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/waste-removal-bracknell"
+  to = "/waste-removal-bracknell/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/waste-removal-windsor"
+  to = "/waste-removal-windsor/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/waste-removal-ascot"
+  to = "/waste-removal-ascot/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/waste-removal-egham"
+  to = "/waste-removal-egham/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/waste-removal-maidenhead"
+  to = "/waste-removal-maidenhead/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/waste-removal-staines"
+  to = "/waste-removal-staines/"
+  status = 301
+  force = true
+
+# Core pages
+[[redirects]]
+  from = "/areas"
+  to = "/areas/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services"
+  to = "/services/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about"
+  to = "/about/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/waste-removal"
+  to = "/waste-removal/"
+  status = 301
+  force = true
+
+# Service pages
+[[redirects]]
+  from = "/services/end-of-tenancy"
+  to = "/services/end-of-tenancy/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/construction-waste"
+  to = "/services/construction-waste/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/garden-waste"
+  to = "/services/garden-waste/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/commercial-ripouts"
+  to = "/services/commercial-ripouts/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/home-probate-clearance"
+  to = "/services/home-probate-clearance/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/garage-shed"
+  to = "/services/garage-shed/"
+  status = 301
+  force = true
+
+# House clearance service+area pages
+[[redirects]]
+  from = "/house-clearance-reading"
+  to = "/house-clearance-reading/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/house-clearance-slough"
+  to = "/house-clearance-slough/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/house-clearance-guildford"
+  to = "/house-clearance-guildford/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/house-clearance-woking"
+  to = "/house-clearance-woking/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/house-clearance-bracknell"
+  to = "/house-clearance-bracknell/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/house-clearance-windsor"
+  to = "/house-clearance-windsor/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/house-clearance-ascot"
+  to = "/house-clearance-ascot/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/house-clearance-egham"
+  to = "/house-clearance-egham/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/house-clearance-maidenhead"
+  to = "/house-clearance-maidenhead/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/house-clearance-staines"
+  to = "/house-clearance-staines/"
+  status = 301
+  force = true
+
+# End-of-tenancy clearance service+area pages
+[[redirects]]
+  from = "/end-of-tenancy-clearance-reading"
+  to = "/end-of-tenancy-clearance-reading/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/end-of-tenancy-clearance-slough"
+  to = "/end-of-tenancy-clearance-slough/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/end-of-tenancy-clearance-guildford"
+  to = "/end-of-tenancy-clearance-guildford/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/end-of-tenancy-clearance-woking"
+  to = "/end-of-tenancy-clearance-woking/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/end-of-tenancy-clearance-bracknell"
+  to = "/end-of-tenancy-clearance-bracknell/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/end-of-tenancy-clearance-windsor"
+  to = "/end-of-tenancy-clearance-windsor/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/end-of-tenancy-clearance-ascot"
+  to = "/end-of-tenancy-clearance-ascot/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/end-of-tenancy-clearance-egham"
+  to = "/end-of-tenancy-clearance-egham/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/end-of-tenancy-clearance-maidenhead"
+  to = "/end-of-tenancy-clearance-maidenhead/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/end-of-tenancy-clearance-staines"
+  to = "/end-of-tenancy-clearance-staines/"
+  status = 301
+  force = true
+
+# Garden waste removal service+area pages
+[[redirects]]
+  from = "/garden-waste-removal-reading"
+  to = "/garden-waste-removal-reading/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/garden-waste-removal-slough"
+  to = "/garden-waste-removal-slough/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/garden-waste-removal-guildford"
+  to = "/garden-waste-removal-guildford/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/garden-waste-removal-woking"
+  to = "/garden-waste-removal-woking/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/garden-waste-removal-bracknell"
+  to = "/garden-waste-removal-bracknell/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/garden-waste-removal-windsor"
+  to = "/garden-waste-removal-windsor/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/garden-waste-removal-ascot"
+  to = "/garden-waste-removal-ascot/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/garden-waste-removal-egham"
+  to = "/garden-waste-removal-egham/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/garden-waste-removal-maidenhead"
+  to = "/garden-waste-removal-maidenhead/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/garden-waste-removal-staines"
+  to = "/garden-waste-removal-staines/"
+  status = 301
+  force = true
+
+# Commercial waste removal service+area pages
+[[redirects]]
+  from = "/commercial-waste-removal-reading"
+  to = "/commercial-waste-removal-reading/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/commercial-waste-removal-slough"
+  to = "/commercial-waste-removal-slough/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/commercial-waste-removal-guildford"
+  to = "/commercial-waste-removal-guildford/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/commercial-waste-removal-woking"
+  to = "/commercial-waste-removal-woking/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/commercial-waste-removal-bracknell"
+  to = "/commercial-waste-removal-bracknell/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/commercial-waste-removal-windsor"
+  to = "/commercial-waste-removal-windsor/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/commercial-waste-removal-ascot"
+  to = "/commercial-waste-removal-ascot/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/commercial-waste-removal-egham"
+  to = "/commercial-waste-removal-egham/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/commercial-waste-removal-maidenhead"
+  to = "/commercial-waste-removal-maidenhead/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/commercial-waste-removal-staines"
+  to = "/commercial-waste-removal-staines/"
+  status = 301
+  force = true
+
+# Construction waste removal service+area pages
+[[redirects]]
+  from = "/construction-waste-removal-reading"
+  to = "/construction-waste-removal-reading/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/construction-waste-removal-slough"
+  to = "/construction-waste-removal-slough/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/construction-waste-removal-guildford"
+  to = "/construction-waste-removal-guildford/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/construction-waste-removal-woking"
+  to = "/construction-waste-removal-woking/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/construction-waste-removal-bracknell"
+  to = "/construction-waste-removal-bracknell/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/construction-waste-removal-windsor"
+  to = "/construction-waste-removal-windsor/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/construction-waste-removal-ascot"
+  to = "/construction-waste-removal-ascot/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/construction-waste-removal-egham"
+  to = "/construction-waste-removal-egham/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/construction-waste-removal-maidenhead"
+  to = "/construction-waste-removal-maidenhead/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/construction-waste-removal-staines"
+  to = "/construction-waste-removal-staines/"
+  status = 301
+  force = true
+
+# Garage/shed clearance service+area pages
+[[redirects]]
+  from = "/garage-shed-clearance-reading"
+  to = "/garage-shed-clearance-reading/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/garage-shed-clearance-slough"
+  to = "/garage-shed-clearance-slough/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/garage-shed-clearance-guildford"
+  to = "/garage-shed-clearance-guildford/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/garage-shed-clearance-woking"
+  to = "/garage-shed-clearance-woking/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/garage-shed-clearance-bracknell"
+  to = "/garage-shed-clearance-bracknell/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/garage-shed-clearance-windsor"
+  to = "/garage-shed-clearance-windsor/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/garage-shed-clearance-ascot"
+  to = "/garage-shed-clearance-ascot/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/garage-shed-clearance-egham"
+  to = "/garage-shed-clearance-egham/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/garage-shed-clearance-maidenhead"
+  to = "/garage-shed-clearance-maidenhead/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/garage-shed-clearance-staines"
+  to = "/garage-shed-clearance-staines/"
+  status = 301
+  force = true
+
 # SPA fallback — only fires when no matching static file exists.
 # Prerendered HTML files (from prerender.js) are served directly by Netlify
 # because this is a non-forced (200, not 200!) rewrite.

@@ -363,6 +363,17 @@ for (const page of pages) {
   else if (AREA_DATA[pageSlug]) {
     const area = AREA_DATA[pageSlug];
     html = replacePageSchemas(html, buildFaqSchema(area.faqs));
+    // Inject "Waste Removal [Town]" links for all other areas into the static
+    // noscript block so Googlebot sees the anchor text without running JS.
+    const otherAreas = Object.values(AREA_DATA).filter(a => a.slug !== pageSlug);
+    const areaLinks = otherAreas
+      .map(a => `<a href="/${a.slug}/">Waste Removal ${a.name}</a>`)
+      .join(' | ');
+    const areaLinksBlock = `<div><h3>Waste Removal Near ${area.name} — Other Areas We Cover</h3>${areaLinks}</div>`;
+    html = html.replace(
+      '<!-- PRERENDER_AREA_LINKS_START --><!-- PRERENDER_AREA_LINKS_END -->',
+      `<!-- PRERENDER_AREA_LINKS_START -->${areaLinksBlock}<!-- PRERENDER_AREA_LINKS_END -->`
+    );
   }
   // All other pages — remove homepage schemas entirely
   else {

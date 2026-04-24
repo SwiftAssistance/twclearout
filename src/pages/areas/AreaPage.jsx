@@ -206,6 +206,7 @@ const AreaPage = () => {
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
       {/* Hero Section */}
@@ -564,7 +565,7 @@ const AreaPage = () => {
           {/* Other Areas We Serve - Internal Linking */}
           <section className="mb-16">
             <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">
-              Other Areas We Serve Near {area.name}
+              Waste Removal Near {area.name} — Other Areas We Cover
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
               {otherAreas.map((otherArea) => (
@@ -575,7 +576,7 @@ const AreaPage = () => {
                 >
                   <MapPin size={24} className="text-[#16a34a] mx-auto mb-2 group-hover:scale-110 transition-transform" />
                   <h3 className="font-black text-lg uppercase text-slate-900 group-hover:text-[#16a34a] transition-colors">
-                    {otherArea.name}
+                    Waste Removal {otherArea.name}
                   </h3>
                   <p className="text-slate-500 text-xs font-bold uppercase mt-1">{otherArea.county} | {otherArea.postcode}</p>
                 </Link>
