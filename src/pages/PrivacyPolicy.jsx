@@ -115,7 +115,7 @@ const PrivacyPolicy = () => {
                 <h3 className="text-xl font-black uppercase mb-4 text-slate-900">Automatically Collected Information</h3>
                 <ul className="space-y-3 text-slate-700">
                   <li className="flex gap-3"><span className="text-[#16a34a] font-black">•</span><span><strong>Website Usage:</strong> IP address, browser type, device information, pages visited</span></li>
-                  <li className="flex gap-3"><span className="text-[#16a34a] font-black">•</span><span><strong>Cookies:</strong> See our <Link to="/cookie-usage" className="text-[#16a34a] font-bold hover:underline">Cookie Usage Policy</Link> for details</span></li>
+                  <li className="flex gap-3"><span className="text-[#16a34a] font-black">•</span><span><strong>Cookies:</strong> See our <Link to="/cookie-usage/" className="text-[#16a34a] font-bold hover:underline">Cookie Usage Policy</Link> for details</span></li>
                   <li className="flex gap-3"><span className="text-[#16a34a] font-black">•</span><span><strong>Location Data:</strong> Approximate location based on IP address for service area verification</span></li>
                 </ul>
               </div>
@@ -217,7 +217,7 @@ const PrivacyPolicy = () => {
           <section id="cookies-&-tracking" className="mb-16">
             <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6">Cookies & Tracking</h2>
             <p className="text-slate-700 leading-relaxed mb-6">
-              We use cookies and similar technologies to enhance your browsing experience. For detailed information about the cookies we use and how to manage them, please see our <Link to="/cookie-usage" className="text-[#16a34a] font-bold hover:underline">Cookie Usage Policy</Link>.
+              We use cookies and similar technologies to enhance your browsing experience. For detailed information about the cookies we use and how to manage them, please see our <Link to="/cookie-usage/" className="text-[#16a34a] font-bold hover:underline">Cookie Usage Policy</Link>.
             </p>
           </section>
 

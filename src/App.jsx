@@ -364,7 +364,7 @@ const WasteRemovalIntro = () => (
               We serve all of Berkshire including Reading, Slough, Bracknell, Windsor, Ascot, and Maidenhead, and all of Surrey including Guildford, Woking, Egham, and Staines-upon-Thames. Same-day waste removal is available across our entire service area — call <a href="tel:07769844298" className="text-[#16a34a] underline hover:text-[#15803d]">07769 844298</a> or use the quote form to book.
             </p>
             <Link
-              to="/waste-removal"
+              to="/waste-removal/"
               className="inline-flex items-center gap-2 bg-slate-900 hover:bg-[#16a34a] text-white px-8 py-4 font-black uppercase italic tracking-wider text-sm transition-all shadow-[4px_4px_0px_#16a34a] hover:shadow-[4px_4px_0px_#064e3b]"
             >
               Learn More About Our Waste Removal Service →
@@ -1049,7 +1049,7 @@ const ServiceCard = ({ emoji, title, description, features, price, dark, green }
 
 const App = () => {
   const location = useLocation();
-  const isLandingPage = location.pathname === '/get-quote';
+  const isLandingPage = location.pathname === '/get-quote/';
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentView, setCurrentView] = useState('home');
@@ -1110,8 +1110,8 @@ const App = () => {
             <Link to="/" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname === '/' ? 'text-[#16a34a]' : ''}`}>Home<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname === '/' ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
             <Link to="/services/" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname.startsWith('/services') ? 'text-[#16a34a]' : ''}`}>Services<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname.startsWith('/services') ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
             <Link to="/areas/" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname.startsWith('/areas') ? 'text-[#16a34a]' : ''}`}>Areas<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname.startsWith('/areas') ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
-            <Link to="/about/" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname === '/about' ? 'text-[#16a34a]' : ''}`}>Why Us<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname === '/about' ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
-            <Link to="/contact/" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname === '/contact' ? 'text-[#16a34a]' : ''}`}>Contact<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname === '/contact' ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
+            <Link to="/about/" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname === '/about/' ? 'text-[#16a34a]' : ''}`}>Why Us<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname === '/about/' ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
+            <Link to="/contact/" onClick={() => setIsMenuOpen(false)} className={`transition-all relative group py-2 hover:text-[#16a34a] ${location.pathname === '/contact/' ? 'text-[#16a34a]' : ''}`}>Contact<span className={`absolute bottom-0 left-0 h-0.5 bg-orange-500 transition-all duration-300 ${location.pathname === '/contact/' ? 'w-full' : 'w-0 group-hover:w-full'}`} /></Link>
             <div className="h-6 w-px bg-white/20 mx-2" /><a href="tel:07769844298" className="bg-[#16a34a] hover:bg-slate-900 text-white px-6 py-3 rounded-sm flex items-center gap-3 transition-all shadow-md font-black italic uppercase tracking-wider"><Phone size={16} fill="white" /> 07769 844298</a>
           </div>
           <button className={`xl:hidden p-2 transition-colors duration-300 ${isScrolled ? 'text-slate-900' : 'text-white'}`} onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle Menu" aria-expanded={isMenuOpen} aria-controls="mobile-menu">{isMenuOpen ? <X size={28} /> : <Menu size={28} />}</button>
@@ -1122,8 +1122,8 @@ const App = () => {
               <Link key="m-home" to="/" onClick={() => setIsMenuOpen(false)} className={`border-b border-slate-100 pb-4 flex justify-between items-center transition-colors ${location.pathname === '/' ? 'text-[#16a34a]' : ''}`}>Home <ChevronRight size={24} className={location.pathname === '/' ? 'text-[#16a34a]' : 'text-slate-200'} /></Link>
               <Link key="m-serv" to="/services/" onClick={() => setIsMenuOpen(false)} className={`border-b border-slate-100 pb-4 flex justify-between items-center transition-colors ${location.pathname.startsWith('/services') ? 'text-[#16a34a]' : ''}`}>Services <ChevronRight size={24} className={location.pathname.startsWith('/services') ? 'text-[#16a34a]' : 'text-slate-200'} /></Link>
               <Link key="m-areas" to="/areas/" onClick={() => setIsMenuOpen(false)} className={`border-b border-slate-100 pb-4 flex justify-between items-center transition-colors ${location.pathname.startsWith('/areas') ? 'text-[#16a34a]' : ''}`}>Areas <ChevronRight size={24} className={location.pathname.startsWith('/areas') ? 'text-[#16a34a]' : 'text-slate-200'} /></Link>
-              <Link key="m-about" to="/about/" onClick={() => setIsMenuOpen(false)} className={`border-b border-slate-100 pb-4 flex justify-between items-center transition-colors ${location.pathname === '/about' ? 'text-[#16a34a]' : ''}`}>Why Us <ChevronRight size={24} className={location.pathname === '/about' ? 'text-[#16a34a]' : 'text-slate-200'} /></Link>
-              <Link key="m-contact" to="/contact/" onClick={() => setIsMenuOpen(false)} className={`border-b border-slate-100 pb-4 flex justify-between items-center transition-colors ${location.pathname === '/contact' ? 'text-[#16a34a]' : ''}`}>Contact <ChevronRight size={24} className={location.pathname === '/contact' ? 'text-[#16a34a]' : 'text-slate-200'} /></Link>
+              <Link key="m-about" to="/about/" onClick={() => setIsMenuOpen(false)} className={`border-b border-slate-100 pb-4 flex justify-between items-center transition-colors ${location.pathname === '/about/' ? 'text-[#16a34a]' : ''}`}>Why Us <ChevronRight size={24} className={location.pathname === '/about/' ? 'text-[#16a34a]' : 'text-slate-200'} /></Link>
+              <Link key="m-contact" to="/contact/" onClick={() => setIsMenuOpen(false)} className={`border-b border-slate-100 pb-4 flex justify-between items-center transition-colors ${location.pathname === '/contact/' ? 'text-[#16a34a]' : ''}`}>Contact <ChevronRight size={24} className={location.pathname === '/contact/' ? 'text-[#16a34a]' : 'text-slate-200'} /></Link>
             </div>
             <div className="mt-auto space-y-6 text-center pb-12"><a href="tel:07769844298" className="bg-[#16a34a] text-white w-full p-6 text-center rounded-sm flex items-center justify-center gap-4 font-black italic text-xl uppercase shadow-lg"><Phone fill="white" /> CALL 07769 844298</a></div>
           </div>
@@ -1185,93 +1185,93 @@ const App = () => {
               <MapContact />
             </div>
           } />
-          <Route path="/waste-removal" element={<WasteRemovalPage />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/cookie-usage" element={<CookieUsage />} />
-          <Route path="/legal" element={<Legal />} />
-          <Route path="/sitemap" element={<Sitemap />} />
-          <Route path="/services/end-of-tenancy" element={<EndOfTenancy />} />
-          <Route path="/services/construction-waste" element={<HardHatWasteHub />} />
-          <Route path="/services/garden-waste" element={<GardenWaste />} />
-          <Route path="/services/commercial-ripouts" element={<CommercialRipouts />} />
-          <Route path="/services/home-probate-clearance" element={<HomeAndProbate />} />
-          <Route path="/services/garage-shed" element={<GarageShed />} />
-          <Route path="/areas" element={<Areas />} />
-          <Route path="/waste-removal-reading" element={<AreaPage />} />
-          <Route path="/waste-removal-slough" element={<AreaPage />} />
-          <Route path="/waste-removal-guildford" element={<AreaPage />} />
-          <Route path="/waste-removal-woking" element={<AreaPage />} />
-          <Route path="/waste-removal-bracknell" element={<AreaPage />} />
-          <Route path="/waste-removal-windsor" element={<AreaPage />} />
-          <Route path="/waste-removal-ascot" element={<AreaPage />} />
-          <Route path="/waste-removal-egham" element={<AreaPage />} />
-          <Route path="/waste-removal-maidenhead" element={<AreaPage />} />
-          <Route path="/waste-removal-staines" element={<AreaPage />} />
+          <Route path="/waste-removal/" element={<WasteRemovalPage />} />
+          <Route path="/privacy-policy/" element={<PrivacyPolicy />} />
+          <Route path="/cookie-usage/" element={<CookieUsage />} />
+          <Route path="/legal/" element={<Legal />} />
+          <Route path="/sitemap/" element={<Sitemap />} />
+          <Route path="/services/end-of-tenancy/" element={<EndOfTenancy />} />
+          <Route path="/services/construction-waste/" element={<HardHatWasteHub />} />
+          <Route path="/services/garden-waste/" element={<GardenWaste />} />
+          <Route path="/services/commercial-ripouts/" element={<CommercialRipouts />} />
+          <Route path="/services/home-probate-clearance/" element={<HomeAndProbate />} />
+          <Route path="/services/garage-shed/" element={<GarageShed />} />
+          <Route path="/areas/" element={<Areas />} />
+          <Route path="/waste-removal-reading/" element={<AreaPage />} />
+          <Route path="/waste-removal-slough/" element={<AreaPage />} />
+          <Route path="/waste-removal-guildford/" element={<AreaPage />} />
+          <Route path="/waste-removal-woking/" element={<AreaPage />} />
+          <Route path="/waste-removal-bracknell/" element={<AreaPage />} />
+          <Route path="/waste-removal-windsor/" element={<AreaPage />} />
+          <Route path="/waste-removal-ascot/" element={<AreaPage />} />
+          <Route path="/waste-removal-egham/" element={<AreaPage />} />
+          <Route path="/waste-removal-maidenhead/" element={<AreaPage />} />
+          <Route path="/waste-removal-staines/" element={<AreaPage />} />
           {/* Service + Area combination pages (60 pages) */}
-          <Route path="/house-clearance-reading" element={<ServiceAreaPage />} />
-          <Route path="/house-clearance-slough" element={<ServiceAreaPage />} />
-          <Route path="/house-clearance-guildford" element={<ServiceAreaPage />} />
-          <Route path="/house-clearance-woking" element={<ServiceAreaPage />} />
-          <Route path="/house-clearance-bracknell" element={<ServiceAreaPage />} />
-          <Route path="/house-clearance-windsor" element={<ServiceAreaPage />} />
-          <Route path="/house-clearance-ascot" element={<ServiceAreaPage />} />
-          <Route path="/house-clearance-egham" element={<ServiceAreaPage />} />
-          <Route path="/house-clearance-maidenhead" element={<ServiceAreaPage />} />
-          <Route path="/house-clearance-staines" element={<ServiceAreaPage />} />
-          <Route path="/end-of-tenancy-clearance-reading" element={<ServiceAreaPage />} />
-          <Route path="/end-of-tenancy-clearance-slough" element={<ServiceAreaPage />} />
-          <Route path="/end-of-tenancy-clearance-guildford" element={<ServiceAreaPage />} />
-          <Route path="/end-of-tenancy-clearance-woking" element={<ServiceAreaPage />} />
-          <Route path="/end-of-tenancy-clearance-bracknell" element={<ServiceAreaPage />} />
-          <Route path="/end-of-tenancy-clearance-windsor" element={<ServiceAreaPage />} />
-          <Route path="/end-of-tenancy-clearance-ascot" element={<ServiceAreaPage />} />
-          <Route path="/end-of-tenancy-clearance-egham" element={<ServiceAreaPage />} />
-          <Route path="/end-of-tenancy-clearance-maidenhead" element={<ServiceAreaPage />} />
-          <Route path="/end-of-tenancy-clearance-staines" element={<ServiceAreaPage />} />
-          <Route path="/garden-waste-removal-reading" element={<ServiceAreaPage />} />
-          <Route path="/garden-waste-removal-slough" element={<ServiceAreaPage />} />
-          <Route path="/garden-waste-removal-guildford" element={<ServiceAreaPage />} />
-          <Route path="/garden-waste-removal-woking" element={<ServiceAreaPage />} />
-          <Route path="/garden-waste-removal-bracknell" element={<ServiceAreaPage />} />
-          <Route path="/garden-waste-removal-windsor" element={<ServiceAreaPage />} />
-          <Route path="/garden-waste-removal-ascot" element={<ServiceAreaPage />} />
-          <Route path="/garden-waste-removal-egham" element={<ServiceAreaPage />} />
-          <Route path="/garden-waste-removal-maidenhead" element={<ServiceAreaPage />} />
-          <Route path="/garden-waste-removal-staines" element={<ServiceAreaPage />} />
-          <Route path="/commercial-waste-removal-reading" element={<ServiceAreaPage />} />
-          <Route path="/commercial-waste-removal-slough" element={<ServiceAreaPage />} />
-          <Route path="/commercial-waste-removal-guildford" element={<ServiceAreaPage />} />
-          <Route path="/commercial-waste-removal-woking" element={<ServiceAreaPage />} />
-          <Route path="/commercial-waste-removal-bracknell" element={<ServiceAreaPage />} />
-          <Route path="/commercial-waste-removal-windsor" element={<ServiceAreaPage />} />
-          <Route path="/commercial-waste-removal-ascot" element={<ServiceAreaPage />} />
-          <Route path="/commercial-waste-removal-egham" element={<ServiceAreaPage />} />
-          <Route path="/commercial-waste-removal-maidenhead" element={<ServiceAreaPage />} />
-          <Route path="/commercial-waste-removal-staines" element={<ServiceAreaPage />} />
-          <Route path="/construction-waste-removal-reading" element={<ServiceAreaPage />} />
-          <Route path="/construction-waste-removal-slough" element={<ServiceAreaPage />} />
-          <Route path="/construction-waste-removal-guildford" element={<ServiceAreaPage />} />
-          <Route path="/construction-waste-removal-woking" element={<ServiceAreaPage />} />
-          <Route path="/construction-waste-removal-bracknell" element={<ServiceAreaPage />} />
-          <Route path="/construction-waste-removal-windsor" element={<ServiceAreaPage />} />
-          <Route path="/construction-waste-removal-ascot" element={<ServiceAreaPage />} />
-          <Route path="/construction-waste-removal-egham" element={<ServiceAreaPage />} />
-          <Route path="/construction-waste-removal-maidenhead" element={<ServiceAreaPage />} />
-          <Route path="/construction-waste-removal-staines" element={<ServiceAreaPage />} />
-          <Route path="/garage-shed-clearance-reading" element={<ServiceAreaPage />} />
-          <Route path="/garage-shed-clearance-slough" element={<ServiceAreaPage />} />
-          <Route path="/garage-shed-clearance-guildford" element={<ServiceAreaPage />} />
-          <Route path="/garage-shed-clearance-woking" element={<ServiceAreaPage />} />
-          <Route path="/garage-shed-clearance-bracknell" element={<ServiceAreaPage />} />
-          <Route path="/garage-shed-clearance-windsor" element={<ServiceAreaPage />} />
-          <Route path="/garage-shed-clearance-ascot" element={<ServiceAreaPage />} />
-          <Route path="/garage-shed-clearance-egham" element={<ServiceAreaPage />} />
-          <Route path="/garage-shed-clearance-maidenhead" element={<ServiceAreaPage />} />
-          <Route path="/garage-shed-clearance-staines" element={<ServiceAreaPage />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/get-quote" element={<GetQuote />} />
+          <Route path="/house-clearance-reading/" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-slough/" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-guildford/" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-woking/" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-bracknell/" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-windsor/" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-ascot/" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-egham/" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-maidenhead/" element={<ServiceAreaPage />} />
+          <Route path="/house-clearance-staines/" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-reading/" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-slough/" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-guildford/" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-woking/" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-bracknell/" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-windsor/" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-ascot/" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-egham/" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-maidenhead/" element={<ServiceAreaPage />} />
+          <Route path="/end-of-tenancy-clearance-staines/" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-reading/" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-slough/" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-guildford/" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-woking/" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-bracknell/" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-windsor/" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-ascot/" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-egham/" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-maidenhead/" element={<ServiceAreaPage />} />
+          <Route path="/garden-waste-removal-staines/" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-reading/" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-slough/" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-guildford/" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-woking/" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-bracknell/" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-windsor/" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-ascot/" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-egham/" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-maidenhead/" element={<ServiceAreaPage />} />
+          <Route path="/commercial-waste-removal-staines/" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-reading/" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-slough/" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-guildford/" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-woking/" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-bracknell/" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-windsor/" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-ascot/" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-egham/" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-maidenhead/" element={<ServiceAreaPage />} />
+          <Route path="/construction-waste-removal-staines/" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-reading/" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-slough/" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-guildford/" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-woking/" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-bracknell/" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-windsor/" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-ascot/" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-egham/" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-maidenhead/" element={<ServiceAreaPage />} />
+          <Route path="/garage-shed-clearance-staines/" element={<ServiceAreaPage />} />
+          <Route path="/services/" element={<Services />} />
+          <Route path="/about/" element={<About />} />
+          <Route path="/contact/" element={<Contact />} />
+          <Route path="/get-quote/" element={<GetQuote />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         </Suspense>
@@ -1308,7 +1308,7 @@ const App = () => {
             <div className="lg:col-span-3 space-y-6">
               <h5 className="font-black text-[#4ade80] uppercase tracking-[0.3em] text-xs italic border-l-4 border-[#4ade80] pl-4 leading-none">Our Services</h5>
               <ul className="space-y-3">
-                <li><Link to="/waste-removal" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><Truck size={14} className="text-[#4ade80]/60 shrink-0" /> Waste Removal Service</Link></li>
+                <li><Link to="/waste-removal/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><Truck size={14} className="text-[#4ade80]/60 shrink-0" /> Waste Removal Service</Link></li>
                 <li><Link to="/services/home-probate-clearance/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><Home size={14} className="text-[#4ade80]/60 shrink-0" /> House & Probate Clearance</Link></li>
                 <li><Link to="/services/end-of-tenancy/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><Home size={14} className="text-[#4ade80]/60 shrink-0" /> End of Tenancy Clearance</Link></li>
                 <li><Link to="/services/garden-waste/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><TreePine size={14} className="text-[#4ade80]/60 shrink-0" /> Garden Waste Removal</Link></li>
@@ -1326,9 +1326,9 @@ const App = () => {
                 <li><Link to="/about/" className="text-white/70 hover:text-[#4ade80] transition-all text-sm font-bold">About Us</Link></li>
                 <li><Link to="/areas/" className="text-white/70 hover:text-[#4ade80] transition-all text-sm font-bold">Areas We Serve</Link></li>
                 <li><Link to="/contact/" className="text-white/70 hover:text-[#4ade80] transition-all text-sm font-bold">Contact & Quotes</Link></li>
-                <li><Link to="/privacy-policy" className="text-white/70 hover:text-[#4ade80] transition-all text-sm font-bold">Privacy Policy</Link></li>
-                <li><Link to="/cookie-usage" className="text-white/70 hover:text-[#4ade80] transition-all text-sm font-bold">Cookie Policy</Link></li>
-                <li><Link to="/legal" className="text-white/70 hover:text-[#4ade80] transition-all text-sm font-bold">Terms & Conditions</Link></li>
+                <li><Link to="/privacy-policy/" className="text-white/70 hover:text-[#4ade80] transition-all text-sm font-bold">Privacy Policy</Link></li>
+                <li><Link to="/cookie-usage/" className="text-white/70 hover:text-[#4ade80] transition-all text-sm font-bold">Cookie Policy</Link></li>
+                <li><Link to="/legal/" className="text-white/70 hover:text-[#4ade80] transition-all text-sm font-bold">Terms & Conditions</Link></li>
               </ul>
             </div>
 
