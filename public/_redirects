@@ -2,6 +2,21 @@
 # Cloudflare Pages reads this from the dist/ output directory.
 # Vite copies everything in public/ to dist/ so this file is included automatically.
 
+# ── Trailing-slash redirects for service area pages ────────────────────────
+# Non-forced: static files always take precedence.
+# When a prerendered dist/path/index.html exists, the platform serves it
+# directly and these rules never fire. They only fire for the no-trailing-slash
+# variant of each URL (e.g. /house-clearance-reading), which has no static file
+# (only the /house-clearance-reading/ directory has index.html).
+# One clean 301 → trailing-slash URL → prerendered file served directly.
+/waste-removal-*               /waste-removal-:splat/               301
+/house-clearance-*             /house-clearance-:splat/             301
+/end-of-tenancy-clearance-*    /end-of-tenancy-clearance-:splat/    301
+/garden-waste-removal-*        /garden-waste-removal-:splat/        301
+/commercial-waste-removal-*    /commercial-waste-removal-:splat/    301
+/construction-waste-removal-*  /construction-waste-removal-:splat/  301
+/garage-shed-clearance-*       /garage-shed-clearance-:splat/       301
+
 # SPA fallback — serve index.html for any path that doesn't match a static file.
 # Prerendered HTML files (dist/waste-removal-reading/index.html etc.) are
 # served directly as static files before this rule is ever reached.

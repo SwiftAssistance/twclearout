@@ -34,14 +34,8 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
 
 # ── Redirects ──────────────────────────────────────────────────────────
-# NOTE: All explicit trailing-slash redirects have been removed.
-# Netlify's built-in Pretty URLs feature already redirects /path → /path/
-# when a dist/path/index.html file exists (prerendered). Keeping explicit
-# force=true rules alongside Pretty URLs caused redirect conflicts.
-
-# SPA fallback — fires only when no static file matches the path.
-# Prerendered HTML files in dist/ are served directly before this rule.
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Redirect rules live in public/_redirects (copied to dist/ by Vite).
+# That file is read by both Netlify and Cloudflare Pages, so all redirect
+# logic is centralised there. The rules include:
+#   • Pattern-based 301s for no-trailing-slash service area URLs
+#   • SPA catch-all fallback  /*  →  /index.html  200
