@@ -1,0 +1,8 @@
+# Cloudflare Pages / Netlify _redirects
+# Cloudflare Pages reads this from the dist/ output directory.
+# Vite copies everything in public/ to dist/ so this file is included automatically.
+
+# SPA fallback — serve index.html for any path that doesn't match a static file.
+# Prerendered HTML files (dist/waste-removal-reading/index.html etc.) are
+# served directly as static files before this rule is ever reached.
+/*    /index.html    200

@@ -13,6 +13,10 @@ Disallow: /admin/
 # Sitemap location
 Sitemap: https://totalwasteclearout.co.uk/sitemap.xml
 
+# AI-readable business summary (llms.txt spec)
+LLMs-txt: https://totalwasteclearout.co.uk/llms.txt
+LLMs-full-txt: https://totalwasteclearout.co.uk/llms-full.txt
+
 # Specific search engine rules - full access
 User-agent: Googlebot
 Allow: /
