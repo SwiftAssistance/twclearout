@@ -1140,6 +1140,15 @@ const App = () => {
                 <title>Total Waste Clearout | Waste Removal Berkshire & Surrey | 07769 844298</title>
                 <meta name="description" content="Professional waste removal across Berkshire & Surrey. Same-day collection, fixed pricing, 94% recycling rate. House clearance, garden waste, commercial waste. Call 07769 844298." />
                 <link rel="canonical" href="https://totalwasteclearout.co.uk/" />
+                <script type="application/ld+json">{JSON.stringify({
+                  '@context': 'https://schema.org',
+                  '@type': 'FAQPage',
+                  mainEntity: faqItems.map(f => ({
+                    '@type': 'Question',
+                    name: f.q,
+                    acceptedAnswer: { '@type': 'Answer', text: f.a },
+                  })),
+                })}</script>
               </Helmet>
               <HomeHero />
               {/* STATS STRIP */}
