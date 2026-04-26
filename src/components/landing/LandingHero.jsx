@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Phone, Send, Lock, Clock, CheckCircle, BadgeCheck, ShieldCheck, Star } from 'lucide-react';
 
 const WhatsAppIcon = () => (
@@ -28,6 +29,7 @@ const HeroQuoteForm = () => {
   const [status, setStatus] = useState('idle');
   const [gclid, setGclid] = useState('');
   const [typeError, setTypeError] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const stored = localStorage.getItem('gclid');
@@ -63,17 +65,9 @@ const HeroQuoteForm = () => {
         }),
       });
       if (response.ok) {
-        setStatus('success');
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({ event: 'quote_form_submission', form_location: 'hero' });
-        if (typeof gtag === 'function') {
-          gtag('event', 'generate_lead', { currency: 'GBP', value: 1.0 });
-          gtag('event', 'conversion', {
-            send_to: 'AW-18054894614/YJ5BCIWWxZscEJaon6FD',
-            value: 1.0,
-            currency: 'GBP',
-          });
-        }
+        navigate('/thank-you/');
       } else {
         setStatus('error');
       }

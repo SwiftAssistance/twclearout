@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Send, CheckCircle, Lock, Phone } from 'lucide-react';
 
 const clearanceTypes = [
@@ -27,6 +28,7 @@ const LandingQuoteForm = () => {
   });
   const [status, setStatus] = useState('idle');
   const [gclid, setGclid] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const stored = localStorage.getItem('gclid');
@@ -62,17 +64,9 @@ const LandingQuoteForm = () => {
       });
 
       if (response.ok) {
-        setStatus('success');
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({ event: 'quote_form_submission' });
-        if (typeof gtag === 'function') {
-          gtag('event', 'generate_lead', { currency: 'GBP', value: 1.0 });
-          gtag('event', 'conversion', {
-            send_to: 'AW-18054894614/YJ5BCIWWxZscEJaon6FD',
-            value: 1.0,
-            currency: 'GBP',
-          });
-        }
+        navigate('/thank-you/');
       } else {
         setStatus('error');
       }

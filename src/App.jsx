@@ -59,6 +59,7 @@ const ServiceAreaPage = lazy(() => import('./pages/areas/ServiceAreaPage'));
 const WasteRemovalPage = lazy(() => import('./pages/WasteRemoval'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const GetQuote = lazy(() => import('./pages/GetQuote'));
+const ThankYou = lazy(() => import('./pages/ThankYou'));
 
 // --- GLOBAL DATA & CONFIGURATION ---
 
@@ -1272,6 +1273,7 @@ const App = () => {
           <Route path="/about/" element={<About />} />
           <Route path="/contact/" element={<Contact />} />
           <Route path="/get-quote/" element={<GetQuote />} />
+          <Route path="/thank-you/" element={<ThankYou />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         </Suspense>
