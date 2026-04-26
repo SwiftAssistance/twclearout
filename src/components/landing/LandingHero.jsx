@@ -198,7 +198,12 @@ const HeroQuoteForm = () => {
             href="https://api.whatsapp.com/send?phone=447769844298&text=Hi%2C+I%27d+like+a+quote.+Here%27s+a+photo+of+what+needs+clearing%3A"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => typeof gtag === 'function' && gtag('event', 'whatsapp_photo_click', { event_category: 'engagement' })}
+            onClick={() => {
+              if (typeof gtag === 'function') {
+                gtag('event', 'conversion', { send_to: 'AW-18054894614' });
+                gtag('event', 'whatsapp_photo_click', { event_category: 'engagement' });
+              }
+            }}
             className="w-full bg-[#25D366] hover:bg-[#1db954] text-white py-2.5 font-black uppercase italic tracking-wide text-sm flex items-center justify-center gap-2 transition-colors"
           >
             <WhatsAppIcon />
@@ -333,6 +338,7 @@ const LandingHero = () => (
               href="https://api.whatsapp.com/send?phone=447769844298"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => typeof gtag === 'function' && gtag('event', 'conversion', { send_to: 'AW-18054894614' })}
               className="bg-[#25D366] text-white px-5 py-3 font-black uppercase italic tracking-wide text-sm flex items-center justify-center gap-2"
             >
               <WhatsAppIcon />
