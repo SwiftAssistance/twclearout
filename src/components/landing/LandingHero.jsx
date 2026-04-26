@@ -200,8 +200,7 @@ const HeroQuoteForm = () => {
             rel="noopener noreferrer"
             onClick={() => {
               if (typeof gtag === 'function') {
-                gtag('event', 'conversion', { send_to: 'AW-18054894614' });
-                gtag('event', 'whatsapp_photo_click', { event_category: 'engagement' });
+                gtag('event', 'conversion', { send_to: 'AW-18054894614/2mZ3CI_exaIcEJaon6FD', value: 1.0, currency: 'GBP' });
               }
             }}
             className="w-full bg-[#25D366] hover:bg-[#1db954] text-white py-2.5 font-black uppercase italic tracking-wide text-sm flex items-center justify-center gap-2 transition-colors"
@@ -338,7 +337,7 @@ const LandingHero = () => (
               href="https://api.whatsapp.com/send?phone=447769844298"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => typeof gtag === 'function' && gtag('event', 'conversion', { send_to: 'AW-18054894614' })}
+              onClick={() => typeof gtag === 'function' && gtag('event', 'conversion', { send_to: 'AW-18054894614/2mZ3CI_exaIcEJaon6FD', value: 1.0, currency: 'GBP' })}
               className="bg-[#25D366] text-white px-5 py-3 font-black uppercase italic tracking-wide text-sm flex items-center justify-center gap-2"
             >
               <WhatsAppIcon />
