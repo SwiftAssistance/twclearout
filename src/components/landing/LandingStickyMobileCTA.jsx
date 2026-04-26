@@ -43,7 +43,7 @@ const LandingStickyMobileCTA = () => {
               href="https://api.whatsapp.com/send?phone=447769844298"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => typeof gtag === 'function' && gtag('event', 'conversion', { send_to: 'AW-18054894614' })}
+              onClick={() => typeof gtag === 'function' && gtag('event', 'conversion', { send_to: 'AW-18054894614/2mZ3CI_exaIcEJaon6FD', value: 1.0, currency: 'GBP' })}
               className="flex-1 md:flex-none bg-[#25D366] text-white py-3 md:py-2.5 px-4 md:px-6 font-black text-xs uppercase italic tracking-wider flex items-center justify-center gap-2 active:opacity-80"
             >
               <WhatsAppIcon />
