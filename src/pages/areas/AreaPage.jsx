@@ -173,13 +173,13 @@ const AreaPage = () => {
         "@type": "ListItem",
         "position": 2,
         "name": "Areas We Serve",
-        "item": "https://totalwasteclearout.co.uk/areas"
+        "item": "https://totalwasteclearout.co.uk/areas/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": `Waste Removal ${area.name}`,
-        "item": `https://totalwasteclearout.co.uk/${area.slug}`
+        "item": `https://totalwasteclearout.co.uk/${area.slug}/`
       }
     ]
   };

@@ -38,11 +38,16 @@ const GarageShed = () => {
         <title>Garage Clearout Reading Slough | Shed Clearout & Demolition Berkshire Surrey</title>
         <meta name="description" content="Professional garage clearout and shed clearout in Reading, Slough, Guildford & Berkshire. Contents clearance, full demolition, waste removal. Same-day service, licensed from £100." />
         <meta name="keywords" content="garage clearout, garage clearout reading, garage clearout slough, garage clearout guildford, garage clearout berkshire, garage clearout surrey, garage clearout near me, shed clearout, shed clearout reading, shed clearout slough, shed clearout berkshire, shed clearout surrey, garage clearance, garage clearance reading, garage clearance slough, garage clearance guildford, garage clearance berkshire, garage clearance surrey, shed clearance reading, shed clearance slough, shed clearance berkshire, garage demolition reading, garage demolition slough, garage demolition berkshire, shed demolition reading, shed demolition berkshire, shed removal near me, outbuilding clearout, outbuilding clearance, outbuilding demolition berkshire, concrete garage removal, prefab garage demolition, garden building removal, workshop clearout berkshire, workshop demolition berkshire, summerhouse removal, shed dismantling surrey, garage contents clearout, garage contents clearance, garden shed clearout near me, cheap garage clearout, same day garage clearout, same day shed clearout" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/garage-shed/" />
         <meta property="og:title" content="Garage Clearout &amp; Shed Clearout | Total Waste Clearout Berkshire" />
         <meta property="og:description" content="Professional garage clearout and shed clearout services across Berkshire & Surrey. Complete service from contents clearance to site cleanup." />
         <meta property="og:url" content="https://totalwasteclearout.co.uk/services/garage-shed/" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://totalwasteclearout.co.uk/logo-512.png" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="Garage Clearout &amp; Shed Clearout | Total Waste Clearout Berkshire" />
+        <meta property="twitter:description" content="Professional garage clearout and shed clearout services across Berkshire & Surrey. Complete service from contents clearance to site cleanup." />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",

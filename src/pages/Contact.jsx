@@ -83,11 +83,16 @@ const Contact = () => {
         <title>Contact Us | Free Waste Removal Quote Berkshire & Surrey | Call 07769 844298</title>
         <meta name="description" content="Contact Total Waste Clearout for a free waste removal quote. Call 07769 844298 or WhatsApp. 2-hour response time. Same-day service across Reading, Slough, Guildford & all Berkshire & Surrey." />
         <meta name="keywords" content="contact waste removal, waste removal quote, free waste removal quote, waste removal quote berkshire, waste removal quote surrey, book waste collection reading, book rubbish clearance slough, waste removal phone number, waste removal whatsapp, get quote rubbish clearance, waste disposal reading phone, junk removal slough contact, clearance quote berkshire, waste removal surrey phone number, book clearance guildford, instant quote woking, free quote waste removal, contact rubbish clearance berkshire" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/contact/" />
         <meta property="og:title" content="Contact Total Waste Clearout | Get Your Free Quote Today" />
         <meta property="og:description" content="Contact us for professional waste removal. 2-hour response time. Available 7 days a week across Berkshire & Surrey." />
-        <meta property="og:url" content="https://totalwasteclearout.co.uk/contact" />
+        <meta property="og:url" content="https://totalwasteclearout.co.uk/contact/" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://totalwasteclearout.co.uk/logo-512.png" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="Contact Total Waste Clearout | Get Your Free Quote Today" />
+        <meta property="twitter:description" content="Contact us for professional waste removal. 2-hour response time. Available 7 days a week across Berkshire & Surrey." />
       </Helmet>
 
       {/* Main Content */}

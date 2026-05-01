@@ -38,11 +38,16 @@ const CommercialRipouts = () => {
         <title>Commercial Clearout Reading | Office & Commercial Waste Clearout Berkshire Surrey</title>
         <meta name="description" content="Commercial clearout services in Reading, Slough, Guildford & across Berkshire and Surrey. Office strip-outs, retail clearouts, restaurant clearances. Out-of-hours service, licensed from £400." />
         <meta name="keywords" content="commercial clearout, commercial clearout reading, commercial clearout berkshire, commercial clearout surrey, commercial clearout slough, commercial clearout guildford, commercial waste removal, commercial waste removal reading, commercial waste removal slough, commercial waste removal guildford, commercial waste removal berkshire, commercial waste removal surrey, office clearance reading, office clearout reading, office clearance slough, office clearance guildford, office clearance berkshire, office strip out reading, office strip out slough, retail clearout berkshire, retail clearance berkshire, shop fitting removal, restaurant clearout surrey, restaurant clearance surrey, commercial rip out, office furniture removal reading, office furniture disposal, IT equipment disposal berkshire, WEEE disposal surrey, warehouse clearout reading, warehouse clearance reading, business waste removal, commercial skip alternative, out of hours waste collection, evening waste collection berkshire, data destruction berkshire, office clearout near me, commercial clearout near me, office clearance near me, commercial clearance near me" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/commercial-ripouts/" />
         <meta property="og:title" content="Commercial Clearout Reading & Berkshire | Total Waste Clearout" />
         <meta property="og:description" content="Professional commercial clearout and strip-out services across Berkshire & Surrey. Out-of-hours available." />
         <meta property="og:url" content="https://totalwasteclearout.co.uk/services/commercial-ripouts/" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://totalwasteclearout.co.uk/logo-512.png" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="Commercial Clearout Reading & Berkshire | Total Waste Clearout" />
+        <meta property="twitter:description" content="Professional commercial clearout and strip-out services across Berkshire & Surrey. Out-of-hours available." />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",

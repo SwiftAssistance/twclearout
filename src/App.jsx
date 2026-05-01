@@ -1139,7 +1139,16 @@ const App = () => {
               <Helmet>
                 <title>Total Waste Clearout | Waste Removal Berkshire & Surrey | 07769 844298</title>
                 <meta name="description" content="Professional waste removal across Berkshire & Surrey. Same-day collection, fixed pricing, 94% recycling rate. House clearance, garden waste, commercial waste. Call 07769 844298." />
+                <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
                 <link rel="canonical" href="https://totalwasteclearout.co.uk/" />
+                <meta property="og:title" content="Total Waste Clearout | Waste Removal Berkshire & Surrey" />
+                <meta property="og:description" content="Professional waste removal across Berkshire & Surrey. Same-day collection, fixed pricing, 94% recycling rate. Call 07769 844298." />
+                <meta property="og:url" content="https://totalwasteclearout.co.uk/" />
+                <meta property="og:type" content="website" />
+                <meta property="og:image" content="https://totalwasteclearout.co.uk/logo-512.png" />
+                <meta property="twitter:card" content="summary_large_image" />
+                <meta property="twitter:title" content="Total Waste Clearout | Waste Removal Berkshire & Surrey" />
+                <meta property="twitter:description" content="Professional waste removal across Berkshire & Surrey. Same-day collection, fixed pricing, 94% recycling rate. Call 07769 844298." />
               </Helmet>
               <HomeHero />
               {/* STATS STRIP */}

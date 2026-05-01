@@ -38,11 +38,16 @@ const HomeAndProbate = () => {
         <title>House Clearout Reading Guildford | Probate Clearout & House Clearance Berkshire</title>
         <meta name="description" content="Professional house clearout and probate clearance in Reading, Guildford, Slough & Berkshire. Compassionate bereavement house clearouts, charity donations, licensed & insured." />
         <meta name="keywords" content="house clearout, house clearout reading, house clearout slough, house clearout guildford, house clearout berkshire, house clearout surrey, house clearout woking, house clearout bracknell, house clearout windsor, probate clearout, probate clearout reading, probate clearout berkshire, probate clearout guildford, estate clearout, estate clearout reading, estate clearout surrey, home clearout, home clearout reading, home clearout slough, house clearance, house clearance reading, house clearance slough, house clearance guildford, house clearance berkshire, house clearance surrey, probate clearance reading, probate clearance berkshire, probate house clearance, estate clearance reading, estate clearance surrey, bereavement clearance, bereavement clearout, deceased estate clearance, deceased estate clearout, property clearance berkshire, full house clearout, full house clearance, furniture removal reading, furniture disposal berkshire, house clearout near me, cheap house clearout reading, downsizing clearout, downsizing clearance, hoarder house clearout berkshire, whole house clearout, charity donation clearance, sensitive house clearout, compassionate clearance service" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/home-probate-clearance/" />
         <meta property="og:title" content="House Clearout & Probate Clearance | Total Waste Clearout Berkshire" />
         <meta property="og:description" content="Compassionate house clearout and probate clearance services across Reading, Guildford, and Berkshire & Surrey." />
         <meta property="og:url" content="https://totalwasteclearout.co.uk/services/home-probate-clearance/" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://totalwasteclearout.co.uk/logo-512.png" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="House Clearout & Probate Clearance | Total Waste Clearout Berkshire" />
+        <meta property="twitter:description" content="Compassionate house clearout and probate clearance services across Reading, Guildford, and Berkshire & Surrey." />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",

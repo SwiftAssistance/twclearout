@@ -38,11 +38,16 @@ const HardHatWasteHub = () => {
         <title>Builders Clearout Reading Slough | Construction Waste Clearout & Trade Waste Berkshire</title>
         <meta name="description" content="Professional builders clearout and construction waste clearout in Reading, Slough, Guildford & Berkshire. No skip permits. Same-day service, licensed carrier from £120." />
         <meta name="keywords" content="builders clearout, builders clearout reading, builders clearout slough, builders clearout guildford, builders clearout berkshire, builders clearout surrey, construction clearout, construction clearout reading, construction clearout berkshire, building site clearout, building site clearout reading, trade clearout, trade clearout berkshire, construction waste removal, construction waste removal reading, construction waste removal slough, construction waste removal guildford, construction waste removal berkshire, construction waste removal surrey, builder waste removal, builder waste removal reading, builder waste collection slough, trade waste collection berkshire, trade waste collection surrey, skip hire alternative reading, skip hire alternative slough, skip hire alternative berkshire, skip alternative near me, rubble removal reading, rubble removal slough, rubble clearance berkshire, plasterboard disposal, timber waste removal, building waste collection, renovation waste clearout, renovation waste removal, kitchen refit waste, bathroom refit waste, demolition waste berkshire, construction site clearance, builder skip alternative, cheap skip alternative reading, same day builders clearout, same day builder waste collection, no permit waste removal" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/construction-waste/" />
         <meta property="og:title" content="Builders Clearout &amp; Construction Waste Removal | Total Waste Clearout" />
         <meta property="og:description" content="Professional builders clearout and construction waste removal for tradespeople across Berkshire & Surrey. No permits, same-day service." />
         <meta property="og:url" content="https://totalwasteclearout.co.uk/services/construction-waste/" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://totalwasteclearout.co.uk/logo-512.png" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="Builders Clearout &amp; Construction Waste Removal | Total Waste Clearout" />
+        <meta property="twitter:description" content="Professional builders clearout and construction waste removal for tradespeople across Berkshire & Surrey. No permits, same-day service." />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
