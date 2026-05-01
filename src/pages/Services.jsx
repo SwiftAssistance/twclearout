@@ -81,11 +81,16 @@ const Services = () => {
         <title>Waste Removal Services Berkshire & Surrey | House, Garden, Commercial Clearance</title>
         <meta name="description" content="Complete waste removal services in Berkshire & Surrey. House clearance, garden waste, office rip-outs, construction waste, garage demolition. 94% recycling rate. Same-day service. Call 07769 844298." />
         <meta name="keywords" content="waste removal services, waste removal services berkshire, waste removal services surrey, rubbish clearance services reading, rubbish clearance services slough, house clearance service berkshire, garden waste removal service surrey, commercial waste removal service, office clearance service reading, office clearance service guildford, construction waste removal service, trade waste collection service, skip hire alternative berkshire, junk removal service surrey, bulky waste collection service, furniture removal service, garage demolition service, shed clearance service, end of tenancy clearance service, same day waste removal, licensed waste carrier berkshire surrey, waste disposal maidenhead, waste disposal windsor, waste disposal bracknell, waste disposal woking" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/" />
         <meta property="og:title" content="Professional Waste Removal Services | Total Waste Clearout" />
         <meta property="og:description" content="Complete waste removal services across Berkshire & Surrey. From home clearance to commercial rip-outs. 94% recycling rate. Same-day service." />
-        <meta property="og:url" content="https://totalwasteclearout.co.uk/services" />
+        <meta property="og:url" content="https://totalwasteclearout.co.uk/services/" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://totalwasteclearout.co.uk/logo-512.png" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="Professional Waste Removal Services | Total Waste Clearout" />
+        <meta property="twitter:description" content="Complete waste removal services across Berkshire & Surrey. From home clearance to commercial rip-outs. 94% recycling rate. Same-day service." />
       </Helmet>
 
       {/* Main Content */}

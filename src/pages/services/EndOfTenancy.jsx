@@ -38,11 +38,16 @@ const EndOfTenancy = () => {
         <title>End of Tenancy Clearout Reading Slough Guildford | Tenant Clearout Same-Day Berkshire</title>
         <meta name="description" content="Professional end of tenancy clearout in Reading, Slough, Guildford & Berkshire. Same-day tenant clearouts, help secure your deposit. Licensed waste removal from £150." />
         <meta name="keywords" content="end of tenancy clearout, end of tenancy clearout reading, end of tenancy clearout slough, end of tenancy clearout guildford, end of tenancy clearout berkshire, end of tenancy clearout surrey, tenant clearout, tenant clearout reading, tenant clearout slough, tenant clearout berkshire, flat clearout, flat clearout reading, flat clearout slough, rental clearout, rental clearout berkshire, end of tenancy clearance, end of tenancy clearance reading, end of tenancy clearance slough, end of tenancy clearance guildford, end of tenancy clearance berkshire, end of tenancy clearance surrey, tenant clearance reading, tenant clearance slough, rental property clearance, move out clearance berkshire, move out clearout berkshire, landlord clearance reading, landlord clearout reading, flat clearance slough, flat clearance reading, deposit return clearance, deposit return clearout, letting agent clearance surrey, end of lease clearance, end of lease clearout, rental clearance near me, same day tenancy clearout, same day tenancy clearance, emergency tenant clearout, cheap end of tenancy clearout, student house clearout berkshire, HMO clearout berkshire, property clearout for landlords, tenant rubbish removal, end of tenancy waste removal" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/end-of-tenancy/" />
         <meta property="og:title" content="End of Tenancy Clearout | Total Waste Clearout Berkshire" />
         <meta property="og:description" content="Same-day end of tenancy clearouts across Reading, Slough, Guildford. Help secure your deposit with professional tenant clearout service." />
         <meta property="og:url" content="https://totalwasteclearout.co.uk/services/end-of-tenancy/" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://totalwasteclearout.co.uk/logo-512.png" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="End of Tenancy Clearout | Total Waste Clearout Berkshire" />
+        <meta property="twitter:description" content="Same-day end of tenancy clearouts across Reading, Slough, Guildford. Help secure your deposit with professional tenant clearout service." />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",

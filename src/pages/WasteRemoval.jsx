@@ -107,10 +107,16 @@ const WasteRemoval = () => {
         <title>Waste Removal Berkshire & Surrey | Same-Day Licensed Collection | Total Waste Clearout</title>
         <meta name="description" content="Professional waste removal across Berkshire & Surrey. Same-day collection, fixed pricing, 94% recycling rate. Licensed carrier, £5M insured. Call 07769 844298 for a free quote." />
         <meta name="keywords" content="waste removal, waste removal berkshire, waste removal surrey, waste removal near me, waste removal service, same day waste removal, licensed waste removal, rubbish removal berkshire, rubbish removal surrey, waste collection berkshire, junk removal berkshire, man and van waste removal" />
-        <link rel="canonical" href="https://totalwasteclearout.co.uk/waste-removal" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <link rel="canonical" href="https://totalwasteclearout.co.uk/waste-removal/" />
         <meta property="og:title" content="Waste Removal Berkshire & Surrey | Total Waste Clearout" />
         <meta property="og:description" content="Same-day waste removal across Berkshire & Surrey. Licensed, insured, 94% recycling rate. Call 07769 844298." />
-        <meta property="og:url" content="https://totalwasteclearout.co.uk/waste-removal" />
+        <meta property="og:url" content="https://totalwasteclearout.co.uk/waste-removal/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://totalwasteclearout.co.uk/logo-512.png" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="Waste Removal Berkshire & Surrey | Total Waste Clearout" />
+        <meta property="twitter:description" content="Same-day waste removal across Berkshire & Surrey. Licensed, insured, 94% recycling rate. Call 07769 844298." />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
       </Helmet>

@@ -74,11 +74,16 @@ const Areas = () => {
         <title>Areas We Serve | Waste Removal Reading, Slough, Guildford & 10+ Towns</title>
         <meta name="description" content="Professional waste removal across Berkshire & Surrey. Serving Reading, Slough, Guildford, Woking, Bracknell, Windsor, Ascot, Egham, Maidenhead & Staines. Same-day service available." />
         <meta name="keywords" content="waste removal berkshire, waste removal surrey, waste removal reading, waste removal slough, waste removal guildford, waste removal woking, waste removal bracknell, waste removal windsor, waste removal ascot, waste removal egham, waste removal maidenhead, waste removal staines, rubbish clearance berkshire, rubbish clearance surrey, rubbish clearance reading, rubbish clearance slough, waste collection near me, waste removal near me, local waste removal berkshire, local waste removal surrey, skip hire alternative berkshire, skip hire alternative surrey, same day waste collection berkshire, licensed waste carrier berkshire surrey" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/areas/" />
         <meta property="og:title" content="Areas We Serve | Waste Removal Berkshire & Surrey" />
         <meta property="og:description" content="Professional waste removal across Berkshire & Surrey. 10 towns served with same-day collection." />
-        <meta property="og:url" content="https://totalwasteclearout.co.uk/areas" />
+        <meta property="og:url" content="https://totalwasteclearout.co.uk/areas/" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://totalwasteclearout.co.uk/logo-512.png" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="Areas We Serve | Waste Removal Berkshire & Surrey" />
+        <meta property="twitter:description" content="Professional waste removal across Berkshire & Surrey. 10 towns served with same-day collection." />
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>

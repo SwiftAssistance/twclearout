@@ -161,7 +161,7 @@ const ServiceAreaPage = () => {
         "@type": "ListItem",
         "position": 2,
         "name": "Services",
-        "item": "https://totalwasteclearout.co.uk/services"
+        "item": "https://totalwasteclearout.co.uk/services/"
       },
       {
         "@type": "ListItem",
@@ -173,7 +173,7 @@ const ServiceAreaPage = () => {
         "@type": "ListItem",
         "position": 4,
         "name": `${service.name} ${area.name}`,
-        "item": `https://totalwasteclearout.co.uk/${slug}`
+        "item": `https://totalwasteclearout.co.uk/${slug}/`
       }
     ]
   };

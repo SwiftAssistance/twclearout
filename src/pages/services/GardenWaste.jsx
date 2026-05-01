@@ -38,11 +38,16 @@ const GardenWaste = () => {
         <title>Garden Clearout Reading Guildford | Garden Waste Removal & Green Waste Clearout Berkshire</title>
         <meta name="description" content="Professional garden clearout and garden waste removal in Reading, Guildford, Slough & Berkshire. Trees, hedges, grass cleared. 100% composted, same-day service, licensed from £80." />
         <meta name="keywords" content="garden clearout, garden clearout reading, garden clearout slough, garden clearout guildford, garden clearout woking, garden clearout berkshire, garden clearout surrey, garden clearout near me, green waste clearout, green waste clearout reading, garden waste removal, garden waste removal reading, garden waste removal slough, garden waste removal guildford, garden waste removal woking, garden waste removal bracknell, garden waste removal windsor, garden waste removal berkshire, garden waste removal surrey, garden clearance, garden clearance reading, green waste clearance, green waste collection berkshire, tree removal reading, tree branch removal slough, hedge clearout berkshire, hedge clearance berkshire, hedge trimming waste removal, garden rubbish removal, garden skip hire alternative, soil removal reading, turf removal berkshire, grass cutting waste, garden furniture disposal, shed waste removal, fencing removal berkshire, decking removal surrey, landscaping waste clearout, landscaping waste clearance, same day garden clearout, same day garden waste collection, cheap garden clearout, cheap garden waste removal, compost waste collection" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/garden-waste/" />
         <meta property="og:title" content="Garden Clearout & Green Waste Removal | Total Waste Clearout" />
         <meta property="og:description" content="Professional garden clearout and waste removal across Berkshire & Surrey. 100% composted, same-day service available." />
         <meta property="og:url" content="https://totalwasteclearout.co.uk/services/garden-waste/" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://totalwasteclearout.co.uk/logo-512.png" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="Garden Clearout & Green Waste Removal | Total Waste Clearout" />
+        <meta property="twitter:description" content="Professional garden clearout and waste removal across Berkshire & Surrey. 100% composted, same-day service available." />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
