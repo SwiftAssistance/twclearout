@@ -122,7 +122,7 @@ const LandingReviews = () => {
           >
             {SLIDES.map(({ text, name, initials, town, color, accent, avatarBg, platform }, idx) => (
               <div key={idx} className="w-full flex-shrink-0">
-                <div className={`p-8 md:p-12 border-4 border-slate-900 shadow-[8px_8px_0px_#022c22] flex flex-col relative overflow-hidden ${color}`}>
+                <div className={`p-8 md:p-12 border-4 border-slate-900 shadow-[8px_8px_0px_#022c22] flex flex-col relative overflow-hidden h-full ${color}`}>
                   <Quote className={`absolute -top-3 -left-3 w-16 opacity-10 ${accent}`} aria-hidden="true" />
 
                   <div className="flex items-center justify-between mb-5 relative z-10">
