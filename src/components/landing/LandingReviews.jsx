@@ -1,33 +1,33 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import PlatformLogo from '../PlatformLogo';
 
 const reviews = [
   {
-    text: "We used Total Waste Clearout twice and honestly couldn't fault them either time. First they cleared out our office - old furniture, filing cabinets, general junk that had built up over the years - and the whole thing was done quickly and without any fuss. Then a few weeks later I had them back to sort out my garden at home, and again, brilliant. Showed up on time, got stuck in straight away, and left everything spotless. Really professional team, great communication throughout, and the price was fair. Would recommend to anyone.",
-    name: 'Wisetax Accountants',
-    initials: 'W',
-    town: 'Slough',
+    text: "Very professional, well presented, 3 lads turned up and just cracked on with the job, also if I'm honest it was the best price as I was looking around elsewhere, well recommended, will be using their services again 100%. Cheers lads !",
+    name: 'H Hussain',
+    initials: 'H',
+    town: 'Verified Customer',
     color: 'bg-white text-slate-900',
     accent: 'text-[#16a34a]',
     avatarBg: 'bg-[#16a34a] text-white',
     platform: 'google',
   },
   {
-    text: "Really pleased with Total Waste Clearout. They demolished an old shed and cleared all the waste from my garden - turned up on time, worked quickly, and left everything spotless. Great value and friendly team. Will definitely use them again.",
-    name: 'Leo Luxe Clean',
-    initials: 'L',
-    town: 'Slough',
+    text: "Faultless! 5 star service at a reasonable price! I found it even easier than getting a skip. Really great, fast communication by Watsapp which is very convenient when you don't have much time! Thank you, will definitely use again.",
+    name: 'Chantel Deebank',
+    initials: 'C',
+    town: 'Verified Customer',
     color: 'bg-[#16a34a] text-white',
     accent: 'text-white',
     avatarBg: 'bg-white text-[#16a34a]',
     platform: 'google',
   },
   {
-    text: "Brilliant service from Total Waste Clear Out. Quick, reliable, and very professional. They cleared out my garden, shed, and old trees with no hassle and left everything spotless.",
-    name: 'Conor Waterman',
-    initials: 'C',
-    town: 'Woking',
+    text: "They were fab, asked for a quote which was unbeatable on price after asking multiple places for quotes. Offered same day collection, kept me updated on arrival time, fast service and cleaned up after themselves tremendously - will be using again for future removals.",
+    name: 'Amy Burrows',
+    initials: 'A',
+    town: 'Verified Customer',
     color: 'bg-white text-slate-900',
     accent: 'text-[#16a34a]',
     avatarBg: 'bg-[#16a34a] text-white',
@@ -35,27 +35,40 @@ const reviews = [
   },
 ];
 
-// Clone last at start + first at end for seamless infinite forward loop
+// Clone last at start + first at end for seamless infinite loop
 const SLIDES = [reviews[reviews.length - 1], ...reviews, reviews[0]];
 
 const LandingReviews = () => {
   const [current, setCurrent] = useState(1); // 1 = first real slide
   const [animated, setAnimated] = useState(true);
+  const [transitioning, setTransitioning] = useState(false);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
+  const transitionTimer = useRef(null);
 
-  const goNext = useCallback(() => setCurrent(c => c + 1), []);
-  const goPrev = useCallback(() => setCurrent(c => c - 1), []);
+  const navigate = useCallback((next) => {
+    if (transitioning) return;
+    setTransitioning(true);
+    setAnimated(true);
+    setCurrent(next);
+    // Fallback unlock in case transitionend doesn't fire (e.g. tab hidden)
+    transitionTimer.current = setTimeout(() => setTransitioning(false), 700);
+  }, [transitioning]);
+
+  const goNext = useCallback(() => navigate(c => c + 1), [navigate]);
+  const goPrev = useCallback(() => navigate(c => c - 1), [navigate]);
+
+  useEffect(() => () => clearTimeout(transitionTimer.current), []);
 
   const handleTransitionEnd = useCallback(() => {
-    if (current === SLIDES.length - 1) {
-      setAnimated(false);
-      setCurrent(1);
-    } else if (current === 0) {
-      setAnimated(false);
-      setCurrent(reviews.length);
-    }
-  }, [current]);
+    clearTimeout(transitionTimer.current);
+    setCurrent(c => {
+      if (c === SLIDES.length - 1) { setAnimated(false); return 1; }
+      if (c === 0) { setAnimated(false); return reviews.length; }
+      return c;
+    });
+    setTransitioning(false);
+  }, []);
 
   useEffect(() => {
     if (!animated) {
@@ -113,7 +126,7 @@ const LandingReviews = () => {
           style={{ touchAction: 'pan-y' }}
         >
           <div
-            className="flex"
+            className="flex items-stretch"
             style={{
               transform: `translateX(-${current * 100}%)`,
               transition: animated ? 'transform 600ms cubic-bezier(0.23,1,0.32,1)' : 'none',
@@ -121,8 +134,8 @@ const LandingReviews = () => {
             onTransitionEnd={handleTransitionEnd}
           >
             {SLIDES.map(({ text, name, initials, town, color, accent, avatarBg, platform }, idx) => (
-              <div key={idx} className="w-full flex-shrink-0">
-                <div className={`p-8 md:p-12 border-4 border-slate-900 shadow-[8px_8px_0px_#022c22] flex flex-col relative overflow-hidden h-full ${color}`}>
+              <div key={idx} className="w-full flex-shrink-0 flex">
+                <div className={`p-8 md:p-12 border-4 border-slate-900 shadow-[8px_8px_0px_#022c22] flex flex-col relative overflow-hidden w-full ${color}`}>
                   <Quote className={`absolute -top-3 -left-3 w-16 opacity-10 ${accent}`} aria-hidden="true" />
 
                   <div className="flex items-center justify-between mb-5 relative z-10">
@@ -142,7 +155,7 @@ const LandingReviews = () => {
                     </div>
                     <div>
                       <p className="font-[1000] uppercase text-sm leading-none">{name}</p>
-                      <p className="font-bold opacity-60 text-[10px] uppercase italic mt-0.5">{town} · Verified Customer</p>
+                      <p className="font-bold opacity-60 text-[10px] uppercase italic mt-0.5">{town} · Google Review</p>
                     </div>
                   </div>
                 </div>
@@ -157,16 +170,18 @@ const LandingReviews = () => {
             <button
               type="button"
               onClick={goPrev}
+              disabled={transitioning}
               aria-label="Previous review"
-              className="w-11 h-11 border-2 border-white/30 rounded-full flex items-center justify-center text-white hover:border-white transition-colors active:scale-90"
+              className="w-11 h-11 border-2 border-white/30 rounded-full flex items-center justify-center text-white hover:border-white transition-colors active:scale-90 disabled:opacity-50"
             >
               <ChevronLeft size={20} />
             </button>
             <button
               type="button"
               onClick={goNext}
+              disabled={transitioning}
               aria-label="Next review"
-              className="w-11 h-11 border-2 border-white/30 rounded-full flex items-center justify-center text-white hover:border-white transition-colors active:scale-90"
+              className="w-11 h-11 border-2 border-white/30 rounded-full flex items-center justify-center text-white hover:border-white transition-colors active:scale-90 disabled:opacity-50"
             >
               <ChevronRight size={20} />
             </button>
@@ -176,7 +191,7 @@ const LandingReviews = () => {
               <button
                 key={idx}
                 aria-label={`Review ${idx + 1}`}
-                onClick={() => { setAnimated(true); setCurrent(idx + 1); }}
+                onClick={() => { if (!transitioning) { setAnimated(true); setCurrent(idx + 1); } }}
                 className={`h-2 rounded-full border border-white/40 transition-all duration-300 ${idx === dotIndex ? 'w-8 bg-[#4ade80]' : 'w-2 bg-white/30'}`}
               />
             ))}
