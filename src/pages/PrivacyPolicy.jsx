@@ -87,6 +87,7 @@ const PrivacyPolicy = () => {
                 <ul className="space-y-2 text-slate-700">
                   <li><strong>Company:</strong> Total Waste Clearout Ltd</li>
                   <li><strong>Registration:</strong> Registered in England & Wales</li>
+                  <li><strong>Registered Office Address:</strong> 124 City Road, London, EC1V 2NX</li>
                   <li><strong>Email:</strong> <a href="mailto:privacy@totalwasteclearout.co.uk" className="text-[#16a34a] hover:underline">privacy@totalwasteclearout.co.uk</a></li>
                   <li><strong>Phone:</strong> <a href="tel:07769844298" className="text-[#16a34a] hover:underline">07769 844298</a></li>
                 </ul>

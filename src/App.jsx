@@ -1413,7 +1413,7 @@ const App = () => {
           {/* Copyright bar */}
           <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
             <p className="text-white/20 text-[9px] font-black uppercase tracking-[0.3em] text-center md:text-left leading-relaxed text-balance">
-              © 2026 Total Waste Clearout Ltd. Registered in England & Wales.
+              © 2026 Total Waste Clearout Ltd. Registered in England & Wales. · Registered Office: 124 City Road, London, EC1V 2NX
             </p>
             <div className="flex items-center gap-2">
               <div className="hidden md:flex gap-1" aria-hidden="true">

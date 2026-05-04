@@ -4,9 +4,9 @@ import PlatformLogo from '../PlatformLogo';
 
 const reviews = [
   {
-    text: "Very professional, well presented, 3 lads turned up and just cracked on with the job, also if I'm honest it was the best price as I was looking around elsewhere, well recommended, will be using their services again 100%. Cheers lads !",
-    name: 'H Hussain',
-    initials: 'H',
+    text: "Total Waste removed my old garden shed. They did a great job, very quickly. Definitely recommend them!",
+    name: 'Alessio Celant',
+    initials: 'A',
     town: 'Verified Customer',
     color: 'bg-white text-slate-900',
     accent: 'text-[#16a34a]',
@@ -14,8 +14,8 @@ const reviews = [
     platform: 'google',
   },
   {
-    text: "Faultless! 5 star service at a reasonable price! I found it even easier than getting a skip. Really great, fast communication by Watsapp which is very convenient when you don't have much time! Thank you, will definitely use again.",
-    name: 'Chantel Deebank',
+    text: "The guys done a brilliant job today! They were very polite and friendly, and got the job done quickly. Done a better job than I thought was possible. Will highly recommend and use again. Thankyou so much!",
+    name: 'Casey Mandeville',
     initials: 'C',
     town: 'Verified Customer',
     color: 'bg-[#16a34a] text-white',
@@ -24,13 +24,23 @@ const reviews = [
     platform: 'google',
   },
   {
-    text: "They were fab, asked for a quote which was unbeatable on price after asking multiple places for quotes. Offered same day collection, kept me updated on arrival time, fast service and cleaned up after themselves tremendously - will be using again for future removals.",
-    name: 'Amy Burrows',
-    initials: 'A',
+    text: "Team has been very helpful and efficient, very good service",
+    name: 'Sonia Pires',
+    initials: 'S',
     town: 'Verified Customer',
     color: 'bg-white text-slate-900',
     accent: 'text-[#16a34a]',
     avatarBg: 'bg-[#16a34a] text-white',
+    platform: 'google',
+  },
+  {
+    text: "Very professional, well presented, 3 lads turned up and just cracked on with the job, also if I'm honest it was the best price as I was looking around elsewhere, well recommended, will be using their services again 100%. Cheers lads !",
+    name: 'H Hussain',
+    initials: 'H',
+    town: 'Verified Customer',
+    color: 'bg-[#16a34a] text-white',
+    accent: 'text-white',
+    avatarBg: 'bg-white text-[#16a34a]',
     platform: 'google',
   },
 ];
