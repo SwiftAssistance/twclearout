@@ -71,6 +71,7 @@ const Legal = () => {
                 <li className="flex gap-3"><span className="text-[#16a34a] font-black">•</span><span><strong>Company Name:</strong> Total Waste Clearout Ltd</span></li>
                 <li className="flex gap-3"><span className="text-[#16a34a] font-black">•</span><span><strong>Registration:</strong> Registered in England & Wales</span></li>
                 <li className="flex gap-3"><span className="text-[#16a34a] font-black">•</span><span><strong>Registration Number:</strong> 09876543</span></li>
+                <li className="flex gap-3"><span className="text-[#16a34a] font-black">•</span><span><strong>Registered Office Address:</strong> 124 City Road, London, EC1V 2NX</span></li>
                 <li className="flex gap-3"><span className="text-[#16a34a] font-black">•</span><span><strong>Waste Carrier License:</strong> CBDU630127 — Registered with the Environment Agency</span></li>
                 <li className="flex gap-3"><span className="text-[#16a34a] font-black">•</span><span><strong>Insurance:</strong> Public liability insurance up to £5,000,000</span></li>
               </ul>
