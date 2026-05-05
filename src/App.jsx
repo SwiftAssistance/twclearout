@@ -66,39 +66,39 @@ const TOWNS = ["Reading", "Slough", "Guildford", "Woking", "Bracknell", "Windsor
 
 const REVIEWS = [
   {
-    name: "Mark Saunders",
-    location: "Reading",
-    initials: "MS",
+    name: "Alessio Celant",
+    location: "Verified Customer",
+    initials: "A",
     color: "bg-white text-slate-900",
     accent: "text-[#16a34a]",
-    text: "The best waste company in Berkshire. Same-day service, zero fuss, and much cheaper than the skip permit process. Uniformed team were brilliant.",
+    text: "Total Waste removed my old garden shed. They did a great job, very quickly. Definitely recommend them!",
     platform: "google"
   },
   {
-    name: "Sarah Jenkins",
-    location: "Guildford",
-    initials: "SJ",
+    name: "Casey Mandeville",
+    location: "Verified Customer",
+    initials: "C",
     color: "bg-[#16a34a] text-white",
     accent: "text-white",
-    text: "Cleared out my late father's property with such respect and speed. They recycled almost everything and provided a full audit note.",
+    text: "The guys done a brilliant job today! They were very polite and friendly, and got the job done quickly. Done a better job than I thought was possible. Will highly recommend and use again. Thankyou so much!",
     platform: "google"
   },
   {
-    name: "Dave Miller",
-    location: "Woking",
-    initials: "DM",
+    name: "Sonia Pires",
+    location: "Verified Customer",
+    initials: "S",
     color: "bg-white text-slate-900",
     accent: "text-[#16a34a]",
-    text: "Used them for trade waste on a kitchen fit. Way faster than a skip and saved me the headache of council permits. Reliable and professional.",
+    text: "Team has been very helpful and efficient, very good service",
     platform: "google"
   },
   {
-    name: "James Wilson",
-    location: "Slough",
-    initials: "JW",
+    name: "H Hussain",
+    location: "Verified Customer",
+    initials: "H",
     color: "bg-[#16a34a] text-white",
     accent: "text-white",
-    text: "Total Waste Clearout is my go-to for commercial sites. They handle the compliance perfectly and the crews are incredibly hard-working.",
+    text: "Very professional, well presented, 3 lads turned up and just cracked on with the job, also if I'm honest it was the best price as I was looking around elsewhere, well recommended, will be using their services again 100%. Cheers lads !",
     platform: "google"
   }
 ];
