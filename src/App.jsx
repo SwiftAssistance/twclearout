@@ -38,6 +38,7 @@ import ContactForm from './components/ContactForm';
 import StatsTicker from './components/StatsTicker';
 import HomeQuoteComponent from './components/HomeQuote';
 import PlatformLogo from './components/PlatformLogo';
+import CookieBanner from './components/CookieBanner';
 
 // Route-based code splitting
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
@@ -1424,6 +1425,8 @@ const App = () => {
           </div>
         </div>
       </footer>}
+
+      <CookieBanner />
 
       <style dangerouslySetInnerHTML={{ __html: `
         .stroke-text-light { -webkit-text-stroke: 1px rgba(255,255,255,0.4); }

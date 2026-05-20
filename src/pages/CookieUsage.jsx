@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { Cookie, Settings, BarChart, Shield, Trash2 } from 'lucide-react';
+import { Cookie, Settings, BarChart, Shield, Trash2, SlidersHorizontal } from 'lucide-react';
 
 const CookieUsage = () => {
   useEffect(() => {
@@ -35,11 +35,18 @@ const CookieUsage = () => {
           <p className="text-white/80 text-lg md:text-xl font-bold italic max-w-3xl">
             Transparency about cookies and tracking technologies used on our website. Learn what we collect, why, and how to manage your preferences.
           </p>
-          <div className="mt-6">
+          <div className="mt-6 flex flex-wrap items-center gap-4">
             <div className="bg-white/10 border-2 border-white/20 px-4 py-2 rounded-lg inline-block">
               <span className="text-white/60 text-xs font-black uppercase tracking-wider">Last Updated:</span>
               <span className="text-white font-black ml-2">January 2026</span>
             </div>
+            <button
+              onClick={() => typeof window.openCookiePreferences === 'function' && window.openCookiePreferences()}
+              className="flex items-center gap-2 bg-[#4ade80] hover:bg-white text-slate-900 px-5 py-2 rounded-lg font-black uppercase italic text-sm tracking-wider transition-all border-2 border-transparent hover:border-[#4ade80] shadow-md"
+            >
+              <SlidersHorizontal size={16} />
+              Manage My Preferences
+            </button>
           </div>
         </div>
       </div>
@@ -211,6 +218,19 @@ const CookieUsage = () => {
               <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900">How to Manage Cookies</h2>
             </div>
             <div className="space-y-6">
+              <div className="bg-[#4ade80]/20 border-4 border-[#16a34a] rounded-xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                  <p className="font-black uppercase text-slate-900 text-lg">Manage Your Preferences</p>
+                  <p className="text-slate-700 text-sm font-bold mt-1">Open our cookie consent panel to change your choices at any time.</p>
+                </div>
+                <button
+                  onClick={() => typeof window.openCookiePreferences === 'function' && window.openCookiePreferences()}
+                  className="flex items-center gap-2 bg-[#16a34a] hover:bg-[#064e3b] text-white px-6 py-3 rounded-lg font-black uppercase italic text-sm tracking-wider transition-all shrink-0 shadow-md"
+                >
+                  <SlidersHorizontal size={16} />
+                  Open Cookie Settings
+                </button>
+              </div>
               <div className="bg-[#064e3b] text-white border-4 border-slate-900 rounded-xl p-8">
                 <h3 className="text-2xl font-black uppercase mb-4 text-[#4ade80]">Browser Settings</h3>
                 <p className="mb-4 leading-relaxed">
