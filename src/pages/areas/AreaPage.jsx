@@ -477,20 +477,20 @@ const AreaPage = () => {
             </h2>
             <div className="space-y-4">
               {area.faqs.map((faq, idx) => (
-                <details
+                <div
                   key={idx}
-                  className="bg-white border-4 border-slate-900 rounded-xl overflow-hidden group"
+                  className="bg-white border-4 border-slate-900 rounded-xl overflow-hidden"
                 >
-                  <summary className="p-6 cursor-pointer font-black text-lg text-slate-900 hover:text-[#16a34a] transition-colors flex items-start gap-3 list-none [&::-webkit-details-marker]:hidden">
+                  <div className="p-6 flex items-start gap-3">
                     <span className="bg-[#16a34a] text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-sm font-black mt-0.5">
                       {idx + 1}
                     </span>
-                    <span>{faq.q}</span>
-                  </summary>
+                    <h3 className="font-black text-lg text-slate-900">{faq.q}</h3>
+                  </div>
                   <div className="px-6 pb-6 pl-[4.25rem]">
                     <p className="text-slate-700 leading-relaxed font-bold">{faq.a}</p>
                   </div>
-                </details>
+                </div>
               ))}
             </div>
           </section>
