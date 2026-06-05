@@ -122,7 +122,7 @@ const SERVICE_AREA_DATA = {
       { q: `How much does end of tenancy clearance cost in ${area.name}?`, a: `Single room clearances in ${area.name} start from £150, full flat clearances from £350, and whole house clearances from £600. Fixed pricing with no hidden fees — the quote includes everything.` },
       { q: `Will your clearance help me get my deposit back?`, a: `Yes — our thorough end of tenancy clearance service in ${area.name} is designed to meet landlord and letting agent inspection standards. We leave properties clean and clear, helping tenants secure their deposit returns.` },
       { q: `Do you work with letting agents in ${area.name}?`, a: `Yes — we work with numerous letting agents and property managers across ${area.name} and ${area.county}. We can coordinate directly with agents for access and scheduling.` },
-      { q: `Can you clear a property at short notice in ${area.name}?`, a: `Absolutely. We specialise in urgent end of tenancy clearances across ${area.name}. Same-day service is available — call us on 07769 844298 and we can often be with you within 2 hours.` },
+      { q: `Can you clear a property at short notice in ${area.name}?`, a: `Absolutely. We specialise in urgent end of tenancy clearances across ${area.name}. Same-day service is available and we can often be on-site within 2 hours of your enquiry. No long wait times or booking delays.` },
       { q: `Do you provide waste transfer notes for ${area.name} clearances?`, a: `Yes — as fully licensed waste carriers, we provide legal waste transfer notes for every end of tenancy clearance in ${area.name}. This documentation protects both landlords and tenants.` }
     ],
     getMeta: (area) => ({
@@ -243,7 +243,7 @@ const SERVICE_AREA_DATA = {
       { q: `Can you handle IT equipment disposal in ${area.name}?`, a: `Yes — we provide WEEE-compliant IT equipment disposal across ${area.name}. Computers, servers, monitors, and electronics are all handled properly. Certified data destruction is available on request.` },
       { q: `Do you provide waste documentation for businesses in ${area.name}?`, a: `Absolutely. Every commercial clearance in ${area.name} comes with full duty of care waste documentation, waste transfer notes, and compliance records for your business audit trail.` },
       { q: `Can you strip out a shop or restaurant in ${area.name}?`, a: `Yes — we handle complete commercial strip-outs including retail fixtures, restaurant kitchens, salon equipment, and all commercial fittings across ${area.name} and ${area.county}.` },
-      { q: `How fast can you clear a commercial premises in ${area.name}?`, a: `We offer same-day and next-day commercial clearances across ${area.name}. For large projects, we can deploy multiple crews to complete the job efficiently. Call 07769 844298 for a rapid quote.` }
+      { q: `How fast can you clear a commercial premises in ${area.name}?`, a: `We offer same-day and next-day commercial clearances across ${area.name}. For large projects, we can deploy multiple crews to complete the job efficiently within your required timeframe.` }
     ],
     getMeta: (area) => ({
       title: `Commercial Waste Removal ${area.name} | Office Clearance ${area.postcode} | Same-Day`,
