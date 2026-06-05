@@ -39,20 +39,6 @@ const AreaPage = () => {
 
   const otherAreas = Object.values(AREA_DATA).filter(a => a.slug !== slug);
 
-  // Schema.org FAQPage structured data
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": area.faqs.map(faq => ({
-      "@type": "Question",
-      "name": faq.q,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.a
-      }
-    }))
-  };
-
   // Schema.org LocalBusiness structured data for this specific area
   const localBusinessSchema = {
     "@context": "https://schema.org",
@@ -206,7 +192,6 @@ const AreaPage = () => {
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
       {/* Hero Section */}
