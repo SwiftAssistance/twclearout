@@ -110,7 +110,7 @@ const LandingReviews = () => {
               WHAT THEY<br />SAY.
             </p>
           </div>
-          <div className="bg-white/10 border-2 border-white/20 px-6 py-4 flex items-center gap-4 shrink-0">
+          <a href="https://share.google/G1JjlRGEG7yKmVMLi" target="_blank" rel="noopener noreferrer" aria-label="Read our Google reviews" className="bg-white/10 border-2 border-white/20 px-6 py-4 flex items-center gap-4 shrink-0 hover:bg-white/20 transition-colors">
             <div className="text-center">
               <p className="font-[1000] text-3xl text-white italic leading-none">5.0</p>
               <div className="flex gap-0.5 mt-1">
@@ -124,7 +124,7 @@ const LandingReviews = () => {
                 <p className="text-[10px] font-bold text-white/50 uppercase tracking-wider mt-0.5">Verified 5-Star Rating</p>
               </div>
             </div>
-          </div>
+          </a>
         </div>
 
         {/* Single-card carousel — all screen sizes */}
