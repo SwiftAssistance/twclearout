@@ -95,6 +95,12 @@ const AreaPage = () => {
       }
     ],
     "priceRange": "££",
+    "sameAs": [
+      "https://share.google/G1JjlRGEG7yKmVMLi",
+      "https://uk.trustpilot.com/review/totalwasteclearout.co.uk",
+      "https://m.facebook.com/totalwasteclearoutt/",
+      "https://www.instagram.com/totalwasteclearout"
+    ],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": area.rating,

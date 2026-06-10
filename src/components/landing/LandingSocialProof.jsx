@@ -10,14 +10,14 @@ const LandingSocialProof = () => (
           <span className="hidden sm:inline">EA Licensed</span>
           <span className="sm:hidden">Licensed</span>
         </span>
-        <span className="flex items-center gap-1.5 text-white/70">
+        <a href="https://share.google/G1JjlRGEG7yKmVMLi" target="_blank" rel="noopener noreferrer" aria-label="Read our Google reviews" className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors">
           <Star size={13} fill="#4ade80" className="text-[#4ade80]" />
           5.0 Google
-        </span>
-        <span className="flex items-center gap-1.5 text-white/70">
+        </a>
+        <a href="https://uk.trustpilot.com/review/totalwasteclearout.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Read our Trustpilot reviews" className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors">
           <svg viewBox="0 0 127.3 119.7" width="13" height="13" xmlns="http://www.w3.org/2000/svg" aria-label="Trustpilot"><polygon fill="#00b67a" points="63.65,0 83.12,38.49 127.3,44.96 95.47,75.97 103.28,119.7 63.65,99.37 24.02,119.7 31.83,75.97 0,44.96 44.18,38.49"/></svg>
           4.4 Trustpilot
-        </span>
+        </a>
         <span className="flex items-center gap-1.5 text-white/70">
           <Clock size={13} className="text-[#4ade80]" />
           Same Day

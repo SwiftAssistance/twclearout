@@ -137,7 +137,7 @@ const LandingQuoteForm = () => {
             </div>
 
             {/* Trustpilot badge */}
-            <div className="flex items-center gap-4 bg-white/5 border-2 border-white/10 px-5 py-4 mb-8">
+            <a href="https://uk.trustpilot.com/review/totalwasteclearout.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Read our reviews on Trustpilot" className="flex items-center gap-4 bg-white/5 border-2 border-white/10 px-5 py-4 mb-8 hover:bg-white/10 transition-colors">
               <svg viewBox="0 0 127.3 119.7" width="32" height="32" xmlns="http://www.w3.org/2000/svg" aria-label="Trustpilot" className="shrink-0"><polygon fill="#00b67a" points="63.65,0 83.12,38.49 127.3,44.96 95.47,75.97 103.28,119.7 63.65,99.37 24.02,119.7 31.83,75.97 0,44.96 44.18,38.49"/></svg>
               <div>
                 <p className="font-[1000] text-white uppercase italic tracking-tight leading-none text-lg">4.4 <span className="text-[#00b67a]">Excellent</span></p>
@@ -150,7 +150,7 @@ const LandingQuoteForm = () => {
                 </div>
                 <p className="text-[10px] font-black text-white/40 uppercase tracking-wider">10 Reviews · Trustpilot</p>
               </div>
-            </div>
+            </a>
 
             <a
               href="tel:07769844298"
