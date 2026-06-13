@@ -164,6 +164,9 @@ const ServiceAreaPage = () => {
     ]
   };
 
+  // Dedicated demolition content (garage & shed clearance only)
+  const demolition = service.getDemolition ? service.getDemolition(area) : null;
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Helmet>
@@ -326,6 +329,23 @@ const ServiceAreaPage = () => {
               </p>
             </div>
           </section>
+
+          {/* Shed Demolition — dedicated section (garage & shed clearance only) */}
+          {demolition && (
+            <section className="mb-16">
+              <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6 flex items-center gap-4">
+                <Hammer size={40} className="text-[#16a34a]" />
+                {demolition.heading}
+              </h2>
+              <div className="bg-white border-4 border-slate-900 rounded-xl p-8 shadow-[8px_8px_0px_#e2e8f0]">
+                {demolition.paragraphs.map((para, idx) => (
+                  <p key={idx} className={`text-slate-700 leading-relaxed ${idx === 0 ? 'text-lg' : ''} ${idx < demolition.paragraphs.length - 1 ? 'mb-4' : ''}`}>
+                    {para}
+                  </p>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* Postcodes & Coverage */}
           <section className="mb-16">

@@ -35,8 +35,8 @@ const GarageShed = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Helmet>
-        <title>Garage Clearout Reading Slough | Shed Clearout & Demolition Berkshire Surrey</title>
-        <meta name="description" content="Professional garage clearout and shed clearout in Reading, Slough, Guildford & Berkshire. Contents clearance, full demolition, waste removal. Same-day service, licensed from £100." />
+        <title>Shed Demolition Berkshire | Garage & Shed Clearout Reading, Slough, Surrey</title>
+        <meta name="description" content="Shed demolition, garage clearout & shed clearout in Reading, Slough, Guildford & across Berkshire and Surrey. Dismantling, contents clearance, full removal. Same-day, licensed, from £100." />
         <meta name="keywords" content="garage clearout, garage clearout reading, garage clearout slough, garage clearout guildford, garage clearout berkshire, garage clearout surrey, garage clearout near me, shed clearout, shed clearout reading, shed clearout slough, shed clearout berkshire, shed clearout surrey, garage clearance, garage clearance reading, garage clearance slough, garage clearance guildford, garage clearance berkshire, garage clearance surrey, shed clearance reading, shed clearance slough, shed clearance berkshire, garage demolition reading, garage demolition slough, garage demolition berkshire, shed demolition reading, shed demolition berkshire, shed removal near me, outbuilding clearout, outbuilding clearance, outbuilding demolition berkshire, concrete garage removal, prefab garage demolition, garden building removal, workshop clearout berkshire, workshop demolition berkshire, summerhouse removal, shed dismantling surrey, garage contents clearout, garage contents clearance, garden shed clearout near me, cheap garage clearout, same day garage clearout, same day shed clearout" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/garage-shed/" />
@@ -74,6 +74,22 @@ const GarageShed = () => {
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Yes. Total Waste Clearout offers complete garage and shed clearout and demolition services across Berkshire and Surrey. We clear the contents, carefully dismantle the structure, remove all materials, and leave the site clean and level. We serve Reading, Slough, Guildford, Woking, Bracknell, Windsor, and all surrounding areas."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does shed demolition cost?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Shed demolition starts from £250 for a standard garden shed, including dismantling, full removal of all materials, and site clearance. Large sheds, workshops, and concrete sectional sheds are quoted after a free assessment. Every price includes loading, transport, and licensed disposal — no skip or council permit required. Call Total Waste Clearout on 07769 844298 for a free shed demolition quote."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you demolish concrete and asbestos sheds?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. We demolish and remove concrete sectional sheds, brick outbuildings, and metal sheds across Berkshire and Surrey. For asbestos-cement sheds (common in pre-2000 buildings), we work with certified asbestos contractors to ensure safe, legal removal before demolition — just let us know when you book."
               }
             }
           ]
@@ -157,6 +173,25 @@ const GarageShed = () => {
                   <strong>Note:</strong> For asbestos-containing structures, we work with certified asbestos removal contractors to ensure safe, legal removal.
                 </p>
               </div>
+            </div>
+          </section>
+
+          {/* Shed Demolition */}
+          <section className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-6 flex items-center gap-4">
+              <Hammer size={40} className="text-[#16a34a]" />
+              Shed Demolition Across Berkshire &amp; Surrey
+            </h2>
+            <div className="bg-white border-4 border-slate-900 rounded-xl p-8 shadow-[8px_8px_0px_#e2e8f0]">
+              <p className="text-slate-700 leading-relaxed mb-4 text-lg">
+                Need a shed demolished and taken away? Our shed demolition service goes beyond a simple clear-out — we take down the whole structure, clear the base, and leave your garden flat and ready to reuse. We demolish timber sheds, metal stores, summerhouses, log cabins, concrete sectional sheds, and large garden workshops throughout Reading, Slough, Guildford, Woking, Bracknell, Windsor, Ascot, Egham, Maidenhead, and Staines.
+              </p>
+              <p className="text-slate-700 leading-relaxed mb-4">
+                Most single-shed demolitions are completed in a few hours — often the same day you call. Our crews carefully deconstruct the building, protect neighbouring fences and gardens, and load every panel, joist, and fixing onto our vehicles. There's no skip to hire, no permit to arrange, and no heavy lifting for you. Shed demolition starts from £250 including dismantling, full removal, and site clearance, with larger or concrete structures quoted after a free assessment.
+              </p>
+              <p className="text-slate-700 leading-relaxed">
+                As a licensed waste carrier (Environment Agency CBDU630127) we recycle the timber, salvage the metal, and provide a waste transfer note for every shed demolition. For asbestos-cement sheds we arrange certified specialist removal before demolition — just tell us when you book.
+              </p>
             </div>
           </section>
 
