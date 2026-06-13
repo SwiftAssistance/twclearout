@@ -25,8 +25,6 @@ import {
   Zap,
   Award,
   Users,
-  Instagram,
-  Facebook,
   Linkedin,
   Quote,
   ExternalLink,
@@ -1383,11 +1381,23 @@ const App = () => {
                 </a>
               </div>
               <div className="flex gap-3 pt-2">
-                <a href="https://www.instagram.com/totalwasteclearout" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-[#E1306C] transition-colors group">
-                  <Instagram size={18} className="text-[#E1306C] group-hover:text-white group-hover:scale-110 transition-transform" />
+                <a href="https://www.instagram.com/totalwasteclearout" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors group">
+                  <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="group-hover:scale-110 transition-transform">
+                    <defs>
+                      <radialGradient id="ig-footer" cx="0.3" cy="1" r="1.1">
+                        <stop offset="0" stopColor="#FED576"/>
+                        <stop offset="0.26" stopColor="#F47133"/>
+                        <stop offset="0.61" stopColor="#BC3081"/>
+                        <stop offset="1" stopColor="#4C63D2"/>
+                      </radialGradient>
+                    </defs>
+                    <path fill="url(#ig-footer)" d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.78.3-1.44.71-2.1 1.37C1.38 2.66.97 3.32.67 4.1c-.3.76-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.78.71 1.44 1.37 2.1.66.66 1.32 1.07 2.1 1.37.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.78-.3 1.44-.71 2.1-1.37.66-.66 1.07-1.32 1.37-2.1.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.78-.71-1.44-1.37-2.1C21.34 1.38 20.68.97 19.9.67c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1018.16 12 6.16 6.16 0 0012 5.84zm0 10.16a4 4 0 114-4 4 4 0 01-4 4zm6.41-11.85a1.44 1.44 0 101.44 1.44 1.44 1.44 0 00-1.44-1.44z"/>
+                  </svg>
                 </a>
-                <a href="https://m.facebook.com/totalwasteclearoutt/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-[#1877F2] transition-colors group">
-                  <Facebook size={18} className="text-[#1877F2] group-hover:text-white group-hover:scale-110 transition-transform" />
+                <a href="https://m.facebook.com/totalwasteclearoutt/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors group">
+                  <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="group-hover:scale-110 transition-transform">
+                    <path fill="#1877F2" d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+                  </svg>
                 </a>
                 <a href="https://share.google/G1JjlRGEG7yKmVMLi" target="_blank" rel="noopener noreferrer" aria-label="View us on Google Business" className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-white transition-colors group">
                   <svg viewBox="0 0 24 24" width="18" height="18" className="group-hover:scale-110 transition-transform">
@@ -1399,9 +1409,6 @@ const App = () => {
                 </a>
                 <a href="https://uk.trustpilot.com/review/totalwasteclearout.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Read our reviews on Trustpilot" className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-[#00b67a] transition-colors group">
                   <svg viewBox="0 0 127.3 119.7" width="18" height="18" xmlns="http://www.w3.org/2000/svg" className="group-hover:scale-110 transition-transform"><polygon fill="#00b67a" className="group-hover:fill-white" points="63.65,0 83.12,38.49 127.3,44.96 95.47,75.97 103.28,119.7 63.65,99.37 24.02,119.7 31.83,75.97 0,44.96 44.18,38.49"/></svg>
-                </a>
-                <a href="https://www.bark.com/en/gb/b/total-waste-clearout/j8mElk/" target="_blank" rel="noopener noreferrer" aria-label="View our Bark.com profile" className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-[#FF6600] transition-colors group">
-                  <Award size={18} className="text-[#FF6600] group-hover:text-white group-hover:scale-110 transition-transform" />
                 </a>
               </div>
             </div>
