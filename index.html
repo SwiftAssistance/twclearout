@@ -141,9 +141,11 @@
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": "https://totalwasteclearout.co.uk/#website",
       "name": "Total Waste Clearout",
       "alternateName": ["Berkshire Waste Removal", "Surrey Waste Removal", "Total Waste Clearout Ltd"],
-      "url": "https://totalwasteclearout.co.uk"
+      "url": "https://totalwasteclearout.co.uk",
+      "publisher": { "@id": "https://totalwasteclearout.co.uk/#organization" }
     }
     </script>
 
@@ -647,11 +649,10 @@
         "xpath": [
           "/html/head/title",
           "/html/head/meta[@name='description']/@content"
-        ],
-        "cssSelector": [".speakable-headline", ".speakable-summary"]
+        ]
       },
       "primaryImageOfPage": "https://totalwasteclearout.co.uk/hero.webp",
-      "isPartOf": { "@id": "https://totalwasteclearout.co.uk/#organization" }
+      "isPartOf": { "@id": "https://totalwasteclearout.co.uk/#website" }
     }
     </script>
     <!-- PRERENDER_PAGE_SCHEMA_END -->
