@@ -63,6 +63,7 @@ const ServiceAreaPage = () => {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": `https://totalwasteclearout.co.uk/${slug}/#localbusiness`,
     "name": `Total Waste Clearout - ${service.name} ${area.name}`,
     "description": meta.description,
     "url": `https://totalwasteclearout.co.uk/${slug}`,
@@ -102,6 +103,14 @@ const ServiceAreaPage = () => {
         "opens": "08:00",
         "closes": "17:00"
       }
+    ],
+    "parentOrganization": { "@id": "https://totalwasteclearout.co.uk/#organization" },
+    "sameAs": [
+      "https://www.yell.com/biz/total-waste-clearout-reading/",
+      "https://m.facebook.com/totalwasteclearoutt/",
+      "https://www.instagram.com/totalwasteclearout",
+      "https://www.linkedin.com/company/totalwasteclearout",
+      "https://share.google/LlF3dWmvgamOAhgMy"
     ]
   };
 
@@ -110,10 +119,7 @@ const ServiceAreaPage = () => {
     "@context": "https://schema.org",
     "@type": "Service",
     "serviceType": service.name,
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "Total Waste Clearout"
-    },
+    "provider": { "@id": "https://totalwasteclearout.co.uk/#organization" },
     "areaServed": {
       "@type": "City",
       "name": area.name
