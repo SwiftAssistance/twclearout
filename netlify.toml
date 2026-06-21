@@ -2,6 +2,13 @@
   publish = "dist"
   command = "npm run build"
 
+# ── Plugins ────────────────────────────────────────────────────────────
+# Local build plugin: after a successful production deploy, submit every
+# sitemap URL to IndexNow (Bing/Yandex/etc.) so changed pages are crawled
+# within minutes. See plugins/indexnow/.
+[[plugins]]
+  package = "/plugins/indexnow"
+
 # ── Headers ────────────────────────────────────────────────────────────
 # Cache hashed assets (JS, CSS) immutably — Vite generates unique hashes
 [[headers]]
