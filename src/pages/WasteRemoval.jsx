@@ -105,7 +105,7 @@ const WasteRemoval = () => {
     <>
       <Helmet>
         <title>Waste Removal Berkshire & Surrey | Same-Day Licensed Collection | Total Waste Clearout</title>
-        <meta name="description" content="Professional waste removal across Berkshire & Surrey. Same-day collection, fixed pricing, 94% recycling rate. Licensed carrier, £5M insured. Call 07769 844298 for a free quote." />
+        <meta name="description" content="Same-day waste removal across Berkshire & Surrey. Fixed pricing, 94% recycled, licensed & £5M insured. Call 07769 844298 for a free quote." />
         <meta name="keywords" content="waste removal, waste removal berkshire, waste removal surrey, waste removal near me, waste removal service, same day waste removal, licensed waste removal, rubbish removal berkshire, rubbish removal surrey, waste collection berkshire, junk removal berkshire, man and van waste removal" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/waste-removal/" />

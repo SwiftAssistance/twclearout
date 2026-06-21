@@ -312,17 +312,20 @@ for (const page of pages) {
     `<title>${page.title}</title>`
   );
 
-  // Replace meta description
+  // Replace meta description. data-rh="true" lets react-helmet-async adopt
+  // this tag on the client (it only reconciles tags carrying that attribute),
+  // so Helmet replaces it in place instead of appending a duplicate.
   html = html.replace(
-    /<meta name="description" content="[^"]*" \/>/,
-    `<meta name="description" content="${page.description}" />`
+    /<meta name="description"[^>]*\/>/,
+    `<meta name="description" data-rh="true" content="${page.description}" />`
   );
 
-  // Replace canonical URL (trailing slash to match Netlify's served URL)
+  // Replace canonical URL (trailing slash to match Netlify's served URL).
+  // data-rh="true" — same adoption rationale as the description above.
   const trailingPath = page.path.endsWith('/') ? page.path : `${page.path}/`;
   html = html.replace(
-    /<link rel="canonical" href="[^"]*" \/>/,
-    `<link rel="canonical" href="${BASE_URL}${trailingPath}" />`
+    /<link rel="canonical"[^>]*\/>/,
+    `<link rel="canonical" data-rh="true" href="${BASE_URL}${trailingPath}" />`
   );
 
   // Replace Open Graph URL + title + description
@@ -476,8 +479,8 @@ for (const page of pages) {
     '<title>Waste Removal Berkshire &amp; Surrey | Same Day Collection | Total Waste Clearout</title>'
   );
   html = html.replace(
-    /<meta name="description" content="[^"]*" \/>/,
-    '<meta name="description" content="Fast, licensed waste removal across Berkshire and Surrey. Same day collection, fixed prices, no hidden fees. Get a free quote from Total Waste Clearout." />'
+    /<meta name="description"[^>]*\/>/,
+    '<meta name="description" data-rh="true" content="Fast, licensed waste removal across Berkshire and Surrey. Same day collection, fixed prices, no hidden fees. Get a free quote from Total Waste Clearout." />'
   );
   // Make the page noindex in the static HTML (Helmet also sets this but
   // we want it correct before JS runs in case a crawler hits the ads URL).
@@ -493,8 +496,8 @@ for (const page of pages) {
     );
   }
   html = html.replace(
-    /<link rel="canonical" href="[^"]*" \/>/,
-    '<link rel="canonical" href="https://totalwasteclearout.co.uk/get-quote" />'
+    /<link rel="canonical"[^>]*\/>/,
+    '<link rel="canonical" data-rh="true" href="https://totalwasteclearout.co.uk/get-quote" />'
   );
   html = html.replace(
     /<meta property="og:url" content="[^"]*" \/>/,
