@@ -95,7 +95,7 @@ export default function QuoteModal({ buttonClassName, buttonLabel = 'Get a Quote
                   </div>
                   <div>
                     <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Job Type</label>
-                    <select name="jobType" value={form.jobType} onChange={set('jobType')} className="w-full border-2 border-slate-900 p-3 font-bold text-sm outline-none focus:border-[#16a34a] bg-white cursor-pointer">
+                    <select name="jobType" aria-label="Job Type" value={form.jobType} onChange={set('jobType')} className="w-full border-2 border-slate-900 p-3 font-bold text-sm outline-none focus:border-[#16a34a] bg-white cursor-pointer">
                       {JOB_TYPES.map((t) => <option key={t}>{t}</option>)}
                     </select>
                   </div>
