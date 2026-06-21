@@ -96,7 +96,7 @@ export default function ContactForm({ subject = 'New Quote Request', compact = f
         </div>
         <div className={compact ? 'mt-4' : 'mt-0'}>
           <label className={labelClass}>Job Type</label>
-          <select value={form.jobType} onChange={set('jobType')} className={`${inputClass} cursor-pointer appearance-none`}>
+          <select name="jobType" aria-label="Job Type" value={form.jobType} onChange={set('jobType')} className={`${inputClass} cursor-pointer appearance-none`}>
             {JOB_TYPES.map((t) => <option key={t}>{t}</option>)}
           </select>
         </div>

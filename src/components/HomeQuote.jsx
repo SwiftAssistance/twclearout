@@ -41,7 +41,7 @@ const HomeQuote = () => (
               <input type="hidden" name="form-name" value="homepage-quote" />
               <div>
                 <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Job Type</label>
-                <select name="jobType" className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a] cursor-pointer appearance-none">
+                <select name="jobType" aria-label="Job Type" className="w-full bg-white border-4 border-slate-900 p-4 md:p-5 font-black uppercase text-xs outline-none focus:border-[#16a34a] cursor-pointer appearance-none">
                   {JOB_TYPES.map((t) => <option key={t}>{t}</option>)}
                 </select>
               </div>
