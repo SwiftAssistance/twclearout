@@ -23,7 +23,7 @@ const About = () => {
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Helmet>
         <title>About Total Waste Clearout | Berkshire & Surrey Waste Removal Experts</title>
-        <meta name="description" content="Learn about Total Waste Clearout - Berkshire, Surrey & Hampshire's trusted waste removal company. Licensed carrier CBDU630127, 94% recycling rate, £5M insured. Serving 23 towns across the Thames Valley." />
+        <meta name="description" content="Total Waste Clearout — Berkshire & Surrey's trusted waste removal company. 94% recycled, fully licensed, £5M insured, serving Reading, Slough & Guildford." />
         <meta name="keywords" content="about total waste clearout, waste removal company berkshire, waste removal company surrey, rubbish clearance company reading, rubbish clearance company slough, professional waste removal berkshire, professional waste removal surrey, licensed waste carrier berkshire, licensed waste carrier surrey, eco friendly waste disposal berkshire, eco friendly waste disposal surrey, trusted clearance company reading, trusted clearance company guildford, waste removal experts berkshire, junk removal specialists surrey, 94 percent recycling rate, insured waste removal company, waste management company berkshire" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/about/" />

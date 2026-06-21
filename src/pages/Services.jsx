@@ -79,7 +79,7 @@ const Services = () => {
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Helmet>
         <title>Waste Removal Services Berkshire & Surrey | House, Garden, Commercial Clearance</title>
-        <meta name="description" content="Complete waste removal services in Berkshire & Surrey. House clearance, garden waste, office rip-outs, construction waste, garage demolition. 94% recycling rate. Same-day service. Call 07769 844298." />
+        <meta name="description" content="Waste removal services across Berkshire & Surrey: house, garden, office, construction & garage clearance. 94% recycled, same-day. Call 07769 844298." />
         <meta name="keywords" content="waste removal services, waste removal services berkshire, waste removal services surrey, rubbish clearance services reading, rubbish clearance services slough, house clearance service berkshire, garden waste removal service surrey, commercial waste removal service, office clearance service reading, office clearance service guildford, construction waste removal service, trade waste collection service, skip hire alternative berkshire, junk removal service surrey, bulky waste collection service, furniture removal service, garage demolition service, shed clearance service, end of tenancy clearance service, same day waste removal, licensed waste carrier berkshire surrey, waste disposal maidenhead, waste disposal windsor, waste disposal bracknell, waste disposal woking" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/services/" />

@@ -72,7 +72,7 @@ const Areas = () => {
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Helmet>
         <title>Areas We Serve | Waste Removal Reading, Slough, Guildford & 10+ Towns</title>
-        <meta name="description" content="Professional waste removal across Berkshire & Surrey. Serving Reading, Slough, Guildford, Woking, Bracknell, Windsor, Ascot, Egham, Maidenhead & Staines. Same-day service available." />
+        <meta name="description" content="Waste removal across Berkshire & Surrey — Reading, Slough, Guildford, Woking, Bracknell, Windsor, Ascot, Egham, Maidenhead & Staines. Same-day service." />
         <meta name="keywords" content="waste removal berkshire, waste removal surrey, waste removal reading, waste removal slough, waste removal guildford, waste removal woking, waste removal bracknell, waste removal windsor, waste removal ascot, waste removal egham, waste removal maidenhead, waste removal staines, rubbish clearance berkshire, rubbish clearance surrey, rubbish clearance reading, rubbish clearance slough, waste collection near me, waste removal near me, local waste removal berkshire, local waste removal surrey, skip hire alternative berkshire, skip hire alternative surrey, same day waste collection berkshire, licensed waste carrier berkshire surrey" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://totalwasteclearout.co.uk/areas/" />
