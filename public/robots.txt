@@ -36,6 +36,12 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
+User-agent: Bingbot-Image
+Allow: /
+
+User-agent: MicrosoftPreview
+Allow: /
+
 User-agent: DuckDuckBot
 Allow: /
 

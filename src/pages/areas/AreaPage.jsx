@@ -45,7 +45,7 @@ const AreaPage = () => {
     "@type": "LocalBusiness",
     "name": `Total Waste Clearout - ${area.name}`,
     "description": `Professional waste removal and rubbish clearance services in ${area.name}, ${area.county}. Same-day collection, 94% recycling rate, fully licensed.`,
-    "url": `https://totalwasteclearout.co.uk/${area.slug}`,
+    "url": `https://totalwasteclearout.co.uk/${area.slug}/`,
     "telephone": "+447769844298",
     "email": "office@totalwasteclearout.co.uk",
     "image": "https://totalwasteclearout.co.uk/logo-512.png",
@@ -176,6 +176,20 @@ const AreaPage = () => {
     ]
   };
 
+  // FAQPage schema — unlocks rich result panels in Bing and Google for AEO
+  const faqSchema = area.faqs && area.faqs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": area.faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
+      }
+    }))
+  } : null;
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Helmet>
@@ -198,6 +212,7 @@ const AreaPage = () => {
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        {faqSchema && <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>}
       </Helmet>
 
       {/* Hero Section */}

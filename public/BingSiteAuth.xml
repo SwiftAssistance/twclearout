@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- Bing Webmaster Tools — alternative site verification method (XML file)
+     Instructions:
+     1. Go to https://www.bing.com/webmasters and sign in with a Microsoft account
+     2. Add site: https://totalwasteclearout.co.uk
+     3. Choose "XML File" verification method
+     4. Bing will provide a verification code — replace REPLACE_WITH_BING_CODE below
+     5. Deploy, then click Verify in Bing Webmaster Tools
+     6. Submit sitemap: https://totalwasteclearout.co.uk/sitemap.xml
+
+     NOTE: You only need ONE verification method — either this file OR the
+     <meta name="msvalidate.01"> tag in index.html. Both are included for
+     flexibility; whichever method you choose in Bing Webmaster Tools is the
+     one that will be validated. -->
+<users>
+  <user>REPLACE_WITH_BING_CODE</user>
+</users>

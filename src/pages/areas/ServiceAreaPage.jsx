@@ -164,6 +164,20 @@ const ServiceAreaPage = () => {
     ]
   };
 
+  // FAQPage schema — unlocks rich result panels in Bing and Google for AEO
+  const faqSchema = faqs && faqs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
+      }
+    }))
+  } : null;
+
   // Dedicated demolition content (garage & shed clearance only)
   const demolition = service.getDemolition ? service.getDemolition(area) : null;
 
@@ -189,6 +203,7 @@ const ServiceAreaPage = () => {
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        {faqSchema && <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>}
       </Helmet>
 
       {/* Hero Section */}
