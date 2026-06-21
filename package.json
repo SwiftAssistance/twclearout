@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "node scripts/generate-sitemap.js && vite build && node scripts/prerender.js",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "indexnow": "node scripts/indexnow-submit.js"
   },
   "dependencies": {
     "lucide-react": "^0.562.0",
