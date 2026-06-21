@@ -1145,7 +1145,7 @@ const App = () => {
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 text-slate-900 text-left">
               <Helmet>
                 <title>Total Waste Clearout | Waste Removal Berkshire & Surrey | 07769 844298</title>
-                <meta name="description" content="Professional waste removal across Berkshire & Surrey. Same-day collection, fixed pricing, 94% recycling rate. House clearance, garden waste, commercial waste. Call 07769 844298." />
+                <meta name="description" content="Same-day waste removal across Berkshire & Surrey — house, garden & commercial clearance. 94% recycled, licensed, £5M insured. Call 07769 844298." />
                 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
                 <link rel="canonical" href="https://totalwasteclearout.co.uk/" />
                 <meta property="og:title" content="Total Waste Clearout | Waste Removal Berkshire & Surrey" />
