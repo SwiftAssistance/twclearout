@@ -23,7 +23,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 
 const HOST = 'totalwasteclearout.co.uk';
-const KEY = 'b45e36f9dee04322a7e227565237b3d2';
+const KEY = 'e70377bfed97402faffa80f06061e082';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 const ENDPOINT = 'https://api.indexnow.org/indexnow';
 
