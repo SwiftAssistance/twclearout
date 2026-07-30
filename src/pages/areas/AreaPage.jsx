@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { AREA_DATA, AREA_SERVICES } from '../../data/areaData';
 import { getServiceAreaSlug, SERVICE_AREA_DATA } from '../../data/serviceAreaData';
+import { AVERAGE_RATING, TOTAL_REVIEWS } from '../../data/reviewStats';
 
 const ICON_MAP = {
   Home, TreePine, Briefcase, HardHat, Hammer
@@ -103,8 +104,8 @@ const AreaPage = () => {
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": area.rating,
-      "reviewCount": area.reviewCount,
+      "ratingValue": AVERAGE_RATING,
+      "reviewCount": String(TOTAL_REVIEWS),
       "bestRating": "5",
       "worstRating": "1"
     },
@@ -497,8 +498,8 @@ const AreaPage = () => {
                   <Star key={i} size={24} className="text-yellow-400" style={{ fill: '#facc15' }} />
                 ))}
               </div>
-              <span className="font-black text-2xl text-slate-900">{area.rating} / 5</span>
-              <span className="text-slate-500 font-bold">({area.reviewCount} verified reviews)</span>
+              <span className="font-black text-2xl text-slate-900">{AVERAGE_RATING} / 5</span>
+              <span className="text-slate-500 font-bold">({TOTAL_REVIEWS} verified reviews on Google &amp; Trustpilot)</span>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               {area.reviews.map((review, idx) => (

@@ -26,7 +26,7 @@ This document outlines the comprehensive SEO implementation for Total Waste Clea
 - ✅ **Geographic targeting** - All 8 service areas specified
 - ✅ **Business hours** - Monday-Saturday hours included
 - ✅ **Contact information** - Phone and email placeholders
-- ✅ **Aggregate ratings** - 5.0 rating with 150 reviews (update with real data)
+- ✅ **Aggregate ratings** - 4.8 rating from 45 real reviews (33 Google + 12 Trustpilot)
 
 ### 4. **Enhanced Meta Tags**
 - ✅ **Primary keywords**: waste removal berkshire, rubbish clearance reading, commercial waste removal surrey, etc.
@@ -149,8 +149,8 @@ Update these placeholders in `index.html` (line 57-58):
 ```
 
 ### 3. Collect Real Reviews
-- The schema shows 150 reviews with 5.0 rating (line 60-66)
-- **Action**: Replace with real numbers once you have them
+- The schema shows the real platform totals: 45 reviews at 4.8 (33 on Google, 12 on Trustpilot)
+- **Action**: Update `src/data/reviewStats.js` (plus `index.html` and `public/llms*.txt`) whenever the live counts change
 - Ask satisfied customers to leave Google reviews
 - Display reviews prominently on your site
 
@@ -393,6 +393,39 @@ With consistent effort on content, reviews, and backlinks, you should see top-3 
 
 ---
 
-*Last updated: 15 April 2026 (v2.0 — April 2026 SEO refresh)*
+## 🔄 July 2026 — review counts corrected to real platform totals
+
+The site previously advertised inflated review numbers (156 aggregate in the homepage
+schema, plus per-town counts of 38–143 in `src/data/areaData.js`, and "10 Reviews" on the
+Trustpilot badge). Those have been replaced with the actual live totals:
+
+- **Google Business Profile: 33 reviews, 5.0**
+- **Trustpilot: 12 reviews, 4.4**
+- **Combined: 45 reviews, 4.8** (volume-weighted average)
+
+Where the numbers now live:
+
+- `src/data/reviewStats.js` — single source of truth for the React app. Area pages
+  (`src/pages/areas/AreaPage.jsx`) read `AVERAGE_RATING` / `TOTAL_REVIEWS` from it for both
+  their `aggregateRating` schema and the on-page rating line, so the per-town `rating` /
+  `reviewCount` fields have been removed from `areaData.js`.
+- `index.html` — homepage `LocalBusiness` `aggregateRating` and the noscript credentials list.
+- `public/llms.txt` and `public/llms-full.txt` — the AI-assistant fact blocks.
+- `src/components/landing/LandingQuoteForm.jsx` — Trustpilot badge count.
+- `src/pages/About.jsx` — the "average rating" sentence.
+
+**Why this matters:** `aggregateRating` that can't be corroborated against the linked review
+platforms is a manual-action risk (Google's structured-data policy on "review counts that do
+not reflect genuine reviews"), and star ratings get pulled from rich results when the numbers
+don't reconcile. Every area page now reports the same business-wide figure rather than
+inventing a per-town total, which is both accurate and defensible.
+
+When the counts change, update `src/data/reviewStats.js` first, then mirror the new totals in
+`index.html` and the two `llms` files.
+
+---
+
+*Last updated: 30 July 2026 (v2.1 — real review counts)*
+*Previous update: 15 April 2026 (v2.0 — April 2026 SEO refresh)*
 *Previous update: 17 January 2026 (v1.0 — initial implementation)*
 *For questions about this implementation, review the inline comments in `index.html` and the per-page schemas in `src/pages/`.*
