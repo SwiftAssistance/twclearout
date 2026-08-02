@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import PlatformLogo from '../PlatformLogo';
+import { GOOGLE_REVIEWS } from '../../data/reviewStats';
 
 const reviews = [
   {
@@ -121,7 +122,7 @@ const LandingReviews = () => {
               <PlatformLogo platform="google" size={22} />
               <div>
                 <p className="text-xs font-black text-white uppercase italic tracking-wide">Google Reviews</p>
-                <p className="text-[10px] font-bold text-white/50 uppercase tracking-wider mt-0.5">Verified 5-Star Rating</p>
+                <p className="text-[10px] font-bold text-white/50 uppercase tracking-wider mt-0.5">{GOOGLE_REVIEWS} Verified 5-Star Reviews</p>
               </div>
             </div>
           </a>

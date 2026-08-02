@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Send, CheckCircle, Lock, Phone } from 'lucide-react';
+import { TRUSTPILOT_RATING, TRUSTPILOT_REVIEWS } from '../../data/reviewStats';
 
 const clearanceTypes = [
   'House Clearance',
@@ -140,7 +141,7 @@ const LandingQuoteForm = () => {
             <a href="https://uk.trustpilot.com/review/totalwasteclearout.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Read our reviews on Trustpilot" className="flex items-center gap-4 bg-white/5 border-2 border-white/10 px-5 py-4 mb-8 hover:bg-white/10 transition-colors">
               <svg viewBox="0 0 127.3 119.7" width="32" height="32" xmlns="http://www.w3.org/2000/svg" aria-label="Trustpilot" className="shrink-0"><polygon fill="#00b67a" points="63.65,0 83.12,38.49 127.3,44.96 95.47,75.97 103.28,119.7 63.65,99.37 24.02,119.7 31.83,75.97 0,44.96 44.18,38.49"/></svg>
               <div>
-                <p className="font-[1000] text-white uppercase italic tracking-tight leading-none text-lg">4.4 <span className="text-[#00b67a]">Excellent</span></p>
+                <p className="font-[1000] text-white uppercase italic tracking-tight leading-none text-lg">{TRUSTPILOT_RATING} <span className="text-[#00b67a]">Excellent</span></p>
                 <div className="flex gap-0.5 my-1">
                   {[1,2,3,4].map(i => (
                     <svg key={i} viewBox="0 0 127.3 119.7" width="14" height="14" xmlns="http://www.w3.org/2000/svg"><polygon fill="#00b67a" points="63.65,0 83.12,38.49 127.3,44.96 95.47,75.97 103.28,119.7 63.65,99.37 24.02,119.7 31.83,75.97 0,44.96 44.18,38.49"/></svg>
@@ -148,7 +149,7 @@ const LandingQuoteForm = () => {
                   {/* half star */}
                   <svg viewBox="0 0 127.3 119.7" width="14" height="14" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="tphalf"><stop offset="50%" stopColor="#00b67a"/><stop offset="50%" stopColor="#dce0e0"/></linearGradient></defs><polygon fill="url(#tphalf)" points="63.65,0 83.12,38.49 127.3,44.96 95.47,75.97 103.28,119.7 63.65,99.37 24.02,119.7 31.83,75.97 0,44.96 44.18,38.49"/></svg>
                 </div>
-                <p className="text-[10px] font-black text-white/40 uppercase tracking-wider">10 Reviews · Trustpilot</p>
+                <p className="text-[10px] font-black text-white/40 uppercase tracking-wider">{TRUSTPILOT_REVIEWS} Reviews · Trustpilot</p>
               </div>
             </a>
 

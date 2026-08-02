@@ -19,8 +19,6 @@ const AREA_DATA = {
     heroImage: "/hero.jpg",
     nearbyAreas: ["Wokingham", "Caversham", "Tilehurst", "Woodley", "Earley", "Calcot", "Pangbourne", "Theale"],
     landmarks: ["Oracle Shopping Centre", "Reading Station", "Forbury Gardens", "Madejski Stadium", "University of Reading", "Reading Abbey Ruins"],
-    rating: "4.9",
-    reviewCount: "143",
     reviews: [
       { author: "Mark R.", location: "Caversham, Reading", text: "Cleared our 3-bed house in Caversham for probate. The team were sensitive and efficient — the whole property cleared in one day. Highly recommended for estate clearances in Reading." },
       { author: "Emma S.", location: "RG2, Reading", text: "Used for end of tenancy clearance near Reading University. Had the flat completely clear for the inspection within 3 hours. Saved my deposit — brilliant service." },
@@ -58,8 +56,6 @@ const AREA_DATA = {
     heroImage: "/hero.jpg",
     nearbyAreas: ["Langley", "Cippenham", "Colnbrook", "Burnham", "Farnham Royal", "Iver", "Datchet"],
     landmarks: ["Slough Trading Estate", "The Curve", "Slough High Street", "Salt Hill Park", "Herschel Park"],
-    rating: "4.9",
-    reviewCount: "127",
     reviews: [
       { author: "Raj P.", location: "Slough Trading Estate", text: "Cleared a full office unit on the Trading Estate. Professional job, all compliance documentation provided. Will definitely use again for our other Slough units." },
       { author: "Claire W.", location: "Langley, Slough", text: "End of tenancy clearance in Langley — great price and really fast. Recommend to anyone in the SL postcodes needing a quick rubbish clearance." },
@@ -97,8 +93,6 @@ const AREA_DATA = {
     heroImage: "/hero.jpg",
     nearbyAreas: ["Godalming", "Shalford", "Merrow", "Burpham", "Stoughton", "Park Barn", "Onslow Village", "Compton"],
     landmarks: ["Guildford Castle", "Guildford Cathedral", "University of Surrey", "The Friary Centre", "Guildford High Street", "Stoke Park"],
-    rating: "4.9",
-    reviewCount: "89",
     reviews: [
       { author: "Helen K.", location: "Merrow, Guildford", text: "Large house clearance in Merrow for probate. The team handled it sensitively and the crew were excellent throughout. Would highly recommend for estate clearances in the GU1 area." },
       { author: "James P.", location: "GU2, Guildford", text: "Construction waste from our Guildford kitchen refit. No skip permit hassle — they came same day and cleared it all. Much better than organising a skip." },
@@ -136,8 +130,6 @@ const AREA_DATA = {
     heroImage: "/hero.jpg",
     nearbyAreas: ["Byfleet", "West Byfleet", "Sheerwater", "Horsell", "Knaphill", "St Johns", "Pyrford", "Ripley"],
     landmarks: ["Victoria Square", "Peacocks Centre", "Shah Jahan Mosque", "Woking Park", "Basingstoke Canal", "HG Wells Statue"],
-    rating: "4.9",
-    reviewCount: "76",
     reviews: [
       { author: "David T.", location: "Woking Town Centre", text: "Office clearance on Victoria Way — evening service so no disruption to the business whatsoever. Excellent team, everything done properly with full documentation." },
       { author: "Sarah J.", location: "Horsell, Woking", text: "Full house clearance in Horsell. Great price, same-day service, and the crew were professional throughout. Couldn't have asked for more." },
@@ -175,8 +167,6 @@ const AREA_DATA = {
     heroImage: "/hero.jpg",
     nearbyAreas: ["Crowthorne", "Sandhurst", "Binfield", "Warfield", "Winkfield", "Martins Heron", "Harmans Water"],
     landmarks: ["The Lexicon", "Bracknell Town Centre", "South Hill Park", "Coral Reef Waterworld", "Bracknell Forest", "Swinley Forest"],
-    rating: "4.9",
-    reviewCount: "68",
     reviews: [
       { author: "Lisa M.", location: "Bracknell Business Park", text: "Commercial office clearance at one of the Bracknell business parks. All duty of care documentation provided and the team were efficient and professional. Perfect service." },
       { author: "Gary F.", location: "Martins Heron, Bracknell", text: "Garden clearance in Martins Heron — trees, hedges, all gone same day. Excellent service and a very competitive price. Highly recommend." },
@@ -214,8 +204,6 @@ const AREA_DATA = {
     heroImage: "/hero.jpg",
     nearbyAreas: ["Eton", "Clewer", "Dedworth", "Old Windsor", "Datchet", "Wraysbury", "Horton"],
     landmarks: ["Windsor Castle", "Windsor Great Park", "Eton College", "Windsor Royal Station", "The Long Walk", "Legoland"],
-    rating: "4.9",
-    reviewCount: "47",
     reviews: [
       { author: "Charlotte B.", location: "Windsor Town Centre", text: "Cleared our Victorian house near Windsor Castle in the conservation area. No skips allowed nearby but Total Waste Clearout sorted it no problem. Prompt, professional, and spotless finish." },
       { author: "Tom G.", location: "Old Windsor, Berkshire", text: "End of tenancy clearance in Old Windsor — property completely cleared and left spotless in under 3 hours. Saved our deposit and the price was very fair." },
@@ -253,8 +241,6 @@ const AREA_DATA = {
     heroImage: "/hero.jpg",
     nearbyAreas: ["Sunninghill", "Sunningdale", "North Ascot", "South Ascot", "Virginia Water", "Cheapside", "Winkfield Row"],
     landmarks: ["Ascot Racecourse", "Royal Ascot", "Ascot High Street", "Englemere Pond", "Swinley Forest"],
-    rating: "4.9",
-    reviewCount: "38",
     reviews: [
       { author: "Victoria L.", location: "Sunningdale, Berkshire", text: "Large estate clearance in Sunningdale — professional, discreet, and extremely thorough. Exactly the standard of service we needed. Highly recommend to anyone in the Ascot area." },
       { author: "Edward P.", location: "Ascot, Berkshire", text: "Regular garden waste collections for our Ascot property. Always reliable, efficient, and competitive pricing. The best garden waste service we have used." },
@@ -292,8 +278,6 @@ const AREA_DATA = {
     heroImage: "/hero.jpg",
     nearbyAreas: ["Englefield Green", "Virginia Water", "Thorpe", "Staines", "Hythe", "Pooley Green"],
     landmarks: ["Royal Holloway University", "Runnymede", "The Magna Carta Memorial", "Savill Garden", "Air Forces Memorial"],
-    rating: "4.9",
-    reviewCount: "42",
     reviews: [
       { author: "Sophie K.", location: "Englefield Green, Egham", text: "Student house clearance near Royal Holloway campus at end of term. Fast, affordable, and everything sorted quickly. Great service for students in the TW20 area." },
       { author: "Nathan F.", location: "Egham, Surrey", text: "Commercial clearance of our Egham office — evening service, no disruption to the business, and all waste transfer paperwork provided. Excellent." },
@@ -331,8 +315,6 @@ const AREA_DATA = {
     heroImage: "/hero.jpg",
     nearbyAreas: ["Cookham", "Marlow", "Taplow", "Bray", "Maidenhead Court", "Cox Green", "Furze Platt", "Pinkneys Green"],
     landmarks: ["Maidenhead Heritage Centre", "Boulters Lock", "Ray Mill Island", "Maidenhead Bridge", "Norden Farm Centre for the Arts"],
-    rating: "4.9",
-    reviewCount: "61",
     reviews: [
       { author: "Richard H.", location: "Bray, Berkshire", text: "Riverside property clearance in Bray — careful crew, excellent job, and no damage to the property. Exactly the professionalism you would expect for a high-value clearance." },
       { author: "Chloe M.", location: "Maidenhead, Berkshire", text: "End of tenancy clearance near Maidenhead station. Fast and professional — helped us get our full deposit back. Would definitely use again." },
@@ -370,8 +352,6 @@ const AREA_DATA = {
     heroImage: "/hero.jpg",
     nearbyAreas: ["Ashford", "Laleham", "Stanwell", "Shepperton", "Sunbury", "Feltham", "Bedfont"],
     landmarks: ["Two Rivers Shopping Centre", "Staines Bridge", "Lammas Recreation Ground", "Thorpe Park", "River Thames"],
-    rating: "4.9",
-    reviewCount: "73",
     reviews: [
       { author: "Frank D.", location: "Staines-upon-Thames", text: "Commercial clearance of our warehouse near Heathrow in Staines. Great job, all compliance documentation provided for our records. Very professional service." },
       { author: "Janet M.", location: "Laleham, Surrey", text: "House clearance in Laleham — whole property cleared efficiently and professionally in a single day. Competitive price and an excellent team." },
