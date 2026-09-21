@@ -169,21 +169,32 @@ const CommercialRipouts = () => {
               {[
                 { title: "Offices", items: ["Corporate offices", "Serviced offices", "Co-working spaces", "Office relocations"] },
                 { title: "Retail", items: ["High street shops", "Shopping centres", "Pop-up stores", "Warehouse clearances"] },
-                { title: "Hospitality", items: ["Restaurants", "Cafes & bars", "Hotels", "Event venues"] },
+                { title: "Hospitality", to: "/services/hospitality-waste/", items: ["Restaurants", "Cafes & bars", "Hotels", "Event venues"] },
                 { title: "Industrial", items: ["Warehouses", "Workshops", "Factories", "Distribution centres"] }
-              ].map((sector, idx) => (
-                <div key={idx} className="bg-[#4ade80]/10 border-4 border-slate-900 rounded-xl p-6">
-                  <h3 className="font-black text-xl uppercase text-[#16a34a] mb-4">{sector.title}</h3>
-                  <ul className="space-y-2">
-                    {sector.items.map((item, i) => (
-                      <li key={i} className="text-slate-700 text-sm flex gap-2 items-start">
-                        <span className="text-[#16a34a] font-black">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+              ].map((sector, idx) => {
+                const body = (
+                  <>
+                    <h3 className={`font-black text-xl uppercase text-[#16a34a] mb-4${sector.to ? ' group-hover:text-[#064e3b] underline decoration-[#16a34a]/30' : ''}`}>{sector.title}</h3>
+                    <ul className="space-y-2">
+                      {sector.items.map((item, i) => (
+                        <li key={i} className="text-slate-700 text-sm flex gap-2 items-start">
+                          <span className="text-[#16a34a] font-black">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                );
+                return sector.to ? (
+                  <Link key={idx} to={sector.to} className="bg-[#4ade80]/10 border-4 border-slate-900 rounded-xl p-6 block transition-colors group">
+                    {body}
+                  </Link>
+                ) : (
+                  <div key={idx} className="bg-[#4ade80]/10 border-4 border-slate-900 rounded-xl p-6">
+                    {body}
+                  </div>
+                );
+              })}
             </div>
           </section>
 

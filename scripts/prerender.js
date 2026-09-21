@@ -108,6 +108,22 @@ const pages = [
     keywords: 'commercial waste removal, commercial waste removal reading, commercial waste removal slough, office clearance reading, office clearance slough, office clearance guildford, office clearance berkshire, office strip out reading, retail clearance berkshire, restaurant clearance surrey, commercial rip out, office furniture removal reading, IT equipment disposal berkshire, WEEE disposal surrey, warehouse clearance reading, business waste removal, out of hours waste collection'
   },
   {
+    path: '/services/hospitality-waste',
+    title: 'Hospitality Waste Collection Berkshire | Hotels, Pubs & Restaurants',
+    description: 'Commercial waste collection for hotels, restaurants, pubs & cafés across Berkshire & Surrey. Scheduled or ad-hoc, out-of-hours, EA licensed. Call 07769 844298.',
+    keywords: 'hospitality waste collection, hospitality waste berkshire, hospitality waste surrey, restaurant waste collection reading, restaurant waste removal berkshire, pub waste collection berkshire, pub waste removal surrey, hotel waste collection berkshire, hotel waste removal windsor, cafe waste collection reading, bar waste clearance guildford, commercial waste collection hospitality, trade waste collection restaurants, restaurant clearance berkshire, pub clearance surrey, hotel furniture disposal berkshire, commercial kitchen equipment removal, restaurant strip out berkshire, pub refurbishment clearance, hotel refurbishment waste removal, bar fit out removal surrey, catering equipment disposal berkshire, out of hours waste collection hospitality, scheduled commercial waste collection berkshire, recurring waste collection surrey, licensed waste carrier hospitality, duty of care waste hospitality, event catering waste removal, venue waste clearance berkshire, hospitality waste windsor, hospitality waste ascot, hospitality waste reading, hospitality waste guildford, restaurant waste removal near me, pub waste collection near me',
+    // Mirrors the visible FAQ copy in src/pages/services/HospitalityWaste.jsx —
+    // keep the two in sync if either changes.
+    faqs: [
+      { q: 'Do you collect food waste from restaurants?', a: 'No. Separated food waste is classed as a Category 3 animal by-product and has to go to an ABP-approved processor on a dedicated round, which requires a separate registration. You\'ll need a specialist food waste contractor for that stream. We handle everything else — general waste, dry mixed recycling, glass, cardboard, bulky items and fit-out waste — with a waste transfer note every time.' },
+      { q: 'Can you collect before we open?', a: 'Yes. Early-morning, late-evening and closed-day collections are available so nothing happens in front of guests. Ask about slots from 06:00 when you book. Our standard hours are Monday to Friday 07:00–19:00 and Saturday 08:00–17:00, with out-of-hours arranged in advance.' },
+      { q: 'Do you offer scheduled contracts or is it one-off only?', a: 'Both. We run fixed-schedule collections — weekly, fortnightly or monthly — for hospitality venues that want a standing slot, and we take ad-hoc bookings for one-off clear-downs. Account customers get priority on same-day call-outs. Call 07769 844298 to arrange a free site audit.' },
+      { q: 'Are you licensed to take commercial waste from a pub or hotel?', a: 'Yes. Total Waste Clearout Ltd is registered with the Environment Agency as an upper-tier waste carrier under licence number CBDU630127, which you can verify on the public register. We carry £5 million public liability insurance and issue a legal waste transfer note for every collection, as required under the Environmental Protection Act 1990.' },
+      { q: 'Can you clear a restaurant or pub for a refurbishment?', a: 'Yes. We handle full venue strip-outs and partial refits — furniture, commercial kitchen equipment, bar fit-out, refrigeration, flooring, ceilings and signage. Commercial electricals are disposed of under WEEE regulations and refrigerant gas is handled by certified engineers. Work can be scheduled around a closure period or a landlord\'s dilapidations deadline.' },
+      { q: 'How much does hospitality waste collection cost?', a: 'Ad-hoc collections start from £120 for a partial van load and £280 for a full load, with all labour, loading, transport, licensed disposal and documentation included. Scheduled contracts are priced on volume, frequency and number of sites — book a free site audit on 07769 844298 for a fixed monthly figure.' }
+    ]
+  },
+  {
     path: '/services/construction-waste',
     title: 'Construction Waste Removal Reading Slough | Trade Waste Collection Berkshire',
     description: 'Fast construction & trade waste removal for builders in Reading, Slough, Guildford. No skip permits needed. Same-day service, licensed carrier from £120.',
@@ -372,9 +388,14 @@ for (const page of pages) {
   // so Google sees it before JavaScript executes.
   const pageSlug = page.path.replace(/^\//, '');
 
-  // Service+area combination page  (e.g. construction-waste-removal-egham)
+  // Page with a hand-authored FAQ list (e.g. a service hub page) — inject it
+  // so crawlers see the FAQ schema in the raw HTML, not only after hydration.
   const serviceArea = getServiceAreaFromSlug(pageSlug);
-  if (serviceArea) {
+  if (page.faqs) {
+    html = replacePageSchemas(html, buildFaqSchema(page.faqs));
+  }
+  // Service+area combination page  (e.g. construction-waste-removal-egham)
+  else if (serviceArea) {
     const faqs = serviceArea.service.getFaqs(serviceArea.area);
     html = replacePageSchemas(html, buildFaqSchema(faqs));
   }

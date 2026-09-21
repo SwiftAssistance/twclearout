@@ -16,7 +16,8 @@ import {
   Hammer,
   Zap,
   Award,
-  Users
+  Users,
+  UtensilsCrossed
 } from 'lucide-react';
 
 // Helper Components
@@ -237,6 +238,17 @@ const Services = () => {
                   accentColor="bg-[#ecf3ef]"
                   borderColor="border-[#16a34a]"
                   to="/services/commercial-ripouts/"
+                />
+                <ModernServiceCard
+                  icon={<UtensilsCrossed size={40} className="text-[#16a34a]" />}
+                  emoji="🍽️"
+                  title="Hospitality"
+                  description="Waste collection and clearance for hotels, restaurants, pubs, bars and cafés. Scheduled or ad-hoc, worked around service times."
+                  features={['Pre-service & out-of-hours slots', 'Bulky furniture & fit-out waste', 'Scheduled recurring collections', 'Duty of care paperwork every visit']}
+                  price="From £120"
+                  accentColor="bg-[#dcfce7]"
+                  borderColor="border-[#16a34a]"
+                  to="/services/hospitality-waste/"
                 />
               </div>
             </div>
