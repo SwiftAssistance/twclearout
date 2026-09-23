@@ -5,6 +5,7 @@ const JOB_TYPES = [
   'Home Clearance',
   'Garden Clear-out',
   'Office / Commercial',
+  'Hospitality / Restaurant',
   'Construction / Trade Waste',
   'Garage / Shed Clearance',
   'End of Tenancy',

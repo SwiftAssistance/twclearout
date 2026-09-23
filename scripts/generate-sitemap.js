@@ -57,6 +57,7 @@ const servicePages = [
   '/services/end-of-tenancy/',
   '/services/garden-waste/',
   '/services/commercial-ripouts/',
+  '/services/hospitality-waste/',
   '/services/construction-waste/',
   '/services/garage-shed/',
 ];

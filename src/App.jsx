@@ -28,7 +28,8 @@ import {
   Linkedin,
   Quote,
   ExternalLink,
-  ChevronDown
+  ChevronDown,
+  UtensilsCrossed
 } from 'lucide-react';
 
 // Eagerly loaded (used on every page)
@@ -47,6 +48,7 @@ const EndOfTenancy = lazy(() => import('./pages/services/EndOfTenancy'));
 const HardHatWasteHub = lazy(() => import('./pages/services/HardHatWasteHub'));
 const GardenWaste = lazy(() => import('./pages/services/GardenWaste'));
 const CommercialRipouts = lazy(() => import('./pages/services/CommercialRipouts'));
+const HospitalityWaste = lazy(() => import('./pages/services/HospitalityWaste'));
 const HomeAndProbate = lazy(() => import('./pages/services/HomeAndProbate'));
 const GarageShed = lazy(() => import('./pages/services/GarageShed'));
 const Services = lazy(() => import('./pages/Services'));
@@ -1210,6 +1212,7 @@ const App = () => {
           <Route path="/services/construction-waste/" element={<HardHatWasteHub />} />
           <Route path="/services/garden-waste/" element={<GardenWaste />} />
           <Route path="/services/commercial-ripouts/" element={<CommercialRipouts />} />
+          <Route path="/services/hospitality-waste/" element={<HospitalityWaste />} />
           <Route path="/services/home-probate-clearance/" element={<HomeAndProbate />} />
           <Route path="/services/garage-shed/" element={<GarageShed />} />
           <Route path="/areas/" element={<Areas />} />
@@ -1329,6 +1332,7 @@ const App = () => {
                 <li><Link to="/services/end-of-tenancy/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><Home size={14} className="text-[#4ade80]/60 shrink-0" /> End of Tenancy Clearance</Link></li>
                 <li><Link to="/services/garden-waste/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><TreePine size={14} className="text-[#4ade80]/60 shrink-0" /> Garden Waste Removal</Link></li>
                 <li><Link to="/services/commercial-ripouts/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><Briefcase size={14} className="text-[#4ade80]/60 shrink-0" /> Commercial Waste Removal</Link></li>
+                <li><Link to="/services/hospitality-waste/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><UtensilsCrossed size={14} className="text-[#4ade80]/60 shrink-0" /> Hospitality Waste</Link></li>
                 <li><Link to="/services/construction-waste/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><HardHat size={14} className="text-[#4ade80]/60 shrink-0" /> Construction Waste Removal</Link></li>
                 <li><Link to="/services/garage-shed/" className="text-white/70 hover:text-[#4ade80] transition-all flex items-center gap-2 text-sm font-bold"><Hammer size={14} className="text-[#4ade80]/60 shrink-0" /> Garage & Shed Clearance</Link></li>
               </ul>

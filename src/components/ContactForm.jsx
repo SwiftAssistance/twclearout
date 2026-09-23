@@ -7,6 +7,7 @@ const JOB_TYPES = [
   'Home Clearance',
   'Garden Clear-out',
   'Office / Commercial',
+  'Hospitality / Restaurant',
   'Construction / Trade Waste',
   'Garage / Shed Clearance',
   'End of Tenancy',
@@ -25,8 +26,8 @@ function Notification({ type, message, onClose }) {
   );
 }
 
-export default function ContactForm({ subject = 'New Quote Request', compact = false }) {
-  const [form, setForm] = useState({ name: '', phone: '', postcode: '', jobType: JOB_TYPES[0] });
+export default function ContactForm({ subject = 'New Quote Request', compact = false, defaultJobType = JOB_TYPES[0] }) {
+  const [form, setForm] = useState({ name: '', phone: '', postcode: '', jobType: defaultJobType });
   const [status, setStatus] = useState(null); // 'success' | 'error' | null
   const [sending, setSending] = useState(false);
 
@@ -51,7 +52,7 @@ export default function ContactForm({ subject = 'New Quote Request', compact = f
       });
       if (!res.ok) throw new Error();
       setStatus('success');
-      setForm({ name: '', phone: '', postcode: '', jobType: JOB_TYPES[0] });
+      setForm({ name: '', phone: '', postcode: '', jobType: defaultJobType });
     } catch {
       setStatus('error');
     } finally {

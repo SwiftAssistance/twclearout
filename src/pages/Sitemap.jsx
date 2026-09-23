@@ -21,6 +21,7 @@ const Sitemap = () => {
     { name: 'Construction & Trade Waste', path: '/services/construction-waste' },
     { name: 'Garden Waste Removal', path: '/services/garden-waste' },
     { name: 'Commercial Rip-Outs', path: '/services/commercial-ripouts' },
+    { name: 'Hospitality Waste Collection', path: '/services/hospitality-waste' },
     { name: 'Home & Probate Clearance', path: '/services/home-probate-clearance' },
     { name: 'Garage & Shed Demolition', path: '/services/garage-shed' },
   ];
