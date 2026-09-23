@@ -245,7 +245,7 @@ const Services = () => {
                   title="Hospitality"
                   description="Waste collection and clearance for hotels, restaurants, pubs, bars and cafés. Scheduled or ad-hoc, worked around service times."
                   features={['Pre-service & out-of-hours slots', 'Bulky furniture & fit-out waste', 'Scheduled recurring collections', 'Duty of care paperwork every visit']}
-                  price="From £120"
+                  price="POA"
                   accentColor="bg-[#dcfce7]"
                   borderColor="border-[#16a34a]"
                   to="/services/hospitality-waste/"

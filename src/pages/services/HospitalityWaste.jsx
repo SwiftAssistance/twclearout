@@ -86,7 +86,7 @@ const HospitalityWaste = () => {
     },
     {
       title: "Clinical and hazardous waste",
-      desc: "Sharps, chemicals and clinical waste sit outside our licence. See our terms for the full list."
+      desc: <>Sharps, chemicals and clinical waste sit outside our licence. See <Link to="/legal/" className="font-bold text-[#16a34a] underline decoration-[#16a34a]/30 hover:text-[#064e3b] transition-colors">our terms</Link> for the full list.</>
     }
   ];
 
@@ -160,7 +160,7 @@ const HospitalityWaste = () => {
     },
     {
       q: "How much does hospitality waste collection cost?",
-      a: "Ad-hoc collections start from £120 for a partial van load and £280 for a full load, with all labour, loading, transport, licensed disposal and documentation included. Scheduled contracts are priced on volume, frequency and number of sites — book a free site audit on 07769 844298 for a fixed monthly figure."
+      a: "Every job is quoted as a fixed price before we arrive. Ad-hoc collections are priced on what needs clearing and where, and scheduled contracts are priced on volume, frequency and number of sites. Labour, loading, transport, licensed disposal and documentation are included in the quote. Book a free site audit on 07769 844298 for a fixed monthly figure."
     }
   ];
 
@@ -315,13 +315,9 @@ const HospitalityWaste = () => {
                   <p className="text-white/80">Account customers get priority on same-day call-outs for an unexpected delivery backlog, a post-event clear-down or a broken-down unit.</p>
                 </div>
               </div>
-              {/* TODO(kurt): confirm invoice terms (30-day? monthly billing?) before this goes
-                  live — the construction page already advertises "Trade Accounts Available -
-                  Volume Discounts - Invoice Terms", so keep this consistent with whatever
-                  that actually means in practice. */}
               <div className="mt-8 bg-[#4ade80]/20 border-2 border-[#4ade80] rounded-lg p-4 text-center">
                 <p className="text-white font-black text-lg">
-                  Account Terms Available — Multi-Site Coverage — One Consolidated Monthly Invoice
+                  Account Terms Available — Multi-Site Coverage
                 </p>
               </div>
             </div>
@@ -383,20 +379,17 @@ const HospitalityWaste = () => {
           {/* Pricing */}
           <section className="mb-16">
             <h2 className="text-3xl md:text-4xl font-black uppercase text-slate-900 mb-8">Hospitality Waste Pricing</h2>
-            {/* TODO(kurt): these are the site's existing generic van-load prices. If hospitality
-                contracts have their own rate card (per-collection or monthly), replace these
-                three tiers before launch. Don't publish a number you can't honour. */}
             <div className="bg-gradient-to-r from-[#064e3b] to-[#065f46] border-4 border-slate-900 rounded-xl p-8 md:p-12 text-white">
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-white/20">
-                  <div className="text-[#4ade80] font-black text-4xl mb-2">£120+</div>
+                  <div className="text-[#4ade80] font-black text-4xl mb-2">POA</div>
                   <h3 className="font-black text-xl uppercase mb-3">Ad-Hoc Collection</h3>
-                  <p className="text-white/80">Partial van load. Bulky items, an overflow clear-down, a bin store tidy. Fixed price, quoted before we arrive.</p>
+                  <p className="text-white/80">Partial van load. Bulky items, an overflow clear-down, a bin store tidy. Quoted on what needs clearing and where, fixed before we arrive.</p>
                 </div>
                 <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-white/20">
-                  <div className="text-[#4ade80] font-black text-4xl mb-2">£280+</div>
+                  <div className="text-[#4ade80] font-black text-4xl mb-2">POA</div>
                   <h3 className="font-black text-xl uppercase mb-3">Full Van Load</h3>
-                  <p className="text-white/80">A full clear-down — post-event waste, a cellar or dry-store clearance, a big delivery backlog.</p>
+                  <p className="text-white/80">A full clear-down — post-event waste, a cellar or dry-store clearance, a big delivery backlog. Quoted per load.</p>
                 </div>
                 <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-white/20">
                   <div className="text-[#4ade80] font-black text-4xl mb-2">POA</div>
@@ -406,7 +399,7 @@ const HospitalityWaste = () => {
               </div>
               <div className="mt-8 pt-8 border-t border-white/20">
                 <p className="text-white/90 font-bold text-center">
-                  All prices include labour, loading, transport, licensed disposal and a waste transfer note. No permit costs, no weight surcharges, no hidden disposal fees.
+                  Every job is quoted as a fixed price before we arrive, and the price includes labour, loading, transport, licensed disposal and a waste transfer note. No permit costs, no weight surcharges, no hidden disposal fees.
                 </p>
               </div>
             </div>
@@ -496,7 +489,7 @@ const HospitalityWaste = () => {
                 We'll visit your venue, look at your current arrangement and volumes, and come back with a fixed contract price. No obligation, no sales visit dressed up as a survey.
               </p>
               <div className="bg-white border-4 border-slate-900 rounded-xl p-6 md:p-8 text-slate-900 max-w-xl mx-auto text-left">
-                <ContactForm subject="Hospitality Site Audit Request" compact />
+                <ContactForm subject="Hospitality Site Audit Request" compact defaultJobType="Hospitality / Restaurant" />
               </div>
               <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a
