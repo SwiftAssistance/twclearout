@@ -26,7 +26,7 @@ This document outlines the comprehensive SEO implementation for Total Waste Clea
 - ✅ **Geographic targeting** - All 8 service areas specified
 - ✅ **Business hours** - Monday-Saturday hours included
 - ✅ **Contact information** - Phone and email placeholders
-- ✅ **Aggregate ratings** - 5.0 rating from 33 real Google reviews
+- ✅ **Aggregate ratings** - 5.0 rating from 45 real Google reviews
 
 ### 4. **Enhanced Meta Tags**
 - ✅ **Primary keywords**: waste removal berkshire, rubbish clearance reading, commercial waste removal surrey, etc.
@@ -149,7 +149,7 @@ Update these placeholders in `index.html` (line 57-58):
 ```
 
 ### 3. Collect Real Reviews
-- The schema shows the real platform totals: 33 Google reviews at 5.0
+- The schema shows the real platform totals: 45 Google reviews at 5.0
 - **Action**: Update `src/data/reviewStats.js` (plus `index.html` and `public/llms*.txt`) whenever the live counts change
 - Ask satisfied customers to leave Google reviews
 - Display reviews prominently on your site
@@ -398,7 +398,7 @@ With consistent effort on content, reviews, and backlinks, you should see top-3 
 The site previously advertised inflated review numbers (156 aggregate in the homepage
 schema, plus per-town counts of 38–143 in `src/data/areaData.js`). Those have been replaced with the actual live totals:
 
-- **Google Business Profile: 33 reviews, 5.0**
+- **Google Business Profile: 45 reviews, 5.0**
 
 Where the numbers now live:
 

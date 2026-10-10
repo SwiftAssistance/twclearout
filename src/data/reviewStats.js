@@ -6,9 +6,9 @@
  * the platform totals change.
  */
 
-export const GOOGLE_REVIEWS = 33;
+export const GOOGLE_REVIEWS = 45;
 export const GOOGLE_RATING = "5.0";
 
-export const TOTAL_REVIEWS = GOOGLE_REVIEWS; // 33
+export const TOTAL_REVIEWS = GOOGLE_REVIEWS; // 45
 
 export const AVERAGE_RATING = GOOGLE_RATING; // "5.0"
