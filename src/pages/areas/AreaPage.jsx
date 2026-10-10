@@ -98,7 +98,6 @@ const AreaPage = () => {
     "priceRange": "££",
     "sameAs": [
       "https://share.google/G1JjlRGEG7yKmVMLi",
-      "https://uk.trustpilot.com/review/totalwasteclearout.co.uk",
       "https://m.facebook.com/totalwasteclearoutt/",
       "https://www.instagram.com/totalwasteclearout"
     ],
@@ -499,7 +498,7 @@ const AreaPage = () => {
                 ))}
               </div>
               <span className="font-black text-2xl text-slate-900">{AVERAGE_RATING} / 5</span>
-              <span className="text-slate-500 font-bold">({TOTAL_REVIEWS} verified reviews on Google &amp; Trustpilot)</span>
+              <span className="text-slate-500 font-bold">({TOTAL_REVIEWS} verified reviews on Google)</span>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               {area.reviews.map((review, idx) => (

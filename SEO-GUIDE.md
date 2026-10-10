@@ -26,7 +26,7 @@ This document outlines the comprehensive SEO implementation for Total Waste Clea
 - ✅ **Geographic targeting** - All 8 service areas specified
 - ✅ **Business hours** - Monday-Saturday hours included
 - ✅ **Contact information** - Phone and email placeholders
-- ✅ **Aggregate ratings** - 4.8 rating from 45 real reviews (33 Google + 12 Trustpilot)
+- ✅ **Aggregate ratings** - 5.0 rating from 33 real Google reviews
 
 ### 4. **Enhanced Meta Tags**
 - ✅ **Primary keywords**: waste removal berkshire, rubbish clearance reading, commercial waste removal surrey, etc.
@@ -149,7 +149,7 @@ Update these placeholders in `index.html` (line 57-58):
 ```
 
 ### 3. Collect Real Reviews
-- The schema shows the real platform totals: 45 reviews at 4.8 (33 on Google, 12 on Trustpilot)
+- The schema shows the real platform totals: 33 Google reviews at 5.0
 - **Action**: Update `src/data/reviewStats.js` (plus `index.html` and `public/llms*.txt`) whenever the live counts change
 - Ask satisfied customers to leave Google reviews
 - Display reviews prominently on your site
@@ -335,7 +335,7 @@ With consistent effort on content, reviews, and backlinks, you should see top-3 
 - Added `<image:image>` entries on the homepage for `hero.webp` and `logo-512.png` so image search has crawlable titles and captions.
 
 **Robots.txt (`public/robots.txt`)**
-- Added 2026-generation AI/LLM crawlers: `OAI-SearchBot`, `Perplexity-User`, `Meta-ExternalAgent`, `Meta-ExternalFetcher`, `MistralAI-User`, `YouBot`, `DuckAssistBot`, `Claude-Web`, `anthropic-ai`, `Bytespider`, `GoogleOther`, `AdsBot-Google`, `Googlebot-News`, `DuckDuckBot`, `YandexBot`, `Applebot`, `TrustpilotBot`.
+- Added 2026-generation AI/LLM crawlers: `OAI-SearchBot`, `Perplexity-User`, `Meta-ExternalAgent`, `Meta-ExternalFetcher`, `MistralAI-User`, `YouBot`, `DuckAssistBot`, `Claude-Web`, `anthropic-ai`, `Bytespider`, `GoogleOther`, `AdsBot-Google`, `Googlebot-News`, `DuckDuckBot`, `YandexBot`, `Applebot`.
 - Documented the `/get-quote` exception (noindex landing page must remain crawlable so search engines can read the noindex directive).
 
 **LLMs.txt (`public/llms.txt`) — NEW**
@@ -375,7 +375,7 @@ With consistent effort on content, reviews, and backlinks, you should see top-3 
 5. **First-party content cluster around probate & end-of-tenancy.** Write 6 pillar articles (800–1200 words each): *"Probate clearance checklist (Berkshire solicitors)"*, *"Deposit-saving end-of-tenancy clean-out"*, *"Skip vs clearance cost comparison 2026"*, *"What you can't put in a skip in Reading"*, *"How to get rid of a mattress legally in Berkshire"*, *"Commercial strip-out: what to expect"*. Internal-link each to the relevant service page.
 6. **Case-study pages with real photos and structured data.** Each case study = one `Article` + one `Place` + one `Review`. These rank for long-tail queries AND feed AI assistants with concrete examples to quote.
 7. **Backlink acquisition from Berkshire/Surrey local press.** Pitch *Reading Chronicle*, *Get Reading*, *Berkshire Live*, *Surrey Live*, *Woking News & Mail* — angles that work: a 94% recycling rate story, local environmental initiatives, sponsorship of a community clean-up.
-8. **Trustpilot + Checkatrade + Which? Trusted Trader.** Three more high-authority `sameAs` entries for the schema and real consumer-trust backlinks. Currently missing.
+8. **Checkatrade + Which? Trusted Trader.** Two more high-authority `sameAs` entries for the schema and real consumer-trust backlinks. Currently missing.
 
 ### Tier 3 — strategic (next 3–6 months)
 9. **Launch a YouTube channel** with before/after walkthroughs. Embed the videos on the service pages with `VideoObject` schema — YouTube is the #2 search engine and video results are increasingly syndicated into Google SERPs above organic.
@@ -396,12 +396,9 @@ With consistent effort on content, reviews, and backlinks, you should see top-3 
 ## 🔄 July 2026 — review counts corrected to real platform totals
 
 The site previously advertised inflated review numbers (156 aggregate in the homepage
-schema, plus per-town counts of 38–143 in `src/data/areaData.js`, and "10 Reviews" on the
-Trustpilot badge). Those have been replaced with the actual live totals:
+schema, plus per-town counts of 38–143 in `src/data/areaData.js`). Those have been replaced with the actual live totals:
 
 - **Google Business Profile: 33 reviews, 5.0**
-- **Trustpilot: 12 reviews, 4.4**
-- **Combined: 45 reviews, 4.8** (volume-weighted average)
 
 Where the numbers now live:
 
@@ -411,7 +408,6 @@ Where the numbers now live:
   `reviewCount` fields have been removed from `areaData.js`.
 - `index.html` — homepage `LocalBusiness` `aggregateRating` and the noscript credentials list.
 - `public/llms.txt` and `public/llms-full.txt` — the AI-assistant fact blocks.
-- `src/components/landing/LandingQuoteForm.jsx` — Trustpilot badge count.
 - `src/pages/About.jsx` — the "average rating" sentence.
 
 **Why this matters:** `aggregateRating` that can't be corroborated against the linked review

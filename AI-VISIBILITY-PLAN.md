@@ -57,7 +57,6 @@ literal to-do list — get listed / mentioned on each one. Repeat the same in
 
 ### 3. Get into the directories ChatGPT/Perplexity cite for UK trades
 Create complete, consistent listings on each (free tiers are fine to start):
-- [ ] **Trustpilot** (we already link to it — make sure reviews keep coming)
 - [ ] **Checkatrade** (very high trust for UK clearance/trade)
 - [ ] **Yell.com**
 - [ ] **Bark.com**
@@ -72,7 +71,7 @@ Create complete, consistent listings on each (free tiers are fine to start):
 > Mon–Fri 07:00–19:00, Sat 08:00–17:00.
 
 ### 4. Reviews — volume + recency
-- [ ] Ask every happy customer for a **Google** review (and Trustpilot).
+- [ ] Ask every happy customer for a **Google** review.
 - [ ] Recency matters: a steady trickle beats a big batch then silence.
 - [ ] Reply to reviews — it signals an active, real business.
 
