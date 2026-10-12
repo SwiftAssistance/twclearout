@@ -133,5 +133,3 @@ Allow: /
 User-agent: Slurp
 Allow: /
 
-User-agent: TrustpilotBot
-Allow: /

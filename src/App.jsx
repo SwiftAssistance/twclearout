@@ -220,9 +220,6 @@ const ReviewsSection = ({ title = "CLIENTS TALK." }) => {
               <a href="https://share.google/G1JjlRGEG7yKmVMLi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-slate-900 font-black uppercase italic tracking-wider text-[11px] hover:text-[#16a34a] transition-colors">
                 <PlatformLogo platform="google" size={16} /> Read Our Google Reviews
               </a>
-              <a href="https://uk.trustpilot.com/review/totalwasteclearout.co.uk" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-slate-900 font-black uppercase italic tracking-wider text-[11px] hover:text-[#00b67a] transition-colors">
-                <PlatformLogo platform="trustpilot" size={16} /> Read Our Trustpilot Reviews
-              </a>
             </div>
           </div>
 
@@ -1410,9 +1407,6 @@ const App = () => {
                     <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/>
                     <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
                   </svg>
-                </a>
-                <a href="https://uk.trustpilot.com/review/totalwasteclearout.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Read our reviews on Trustpilot" className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-[#00b67a] transition-colors group">
-                  <svg viewBox="0 0 127.3 119.7" width="18" height="18" xmlns="http://www.w3.org/2000/svg" className="group-hover:scale-110 transition-transform"><polygon fill="#00b67a" className="group-hover:fill-white" points="63.65,0 83.12,38.49 127.3,44.96 95.47,75.97 103.28,119.7 63.65,99.37 24.02,119.7 31.83,75.97 0,44.96 44.18,38.49"/></svg>
                 </a>
               </div>
             </div>
